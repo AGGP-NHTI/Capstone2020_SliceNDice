@@ -27,10 +27,10 @@ public class Movement : MonoBehaviour
     }
     private void Update()
     {
-        Move();
+        
     }
 
-    public void Move()
+    public void OnMovement()
     {
         Vector3 movementInput = controls.Player.Movement.ReadValue<Vector2>();
         Vector3 movement = new Vector3
@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
 
     }
 
-    public void Jump()
+    public void OnJump()
     {
         transform.position = new Vector3(transform.position.x,
             transform.position.y + JumpHeight, transform.position.z);

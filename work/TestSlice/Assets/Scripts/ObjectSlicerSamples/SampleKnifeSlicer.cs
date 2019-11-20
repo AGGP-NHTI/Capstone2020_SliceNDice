@@ -18,26 +18,46 @@ namespace BzKovSoft.ObjectSlicerSamples
 
         bool attack = false;
         GameObject knife_object;
-
+        public bool isPlayer1;
         void Update()
 		{
             var knife = _blade.GetComponentInChildren<BzKnife>();
             knife_object = knife.gameObject;
+            if (isPlayer1)
+            {
+                if (Input.GetKey(KeyCode.Alpha1))
+                {
+                    knife.BeginNewSlice();
+                    attack = true;
+                    knife_object.GetComponent<MeshRenderer>().enabled = true;
 
-            if (Input.GetMouseButtonDown(0))
-			{
-				knife.BeginNewSlice();
-                attack = true;
-                knife_object.GetComponent<MeshRenderer>().enabled = true;
-
-                UnityEngine.Debug.Log(knife.gameObject);
-				StartCoroutine(SwingSword());
-			}
+                    UnityEngine.Debug.Log(knife.gameObject);
+                    StartCoroutine(SwingSword());
+                }
+                else
+                {
+                    attack = false;
+                    knife_object.GetComponent<MeshRenderer>().enabled = false;
+                }
+            }
             else
             {
-                attack = false;
-                knife_object.GetComponent<MeshRenderer>().enabled = false;
+                if (Input.GetKey(KeyCode.Alpha7))
+                {
+                    knife.BeginNewSlice();
+                    attack = true;
+                    knife_object.GetComponent<MeshRenderer>().enabled = true;
+
+                    UnityEngine.Debug.Log(knife.gameObject);
+                    StartCoroutine(SwingSword());
+                }
+                else
+                {
+                    attack = false;
+                    knife_object.GetComponent<MeshRenderer>().enabled = false;
+                }
             }
+            
         }
 
 		IEnumerator SwingSword()

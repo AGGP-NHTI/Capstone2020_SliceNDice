@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 485954483334088772}
   - component: {fileID: 485954483334088779}
   - component: {fileID: 485954483334088778}
-  - component: {fileID: 8518134000918484842}
+  - component: {fileID: 1547985987184129227}
   m_Layer: 0
   m_Name: PlayerTester
   m_TagString: Untagged
@@ -198,9 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 04a60c794c545724f9cde6782ea49882,
+  m_Actions: {fileID: -944628639613478452, guid: 905fea082052ce849bb7cfaaa52535d7,
     type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -212,13 +212,42 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceRegainedEvent, Unity.InputSystem,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 39998b917fc4d3940b44419c6eba61c9, type: 3}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 40fb29a0-b2c6-452e-b9be-7e4cc66ef27f
+    m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 8ceb0130-7eaf-4b92-a052-e173914b2de5
+    m_ActionName: Player/Fire1[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 9bdce154-7b89-4195-bd9a-692e15c7a1f1
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8518134000918484842
+--- !u!114 &1547985987184129227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,6 +256,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 485954483334088777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe9745faeef6c89498d065632a04566f, type: 3}
+  m_Script: {fileID: 11500000, guid: 39998b917fc4d3940b44419c6eba61c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 5
+  JumpHeight: 3

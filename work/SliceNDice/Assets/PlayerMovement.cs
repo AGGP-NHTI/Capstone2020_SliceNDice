@@ -1,43 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    private Rigidbody playerBody;
-    public float walkspeed = 3f;
-    public float zSpeed = 1.5f;
-
-    public float rotationspeed;
-    public float rotatey;
-
-
     private void Awake()
     {
-        playerBody = GetComponent<Rigidbody>();
+
 
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
+    [SerializeField] private float movementSpeed = 5f;
     void Update()
     {
-        
+        Move();
     }
 
-    private void FixedUpdate()
+    private void Move()
     {
-        DetectMovement();
+        Vector3 movement = new Vector3();
+        if(Keyboard.current.wKey.isPressed)
+        {
+            movement.z += 1;
+        }
+        if (Keyboard.current.sKey.isPressed)
+        {
+            movement.z -= 1;
+        }
+        if (Keyboard.current.aKey.isPressed)
+        {
+            movement.x -= 1;
+        }
+        if (Keyboard.current.dKey.isPressed)
+        {
+            movement.x += 1;
+        }
+        movement.Normalize();
+
+        transform.Translate(movement * movementSpeed * Time.deltaTime);
+
+
     }
 
-    void DetectMovement()
-    {
-        playerBody.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * (walkspeed),
-            playerBody.velocity.y, Input.GetAxisRaw("Vertical") * (zSpeed));
-    }
+
 }

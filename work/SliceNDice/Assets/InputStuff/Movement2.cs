@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement2 : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] private float movementSpeed = 5f;
 
-    
 
-    private PlayerControls controls = null;
+
+    private PlayerControls controls2 = null;
 
 
     private void Awake()
     {
-        controls = new PlayerControls();
+        controls2 = new PlayerControls();
     }
 
     private void Start()
@@ -24,21 +24,21 @@ public class Movement : MonoBehaviour
     }
     private void OnEnable()
     {
-        controls.Player1.Enable();
+        controls2.player2.Enable();
     }
 
     private void OnDisable()
     {
-        controls.Player1.Disable();
+        controls2.player2.Disable();
     }
     private void Update()
     {
-        
+
     }
 
     public void OnMovement()
     {
-        Vector3 movementInput = controls.Player1.Movement.ReadValue<Vector2>();
+        Vector3 movementInput = controls2.player2.Movement.ReadValue<Vector2>();
         Vector3 movement = new Vector3
         {
             x = movementInput.x,
@@ -46,8 +46,8 @@ public class Movement : MonoBehaviour
         }.normalized;
 
         transform.Translate(movement * movementSpeed * Time.deltaTime);
-       
+
     }
 
-   
+
 }

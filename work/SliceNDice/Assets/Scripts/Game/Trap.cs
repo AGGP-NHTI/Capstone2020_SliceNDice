@@ -7,11 +7,11 @@ public class Trap : MonoBehaviour
 {
     public float trapDamage;
 
-    CharacterControls c;
+    Character c;
 
     public void Update()
     {
-        c = GameObject.Find("Player").GetComponent<CharacterControls>();
+        c = GameObject.Find("Player").GetComponent<Character>();
     }
 
     public void OnTriggerStay(Collider other)

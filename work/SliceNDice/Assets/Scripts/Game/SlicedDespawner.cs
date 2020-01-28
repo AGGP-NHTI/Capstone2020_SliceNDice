@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class SlicedDespawner : MonoBehaviour
 {
-    public float lifetime = 0;
-
-    private void Awake()
-    {
-        lifetime = gameObject.GetComponent<Rigidbody>().mass * 50f;
-    }
-
-    private void Start()
-    {
-
-    }
+    public float lifetime = 5;
 
     public void Update()
     {

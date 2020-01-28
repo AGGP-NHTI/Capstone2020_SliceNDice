@@ -14,16 +14,30 @@ namespace BzKovSoft.ObjectSlicerSamples
 		Vector3 _prevPos;
 		Vector3 _pos;
 
+		[Header("Slicing Controls")]
 		[SerializeField]
 		private Vector3 _origin = Vector3.down;
 
 		[SerializeField]
 		private Vector3 _direction = Vector3.up;
 
+		public enum WeaponType		// Determines if weapon can dismember.
+		{
+			Slash,		// Can dismember. Balanced damage versus player and guard.
+			Pierce,		// Cannot dismember. Deals lots of damage to player, but not much to guard.
+			Bludgeon	// Cannot dismember. Deals lots of damage to guard, but not much to player. Pushes player back on hit.
+		}
+
+		[Header("Weapon Type")]
+		public WeaponType weaponType;
+
 		private void Update()
 		{
-			_prevPos = _pos;
-			_pos = transform.position;
+			if (weaponType == WeaponType.Slash)
+			{
+				_prevPos = _pos;
+				_pos = transform.position;
+			}
 		}
 
 		public Vector3 Origin
@@ -40,7 +54,10 @@ namespace BzKovSoft.ObjectSlicerSamples
 
 		public void BeginNewSlice()
 		{
-			SliceID = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
+			if (weaponType == WeaponType.Slash)
+			{
+				SliceID = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
+			}
 		}
 	}
 }

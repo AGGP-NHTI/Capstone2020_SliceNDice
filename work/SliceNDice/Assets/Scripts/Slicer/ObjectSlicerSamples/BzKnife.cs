@@ -24,8 +24,8 @@ namespace BzKovSoft.ObjectSlicerSamples
 		public enum WeaponType		// Determines if weapon can dismember.
 		{
 			Slash,		// Can dismember. Balanced damage versus player and guard.
-			Pierce,		// Cannot dismember. Deals lots of damage to player, but not much to guard.
-			Bludgeon	// Cannot dismember. Deals lots of damage to guard, but not much to player. Pushes player back on hit.
+			Pierce,     // Can poke holes. Deals lots of damage to player, but not much to guard. Pushes player back a bit on hit.
+			Bludgeon    // Can smash. Deals lots of damage to guard, but not much to player. Pushes player back on hit.
 		}
 
 		[Header("Weapon Type")]

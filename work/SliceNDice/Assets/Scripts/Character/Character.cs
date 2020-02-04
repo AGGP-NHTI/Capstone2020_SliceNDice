@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using BzKovSoft.ObjectSlicerSamples;
+using DestroyIt;
 
 public class Character : MonoBehaviour
 {
@@ -55,6 +56,8 @@ public class Character : MonoBehaviour
 
     void Update()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+
         MovementControls();
 
         if (Input.GetMouseButtonDown(0))
@@ -199,16 +202,48 @@ public class Character : MonoBehaviour
 
         playerGuard -= 25;
 
-        for (float f = 0f; f < seconds; f += Time.deltaTime)
+        if (_blade.GetComponentInChildren<Weapon>().weaponType == BzKnife.WeaponType.Slash)
         {
-            float aY = (f / seconds) * 180 - 90;
-            float aX = (f / seconds) * 60 - 30;
-            //float aX = 0;
+            for (float f = 0f; f < seconds; f += Time.deltaTime)
+            {
+                float aY = (f / seconds) * 180 - 90;
+                float aX = (f / seconds) * 60 - 30;
 
-            var r = Quaternion.Euler(aX, -aY, 0);
+                var r = Quaternion.Euler(aX, -aY, 0);
 
-            transformB.rotation = gameObject.transform.rotation * r;
-            yield return null;
+                transformB.rotation = gameObject.transform.rotation * r;
+                yield return null;
+            }
+        }
+
+        if (_blade.GetComponentInChildren<Weapon>().weaponType == BzKnife.WeaponType.Bludgeon)
+        {
+            for (float f = 0f; f < seconds; f += Time.deltaTime)
+            {
+                float aX = (f / seconds) * 60 - 55;
+
+                var r = Quaternion.Euler(aX + 1f, 0, 0);
+
+                transformB.rotation = gameObject.transform.rotation * r;
+                yield return null;
+            }
+        }
+
+        if (_blade.GetComponentInChildren<Weapon>().weaponType == BzKnife.WeaponType.Pierce)
+        {
+            for (float f = 0f; f < seconds; f += Time.deltaTime)
+            {
+                var r = Quaternion.Euler(15, 0, 0);
+
+                transformB.Translate(0, 0.025f, 0.03f);
+
+                transformB.rotation = gameObject.transform.rotation * r;
+
+                Debug.Log("Pierce Position Result: " + transformB.position);
+                Debug.Log("Pierce Rotation: " + transformB.position);
+
+                yield return null;
+            }
         }
     }
 }

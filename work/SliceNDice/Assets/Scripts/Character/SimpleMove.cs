@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BzKovSoft.ObjectSlicerSamples;
+using DestroyIt;
 
 public class SimpleMove : MonoBehaviour
 {
@@ -50,7 +51,11 @@ public class SimpleMove : MonoBehaviour
         if (playerHealth <= 0)
         {
             setDead = true;
-            GetComponent<KnifeSliceableAsync>().enabled = true;
+            
+            if (GetComponent<KnifeSliceableAsync>() != null)
+            {
+                GetComponent<KnifeSliceableAsync>().enabled = true;
+            }
         }
 
         playerGuard += Mathf.CeilToInt(Time.deltaTime);
@@ -68,7 +73,15 @@ public class SimpleMove : MonoBehaviour
         if (playerHealth <= 0)
         {
             playerGuard = 0;
+
+            rb.freezeRotation = false;
+
         }
+    }
+
+    private void LateUpdate()
+    {
+        ErrorChecker();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -77,22 +90,77 @@ public class SimpleMove : MonoBehaviour
         {
             Weapon w = other.GetComponent<Weapon>();
 
-            if (w.weaponType == BzKnife.WeaponType.Bludgeon)
+            if (w.weaponType == BzKnife.WeaponType.Slash)       // Damage with Slashing Weapon
             {
-                rb.AddForce(gameObject.transform.position * 1.5f, ForceMode.Impulse);
+                if (playerGuard > 0)
+                {
+                    Instantiate(guardHit, gameObject.transform);
+                    playerGuard -= w.weaponDamage;
+                }
+
+                if (playerGuard <= 0)
+                {
+                    Instantiate(healthHit, gameObject.transform);
+                    playerHealth -= w.weaponDamage;
+                }
+
+                Debug.Log("Slash to Guard/Health: " + w.weaponDamage);
             }
 
-            if (playerGuard > 0)
+
+            if (w.weaponType == BzKnife.WeaponType.Bludgeon)    // Damage with Bludgeoning Weapon
             {
-                Instantiate(guardHit, gameObject.transform);
-                playerGuard -= other.gameObject.GetComponent<Weapon>().weaponDamage;
+                rb.AddForce(w.BladeDirection * 1.25f, ForceMode.Impulse);
+
+                speed -= 0.01f;
+
+                if (playerGuard > 0)
+                {
+                    Instantiate(guardHit, gameObject.transform);
+                    playerGuard -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+                }
+
+                if (playerGuard <= 0)
+                {
+                    Instantiate(healthHit, gameObject.transform);
+                    playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                    gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                }
             }
 
-            if (playerGuard <= 0)
+
+            if (w.weaponType == BzKnife.WeaponType.Pierce)    // Damage with Piercing Weapon
             {
-                Instantiate(healthHit, gameObject.transform);
-                playerHealth -= other.gameObject.GetComponent<Weapon>().weaponDamage;
+                rb.AddForceAtPosition(w.BladeDirection * 4f, gameObject.transform.position, ForceMode.Impulse);
+
+                if (playerGuard > 0)
+                {
+                    Instantiate(guardHit, gameObject.transform);
+                    playerGuard -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                }
+
+                if (playerGuard <= 0)
+                {
+                    Instantiate(healthHit, gameObject.transform);
+                    playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+                }
+
+                Debug.Log("Pierce to Guard: " + Mathf.CeilToInt(w.weaponDamage * 2f));
+                Debug.Log("Pierce to Health: " + Mathf.CeilToInt(w.weaponDamage * 0.5f));
             }
+        }
+    }
+
+    void ErrorChecker()
+    {
+        if (!GetComponent<KnifeSliceableAsync>())
+        {
+            Debug.LogWarning("KnifeSliceableAsync is missing! (This is what allows things to be cut.)");
+        }
+
+        if (!rb)
+        {
+            Debug.LogWarning("This needs a Rigidbody to work.");
         }
     }
 }

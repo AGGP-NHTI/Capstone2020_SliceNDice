@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _origin: {x: 0, y: -1, z: 0}
   _direction: {x: 0, y: 1, z: 0}
+  weaponType: 0
   weaponDamage: 5
 --- !u!1 &4001972425318716159
 GameObject:
@@ -220,7 +221,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &2031577109651723828
 MonoBehaviour:
@@ -251,7 +252,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 6941e70a-31eb-4f0e-b20a-3713865c9765
+  m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &543730837279704529

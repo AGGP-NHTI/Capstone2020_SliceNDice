@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Movement : MonoBehaviour
+public class CharacterControl : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] private float movementSpeed = 10f;
     Vector2 Moveet;
-    
-
+    Animator anim;
+    bool ismove = false;
     private PlayerControls controls = null;
 
 
@@ -19,7 +19,8 @@ public class Movement : MonoBehaviour
     }
 
     private void Start()
-    {
+    { 
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.useGravity = true;
     }
@@ -27,6 +28,19 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
+        Vector3 vel = rb.velocity;
+        if(vel.magnitude == 0)
+        {
+            anim.SetInteger("Condition", 0);
+        }
+        else
+        {
+            anim.SetInteger("Condition", 1);
+        }
+        
+            
+        
+        
     }
     private void OnEnable()
     {
@@ -40,8 +54,10 @@ public class Movement : MonoBehaviour
     
     private void Move()
     {
-        Vector3 movement = new Vector3(Moveet.x, 0, Moveet.y) * movementSpeed * Time.deltaTime;
+        Vector3 nomove = Vector3.zero;
+        Vector3 movement = new Vector3(Moveet.x, 0, Moveet.y) * movementSpeed * Time.deltaTime;  
         transform.Translate(movement);
+   
     }
 
     private void OnMove(InputValue value)
@@ -51,18 +67,6 @@ public class Movement : MonoBehaviour
 
    
 
-    //public void OnMovement()
-    //{
-    //    Vector3 movementInput = controls.Player.Movement.ReadValue<Vector2>();
-    //    Vector3 movement = new Vector3
-    //    {
-    //        x = movementInput.x,
-    //        z = movementInput.y
-    //    }.normalized;
-
-    //    transform.Translate(movement * movementSpeed * Time.deltaTime);
-       
-    //}
 
    
 }

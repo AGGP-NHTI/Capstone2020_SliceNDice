@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 2383847236480029264}
   - component: {fileID: 8317253039540105357}
   - component: {fileID: 2031577109651723828}
-  - component: {fileID: 543730837279704529}
+  - component: {fileID: 3714765596456115993}
   m_Layer: 0
   m_Name: TestCharacter
   m_TagString: Untagged
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &543730837279704529
+--- !u!114 &3714765596456115993
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4001972425318716159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39998b917fc4d3940b44419c6eba61c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9605f670e6705584cae708a53bdbb2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
@@ -398,14 +398,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6891088501710411307}
     m_Modifications:
-    - target: {fileID: 1109784077163436, guid: af65a131a1c8d4c4984199326e5e791b, type: 3}
-      propertyPath: m_Name
-      value: Knife
-      objectReference: {fileID: 0}
-    - target: {fileID: 1109784077163436, guid: af65a131a1c8d4c4984199326e5e791b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4728706373297618, guid: af65a131a1c8d4c4984199326e5e791b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -449,6 +441,14 @@ PrefabInstance:
     - target: {fileID: 4728706373297618, guid: af65a131a1c8d4c4984199326e5e791b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109784077163436, guid: af65a131a1c8d4c4984199326e5e791b, type: 3}
+      propertyPath: m_Name
+      value: Knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109784077163436, guid: af65a131a1c8d4c4984199326e5e791b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114129021787453534, guid: af65a131a1c8d4c4984199326e5e791b, type: 3}

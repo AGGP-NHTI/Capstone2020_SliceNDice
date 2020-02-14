@@ -49,6 +49,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""StabAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""b36f533c-78cd-49df-bf2d-163fec3351ec"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -269,6 +277,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c467c77-fa4f-4529-afa0-a6361a858ad9"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StabAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -513,6 +532,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player_Fire1 = m_Player.FindAction("Fire1", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Join = m_Player.FindAction("Join", throwIfNotFound: true);
+        m_Player_StabAttack = m_Player.FindAction("StabAttack", throwIfNotFound: true);
         // Player1
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
@@ -571,6 +591,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Fire1;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Join;
+    private readonly InputAction m_Player_StabAttack;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -579,6 +600,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Fire1 => m_Wrapper.m_Player_Fire1;
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Join => m_Wrapper.m_Player_Join;
+        public InputAction @StabAttack => m_Wrapper.m_Player_StabAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -600,6 +622,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Join.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
                 @Join.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
                 @Join.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
+                @StabAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabAttack;
+                @StabAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabAttack;
+                @StabAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabAttack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -616,6 +641,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Join.started += instance.OnJoin;
                 @Join.performed += instance.OnJoin;
                 @Join.canceled += instance.OnJoin;
+                @StabAttack.started += instance.OnStabAttack;
+                @StabAttack.performed += instance.OnStabAttack;
+                @StabAttack.canceled += instance.OnStabAttack;
             }
         }
     }
@@ -675,6 +703,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnFire1(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnJoin(InputAction.CallbackContext context);
+        void OnStabAttack(InputAction.CallbackContext context);
     }
     public interface IPlayer1Actions
     {

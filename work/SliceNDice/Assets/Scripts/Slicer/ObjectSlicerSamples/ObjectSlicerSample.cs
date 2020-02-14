@@ -18,7 +18,9 @@ namespace BzKovSoft.ObjectSlicerSamples
 			ResultData addData = new ResultData();
 
 			// count vertices
+
 			var filters = GetComponentsInChildren<MeshFilter>();
+
 			for (int i = 0; i < filters.Length; i++)
 			{
 				addData.vertexCount += filters[i].sharedMesh.vertexCount;
@@ -29,6 +31,8 @@ namespace BzKovSoft.ObjectSlicerSamples
 
 			// colliders that will be participating in slicing
 			var colliders = gameObject.GetComponentsInChildren<Collider>();
+
+			UnityEngine.Debug.Log("Vertex Count: " + addData.vertexCount + "\n Colliders: " + colliders[0].name);
 
 			// return data
 			return new BzSliceTryData()
@@ -42,8 +46,13 @@ namespace BzKovSoft.ObjectSlicerSamples
 
 		protected override void OnSliceFinished(BzSliceTryResult result)
 		{
+			UnityEngine.Debug.Log("Result: " + result + "Sliced: " + result.sliced);
+
 			if (!result.sliced)
 				return;
+
+			UnityEngine.Debug.Log("Result: " + result);
+
 
 			// on sliced, get data that we saved in 'PrepareData' method
 			var addData = (ResultData)result.addData;

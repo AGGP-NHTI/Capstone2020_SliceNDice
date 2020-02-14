@@ -35,7 +35,7 @@ public class SimpleMove : MonoBehaviour
 
         speed = 2;
     }
-    
+
     void Update()
     {
         if (Input.GetKey(KeyCode.O))
@@ -51,10 +51,12 @@ public class SimpleMove : MonoBehaviour
         if (playerHealth <= 0)
         {
             setDead = true;
-            
+
             if (GetComponent<KnifeSliceableAsync>() != null)
             {
-                GetComponent<KnifeSliceableAsync>().enabled = true;
+                Debug.LogWarning("KnifeSliceableAsync is disabled despite the character being dead. If it's a slash weapon, it's been commented out. Be sure to check the code if this is unintended.");
+
+                // GetComponent<KnifeSliceableAsync>().enabled = true;
             }
         }
 
@@ -75,7 +77,6 @@ public class SimpleMove : MonoBehaviour
             playerGuard = 0;
 
             rb.freezeRotation = false;
-
         }
     }
 

@@ -58,8 +58,15 @@ namespace BzKovSoft.CharacterSlicer
 			for (int i = 0; i < joints.Count; i++)
 			{
 				var joint = joints[i];
+
+				Debug.Log(joint.connectedBody.GetComponent<Rigidbody>());
+
 				var rigidFrom = joint.GetComponent<Rigidbody>();
 				var rigidTo   = joint.connectedBody.GetComponent<Rigidbody>();
+
+				Debug.Log(rigidTo);
+
+				
 
 				var insideFrom = rigidsInside.Contains(rigidFrom);
 				var insideTo   = rigidsInside.Contains(rigidTo);

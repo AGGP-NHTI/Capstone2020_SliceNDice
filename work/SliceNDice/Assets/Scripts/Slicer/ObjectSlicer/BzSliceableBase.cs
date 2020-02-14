@@ -185,7 +185,7 @@ namespace BzKovSoft.ObjectSlicer
 
 			if (sliceTry == null)
 				return;
-			
+
 			Profiler.BeginSample("SliceTryFinished");
 			SliceTryFinished(sliceTry);
 			Profiler.EndSample();
@@ -230,7 +230,7 @@ namespace BzKovSoft.ObjectSlicer
 			}
 		}
 
-        private void InvokeEvents(GameObject resultNeg, GameObject resultPos)
+		private void InvokeEvents(GameObject resultNeg, GameObject resultPos)
 		{
 			var events = resultNeg.GetComponents<IBzObjectSlicedEvent>();
 			for (int i = 0; i < events.Length; i++)
@@ -238,71 +238,71 @@ namespace BzKovSoft.ObjectSlicer
 		}
 
 		private BzSliceTryResult ApplyChanges(SliceTry sliceTry)
-        {
-            // duplicate object
-            GameObject resultObjNeg, resultObjPos;
-            GetNewObjects(out resultObjNeg, out resultObjPos);
-            var renderersNeg = GetRenderers(resultObjNeg);
-            var renderersPos = GetRenderers(resultObjPos);
+		{
+			// duplicate object
+			GameObject resultObjNeg, resultObjPos;
+			GetNewObjects(out resultObjNeg, out resultObjPos);
+			var renderersNeg = GetRenderers(resultObjNeg);
+			var renderersPos = GetRenderers(resultObjPos);
 			resultObjNeg.AddComponent<LazyActionRunner>();
 			resultObjPos.AddComponent<LazyActionRunner>();
-			
-            if (renderersNeg.Length != renderersPos.Length |
-                renderersNeg.Length != sliceTry.items.Length)
-            {
-                // if something wrong happaned with object, and during slicing it was changed
-                // reject this slice try
-                return null;
-            }
+
+			if (renderersNeg.Length != renderersPos.Length |
+				renderersNeg.Length != sliceTry.items.Length)
+			{
+				// if something wrong happaned with object, and during slicing it was changed
+				// reject this slice try
+				return null;
+			}
 
 			Profiler.BeginSample("ComponentManager.OnSlicedMainThread");
-            sliceTry.sliceData.componentManager.OnSlicedMainThread(resultObjNeg, resultObjPos, renderersNeg, renderersPos);
+			sliceTry.sliceData.componentManager.OnSlicedMainThread(resultObjNeg, resultObjPos, renderersNeg, renderersPos);
 			Profiler.EndSample();
 
-            BzSliceTryResult result = new BzSliceTryResult(true, sliceTry.sliceData.addData);
-            result.meshItems = new BzMeshSliceResult[sliceTry.items.Length];
+			BzSliceTryResult result = new BzSliceTryResult(true, sliceTry.sliceData.addData);
+			result.meshItems = new BzMeshSliceResult[sliceTry.items.Length];
 
-            for (int i = 0; i < sliceTry.items.Length; i++)
-            {
-                var sliceTryItem = sliceTry.items[i];
-                if (sliceTryItem == null)
-                    continue;
+			for (int i = 0; i < sliceTry.items.Length; i++)
+			{
+				var sliceTryItem = sliceTry.items[i];
+				if (sliceTryItem == null)
+					continue;
 
-                var rendererNeg = renderersNeg[i];
-                var rendererPos = renderersPos[i];
+				var rendererNeg = renderersNeg[i];
+				var rendererPos = renderersPos[i];
 
-                if (sliceTryItem.SliceResult == SliceResult.Sliced)
-                {
-                    sliceTryItem.meshDissector.RebuildNegMesh(rendererNeg);
-                    sliceTryItem.meshDissector.RebuildPosMesh(rendererPos);
+				if (sliceTryItem.SliceResult == SliceResult.Sliced)
+				{
+					sliceTryItem.meshDissector.RebuildNegMesh(rendererNeg);
+					sliceTryItem.meshDissector.RebuildPosMesh(rendererPos);
 
-                    var itemResult = GetItemResult(sliceTryItem, rendererNeg, rendererPos);
-                    result.meshItems[i] = itemResult;
-                }
+					var itemResult = GetItemResult(sliceTryItem, rendererNeg, rendererPos);
+					result.meshItems[i] = itemResult;
+				}
 
-                if (sliceTryItem.SliceResult == SliceResult.Neg)
-                    DeleteRenderer(rendererPos);
+				if (sliceTryItem.SliceResult == SliceResult.Neg)
+					DeleteRenderer(rendererPos);
 
-                if (sliceTryItem.SliceResult == SliceResult.Pos)
-                    DeleteRenderer(rendererNeg);
-            }
+				if (sliceTryItem.SliceResult == SliceResult.Pos)
+					DeleteRenderer(rendererNeg);
+			}
 
-            result.outObjectNeg = resultObjNeg;
-            result.outObjectPos = resultObjPos;
+			result.outObjectNeg = resultObjNeg;
+			result.outObjectPos = resultObjPos;
 
-            return result;
-        }
+			return result;
+		}
 
-        protected virtual void GetNewObjects(out GameObject resultObjNeg, out GameObject resultObjPos)
-        {
-            resultObjNeg = this.gameObject;
-            resultObjPos = Instantiate(this.gameObject, this.gameObject.transform.parent);
+		protected virtual void GetNewObjects(out GameObject resultObjNeg, out GameObject resultObjPos)
+		{
+			resultObjNeg = this.gameObject;
+			resultObjPos = Instantiate(this.gameObject, this.gameObject.transform.parent);
 
-            resultObjPos.name = resultObjNeg.name + "_pos";
+			resultObjPos.name = resultObjNeg.name + "_pos";
 			resultObjNeg.name = resultObjNeg.name + "_neg";
-        }
+		}
 
-        private static void DeleteRenderer(Renderer renderer)
+		private static void DeleteRenderer(Renderer renderer)
 		{
 			GameObject.Destroy(renderer);
 			var mf = renderer.gameObject.GetComponent<MeshFilter>();
@@ -318,7 +318,7 @@ namespace BzKovSoft.ObjectSlicer
 
 		public void Slice(Plane plane, int sliceId, Action<BzSliceTryResult> callBack)
 		{
-			if (this == null)	// if this component was destroied
+			if (this == null)   // if this component was destroied
 				return;
 
 			float currentSliceTime = Time.time;

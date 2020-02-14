@@ -34,7 +34,7 @@ namespace BzKovSoft.CharacterSlicerSamples
 		{
 			if (_maxSliceCount == 0)
 				return null;
-			
+
 			// remember some date. Later we could use it after the slice is done.
 			// here I add Stopwatch object to see how much time it takes
 			ResultData addData = new ResultData();

@@ -33,7 +33,7 @@ namespace BzKovSoft.ObjectSlicer.ObjectSlicer
 			};
 
 			cldr.sharedMesh = mesh;
-			cldr.inflateMesh = true;
+			// cldr.inflateMesh = true;
 			var convexResult = new ConvexSetResult();
 			convexResult.SetConvex(cldr);
 

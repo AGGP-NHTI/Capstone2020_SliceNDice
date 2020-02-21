@@ -107,7 +107,7 @@ namespace BzKovSoft.ObjectSlicer
 				var collider = go.AddComponent<MeshCollider>();
 				collider.sharedMaterial = colliderConf.Material;
 				collider.sharedMesh = colliderConf.Mesh;
-				collider.inflateMesh = true;
+				// collider.inflateMesh = true;
 
 				var convexResult = new ConvexSetResult();
 				convexResult.SetConvex(collider);

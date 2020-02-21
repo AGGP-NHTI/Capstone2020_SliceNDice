@@ -9,15 +9,15 @@ public class Character : MonoBehaviour
     [Header("Movement")]
 
     [SerializeField]
-    private Rigidbody rb;   // Character's Rigidbody.
+    private Rigidbody rb;                   // Character's Rigidbody.
 
-    public bool isRunning;
+    public bool isRunning;                  // Bool to determine if they're running or not.
 
     [Range(0f, 20f)]
-    public float moveSpeed;     // Character's movement speed.
+    public float moveSpeed;                 // Character's movement speed.
 
     [Range(100f, 1000f)]
-    public int jumpForce;       // Character's jumping force.
+    public int jumpForce;                   // Character's jumping force.
 
     bool canJump = true;
 
@@ -26,10 +26,12 @@ public class Character : MonoBehaviour
     /**************************/
 
     [Header("Character Statistics")]
-    public int Build;
+    public int Build;                       // Determines character Health. Based upon their physical size.
 
     [Range(0, 200)]
-    public int playerHealth;
+    public float playerHealth;
+
+    public int playerMaxHealth;
 
     [Range(0, 100)]
     public int playerGuard;
@@ -37,45 +39,72 @@ public class Character : MonoBehaviour
     /**************************/
 
     [Header("External Objects")]
-    public Weapon Weapon;
+    public GameObject weaponPrefab;         // Prefab of weapon chosen.
+    public GameObject weaponChosen;         // Weapon character has chosen via character selection.
+    public Weapon Weapon;                   // Character's weapon.
+    public GameObject spawnLoc;             // Where the weapon is spawned. Put this in the character's hand.
+
     [SerializeField]
-    List<GameObject> children;      // This is only used to detach children from the GameObject upon death.
+    List<GameObject> children;              // This is only used to detach children from the GameObject upon death.
+
+    bool isTwoHanded;                       // Determines which animations will be used (one-handed or two-handed).
 
     /**************************/
 
     [Header("Hit Effects")]
-    public GameObject guardHit;
-    public GameObject healthHit;
+    public GameObject guardHit;             // Player effect when their Guard is hit.
+    public GameObject healthHit;            // Player effect when their Health is hit.
 
     void Awake()
     {
         // Stored Movement Variables
 
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();                                         // DO. NOT. DELETE.
 
-        Weapon = gameObject.GetComponentInChildren<Weapon>();
+        Build = Mathf.CeilToInt(gameObject.transform.localScale.magnitude);     // How heavy/big the character is.
 
-        Build = Mathf.CeilToInt(gameObject.transform.localScale.magnitude);
+        Instantiate(weaponPrefab, spawnLoc.transform);                          // Instantiate the weapon into the world.
 
-        if (Weapon.weaponWeight > Build)
+        weaponChosen = GetComponentInChildren<Weapon>().gameObject;             // Gets the weapon game object so it can be edited.
+
+        Weapon = weaponChosen.GetComponentInChildren<Weapon>();                 // Gets the weapon's "Weapon" script.
+
+        // If weapon isn't null, alter move speed based on weapon weight vs. character's build. Also determines two-handed.
+        if (Weapon != null)
         {
-            moveSpeed = (5 - (Weapon.weaponWeight - Build) * 1.5f);
-
-            if (moveSpeed <= 0)
+            if (Weapon.weaponWeight > Build)
             {
-                moveSpeed = 0.5f;
+                moveSpeed = (5 - (Weapon.weaponWeight - Build) * 1.5f);
+
+                if (moveSpeed <= 0)
+                {
+                    moveSpeed = 0.5f;
+                }
+            }
+            else
+            {
+                moveSpeed = (5 - Build) * 1.5f;
+            }
+
+            if (Weapon.weaponWeight > Build)
+            {
+                isTwoHanded = Weapon.isTwoHanded(true);     // Use two-handed animations.
+            }
+
+            if (Weapon.weaponWeight < Build)
+            {
+                isTwoHanded = Weapon.isTwoHanded(false);    // Use one-handed animations.
             }
         }
-        else
-        {
-            moveSpeed = (5 - Build) * 1.5f;
-        }
 
-        originalMovementSpeed = moveSpeed;
+        originalMovementSpeed = moveSpeed;                                      // Important for running.
 
         // Stored Statistic Variables
-        playerHealth = 50 + (Build * 25);
-        playerGuard = 100;
+        playerMaxHealth = 50 + (Build * 25);                                    // Calculate Health based upon Build.
+
+        playerHealth = playerMaxHealth;
+
+        playerGuard = 100;                                                      // Guard is always set to 100. No more, no less.
     }
 
     void Update()
@@ -95,6 +124,8 @@ public class Character : MonoBehaviour
         if (playerHealth <= 0)
         {
             IsDead();
+            playerHealth = 0;
+            playerGuard = 0;
 
             Debug.LogWarning("KnifeSliceableAsync is disabled despite the character being dead. If it's a slash weapon, it's been commented out. Be sure to check the code if this is unintended.");
 
@@ -103,7 +134,7 @@ public class Character : MonoBehaviour
 
         playerGuard += Mathf.CeilToInt(Time.deltaTime);
 
-        if (playerGuard >= 100)
+        if (playerGuard >= 100 && playerHealth > 0)
         {
             playerGuard = 100;
         }
@@ -112,26 +143,22 @@ public class Character : MonoBehaviour
         {
             playerGuard = 0;
         }
-
-        if (playerHealth <= 0)
-        {
-            playerGuard = 0;
-        }
     }
 
     private void LateUpdate()
     {
-        ErrorChecker();
+        ErrorChecker();     // Error checker makes sure that nothing is missing or going wrong. Displays errors.
     }
 
     public void MovementControls()
     {
-        // Movement Control
+        // Movement Control (FOR TESTING ONLY, THIS WILL BE REPLACED)
         float horizontal = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         transform.Translate(horizontal, 0, 0);
 
         float vertical = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         transform.Translate(0, 0, vertical);
+
 
         // Jump Control
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
@@ -162,38 +189,30 @@ public class Character : MonoBehaviour
         {
             gameObject.transform.Rotate(0, -2 * moveSpeed, 0);
         }
-
-        if (Input.GetKey(KeyCode.C))
-        {
-            gameObject.GetComponent<CapsuleCollider>().height = 1;
-        }
-
-        if (Input.GetKeyUp(KeyCode.C))
-        {
-            gameObject.GetComponent<CapsuleCollider>().height = 2;
-        }
     }
 
     void IsDead()
     {
-        moveSpeed = 0;
-        originalMovementSpeed = 0;
+        moveSpeed = 0;                  // Ensures they can't move anymore.
+        originalMovementSpeed = 0;      // Ensures they can't move anymore.
 
-        rb.freezeRotation = false;
+        rb.freezeRotation = false;      // Allows them to fall over at any angle.
 
+
+        // The following below is to detach child objects, so weapons and the like fall to the ground.
         foreach (Transform child in transform)
         {
-            children.Add(child.gameObject);
+            children.Add(child.gameObject);     // Adds the game objects that are a child to the character.
         }
 
         Debug.Log(children.Count);
 
         for (int i = 0; i < children.Count; i++)
         {
-            children[i].AddComponent<Rigidbody>();
+            children[i].AddComponent<Rigidbody>();  // Adds a rigidbody so the objects won't fall through the ground.
         }
 
-        gameObject.transform.DetachChildren();
+        gameObject.transform.DetachChildren();      // Finally, detaches all children from the character.
     }
 
     private void OnTriggerEnter(Collider other)
@@ -202,12 +221,14 @@ public class Character : MonoBehaviour
         {
             if (playerGuard > 0)
             {
+                // Guard was hit, reduce guard.
                 Instantiate(guardHit);
                 playerGuard -= other.gameObject.GetComponent<Weapon>().weaponDamage;
             }
 
             if (playerGuard <= 0)
             {
+                // Health was hit, reduce health.
                 Instantiate(healthHit);
                 playerHealth -= other.gameObject.GetComponent<Weapon>().weaponDamage;
             }
@@ -223,20 +244,20 @@ public class Character : MonoBehaviour
         canJump = true;
     }
 
-    IEnumerator SwingSword()
+    IEnumerator SwingSword()    // This will be altered to not move the weapon after animations are implemented.
     {
         var transformB = Weapon.transform.parent;
         transformB.position = gameObject.transform.position;
         transformB.rotation = gameObject.transform.rotation;
 
-        float seconds = (4 - (moveSpeed / Build)) * 0.125f;
+        float seconds = (4 - (moveSpeed / Build)) * 0.125f;     // Attack speed. Should be altered with animations.
 
         if (seconds <= 0)
         {
             seconds = 0.05f;
         }
 
-        playerGuard -= 25;
+        playerGuard -= 25;      // Characters attacking reduce Guard gradually.
 
         if (Weapon.weaponType == BzKnife.WeaponType.Slash)
         {
@@ -294,6 +315,15 @@ public class Character : MonoBehaviour
         {
             Debug.LogWarning("This needs a Rigidbody to work.");
         }
-    }
 
+        if (!Weapon)
+        {
+            Debug.LogWarning("Weapon is not assigned to the character. Attacking will not work.");
+        }
+
+        if (moveSpeed == 0)
+        {
+            Debug.LogWarning("Move speed has been set to 0. Unless the character is dead, this is unintended.");
+        }
+    }
 }

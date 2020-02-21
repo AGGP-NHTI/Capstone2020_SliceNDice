@@ -43,7 +43,7 @@
                     "id": "b36f533c-78cd-49df-bf2d-163fec3351ec",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -271,7 +271,7 @@
                     "name": "",
                     "id": "0c467c77-fa4f-4529-afa0-a6361a858ad9",
                     "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "StabAttack",
@@ -281,7 +281,7 @@
             ]
         },
         {
-            "name": "Player1",
+            "name": "Player2",
             "id": "6941e70a-31eb-4f0e-b20a-3713865c9765",
             "actions": [
                 {
@@ -291,6 +291,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "StabAttack2",
+                    "type": "Button",
+                    "id": "347a2e68-ab5e-42c9-bdb5-2f19817a9232",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Join",
+                    "type": "Button",
+                    "id": "3042935d-43a0-4cdc-a976-90c71770496f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 },
                 {
                     "name": "Fire1",
@@ -507,6 +523,39 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f30a68b7-74d8-4bd3-b583-dde4817939d7",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64748750-2db8-4ab3-891a-f06be957aa62",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "45810e5e-1a87-4254-8d38-25b19a3a78ba",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StabAttack2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

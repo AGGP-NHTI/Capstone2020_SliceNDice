@@ -34,7 +34,6 @@ public class CameraControl : MonoBehaviour
 
         Vector3 cameracloseDestination = midpoint - Cam.transform.forward * (offset+2.5f);
 
-        Debug.Log("Cam destination = " + cameraDestination);
 
         if (Cam.orthographic)
         {

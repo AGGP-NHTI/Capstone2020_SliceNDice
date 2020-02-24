@@ -39,6 +39,8 @@ public class CharacterControl : MonoBehaviour
         controls.Player.Enable();
 
         controls.Player.StabAttack.performed += _ => StabAttack();
+        controls.Player.FastAttack.performed += _ => FastAttack();
+        controls.Player.HeavyAttack.performed += _ => HeavyAttack();
     }
 
     private void OnDisable()
@@ -63,17 +65,21 @@ public class CharacterControl : MonoBehaviour
 
     public void StabAttack()
     {
-            Debug.Log("Stab1");
-            anim.SetTrigger("StabbyStab");
-           // Invoke("SetBoolBack", 1);
-        
+          Debug.Log("Stab1");
+          anim.SetTrigger("StabbyStab");      
     }
 
-    private void SetBoolBack()
+    public void FastAttack()
     {
-        anim.ResetTrigger("StabbyStab");
+        Debug.Log("Fast1");
+        anim.SetTrigger("FastAtt");  
     }
 
+    public void HeavyAttack()
+    {
+        Debug.Log("Heavy1");
+        anim.SetTrigger("StrongAtt");
+    }
 
 
     private void OnMove(InputValue value)

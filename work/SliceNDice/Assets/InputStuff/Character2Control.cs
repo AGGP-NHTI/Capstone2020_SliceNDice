@@ -34,7 +34,9 @@ public class Character2Control : MonoBehaviour
     private void OnEnable()
     {
         controls.Player2.Enable();
-        controls.Player2.StabAttack2.performed += _ => StabAttack();
+        controls.Player2.StabAttack2.performed += _ => StabAttack2();
+        controls.Player2.FastAttack2.performed += _ => FastAttack2();
+        controls.Player2.HeavyAttack2.performed += _ => HeavyAttack2();
     }
 
     private void OnDisable()
@@ -57,19 +59,23 @@ public class Character2Control : MonoBehaviour
         }
     }
 
-    public void StabAttack()
+    public void StabAttack2()
     {
         Debug.Log("Stab2");
         anim.SetTrigger("StabbyStab2");
-       // Invoke("SetBoolBack", 1);
 
     }
-
-    private void SetBoolBack()
+    public void FastAttack2()
     {
-        anim.ResetTrigger("StabbyStab2");
+        Debug.Log("Fast2");
+        anim.SetTrigger("FastAtt2");
     }
 
+    public void HeavyAttack2()
+    {
+        Debug.Log("Heavy2");
+        anim.SetTrigger("StrongAtt2");
+    }
 
 
     private void OnMove(InputValue value)

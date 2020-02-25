@@ -1940,7 +1940,7 @@ GameObject:
   - component: {fileID: 7790083377453259422}
   - component: {fileID: 5145766548529096484}
   - component: {fileID: 1151493684125642815}
-  - component: {fileID: 4411058574598741132}
+  - component: {fileID: 3333351126970121185}
   m_Layer: 0
   m_Name: P2AvacadoCorrectOG2
   m_TagString: Untagged
@@ -2094,7 +2094,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 114
   m_CollisionDetection: 0
---- !u!114 &4411058574598741132
+--- !u!114 &3333351126970121185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2103,10 +2103,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7672665784505818267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee77da59158da542ac549fba22a5019, type: 3}
+  m_Script: {fileID: 11500000, guid: 39998b917fc4d3940b44419c6eba61c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  Weaponpoint1: {fileID: 0}
+  weaponpoint2: {fileID: 0}
 --- !u!1 &8003323450878113108
 GameObject:
   m_ObjectHideFlags: 0

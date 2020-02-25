@@ -11,6 +11,8 @@ public class TPSpawn : MonoBehaviour
     public PlayerInputManager manager;
     public InputDevice p1Device;
     public InputDevice p2Device;
+    public Gamepad p1DevicePad;
+    public Gamepad p2DevicePad;
     public CameraControl control;
     
   
@@ -28,7 +30,9 @@ public class TPSpawn : MonoBehaviour
 
         p1Device = pads[0].device;
         p2Device = pads[1].device;
-
+        p1DevicePad = pads[0];
+        p2DevicePad = pads[1];
+      
         manager.playerPrefab = P1.gameObject;
         manager.JoinPlayer(0, NOSPLITSCREEN, NOCONTROLSCHEME, p1Device);
 

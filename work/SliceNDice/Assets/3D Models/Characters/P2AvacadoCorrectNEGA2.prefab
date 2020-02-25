@@ -1693,7 +1693,7 @@ GameObject:
   - component: {fileID: 6014249737410410322}
   - component: {fileID: 8648152229472733928}
   - component: {fileID: 3501525260639510003}
-  - component: {fileID: 169515747229675840}
+  - component: {fileID: 656571025108990296}
   m_Layer: 0
   m_Name: P2AvacadoCorrectNEGA2
   m_TagString: Untagged
@@ -1822,7 +1822,7 @@ Animator:
   m_GameObject: {fileID: 6131597199983833431}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4cef9a7cecf0540499bc8ab41a84187d, type: 3}
-  m_Controller: {fileID: 9100000, guid: 03113e714ba9dca4daf33511672f127f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 846196c21a72c2947bfa5768d5d3248d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1847,7 +1847,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 114
   m_CollisionDetection: 0
---- !u!114 &169515747229675840
+--- !u!114 &656571025108990296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1856,10 +1856,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6131597199983833431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee77da59158da542ac549fba22a5019, type: 3}
+  m_Script: {fileID: 11500000, guid: 39998b917fc4d3940b44419c6eba61c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  isPlayer1: 1
+  Weaponpoint1: {fileID: 0}
+  weaponpoint2: {fileID: 0}
 --- !u!1 &6656158244464935865
 GameObject:
   m_ObjectHideFlags: 0

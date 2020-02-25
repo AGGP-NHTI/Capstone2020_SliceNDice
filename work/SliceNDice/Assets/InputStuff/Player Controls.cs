@@ -25,38 +25,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""Join"",
-                    ""type"": ""Button"",
-                    ""id"": ""6d6c4db7-d31d-417e-99c7-a88a3c2dd0e5"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""StabAttack"",
-                    ""type"": ""Button"",
-                    ""id"": ""b36f533c-78cd-49df-bf2d-163fec3351ec"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""FastAttack"",
-                    ""type"": ""Button"",
-                    ""id"": ""15c41d0e-5be4-4a31-bd37-8ed6b549a31c"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""HeavyAttack"",
-                    ""type"": ""Button"",
-                    ""id"": ""f417f775-51e3-4fad-8d1f-2b20e4647cbe"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -224,124 +192,26 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""af412b90-4417-46e7-88d1-0d3ec192de24"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Join"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""206de4f8-e41f-4f1b-81ea-109fea62c48b"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Join"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0c467c77-fa4f-4529-afa0-a6361a858ad9"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""StabAttack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""dff5be0c-9d7d-4c70-bf00-402dc4a12b9c"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""FastAttack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2681871b-6a4b-45a5-ae23-e01e02195978"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HeavyAttack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
         {
             ""name"": ""Player2"",
-            ""id"": ""6941e70a-31eb-4f0e-b20a-3713865c9765"",
+            ""id"": ""a2200c05-6234-4fc1-8e7f-8277eb8c9c28"",
             ""actions"": [
                 {
                     ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""id"": ""fb401033-725f-4d18-8264-24869a4aee0c"",
+                    ""id"": ""9029f46d-b42b-4976-b371-c1de9e972870"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""Join"",
-                    ""type"": ""Button"",
-                    ""id"": ""3042935d-43a0-4cdc-a976-90c71770496f"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""StabAttack2"",
-                    ""type"": ""Button"",
-                    ""id"": ""347a2e68-ab5e-42c9-bdb5-2f19817a9232"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""FastAttack2"",
-                    ""type"": ""Button"",
-                    ""id"": ""f199d625-b858-4584-ae64-896322c1e3a4"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""HeavyAttack2"",
-                    ""type"": ""Button"",
-                    ""id"": ""64bf0f6e-d95c-4348-9fc9-35c0d95a5891"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""45810e5e-1a87-4254-8d38-25b19a3a78ba"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""StabAttack2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""WASD"",
-                    ""id"": ""bca29784-9d45-4908-9fe9-6f2fd92334b0"",
+                    ""id"": ""963c3903-03d2-4533-8f2f-9629ec48fc35"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -352,7 +222,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""7bea1ebe-d369-40ab-a652-9533af5465cb"",
+                    ""id"": ""f42a8514-10ea-4f9b-a124-273d1f6cfd2b"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -363,7 +233,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""f909d399-f5d4-47a7-bd33-88c91e6b0437"",
+                    ""id"": ""45665b51-2d27-4ba7-a747-50b7f67ec36f"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -374,7 +244,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""26183148-8dff-4da2-af29-e214539ae65f"",
+                    ""id"": ""1adba3aa-8d2b-4e86-9fd7-9323c515c731"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -385,7 +255,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""55844b48-b8de-40d9-8c01-bd8266435c03"",
+                    ""id"": ""20ff832c-6b5a-4d6b-b380-b57e49ccee31"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -396,7 +266,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""ARROWS"",
-                    ""id"": ""34bf052f-bccb-4fa8-9981-178e52b94aab"",
+                    ""id"": ""5cafb43c-00b1-4643-a642-58ecf85a00c1"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -407,7 +277,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""02d4875d-c9ab-4567-810d-7e0cefc689d1"",
+                    ""id"": ""59bb26bb-61d3-40f1-9e5f-efd0bab3347a"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -418,7 +288,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""6420bf04-72af-4758-a38a-df50f549535e"",
+                    ""id"": ""e39bee5f-1b50-4db8-b5a9-c942ee514bf1"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -429,7 +299,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""e2db5fb0-b933-45ee-afd4-5527bd894ba3"",
+                    ""id"": ""d6023eb3-cdbd-432d-a496-7c2267b5bbae"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -440,7 +310,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""91f7e48c-ec0a-4528-ada1-5ab37e0d6d7d"",
+                    ""id"": ""cf99bfcf-ed37-4ef3-83c1-d4cf5145e47c"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -451,7 +321,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Gamepad"",
-                    ""id"": ""85098974-abdf-4109-aaa5-96d5ca0593b6"",
+                    ""id"": ""f64163b1-745f-4fc1-8b58-7c63a94ff24e"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -462,7 +332,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""46f79e70-84f9-4d97-ae47-a631c61363af"",
+                    ""id"": ""1e3f4340-1575-42f5-a719-5eee4feed14c"",
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -473,7 +343,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""7f70fa34-d4d4-413f-96ed-c8cf2a32f996"",
+                    ""id"": ""53c54b8d-881e-4154-aa4d-82bcbfd2eb85"",
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -484,7 +354,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""4cec901e-a2c7-4ebf-9f00-99427e12a44d"",
+                    ""id"": ""4caa3cd1-57a5-4186-b086-bd53b9cd2c5a"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -495,7 +365,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""debe600d-1de5-4820-8fab-221c6ecc93b2"",
+                    ""id"": ""dd8d4d1b-fae8-41bb-aae1-fcf206cfce54"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -503,50 +373,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f30a68b7-74d8-4bd3-b583-dde4817939d7"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Join"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""64748750-2db8-4ab3-891a-f06be957aa62"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Join"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0c85151b-9d62-41f2-9353-ce2ef76afc23"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""FastAttack2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8a4881d1-223a-446a-8fec-9d48a2097bf0"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HeavyAttack2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -556,17 +382,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Join = m_Player.FindAction("Join", throwIfNotFound: true);
-        m_Player_StabAttack = m_Player.FindAction("StabAttack", throwIfNotFound: true);
-        m_Player_FastAttack = m_Player.FindAction("FastAttack", throwIfNotFound: true);
-        m_Player_HeavyAttack = m_Player.FindAction("HeavyAttack", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
-        m_Player2_Join = m_Player2.FindAction("Join", throwIfNotFound: true);
-        m_Player2_StabAttack2 = m_Player2.FindAction("StabAttack2", throwIfNotFound: true);
-        m_Player2_FastAttack2 = m_Player2.FindAction("FastAttack2", throwIfNotFound: true);
-        m_Player2_HeavyAttack2 = m_Player2.FindAction("HeavyAttack2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -617,19 +435,11 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Join;
-    private readonly InputAction m_Player_StabAttack;
-    private readonly InputAction m_Player_FastAttack;
-    private readonly InputAction m_Player_HeavyAttack;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Join => m_Wrapper.m_Player_Join;
-        public InputAction @StabAttack => m_Wrapper.m_Player_StabAttack;
-        public InputAction @FastAttack => m_Wrapper.m_Player_FastAttack;
-        public InputAction @HeavyAttack => m_Wrapper.m_Player_HeavyAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -642,18 +452,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Join.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
-                @Join.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
-                @Join.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
-                @StabAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabAttack;
-                @StabAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabAttack;
-                @StabAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStabAttack;
-                @FastAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFastAttack;
-                @FastAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFastAttack;
-                @FastAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFastAttack;
-                @HeavyAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeavyAttack;
-                @HeavyAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeavyAttack;
-                @HeavyAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeavyAttack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -661,18 +459,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Join.started += instance.OnJoin;
-                @Join.performed += instance.OnJoin;
-                @Join.canceled += instance.OnJoin;
-                @StabAttack.started += instance.OnStabAttack;
-                @StabAttack.performed += instance.OnStabAttack;
-                @StabAttack.canceled += instance.OnStabAttack;
-                @FastAttack.started += instance.OnFastAttack;
-                @FastAttack.performed += instance.OnFastAttack;
-                @FastAttack.canceled += instance.OnFastAttack;
-                @HeavyAttack.started += instance.OnHeavyAttack;
-                @HeavyAttack.performed += instance.OnHeavyAttack;
-                @HeavyAttack.canceled += instance.OnHeavyAttack;
             }
         }
     }
@@ -682,19 +468,11 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player2;
     private IPlayer2Actions m_Player2ActionsCallbackInterface;
     private readonly InputAction m_Player2_Move;
-    private readonly InputAction m_Player2_Join;
-    private readonly InputAction m_Player2_StabAttack2;
-    private readonly InputAction m_Player2_FastAttack2;
-    private readonly InputAction m_Player2_HeavyAttack2;
     public struct Player2Actions
     {
         private @PlayerControls m_Wrapper;
         public Player2Actions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player2_Move;
-        public InputAction @Join => m_Wrapper.m_Player2_Join;
-        public InputAction @StabAttack2 => m_Wrapper.m_Player2_StabAttack2;
-        public InputAction @FastAttack2 => m_Wrapper.m_Player2_FastAttack2;
-        public InputAction @HeavyAttack2 => m_Wrapper.m_Player2_HeavyAttack2;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -707,18 +485,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMove;
-                @Join.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJoin;
-                @Join.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJoin;
-                @Join.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJoin;
-                @StabAttack2.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnStabAttack2;
-                @StabAttack2.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnStabAttack2;
-                @StabAttack2.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnStabAttack2;
-                @FastAttack2.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnFastAttack2;
-                @FastAttack2.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnFastAttack2;
-                @FastAttack2.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnFastAttack2;
-                @HeavyAttack2.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnHeavyAttack2;
-                @HeavyAttack2.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnHeavyAttack2;
-                @HeavyAttack2.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnHeavyAttack2;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -726,18 +492,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Join.started += instance.OnJoin;
-                @Join.performed += instance.OnJoin;
-                @Join.canceled += instance.OnJoin;
-                @StabAttack2.started += instance.OnStabAttack2;
-                @StabAttack2.performed += instance.OnStabAttack2;
-                @StabAttack2.canceled += instance.OnStabAttack2;
-                @FastAttack2.started += instance.OnFastAttack2;
-                @FastAttack2.performed += instance.OnFastAttack2;
-                @FastAttack2.canceled += instance.OnFastAttack2;
-                @HeavyAttack2.started += instance.OnHeavyAttack2;
-                @HeavyAttack2.performed += instance.OnHeavyAttack2;
-                @HeavyAttack2.canceled += instance.OnHeavyAttack2;
             }
         }
     }
@@ -745,17 +499,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnJoin(InputAction.CallbackContext context);
-        void OnStabAttack(InputAction.CallbackContext context);
-        void OnFastAttack(InputAction.CallbackContext context);
-        void OnHeavyAttack(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnJoin(InputAction.CallbackContext context);
-        void OnStabAttack2(InputAction.CallbackContext context);
-        void OnFastAttack2(InputAction.CallbackContext context);
-        void OnHeavyAttack2(InputAction.CallbackContext context);
     }
 }

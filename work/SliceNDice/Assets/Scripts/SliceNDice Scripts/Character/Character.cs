@@ -78,7 +78,7 @@ public class Character : MonoBehaviour
 
                 if (moveSpeed <= 0)
                 {
-                    moveSpeed = 0.5f;
+                    moveSpeed = 1f;
                 }
             }
             else

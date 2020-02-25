@@ -28,12 +28,17 @@ namespace BzKovSoft.CharacterSlicerSamples
 		bool _alignPrefSize = false;
 #pragma warning restore 0649
 
-		public bool IsDead { get; private set; }
+		public bool IsDead
+		{
+			get; private set;
+		}
 
 		protected override BzSliceTryData PrepareData(Plane plane)
 		{
 			if (_maxSliceCount == 0)
+			{
 				return null;
+			}
 
 			// remember some date. Later we could use it after the slice is done.
 			// here I add Stopwatch object to see how much time it takes
@@ -44,7 +49,7 @@ namespace BzKovSoft.CharacterSlicerSamples
 			var collidersArr = GetComponentsInChildren<Collider>();
 
 			// create component manager.
-			var componentManager = new CharacterComponentManagerFast(this.gameObject, plane, collidersArr);
+			var componentManager = new CharacterComponentManagerFast(gameObject, plane, collidersArr);
 
 			return new BzSliceTryData()
 			{
@@ -62,7 +67,9 @@ namespace BzKovSoft.CharacterSlicerSamples
 		protected override void OnSliceFinished(BzSliceTryResult result)
 		{
 			if (!result.sliced)
+			{
 				return;
+			}
 
 			var addData = (ResultData)result.addData;
 
@@ -174,7 +181,9 @@ namespace BzKovSoft.CharacterSlicerSamples
 
 				// add blood object to the bone
 				Vector3 position = AVG(meshData.vertices);
+
 				Vector3 normal = AVG(meshData.normals).normalized;
+
 				var rotation = Quaternion.FromToRotation(_prefubDirection, normal);
 
 				var m = skinnedRenderer.sharedMesh.bindposes[maxIndex];
@@ -255,17 +264,23 @@ namespace BzKovSoft.CharacterSlicerSamples
 			}
 
 			const float duration = 2f;
+
 			float t = 0f;
+
 			do
 			{
 				t += Time.deltaTime;
+
 				float r = duration;
 
 				for (int i = 0; i < rigids.Length; i++)
 				{
 					var rigid = rigids[i];
+
 					if (rigid == null)
+					{
 						continue;
+					}
 
 					rigid.maxDepenetrationVelocity = Mathf.Lerp(0.0f, 2f, r);
 				}
@@ -287,10 +302,10 @@ namespace BzKovSoft.CharacterSlicerSamples
 
 		static string drawText = "-";
 
-		//void OnGUI()
-		//{
-		//	GUI.Label(new Rect(10, 10, 2000, 2000), drawText);
-		//}
+		void OnGUI()
+		{
+			GUI.Label(new Rect(10, 10, 2000, 2000), drawText);
+		}
 
 		// Sample of data that can be attached to slice request.
 		// In this the Stopwatch is used to time duration of slice operation.

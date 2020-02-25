@@ -18,14 +18,12 @@ public class Game : MonoBehaviour
 
     public void Update()
     {
-        if (players[0].GetComponent<Character>().playerHealth <= 0)
+        if (players[0] != null)
         {
-            players.RemoveAt(0);
-        }
-
-        if (players[1].GetComponent<Character>().playerHealth <= 0)
-        {
-            players.RemoveAt(1);
+            if (players[0].GetComponent<Character>().playerHealth <= 0)
+            {
+                players.RemoveAt(0);
+            }
         }
     }
 }

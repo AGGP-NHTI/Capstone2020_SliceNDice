@@ -10,9 +10,9 @@ namespace BzKovSoft.CharacterSlicer
 	class CharacterComponentManagerFast : StaticComponentManager, IComponentManager
 	{
 
-		public CharacterComponentManagerFast(GameObject go, Plane plane, Collider[] colliders)
-			: base(go, plane, colliders)
+		public CharacterComponentManagerFast(GameObject go, Plane plane, Collider[] colliders) : base(go, plane, colliders)
 		{
+
 		}
 
 		public new void OnSlicedMainThread(GameObject resultObjNeg, GameObject resultObjPos, Renderer[] renderersNeg, Renderer[] renderersPos)
@@ -29,12 +29,16 @@ namespace BzKovSoft.CharacterSlicer
 		private static void OnCompletePerSide(List<Collider> colliders, GameObject go)
 		{
 			Profiler.BeginSample("OnCompletePerSide");
+			
 			Rigidbody[] rigids = go.GetComponentsInChildren<Rigidbody>();
+
 			List<Rigidbody> rigidsInside = new List<Rigidbody>();
 
 			// ----------------------
 			// prepare rigidsInside
+
 			Profiler.BeginSample("prepare rigidsInside");
+			
 			for (int i = 0; i < rigids.Length; i++)
 			{
 				var rigid = rigids[i];
@@ -46,13 +50,18 @@ namespace BzKovSoft.CharacterSlicer
 					rigidsInside.Add(rigid);
 				}
 			}
+			
 			Profiler.EndSample();
 
 			// ----------------------
 			// remove joints
+			
 			Profiler.BeginSample("remove joints");
+			
 			var freeEnds = new List<Rigidbody>();
+			
 			List<Joint> joints = new List<Joint>();
+			
 			go.GetComponentsInChildren<Joint>(false, joints);
 
 			for (int i = 0; i < joints.Count; i++)
@@ -88,16 +97,21 @@ namespace BzKovSoft.CharacterSlicer
 					joints[i] = null; // mark as deleted
 				}
 			}
+
 			Profiler.EndSample();
 
 			// ----------------------
 			// join parts
+
 			Profiler.BeginSample("join parts");
 
 			// find main (central) rigid
 			Profiler.BeginSample("find main (central) rigid");
+
 			int rigidIndex = 0;
+
 			int subRigidCount = 0;
+
 			for (int i = 0; i < freeEnds.Count; i++)
 			{
 				var part = freeEnds[i];
@@ -109,11 +123,14 @@ namespace BzKovSoft.CharacterSlicer
 					rigidIndex = i;
 				}
 			}
+
 			Profiler.EndSample();
 
 			// connect
 			Profiler.BeginSample("connect");
+
 			Transform main = null;
+			
 			if (freeEnds.Count > 0)
 			{
 				main = freeEnds[rigidIndex].transform;
@@ -128,28 +145,37 @@ namespace BzKovSoft.CharacterSlicer
 					var part = freeEnds[i].transform;
 
 					Profiler.BeginSample("IsAlreadyConnected");
+
 					if (IsAlreadyConnected(part, main, joints, new HashSet<Transform>()))
 					{
 						Profiler.EndSample();
 						continue;
 					}
+
 					Profiler.EndSample();
 
 					Joint newJoint = CreateJoint(part, main);
 					joints.Add(newJoint);
 				}
 			}
+
 			Profiler.EndSample();
+
 			Profiler.EndSample();
 
 			// ----------------------
 			// rearrange objects
+
 			Profiler.BeginSample("rearrange objects");
+
 			Transform oldRoot;
+
 			oldRoot = go.transform.Find("rootChrSlr");
+
 			if (oldRoot == null)
 			{
 				var animator = go.GetComponent<Animator>();
+
 				oldRoot = animator.GetBoneTransform(HumanBodyBones.Hips);
 
 				if (oldRoot == null)
@@ -157,11 +183,16 @@ namespace BzKovSoft.CharacterSlicer
 					for (int i = 0; i < go.transform.childCount; i++)
 					{
 						var rigid = go.transform.GetChild(i).GetComponent<Rigidbody>();
+
 						if (rigid == null)
+						{
 							continue;
-						
+						}
+
 						if (oldRoot != null)
+						{
 							throw new InvalidOperationException("Cannot find root object. Several objects with rigidbody was found");
+						}
 						
 						oldRoot = rigid.transform;
 					}
@@ -172,7 +203,9 @@ namespace BzKovSoft.CharacterSlicer
 			}
 
 			var newRoot = new GameObject("rootChrSlr").transform;
+
 			newRoot.SetParent(go.transform, false);
+
 			for (int i = 0; i < freeEnds.Count; i++)
 			{
 				var freeEnd = freeEnds[i];
@@ -187,11 +220,14 @@ namespace BzKovSoft.CharacterSlicer
 			{
 				oldRoot.SetParent(newRoot, true);
 			}
+
 			Profiler.EndSample();
 			
 			// ----------------------
 			// delete rigidbodies
+			
 			Profiler.BeginSample("delete rigidbodies");
+
 			for (int i = 0; i < rigids.Length; i++)
 			{
 				var rigid = rigids[i];
@@ -202,19 +238,26 @@ namespace BzKovSoft.CharacterSlicer
 					rigids[i] = null; // mark as deleted
 				}
 			}
+
 			Profiler.EndSample();
 
 			// ----------------------
 			// set center of mass and weight
+
 			Profiler.BeginSample("set center of mass and weight");
+
 			for (int i = 0; i < rigids.Length; i++)
 			{
 				var rigid = rigids[i];
+
 				if (rigid == null)
+				{
 					continue;
+				}
 
 				CenterOfMassColliderBasedHelper.CalculateCenter(rigid, colliders, rigids);
 			}
+
 			Profiler.EndSample();
 
 			Profiler.EndSample();

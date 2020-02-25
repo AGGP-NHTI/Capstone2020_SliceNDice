@@ -207,10 +207,10 @@ public class Character : MonoBehaviour
 
         Debug.Log(children.Count);
 
-        for (int i = 0; i < children.Count; i++)
+        /*for (int i = 0; i < children.Count; i++)
         {
             children[i].AddComponent<Rigidbody>();  // Adds a rigidbody so the objects won't fall through the ground.
-        }
+        }*/
 
         gameObject.transform.DetachChildren();      // Finally, detaches all children from the character.
     }

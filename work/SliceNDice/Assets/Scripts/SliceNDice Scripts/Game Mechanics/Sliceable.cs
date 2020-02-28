@@ -16,7 +16,7 @@ public class Sliceable : BzSliceableCharacterBase, IDeadable
 	[SerializeField]
 	int _maxSliceCount = 3;
 	[SerializeField]
-	GameObject _bloodPrefub;
+	public GameObject _bloodPrefub;
 	[SerializeField]
 	Vector3 _prefubDirection;
 	[SerializeField]

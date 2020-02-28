@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 8541196624211146888}
   - component: {fileID: 8541196624211146889}
   - component: {fileID: 8541196624211146892}
-  - component: {fileID: 805351257325135621}
   - component: {fileID: 1746137978059840726}
   - component: {fileID: 2394092521074187409}
-  - component: {fileID: 743726136919481006}
   - component: {fileID: 8541196624211146902}
+  - component: {fileID: 7976724365194789000}
+  - component: {fileID: 4527582081328775032}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -116,18 +116,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &805351257325135621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8541196624211146903}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e59b5b23454ce11429f5c56ef0227c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1746137978059840726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,24 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3476e71a681843ac5dc3ffd574c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &743726136919481006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8541196624211146903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59d2048181e69df42a6fa112828f577c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sliceId: 0
-  _lastSliceTime: -3.4028235e+38
-  _defaultSliceMaterial: {fileID: 2100000, guid: 5946f164e187fdf49b5223090ef045f2,
-    type: 2}
-  _asynchronously: 0
-  _delayBetweenSlices: 1
 --- !u!114 &8541196624211146902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,20 +156,57 @@ MonoBehaviour:
   isRunning: 0
   moveSpeed: 2
   jumpForce: 200
+  P2: 0
   Build: 0
   playerHealth: 0
   playerMaxHealth: 0
   playerGuard: 100
-  weaponPrefab: {fileID: 4430044467196797734, guid: c9b3ebc79e5a0ff4387e501abb84f833,
+  weaponPrefab: {fileID: 653163816737048721, guid: 6920550fc6a1f7e4193e075bcd5880b2,
     type: 3}
   weaponChosen: {fileID: 0}
   Weapon: {fileID: 0}
   spawnLoc: {fileID: 8610549655306223854}
   children: []
-  guardHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,
+  guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
     type: 3}
-  healthHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
+  healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,
     type: 3}
+--- !u!114 &7976724365194789000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8541196624211146903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9114c4399accb9468ebf206e19f7fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sliceId: 0
+  _lastSliceTime: -3.4028235e+38
+  _defaultSliceMaterial: {fileID: 2100000, guid: 5946f164e187fdf49b5223090ef045f2,
+    type: 2}
+  _asynchronously: 0
+  _delayBetweenSlices: 1
+  _maxSliceCount: 3
+  _bloodPrefub: {fileID: 1519314318387940, guid: cee7e6e67c3be35489149da56707d602,
+    type: 3}
+  _prefubDirection: {x: 0, y: 0, z: 0}
+  _convertToRagdoll: 1
+  _alignPrefSize: 0
+--- !u!114 &4527582081328775032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8541196624211146903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2639aaf35d286f149bd1edb73f3c732e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8541196624285385214
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8610549655306223854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8541196624211146890}

@@ -4,24 +4,27 @@ using System.Collections.Generic;
 using BzKovSoft.ObjectSlicerSamples;
 using DestroyIt;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Sliceable))]
+[RequireComponent(typeof(Destructible))]
+[RequireComponent(typeof(AdderSliceableAsync))]
 public class Character : MonoBehaviour
 {
     [Header("Movement")]
 
     [SerializeField]
-    private Rigidbody rb;                   // Character's Rigidbody.
+    Rigidbody rb;                           // Character's Rigidbody.
 
     public bool isRunning;                  // Bool to determine if they're running or not.
-
-    [Range(0f, 20f)]
-    public float moveSpeed;                 // Character's movement speed.
 
     [Range(100f, 1000f)]
     public int jumpForce;                   // Character's jumping force.
 
     bool canJump = true;
 
-    private float originalMovementSpeed;    // Stored while running.
+    float originalMovementSpeed;            // Stored while running.
+
+    public bool P2;                         // If P2, no movement.
 
     /**************************/
 
@@ -54,12 +57,15 @@ public class Character : MonoBehaviour
     [Header("Hit Effects")]
     public GameObject guardHit;             // Player effect when their Guard is hit.
     public GameObject healthHit;            // Player effect when their Health is hit.
+    GameObject bleedParticles;
 
     void Awake()
     {
         // Stored Movement Variables
 
         rb = GetComponent<Rigidbody>();                                         // DO. NOT. DELETE.
+
+        bleedParticles = GetComponent<Sliceable>()._bloodPrefub;
 
         Build = Mathf.CeilToInt(gameObject.transform.localScale.magnitude);     // How heavy/big the character is.
 
@@ -72,7 +78,7 @@ public class Character : MonoBehaviour
         // If weapon isn't null, alter move speed based on weapon weight vs. character's build. Also determines two-handed.
         if (Weapon != null)
         {
-            if (Weapon.weaponWeight > Build)
+            /*if (Weapon.weaponWeight > Build)
             {
                 moveSpeed = (5 - (Weapon.weaponWeight - Build) * 1.5f);
 
@@ -84,7 +90,7 @@ public class Character : MonoBehaviour
             else
             {
                 moveSpeed = (5 - Build) * 1.5f;
-            }
+            }*/
 
             if (Weapon.weaponWeight > Build)
             {
@@ -97,7 +103,7 @@ public class Character : MonoBehaviour
             }
         }
 
-        originalMovementSpeed = moveSpeed;                                      // Important for running.
+        // originalMovementSpeed = moveSpeed;                                      // Important for running.
 
         // Stored Statistic Variables
         playerMaxHealth = 50 + (Build * 25);                                    // Calculate Health based upon Build.
@@ -105,13 +111,19 @@ public class Character : MonoBehaviour
         playerHealth = playerMaxHealth;
 
         playerGuard = 100;                                                      // Guard is always set to 100. No more, no less.
+
+        if (P2)
+        {
+            // moveSpeed = 0;
+            originalMovementSpeed = 0;
+        }
     }
 
     void Update()
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        MovementControls();
+        // MovementControls();
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -127,9 +139,7 @@ public class Character : MonoBehaviour
             playerHealth = 0;
             playerGuard = 0;
 
-            Debug.LogWarning("KnifeSliceableAsync is disabled despite the character being dead. If it's a slash weapon, it's been commented out. Be sure to check the code if this is unintended.");
-
-            // GetComponent<KnifeSliceableAsync>().enabled = true;
+            GetComponent<AdderSliceableAsync>().enabled = true;
         }
 
         playerGuard += Mathf.CeilToInt(Time.deltaTime);
@@ -150,7 +160,7 @@ public class Character : MonoBehaviour
         ErrorChecker();     // Error checker makes sure that nothing is missing or going wrong. Displays errors.
     }
 
-    public void MovementControls()
+    /*public void MovementControls()
     {
         // Movement Control (FOR TESTING ONLY, THIS WILL BE REPLACED)
         float horizontal = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
@@ -189,12 +199,12 @@ public class Character : MonoBehaviour
         {
             gameObject.transform.Rotate(0, -2 * moveSpeed, 0);
         }
-    }
+    }*/
 
     void IsDead()
     {
-        moveSpeed = 0;                  // Ensures they can't move anymore.
-        originalMovementSpeed = 0;      // Ensures they can't move anymore.
+        // moveSpeed = 0;                  // Ensures they can't move anymore.
+        // originalMovementSpeed = 0;      // Ensures they can't move anymore.
 
         rb.freezeRotation = false;      // Allows them to fall over at any angle.
 
@@ -219,18 +229,73 @@ public class Character : MonoBehaviour
     {
         if (other.GetComponent<Weapon>())
         {
-            if (playerGuard > 0)
+            Weapon w = other.GetComponent<Weapon>();
+
+            if (w.weaponType == BzKnife.WeaponType.Slash)       // Damage with Slashing Weapon
             {
-                // Guard was hit, reduce guard.
-                Instantiate(guardHit);
-                playerGuard -= other.gameObject.GetComponent<Weapon>().weaponDamage;
+                if (w != weaponChosen)
+                {
+                    if (playerGuard > 0)
+                    {
+                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerGuard -= w.weaponDamage;
+                    }
+
+                    if (playerGuard <= 0)
+                    {
+                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerHealth -= w.weaponDamage;
+                    }
+                }
+
+                Debug.Log("Slash to Guard/Health: " + w.weaponDamage);
             }
 
-            if (playerGuard <= 0)
+            if (w.weaponType == BzKnife.WeaponType.Bludgeon)    // Damage with Bludgeoning Weapon
             {
-                // Health was hit, reduce health.
-                Instantiate(healthHit);
-                playerHealth -= other.gameObject.GetComponent<Weapon>().weaponDamage;
+                if (w != weaponChosen)
+                {
+                    rb.AddForce(w.BladeDirection * 1.25f, ForceMode.Impulse);
+
+                    // moveSpeed -= 0.04f;
+
+                    if (playerGuard > 0)
+                    {
+                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerGuard -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+                    }
+
+                    if (playerGuard <= 0)
+                    {
+                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                        gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                    }
+                }
+            }
+
+            if (w.weaponType == BzKnife.WeaponType.Pierce)    // Damage with Piercing Weapon
+            {
+                if (w != weaponChosen)
+                {
+                    rb.AddForceAtPosition(w.BladeDirection * 4f, gameObject.transform.position, ForceMode.Impulse);
+
+                    if (playerGuard > 0)
+                    {
+                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerGuard -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                    }
+
+                    if (playerGuard <= 0)
+                    {
+                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+
+                        Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
+
+                        Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
+                    }
+                }
             }
         }
     }
@@ -246,69 +311,18 @@ public class Character : MonoBehaviour
 
     IEnumerator SwingSword()    // This will be altered to not move the weapon after animations are implemented.
     {
-        var transformB = Weapon.transform.parent;
-        transformB.position = gameObject.transform.position;
-        transformB.rotation = gameObject.transform.rotation;
-
-        float seconds = (4 - (moveSpeed / Build)) * 0.125f;     // Attack speed. Should be altered with animations.
-
-        if (seconds <= 0)
-        {
-            seconds = 0.05f;
-        }
+        // float seconds = (4 - (moveSpeed / Build)) * 0.125f;     // Attack speed. Should be altered with animations. Modify later!
 
         playerGuard -= 25;      // Characters attacking reduce Guard gradually.
 
-        if (Weapon.weaponType == BzKnife.WeaponType.Slash)
-        {
-            for (float f = 0f; f < seconds; f += Time.deltaTime)
-            {
-                float aY = (f / seconds) * 180 - 90;
-                float aX = (f / seconds) * 60 - 30;
-
-                var r = Quaternion.Euler(aX, -aY, 0);
-
-                transformB.rotation = gameObject.transform.rotation * r;
-                yield return null;
-            }
-        }
-
-        if (Weapon.weaponType == BzKnife.WeaponType.Bludgeon)
-        {
-            for (float f = 0f; f < seconds; f += Time.deltaTime)
-            {
-                float aX = (f / seconds) * 60 - 55;
-
-                var r = Quaternion.Euler(aX + 1f, 0, 0);
-
-                transformB.rotation = gameObject.transform.rotation * r;
-                yield return null;
-            }
-        }
-
-        if (Weapon.weaponType == BzKnife.WeaponType.Pierce)
-        {
-            for (float f = 0f; f < seconds; f += Time.deltaTime)
-            {
-                var r = Quaternion.Euler(15, 0, 0);
-
-                transformB.Translate(0, 0.025f, 0.03f);
-
-                transformB.rotation = gameObject.transform.rotation * r;
-
-                Debug.Log("Pierce Position Result: " + transformB.position);
-                Debug.Log("Pierce Rotation: " + transformB.position);
-
-                yield return null;
-            }
-        }
+        yield return null;
     }
 
     void ErrorChecker()
     {
-        if (!GetComponent<KnifeSliceableAsync>())
+        if (!GetComponent<AdderSliceableAsync>())
         {
-            Debug.LogWarning("KnifeSliceableAsync is missing! (This is what allows things to be cut.)");
+            Debug.LogWarning("AdderSliceableAsync is missing! (This is what allows things to be cut.)");
         }
 
         if (!rb)
@@ -319,11 +333,6 @@ public class Character : MonoBehaviour
         if (!Weapon)
         {
             Debug.LogWarning("Weapon is not assigned to the character. Attacking will not work.");
-        }
-
-        if (moveSpeed == 0)
-        {
-            Debug.LogWarning("Move speed has been set to 0. Unless the character is dead, this is unintended.");
         }
     }
 }

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459726507}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.27, y: 1, z: -5.3100004}
+  m_LocalPosition: {x: 1.15, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 164988534710062866}
@@ -1127,6 +1127,8 @@ GameObject:
   - component: {fileID: 3751905215837715719}
   - component: {fileID: 3751905215837715717}
   - component: {fileID: 3751905215837715716}
+  - component: {fileID: 6452143495592982244}
+  - component: {fileID: 5019311098260928130}
   m_Layer: 0
   m_Name: Avacado (Sliceable)
   m_TagString: Player
@@ -1201,7 +1203,7 @@ MonoBehaviour:
   _asynchronously: 0
   _delayBetweenSlices: 1
   _maxSliceCount: 3
-  _bloodPrefub: {fileID: 1519314318387940, guid: 3a900fcafc97b7b4a86e1d28af2b848c,
+  _bloodPrefub: {fileID: 1519314318387940, guid: 59212c628a9bdb54488d38c6badc1f6e,
     type: 3}
   _prefubDirection: {x: 0, y: 0, z: 0}
   _convertToRagdoll: 1
@@ -1235,6 +1237,102 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.08, z: 0.25}
   m_Center: {x: 0, y: 0.04, z: 0.05}
+--- !u!114 &6452143495592982244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3751905215837715713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbb502083c41048a8fedc6a9693be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHitPoints: 50
+  currentHitPoints: 50
+  damageLevels:
+  - maxHitPoints: 50
+    minHitPoints: 41
+    healthPercent: 100
+    hasError: 0
+    visibleDamageLevel: 0
+  - maxHitPoints: 40
+    minHitPoints: 31
+    healthPercent: 80
+    hasError: 0
+    visibleDamageLevel: 2
+  - maxHitPoints: 30
+    minHitPoints: 21
+    healthPercent: 60
+    hasError: 0
+    visibleDamageLevel: 4
+  - maxHitPoints: 20
+    minHitPoints: 11
+    healthPercent: 40
+    hasError: 0
+    visibleDamageLevel: 6
+  - maxHitPoints: 10
+    minHitPoints: 0
+    healthPercent: 20
+    hasError: 0
+    visibleDamageLevel: 8
+  destroyedPrefab: {fileID: 0}
+  destroyedPrefabParent: {fileID: 0}
+  fallbackParticle: {fileID: 0}
+  fallbackParticleMaterial: {fileID: 0}
+  damageEffects: []
+  velocityReduction: 0.5
+  ignoreCollisionsUnder: 2
+  unparentOnDestroy: []
+  disableKinematicOnUparentedChildren: 1
+  replaceMaterials: []
+  canBeDestroyed: 1
+  canBeRepaired: 1
+  canBeObliterated: 1
+  debrisToReParentByName: []
+  debrisToReParentIsKinematic: 0
+  childrenToReParentByName: []
+  destructibleGroupId: 0
+  isDebrisChipAway: 0
+  chipAwayDebrisMass: 1
+  chipAwayDebrisDrag: 0
+  chipAwayDebrisAngularDrag: 0.05
+  autoPoolDestroyedPrefab: 1
+  useFallbackParticle: 1
+  centerPointOverride: {x: 0, y: 0, z: 0}
+  sinkWhenDestroyed: 0
+--- !u!114 &5019311098260928130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3751905215837715713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a699d9fc2ec0340a3690baea3996dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  isRunning: 0
+  moveSpeed: 0
+  jumpForce: 0
+  P2: 1
+  Build: 0
+  playerHealth: 100
+  playerMaxHealth: 100
+  playerGuard: 100
+  weaponPrefab: {fileID: 3604079853947817240, guid: 8597c9f42cd3e9844a91945db6992c79,
+    type: 3}
+  weaponChosen: {fileID: 0}
+  Weapon: {fileID: 0}
+  spawnLoc: {fileID: 1459726507}
+  children: []
+  guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
+    type: 3}
+  healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,
+    type: 3}
 --- !u!1 &3827937513646193181
 GameObject:
   m_ObjectHideFlags: 0

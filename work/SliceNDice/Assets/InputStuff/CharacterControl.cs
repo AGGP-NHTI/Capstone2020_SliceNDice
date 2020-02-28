@@ -11,29 +11,55 @@ public class CharacterControl : MonoBehaviour
     Animator anim;
     private PlayerControls controls = null;
     public InputDevice p1Device;
-
-    public Transform Weaponpoint1;
-    public Transform weaponpoint2;
+    public bool P1;
+    public GameObject Weaponpoint1;
+    public GameObject weaponpoint2;
     GameObject managerob;
 
+    public GameObject Weapon;
+    GameObject WepLoc;
 
     TPSpawn spawnman;
+
+    Quaternion offset = new Quaternion(-40, 180, 0, 0);
     private void Awake()
     {
         managerob = GameObject.Find("PlayerManager");
         controls = new PlayerControls();
+        
     }
 
     private void Start()
-    { 
+    {
+        
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.useGravity = true;
         spawnman = managerob.GetComponent<TPSpawn>();
+        GameObject Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
+        WepLoc = GameObject.Find(Weapon.name + "(Clone)");
+        if (P1)
+        {
+            WepLoc.transform.position = Weaponpoint1.transform.position;
+            WepLoc.transform.rotation = new Quaternion(60, 180, -40, 0);
+            WepLoc.transform.SetParent(Weaponpoint1.transform);
+            WepLoc.transform.parent = Weaponpoint1.transform;
+        }
+        else
+        {
+            WepLoc.transform.SetParent(Weaponpoint1.transform);
+            WepLoc.transform.parent = Weaponpoint1.transform;
+            WepLoc.transform.position = Weaponpoint1.transform.position;
+            WepLoc.transform.Rotate(-55, 180, 30);
+
+        }
+       
+        
     }
 
     private void Update()
     {
+      
         if (spawnman.p1DevicePad.buttonWest.wasPressedThisFrame)
         {
             FastAttack();

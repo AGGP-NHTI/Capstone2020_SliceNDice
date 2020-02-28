@@ -42,9 +42,9 @@ public class Character : MonoBehaviour
     /**************************/
 
     [Header("External Objects")]
-    public GameObject weaponPrefab;         // Prefab of weapon chosen.
-    public GameObject weaponChosen;         // Weapon character has chosen via character selection.
-    public Weapon Weapon;                   // Character's weapon.
+    //public GameObject weaponPrefab;         // Prefab of weapon chosen.
+    //public GameObject weaponChosen;         // Weapon character has chosen via character selection.
+    //public Weapon Weapon;                   // Character's weapon.
     public GameObject spawnLoc;             // Where the weapon is spawned. Put this in the character's hand.
 
     [SerializeField]
@@ -69,42 +69,6 @@ public class Character : MonoBehaviour
 
         Build = Mathf.CeilToInt(gameObject.transform.localScale.magnitude);     // How heavy/big the character is.
 
-        Instantiate(weaponPrefab, spawnLoc.transform);                          // Instantiate the weapon into the world.
-
-        weaponChosen = GetComponentInChildren<Weapon>().gameObject;             // Gets the weapon game object so it can be edited.
-
-        Weapon = weaponChosen.GetComponentInChildren<Weapon>();                 // Gets the weapon's "Weapon" script.
-
-        // If weapon isn't null, alter move speed based on weapon weight vs. character's build. Also determines two-handed.
-        if (Weapon != null)
-        {
-            /*if (Weapon.weaponWeight > Build)
-            {
-                moveSpeed = (5 - (Weapon.weaponWeight - Build) * 1.5f);
-
-                if (moveSpeed <= 0)
-                {
-                    moveSpeed = 1f;
-                }
-            }
-            else
-            {
-                moveSpeed = (5 - Build) * 1.5f;
-            }*/
-
-            if (Weapon.weaponWeight > Build)
-            {
-                isTwoHanded = Weapon.isTwoHanded(true);     // Use two-handed animations.
-            }
-
-            if (Weapon.weaponWeight < Build)
-            {
-                isTwoHanded = Weapon.isTwoHanded(false);    // Use one-handed animations.
-            }
-        }
-
-        // originalMovementSpeed = moveSpeed;                                      // Important for running.
-
         // Stored Statistic Variables
         playerMaxHealth = 50 + (Build * 25);                                    // Calculate Health based upon Build.
 
@@ -122,16 +86,6 @@ public class Character : MonoBehaviour
     void Update()
     {
         Cursor.lockState = CursorLockMode.Locked;
-
-        // MovementControls();
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            var knifeSlice = Weapon.GetComponentInChildren<BzKnife>();
-            knifeSlice.BeginNewSlice();
-
-            StartCoroutine(SwingSword());
-        }
 
         if (playerHealth <= 0)
         {
@@ -160,52 +114,8 @@ public class Character : MonoBehaviour
         ErrorChecker();     // Error checker makes sure that nothing is missing or going wrong. Displays errors.
     }
 
-    /*public void MovementControls()
-    {
-        // Movement Control (FOR TESTING ONLY, THIS WILL BE REPLACED)
-        float horizontal = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        transform.Translate(horizontal, 0, 0);
-
-        float vertical = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-        transform.Translate(0, 0, vertical);
-
-
-        // Jump Control
-        if (Input.GetKeyDown(KeyCode.Space) && canJump)
-        {
-            rb.AddForce(0, jumpForce, 0);
-
-            playerGuard = 0;    // Characters cannot guard while jumping.
-
-            StartCoroutine(JumpCoroutine());
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            moveSpeed = moveSpeed * 2;
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            moveSpeed = originalMovementSpeed;
-        }
-
-        if (Input.GetKey(KeyCode.Q))
-        {
-            gameObject.transform.Rotate(0, 2 * moveSpeed, 0);
-        }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            gameObject.transform.Rotate(0, -2 * moveSpeed, 0);
-        }
-    }*/
-
     void IsDead()
     {
-        // moveSpeed = 0;                  // Ensures they can't move anymore.
-        // originalMovementSpeed = 0;      // Ensures they can't move anymore.
-
         rb.freezeRotation = false;      // Allows them to fall over at any angle.
 
 
@@ -222,7 +132,7 @@ public class Character : MonoBehaviour
             children[i].AddComponent<Rigidbody>();  // Adds a rigidbody so the objects won't fall through the ground.
         }*/
 
-        gameObject.transform.DetachChildren();      // Finally, detaches all children from the character.
+        // gameObject.transform.DetachChildren();      // Finally, detaches all children from the character.
     }
 
     private void OnTriggerEnter(Collider other)
@@ -233,19 +143,17 @@ public class Character : MonoBehaviour
 
             if (w.weaponType == BzKnife.WeaponType.Slash)       // Damage with Slashing Weapon
             {
-                if (w != weaponChosen)
+                if (playerGuard > 0)
                 {
-                    if (playerGuard > 0)
-                    {
-                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerGuard -= w.weaponDamage;
-                    }
+                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerGuard -= w.weaponDamage;
+                }
 
-                    if (playerGuard <= 0)
-                    {
-                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerHealth -= w.weaponDamage;
-                    }
+                if (playerGuard <= 0)
+                {
+                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerHealth -= w.weaponDamage;
+
                 }
 
                 Debug.Log("Slash to Guard/Health: " + w.weaponDamage);
@@ -253,49 +161,45 @@ public class Character : MonoBehaviour
 
             if (w.weaponType == BzKnife.WeaponType.Bludgeon)    // Damage with Bludgeoning Weapon
             {
-                if (w != weaponChosen)
+                rb.AddForce(w.BladeDirection * 1.25f, ForceMode.Impulse);
+
+                // moveSpeed -= 0.04f;
+
+                if (playerGuard > 0)
                 {
-                    rb.AddForce(w.BladeDirection * 1.25f, ForceMode.Impulse);
+                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerGuard -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+                }
 
-                    // moveSpeed -= 0.04f;
+                if (playerGuard <= 0)
+                {
+                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                    gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
 
-                    if (playerGuard > 0)
-                    {
-                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerGuard -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
-                    }
-
-                    if (playerGuard <= 0)
-                    {
-                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                        gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                    }
                 }
             }
 
             if (w.weaponType == BzKnife.WeaponType.Pierce)    // Damage with Piercing Weapon
             {
-                if (w != weaponChosen)
+                rb.AddForceAtPosition(w.BladeDirection * 4f, gameObject.transform.position, ForceMode.Impulse);
+
+                if (playerGuard > 0)
                 {
-                    rb.AddForceAtPosition(w.BladeDirection * 4f, gameObject.transform.position, ForceMode.Impulse);
-
-                    if (playerGuard > 0)
-                    {
-                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerGuard -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                    }
-
-                    if (playerGuard <= 0)
-                    {
-                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
-
-                        Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
-
-                        Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
-                    }
+                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerGuard -= Mathf.CeilToInt(w.weaponDamage * 2f);
                 }
+
+                if (playerGuard <= 0)
+                {
+                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+
+                    Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
+
+                    Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
+                }
+
             }
         }
     }
@@ -328,11 +232,6 @@ public class Character : MonoBehaviour
         if (!rb)
         {
             Debug.LogWarning("This needs a Rigidbody to work.");
-        }
-
-        if (!Weapon)
-        {
-            Debug.LogWarning("Weapon is not assigned to the character. Attacking will not work.");
         }
     }
 }

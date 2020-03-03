@@ -40,8 +40,8 @@ public class TPSpawn : MonoBehaviour
         manager.JoinPlayer(1, NOSPLITSCREEN, NOCONTROLSCHEME, p2Device);
         control = GameObject.Find("CameraManager").GetComponent<CameraControl>();
 
-        control.Player1 = GameObject.Find(P1.name + "(Clone)").GetComponent<Transform>();
-        control.Player2 = GameObject.Find(P2.name + "(Clone)").GetComponent<Transform>();
+        control.Player1 = GameObject.Find(P1.name + "(Clone)");
+        control.Player2 = GameObject.Find(P2.name + "(Clone)");
 
     }
 

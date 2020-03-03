@@ -58,11 +58,5 @@ public class CameraControl : MonoBehaviour
             Cam.transform.position = cameraDestination;
             Debug.Log("Camera Should Snap");
         }
-            
-
-
-
-
-
     }
 }

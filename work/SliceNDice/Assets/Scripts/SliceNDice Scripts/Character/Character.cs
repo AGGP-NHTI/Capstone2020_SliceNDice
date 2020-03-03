@@ -17,12 +17,10 @@ public class Character : MonoBehaviour
 
     public bool isRunning;                  // Bool to determine if they're running or not.
 
+    CharacterControl cc;
+
     [Range(100f, 1000f)]
     public int jumpForce;                   // Character's jumping force.
-
-    bool canJump = true;
-
-    float originalMovementSpeed;            // Stored while running.
 
     public bool P2;                         // If P2, no movement.
 
@@ -42,15 +40,9 @@ public class Character : MonoBehaviour
     /**************************/
 
     [Header("External Objects")]
-    //public GameObject weaponPrefab;         // Prefab of weapon chosen.
-    //public GameObject weaponChosen;         // Weapon character has chosen via character selection.
-    //public Weapon Weapon;                   // Character's weapon.
-    public GameObject spawnLoc;             // Where the weapon is spawned. Put this in the character's hand.
-
-    [SerializeField]
-    List<GameObject> children;              // This is only used to detach children from the GameObject upon death.
-
     bool isTwoHanded;                       // Determines which animations will be used (one-handed or two-handed).
+    public Animator anim;
+    public GameObject platform;
 
     /**************************/
 
@@ -69,18 +61,16 @@ public class Character : MonoBehaviour
 
         Build = Mathf.CeilToInt(gameObject.transform.localScale.magnitude);     // How heavy/big the character is.
 
+        anim = GetComponent<Animator>();
+
+        cc = GetComponent<CharacterControl>();
+
         // Stored Statistic Variables
         playerMaxHealth = 50 + (Build * 25);                                    // Calculate Health based upon Build.
 
         playerHealth = playerMaxHealth;
 
         playerGuard = 100;                                                      // Guard is always set to 100. No more, no less.
-
-        if (P2)
-        {
-            // moveSpeed = 0;
-            originalMovementSpeed = 0;
-        }
     }
 
     void Update()
@@ -117,22 +107,9 @@ public class Character : MonoBehaviour
     void IsDead()
     {
         rb.freezeRotation = false;      // Allows them to fall over at any angle.
-
-
-        // The following below is to detach child objects, so weapons and the like fall to the ground.
-        foreach (Transform child in transform)
-        {
-            children.Add(child.gameObject);     // Adds the game objects that are a child to the character.
-        }
-
-        Debug.Log(children.Count);
-
-        /*for (int i = 0; i < children.Count; i++)
-        {
-            children[i].AddComponent<Rigidbody>();  // Adds a rigidbody so the objects won't fall through the ground.
-        }*/
-
-        // gameObject.transform.DetachChildren();      // Finally, detaches all children from the character.
+        anim.enabled = false;
+        cc.movementSpeed = 0;
+        Destroy(platform);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -155,8 +132,6 @@ public class Character : MonoBehaviour
                     playerHealth -= w.weaponDamage;
 
                 }
-
-                Debug.Log("Slash to Guard/Health: " + w.weaponDamage);
             }
 
             if (w.weaponType == BzKnife.WeaponType.Bludgeon)    // Damage with Bludgeoning Weapon
@@ -176,7 +151,6 @@ public class Character : MonoBehaviour
                     Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
                     playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
                     gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
-
                 }
             }
 
@@ -208,9 +182,7 @@ public class Character : MonoBehaviour
     {
         // Serves as the "cool down" for Jump.
 
-        canJump = false;
         yield return new WaitForSeconds(1);
-        canJump = true;
     }
 
     IEnumerator SwingSword()    // This will be altered to not move the weapon after animations are implemented.

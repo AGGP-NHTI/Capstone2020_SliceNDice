@@ -434,6 +434,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4562031635632144128}
+  - component: {fileID: 4359790056325484253}
+  - component: {fileID: 4422313378146840189}
+  - component: {fileID: 3777543573805065089}
   m_Layer: 0
   m_Name: ElbowIK.L
   m_TagString: Untagged
@@ -456,6 +459,80 @@ Transform:
   m_Father: {fileID: 3733435099286950861}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &4359790056325484253
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359793551797839284}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &4422313378146840189
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359793551797839284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0005
+  m_Center: {x: 0, y: -0.00125, z: 0}
+--- !u!144 &3777543573805065089
+CharacterJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359793551797839284}
+  m_ConnectedBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 4.6114535, y: 1.9267545, z: 8.158119}
+  serializedVersion: 2
+  m_SwingAxis: {x: 0, y: 1, z: 0}
+  m_TwistLimitSpring:
+    spring: 0
+    damper: 0
+  m_LowTwistLimit:
+    limit: -20
+    bounciness: 0
+    contactDistance: 0
+  m_HighTwistLimit:
+    limit: 70
+    bounciness: 0
+    contactDistance: 0
+  m_SwingLimitSpring:
+    spring: 0
+    damper: 0
+  m_Swing1Limit:
+    limit: 40
+    bounciness: 0
+    contactDistance: 0
+  m_Swing2Limit:
+    limit: 40
+    bounciness: 0
+    contactDistance: 0
+  m_EnableProjection: 1
+  m_ProjectionDistance: 0.1
+  m_ProjectionAngle: 180
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &1376901839406517609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,14 +1392,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4470798732723020599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39998b917fc4d3940b44419c6eba61c9, type: 3}
+  m_Script: {fileID: 11500000, guid: d98ed0d2e07aa46499b34315ab9f7263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  P1: 1
-  Weaponpoint1: {fileID: 2784983082976432057}
-  weaponpoint2: {fileID: 51954961085086663}
-  Weapon: {fileID: 5284564557066155808, guid: 8a5cc42b53b193d49a7dbd493d8cc180, type: 3}
+  movementSpeed: 0.01
+  P1: 0
+  Weaponpoint1: {fileID: 0}
+  weaponpoint2: {fileID: 0}
+  Weapon: {fileID: 0}
 --- !u!95 &3567981737421374651
 Animator:
   serializedVersion: 3
@@ -1479,8 +1556,8 @@ MonoBehaviour:
   playerHealth: 0
   playerMaxHealth: 0
   playerGuard: 0
-  spawnLoc: {fileID: 2784983082976432057}
-  children: []
+  anim: {fileID: 0}
+  platform: {fileID: 0}
   guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
     type: 3}
   healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,
@@ -1743,7 +1820,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2255970760979658978}
   - component: {fileID: 4462323025921225937}
-  - component: {fileID: 3181910968303173344}
   m_Layer: 0
   m_Name: Sphere.001
   m_TagString: Untagged
@@ -1866,20 +1942,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.010574484, y: 0.004180165, z: 0.00070709037}
     m_Extent: {x: 0.012489911, y: 0.010670766, z: 0.0040322156}
   m_DirtyAABB: 0
---- !u!64 &3181910968303173344
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577276254459163811}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 70948873267775455, guid: 4cef9a7cecf0540499bc8ab41a84187d, type: 3}
 --- !u!1 &5780186570502723925
 GameObject:
   m_ObjectHideFlags: 0

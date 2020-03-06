@@ -2449,14 +2449,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8306601602823194623}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39998b917fc4d3940b44419c6eba61c9, type: 3}
+  m_Script: {fileID: 11500000, guid: d98ed0d2e07aa46499b34315ab9f7263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  P1: 1
-  Weaponpoint1: {fileID: 4114378963885279383}
-  weaponpoint2: {fileID: 5841961603588792465}
-  Weapon: {fileID: 5284564557066155808, guid: 8a5cc42b53b193d49a7dbd493d8cc180, type: 3}
+  movementSpeed: 1
+  P1: 0
+  Weaponpoint1: {fileID: 0}
+  weaponpoint2: {fileID: 0}
+  Weapon: {fileID: 0}
 --- !u!95 &6797442212094213184
 Animator:
   serializedVersion: 3
@@ -2613,8 +2613,8 @@ MonoBehaviour:
   playerHealth: 0
   playerMaxHealth: 0
   playerGuard: 0
-  spawnLoc: {fileID: 4114378963885279383}
-  children: []
+  anim: {fileID: 0}
+  platform: {fileID: 0}
   guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
     type: 3}
   healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,

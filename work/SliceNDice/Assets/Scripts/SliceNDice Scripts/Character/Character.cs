@@ -107,7 +107,7 @@ public class Character : MonoBehaviour
     void IsDead()
     {
         rb.freezeRotation = false;      // Allows them to fall over at any angle.
-        anim.enabled = false;
+        // anim.enabled = false;
         cc.movementSpeed = 0;
         Destroy(platform);
     }

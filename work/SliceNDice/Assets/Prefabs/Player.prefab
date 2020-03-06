@@ -32,7 +32,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8541196624211146903}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.06482064, y: 0.16960041, z: -0.011180144, w: 0.98331535}
   m_LocalPosition: {x: 1.04, y: 1, z: -7.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -154,19 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   isRunning: 0
-  moveSpeed: 2
   jumpForce: 200
   P2: 0
   Build: 0
   playerHealth: 0
   playerMaxHealth: 0
   playerGuard: 100
-  weaponPrefab: {fileID: 653163816737048721, guid: 6920550fc6a1f7e4193e075bcd5880b2,
-    type: 3}
-  weaponChosen: {fileID: 0}
-  Weapon: {fileID: 0}
-  spawnLoc: {fileID: 8610549655306223854}
-  children: []
+  anim: {fileID: 0}
+  platform: {fileID: 0}
   guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
     type: 3}
   healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,

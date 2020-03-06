@@ -1907,7 +1907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7092707159058589262}
   - component: {fileID: 7210118945142677578}
-  - component: {fileID: 5939576065103097773}
+  - component: {fileID: 5677417516525740645}
   - component: {fileID: 5728011505327660528}
   - component: {fileID: -398523325048674109}
   - component: {fileID: -8577522518116988111}
@@ -1996,7 +1996,7 @@ MonoBehaviour:
     m_ActionName: Player/Join[/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID/buttonSouth,/Keyboard/j]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5939576065103097773}
+      - m_Target: {fileID: 0}
         m_MethodName: StabAttack
         m_Mode: 1
         m_Arguments:
@@ -2034,7 +2034,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5939576065103097773
+--- !u!114 &5677417516525740645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2043,14 +2043,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7092707159058589263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39998b917fc4d3940b44419c6eba61c9, type: 3}
+  m_Script: {fileID: 11500000, guid: d98ed0d2e07aa46499b34315ab9f7263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  P1: 1
+  movementSpeed: 1
+  P1: 0
   Weaponpoint1: {fileID: 3456943266294848188}
   weaponpoint2: {fileID: 3456943266294848188}
-  Weapon: {fileID: 3339636076854027709, guid: 276b002c36d555f4ea0eac0ef05d1326, type: 3}
+  Weapon: {fileID: 4444594161948506599, guid: 8a5cc42b53b193d49a7dbd493d8cc180, type: 3}
 --- !u!95 &5728011505327660528
 Animator:
   serializedVersion: 3
@@ -2183,7 +2183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a699d9fc2ec0340a3690baea3996dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 7798686382127928053}
   isRunning: 0
   jumpForce: 0
   P2: 0

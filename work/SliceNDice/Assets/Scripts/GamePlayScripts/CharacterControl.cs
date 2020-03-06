@@ -10,7 +10,7 @@ public class CharacterControl : MonoBehaviour
     Vector2 Moveet;
     Animator anim;
     private PlayerControls controls = null;
-    public InputDevice p1Device;
+    public Gamepad pDevice;
     public bool P1;
     public GameObject Weaponpoint1;
     public GameObject weaponpoint2;
@@ -21,6 +21,8 @@ public class CharacterControl : MonoBehaviour
 
     public GameObject Weapon;
     GameObject WepLoc;
+
+    CameraControl thecamref;
 
     TPSpawn spawnman;
 
@@ -62,8 +64,7 @@ public class CharacterControl : MonoBehaviour
 
     private void Update()
     {
-        moveDirection = new Vector3(Moveet.x, 0, Moveet.y);
-        movement = moveDirection * movementSpeed * Time.deltaTime;
+        // Vector3 p1camangle = new Vector3()
 
         if (spawnman.p1DevicePad.buttonWest.wasPressedThisFrame)
         {
@@ -89,40 +90,10 @@ public class CharacterControl : MonoBehaviour
         {
             StabAttack2();
         }
-        //Player 1 movement.
-        if (spawnman.p1DevicePad.leftStick.left.isPressed)
-        {
-          
-        }
-        if (spawnman.p1DevicePad.leftStick.right.isPressed)
-        {
-          
-        }
-        if (spawnman.p1DevicePad.leftStick.up.isPressed)
-        {
-           
-        }
-        if (spawnman.p1DevicePad.leftStick.down.isPressed)
-        {
-          
-        }
-        //Player 2 movement.
-        if (spawnman.p2DevicePad.leftStick.left.isPressed)
-        {
 
-        }
-        if (spawnman.p2DevicePad.leftStick.right.isPressed)
-        {
+         // horizontal spawnman.p1DevicePad.leftStick.x.ReadValue();
+        // vertical spawnman.p1DevicePad.leftStick.y.ReadValue();
 
-        }
-        if (spawnman.p2DevicePad.leftStick.up.isPressed)
-        {
-
-        }
-        if (spawnman.p2DevicePad.leftStick.down.isPressed)
-        {
-
-        }
 
 
     }

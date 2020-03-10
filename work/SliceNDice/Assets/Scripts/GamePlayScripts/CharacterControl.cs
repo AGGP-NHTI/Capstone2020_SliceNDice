@@ -15,14 +15,14 @@ public class CharacterControl : MonoBehaviour
     public GameObject Weaponpoint1;
     public GameObject weaponpoint2;
     GameObject managerob;
+    public CameraControl control;
+
 
     Vector3 moveDirection;
     Vector3 movement;
 
     public GameObject Weapon;
     GameObject WepLoc;
-
-    CameraControl thecamref;
 
     TPSpawn spawnman;
 
@@ -36,7 +36,7 @@ public class CharacterControl : MonoBehaviour
 
     private void Start()
     {
-
+        control = GameObject.Find("CameraManager").GetComponent<CameraControl>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.useGravity = true;
@@ -64,7 +64,10 @@ public class CharacterControl : MonoBehaviour
 
     private void Update()
     {
-        // Vector3 p1camangle = new Vector3()
+        Debug.Log("P1 X Value:" + spawnman.p1DevicePad.leftStick.x.ReadValue());
+        Debug.Log("P1 Y Value:" + spawnman.p1DevicePad.leftStick.y.ReadValue());
+        Debug.Log("P2 X Value:" + spawnman.p2DevicePad.leftStick.x.ReadValue());
+        Debug.Log("P2 Y Value:" + spawnman.p2DevicePad.leftStick.y.ReadValue());
 
         if (spawnman.p1DevicePad.buttonWest.wasPressedThisFrame)
         {
@@ -91,10 +94,49 @@ public class CharacterControl : MonoBehaviour
             StabAttack2();
         }
 
-         // horizontal spawnman.p1DevicePad.leftStick.x.ReadValue();
-        // vertical spawnman.p1DevicePad.leftStick.y.ReadValue();
 
+            //horizontal p1
+            if (spawnman.p1DevicePad.leftStick.x.ReadValue() > 0)
+            {
+                control.Player1.transform.position = transform.forward * movementSpeed;
+            }
+            //vertical p1 
+            if (spawnman.p1DevicePad.leftStick.y.ReadValue() > 0)
+            {
+                control.Player1.transform.position = transform.right * movementSpeed;
+            }
+            //horizontal p1
+            if (spawnman.p1DevicePad.leftStick.x.ReadValue() < 0)
+            {
+                control.Player1.transform.position = -(transform.forward * movementSpeed);
+            }
+            //vertical p1 
+            if (spawnman.p1DevicePad.leftStick.y.ReadValue() < 0)
+            {
 
+                control.Player1.transform.position = -(transform.right * movementSpeed);
+            }
+
+            //horizontal p2
+            if (spawnman.p2DevicePad.leftStick.x.ReadValue() > 0)
+            {
+                control.Player2.transform.position = transform.forward * movementSpeed;
+            }
+            //vertical p2
+            if (spawnman.p2DevicePad.leftStick.y.ReadValue() > 0)
+            {
+                control.Player2.transform.position = transform.right * movementSpeed ;
+            }
+            //horizontal p2
+            if (spawnman.p2DevicePad.leftStick.x.ReadValue() < 0)
+            {
+                control.Player2.transform.position = -(transform.forward * movementSpeed );
+            }
+            //vertical p2
+            if (spawnman.p2DevicePad.leftStick.y.ReadValue() < 0)
+            {
+                control.Player2.transform.position = -(transform.right * movementSpeed );
+            }
 
     }
     private void OnEnable()
@@ -107,26 +149,7 @@ public class CharacterControl : MonoBehaviour
         controls.Player.Disable();
     }
     
-    private void Move()
-    {
-        Vector3 moveDirection = new Vector3(Moveet.x, 0, Moveet.y);
-        Vector3 movement = moveDirection * movementSpeed * Time.deltaTime;
-
-         transform.Translate(movement);
-
-         transform.position += moveDirection.x * transform.forward;
-
-
-        if (movement.magnitude == 0)
-        {
-            anim.SetInteger("Condition", 0);
-        }
-        else if (movement.magnitude > 0 || movement.magnitude < 0)
-        {
-            anim.SetInteger("Condition", 1);
-        }
-    }
-
+  
     public void StabAttack()
     {
           Debug.Log("Stab1");
@@ -158,7 +181,14 @@ public class CharacterControl : MonoBehaviour
         anim.SetTrigger("StrongAtt2");
     }
 
-
+        //if (movement.magnitude == 0)
+        //{
+        //    anim.SetInteger("Condition", 0);
+        //}
+        //else if (movement.magnitude > 0 || movement.magnitude< 0)
+        //{
+        //    anim.SetInteger("Condition", 1);
+        //}
     private void OnMove(InputValue value)
     {
         Moveet = value.Get<Vector2>();

@@ -4,12 +4,30 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
+    public static CameraControl Instance { get; private set; }
     public Camera Camera1;
     public GameObject Player1;
     public GameObject Player2;
     float offset = 5f;
     private Vector3 targetPoint;
     private Quaternion targetRotation;
+
+    public Vector3 midpoint;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+
+    }
     void Start()
     {
         
@@ -26,8 +44,7 @@ public class CameraControl : MonoBehaviour
         float zoomFactor = 1.5f;
         float followTimeDelta = 0.8f;
 
-
-        Vector3 midpoint = (t1.position + t2.position) / 2f;
+        midpoint = (t1.position + t2.position) / 2f;
 
         float distance = (t1.position - t2.position).magnitude;
 
@@ -36,8 +53,6 @@ public class CameraControl : MonoBehaviour
         Vector3 cameraDestination = midpoint - Cam.transform.forward * distance * zoomFactor;
 
         Vector3 cameracloseDestination = midpoint - Cam.transform.forward * (offset+2.5f);
-
-       
 
         if (Cam.orthographic)
         {

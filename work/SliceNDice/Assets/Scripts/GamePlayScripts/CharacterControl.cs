@@ -112,7 +112,7 @@ public class CharacterControl : MonoBehaviour
         Vector3 moveDirection = new Vector3(Moveet.x, 0, Moveet.y);
         Vector3 movement = moveDirection * movementSpeed * Time.deltaTime;
 
-       // transform.Translate(movement);
+         transform.Translate(movement);
 
          transform.position += moveDirection.x * transform.forward;
 

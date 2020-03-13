@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class CharacterControl : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField] public float movementSpeed = .01f;
+    [SerializeField] public float movementSpeed = 5f;
+    [SerializeField] public float backSpeed = 5f;
     Vector2 Moveet;
     Animator anim;
     private PlayerControls controls = null;
@@ -97,46 +98,64 @@ public class CharacterControl : MonoBehaviour
 
             //horizontal p1
             if (spawnman.p1DevicePad.leftStick.x.ReadValue() > 0)
-            {
-                control.Player1.transform.position = transform.forward * movementSpeed;
+            {     
+            control.Player1.transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+            anim.SetInteger("Condition", 1);
             }
             //vertical p1 
             if (spawnman.p1DevicePad.leftStick.y.ReadValue() > 0)
             {
-                control.Player1.transform.position = transform.right * movementSpeed;
-            }
+            anim.SetInteger("Condition", 1);
+            control.Player1.transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
+        }
             //horizontal p1
             if (spawnman.p1DevicePad.leftStick.x.ReadValue() < 0)
             {
-                control.Player1.transform.position = -(transform.forward * movementSpeed);
-            }
+            anim.SetInteger("Condition", 1);
+            control.Player1.transform.position += Vector3.left * backSpeed * Time.deltaTime;
+        }
             //vertical p1 
             if (spawnman.p1DevicePad.leftStick.y.ReadValue() < 0)
             {
-
-                control.Player1.transform.position = -(transform.right * movementSpeed);
+            anim.SetInteger("Condition", 1);
+            control.Player1.transform.position += Vector3.back * movementSpeed * Time.deltaTime;
             }
 
             //horizontal p2
             if (spawnman.p2DevicePad.leftStick.x.ReadValue() > 0)
             {
-                control.Player2.transform.position = transform.forward * movementSpeed;
-            }
+            anim.SetInteger("Condition2", 1);
+            control.Player2.transform.position += Vector3.right * backSpeed * Time.deltaTime;
+          }
             //vertical p2
             if (spawnman.p2DevicePad.leftStick.y.ReadValue() > 0)
             {
-                control.Player2.transform.position = transform.right * movementSpeed ;
-            }
+            anim.SetInteger("Condition2", 1);
+            control.Player2.transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
+        }
             //horizontal p2
             if (spawnman.p2DevicePad.leftStick.x.ReadValue() < 0)
             {
-                control.Player2.transform.position = -(transform.forward * movementSpeed );
-            }
+            anim.SetInteger("Condition2", 1);
+            control.Player2.transform.position += Vector3.left * movementSpeed * Time.deltaTime;
+        }
             //vertical p2
             if (spawnman.p2DevicePad.leftStick.y.ReadValue() < 0)
             {
-                control.Player2.transform.position = -(transform.right * movementSpeed );
-            }
+            anim.SetInteger("Condition2", 1);
+            control.Player2.transform.position += Vector3.back * movementSpeed * Time.deltaTime;
+        }
+
+        if (spawnman.p1DevicePad.leftStick.y.ReadValue() == 0 && spawnman.p1DevicePad.leftStick.x.ReadValue() == 0)
+        {
+            anim.SetInteger("Condition", 0);    
+        }
+
+        if (spawnman.p2DevicePad.leftStick.y.ReadValue() == 0 && spawnman.p2DevicePad.leftStick.x.ReadValue() == 0)
+        {
+            anim.SetInteger("Condition2", 0);
+        }
+
 
     }
     private void OnEnable()
@@ -181,14 +200,6 @@ public class CharacterControl : MonoBehaviour
         anim.SetTrigger("StrongAtt2");
     }
 
-        //if (movement.magnitude == 0)
-        //{
-        //    anim.SetInteger("Condition", 0);
-        //}
-        //else if (movement.magnitude > 0 || movement.magnitude< 0)
-        //{
-        //    anim.SetInteger("Condition", 1);
-        //}
     private void OnMove(InputValue value)
     {
         Moveet = value.Get<Vector2>();

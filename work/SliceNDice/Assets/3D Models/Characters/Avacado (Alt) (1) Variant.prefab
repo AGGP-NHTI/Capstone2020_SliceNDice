@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Avacado (Alt) (1) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8539396605862837391, guid: 7754f887a6a5ca646ac7fbefed3525c6,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2
+      objectReference: {fileID: 0}
     - target: {fileID: 4491501266301488173, guid: 7754f887a6a5ca646ac7fbefed3525c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -76,12 +81,21 @@ PrefabInstance:
         type: 3}
       propertyPath: Weapon
       value: 
-      objectReference: {fileID: 3142173721625320679, guid: ab25daa14ff61124f976dcf633deba06,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 5721308536676652953, guid: 7754f887a6a5ca646ac7fbefed3525c6,
         type: 3}
       propertyPath: P1
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721308536676652953, guid: 7754f887a6a5ca646ac7fbefed3525c6,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721308536676652953, guid: 7754f887a6a5ca646ac7fbefed3525c6,
+        type: 3}
+      propertyPath: backSpeed
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2806824722198787029, guid: 7754f887a6a5ca646ac7fbefed3525c6,
         type: 3}
@@ -207,6 +221,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -0.0000000010622899
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282263620536412309, guid: 7754f887a6a5ca646ac7fbefed3525c6,
+        type: 3}
+      propertyPath: m_Actions
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7754f887a6a5ca646ac7fbefed3525c6, type: 3}

@@ -65,10 +65,6 @@ public class CharacterControl : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("P1 X Value:" + spawnman.p1DevicePad.leftStick.x.ReadValue());
-        Debug.Log("P1 Y Value:" + spawnman.p1DevicePad.leftStick.y.ReadValue());
-        Debug.Log("P2 X Value:" + spawnman.p2DevicePad.leftStick.x.ReadValue());
-        Debug.Log("P2 Y Value:" + spawnman.p2DevicePad.leftStick.y.ReadValue());
 
         if (spawnman.p1DevicePad.buttonWest.wasPressedThisFrame)
         {

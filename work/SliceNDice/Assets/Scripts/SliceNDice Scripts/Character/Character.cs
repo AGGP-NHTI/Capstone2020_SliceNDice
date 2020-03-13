@@ -24,6 +24,8 @@ public class Character : MonoBehaviour
 
     public bool P2;                         // If P2, no movement.
 
+    public CameraControl control;     //Paul and Nick Camera script
+
     /**************************/
 
     [Header("Character Statistics")]
@@ -54,6 +56,8 @@ public class Character : MonoBehaviour
     void Awake()
     {
         // Stored Movement Variables
+
+        control = GameObject.Find("CameraManager").GetComponent<CameraControl>();
 
         rb = GetComponent<Rigidbody>();                                         // DO. NOT. DELETE.
 
@@ -109,7 +113,9 @@ public class Character : MonoBehaviour
         rb.freezeRotation = false;      // Allows them to fall over at any angle.
         // anim.enabled = false;
         cc.movementSpeed = 0;
-        Destroy(platform);
+        //Destroy(platform);
+        control.isCameraFollowing = false;
+        
     }
 
     private void OnTriggerEnter(Collider other)

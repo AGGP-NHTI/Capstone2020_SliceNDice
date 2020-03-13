@@ -49,16 +49,16 @@ public class Sliceable : BzSliceableCharacterBase, IDeadable
 		var lazyActionNeg = result.outObjectNeg.GetComponent<LazyActionRunner>();
 		var lazyActionPos = result.outObjectPos.GetComponent<LazyActionRunner>();
 
-		// convert to ragdoll
-		if (_convertToRagdoll & !IsDead)
-		{
-			Profiler.BeginSample("ConvertToRagdoll");
-			ConvertToRagdoll(result.outObjectNeg, result.outObjectPos, lazyActionNeg, lazyActionPos);
-			Profiler.EndSample();
-		}
+        // convert to ragdoll
+        if (_convertToRagdoll & !IsDead)
+        {
+            Profiler.BeginSample("ConvertToRagdoll");
+            ConvertToRagdoll(result.outObjectNeg, result.outObjectPos, lazyActionNeg, lazyActionPos);
+            Profiler.EndSample();
+        }
 
-		// show elapsed time
-		drawText += addData.stopwatch.ElapsedMilliseconds.ToString() + " - " + gameObject.name + Environment.NewLine;
+        // show elapsed time
+        drawText += addData.stopwatch.ElapsedMilliseconds.ToString() + " - " + gameObject.name + Environment.NewLine;
 
 		IsDead = true;
 		resultNeg.IsDead = IsDead;

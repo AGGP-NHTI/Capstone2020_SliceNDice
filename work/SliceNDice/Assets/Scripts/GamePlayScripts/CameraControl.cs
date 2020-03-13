@@ -12,6 +12,8 @@ public class CameraControl : MonoBehaviour
     private Vector3 targetPoint;
     private Quaternion targetRotation;
 
+    public bool isCameraFollowing = true;
+
     public Vector3 midpoint;
 
     private void Awake()
@@ -35,7 +37,12 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
-        FixedCameraFollowSmooth(Camera1, Player1.transform, Player2.transform, Player1, Player2);
+        Debug.Log(isCameraFollowing);
+
+         if (isCameraFollowing)
+        {
+            FixedCameraFollowSmooth(Camera1, Player1.transform, Player2.transform, Player1, Player2);
+        }
 
     }
 
@@ -57,21 +64,25 @@ public class CameraControl : MonoBehaviour
         if (Cam.orthographic)
         {
             Cam.orthographicSize = distance;
-            Debug.Log("Camera is Orthographic");
-        }
-
-        if((t1.position - midpoint).magnitude > .5)
-        {
-            p1.transform.LookAt(midpoint, Vector3.up);
-        }
-
-        if ((t2.position - midpoint).magnitude > .5)
-        {
-            p2.transform.LookAt(midpoint, Vector3.up);
+           
         }
 
 
 
+        
+        
+            if ((t1.position - midpoint).magnitude > .5)
+            {
+                p1.transform.LookAt(midpoint, Vector3.up);
+            }
+
+            if ((t2.position - midpoint).magnitude > .5)
+            {
+                p2.transform.LookAt(midpoint, Vector3.up);
+            }
+
+
+        
 
 
         if (distance > offset)
@@ -89,7 +100,7 @@ public class CameraControl : MonoBehaviour
         if ((cameraDestination - Cam.transform.position).magnitude <= 0.05f)
         {
             Cam.transform.position = cameraDestination;
-            Debug.Log("Camera Should Snap");
+            
         }     
 
     }

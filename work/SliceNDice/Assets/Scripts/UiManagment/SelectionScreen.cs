@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class CharacterSelect : MonoBehaviour
+public class SelectionScreen : MonoBehaviour
 {
     protected int selectedCharacterIndex;
     private Color desiredColor;
@@ -13,8 +13,8 @@ public class CharacterSelect : MonoBehaviour
 
     [Header("Player Info")]
     public int playerNumber = 0;
-   
-    private bool HasSelectedCharacter = false; 
+
+    private bool HasSelectedCharacter = false;
 
     [Header("List of Characters")]
     [SerializeField] protected List<CharacterSelectObject> characterList = new List<CharacterSelectObject>();
@@ -32,9 +32,7 @@ public class CharacterSelect : MonoBehaviour
 
     public void Start()
     {
-        
         UpdateCharacterSelectionUI();
-       
     }
 
 
@@ -47,9 +45,9 @@ public class CharacterSelect : MonoBehaviour
             backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
         }
 
-       
+
     }
-    
+
     public void Fire4(bool value)
     {
         ConfirmSelection();
@@ -62,29 +60,26 @@ public class CharacterSelect : MonoBehaviour
 
     public void Fire6(bool value)
     {
-        RightArrow(); 
+        RightArrow();
     }
 
 
     public void ConfirmSelection()
     {
 
-       
-
-        
 
 
-        
+
+
+
+
     }
-
-
     public void LeftArrow()
     {
         if (HasSelectedCharacter)
         {
             return;
         }
-
         selectedCharacterIndex--;
         if (selectedCharacterIndex < 0)
         {
@@ -99,25 +94,18 @@ public class CharacterSelect : MonoBehaviour
         {
             return;
         }
-
         selectedCharacterIndex++;
         if (selectedCharacterIndex == characterList.Count)
         {
             selectedCharacterIndex = 0;
         }
-
         UpdateCharacterSelectionUI();
     }
-
-
-
     private void UpdateCharacterSelectionUI()
     {
         characterSplash.sprite = characterList[selectedCharacterIndex].splash;
         characterName.text = characterList[selectedCharacterIndex].characterName;
         desiredColor = characterList[selectedCharacterIndex].characterColor;
-
-
     }
 
     [System.Serializable]

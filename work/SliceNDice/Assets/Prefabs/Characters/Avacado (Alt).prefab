@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 793899165377578260}
   m_Layer: 0
   m_Name: Bicept.L
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,9 +469,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0005
-  m_Height: 0.003
+  m_Height: 0.006
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.003, z: 0}
 --- !u!1 &808587186941368105
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 1782907810511963886}
   m_Layer: 0
   m_Name: HandIK.R
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -947,8 +947,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6502125318227758331}
-  - component: {fileID: 2806824722198787030}
-  - component: {fileID: 2806824722198787029}
   m_Layer: 0
   m_Name: KneeIK.R
   m_TagString: Untagged
@@ -971,67 +969,6 @@ Transform:
   m_Father: {fileID: 8882966859874356341}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2806824722198787030
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2806824722198787028}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!144 &2806824722198787029
-CharacterJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2806824722198787028}
-  m_ConnectedBody: {fileID: 5183322627694882987}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0021358274, y: 0.0024501942, z: -0.00826342}
-  serializedVersion: 2
-  m_SwingAxis: {x: 0, y: 1, z: 0}
-  m_TwistLimitSpring:
-    spring: 0
-    damper: 0
-  m_LowTwistLimit:
-    limit: -20
-    bounciness: 0
-    contactDistance: 0
-  m_HighTwistLimit:
-    limit: 70
-    bounciness: 0
-    contactDistance: 0
-  m_SwingLimitSpring:
-    spring: 0
-    damper: 0
-  m_Swing1Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_Swing2Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_EnableProjection: 1
-  m_ProjectionDistance: 0.1
-  m_ProjectionAngle: 180
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1 &2965766402235158509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,7 +1258,7 @@ GameObject:
   - component: {fileID: 3780323471498407025}
   m_Layer: 0
   m_Name: HeelIK.L
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1523,7 +1460,7 @@ GameObject:
   - component: {fileID: 4013291338842238556}
   m_Layer: 0
   m_Name: HeelIK.R
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1855,12 +1792,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5177848605568498399}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.025, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
+  m_LocalPosition: {x: -0.015224474, y: -1.407, z: 0.11783697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3593903827103582558}
-  m_RootOrder: 2
+  m_Father: {fileID: 4491501266301488173}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &473563040572718189
 CapsuleCollider:
@@ -1872,7 +1809,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Height: 2.1368494
   m_Direction: 1
   m_Center: {x: 0, y: 1.0711608, z: 0}
@@ -2248,8 +2185,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4635752646999922094}
-  - component: {fileID: 6042102235157774332}
-  - component: {fileID: 6042102235157774322}
   m_Layer: 0
   m_Name: ElbowIK.R
   m_TagString: Untagged
@@ -2272,67 +2207,6 @@ Transform:
   m_Father: {fileID: 8882966859874356341}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &6042102235157774332
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6042102235157774321}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!144 &6042102235157774322
-CharacterJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6042102235157774321}
-  m_ConnectedBody: {fileID: 5183322627694882987}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.008074802, y: 0.00493871, z: 0.0011462277}
-  serializedVersion: 2
-  m_SwingAxis: {x: 0, y: 1, z: 0}
-  m_TwistLimitSpring:
-    spring: 0
-    damper: 0
-  m_LowTwistLimit:
-    limit: -20
-    bounciness: 0
-    contactDistance: 0
-  m_HighTwistLimit:
-    limit: 70
-    bounciness: 0
-    contactDistance: 0
-  m_SwingLimitSpring:
-    spring: 0
-    damper: 0
-  m_Swing1Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_Swing2Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_EnableProjection: 1
-  m_ProjectionDistance: 0.1
-  m_ProjectionAngle: 180
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1 &6065303482886439815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,7 +2252,7 @@ GameObject:
   - component: {fileID: 6238255515065898542}
   m_Layer: 0
   m_Name: Bicept.R
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2470,9 +2344,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0005
-  m_Height: 0.003
+  m_Height: 0.006
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.003, z: 0}
 --- !u!1 &6382833936716795076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,8 +2418,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8630840413125288120}
-  - component: {fileID: 8361044651101524325}
-  - component: {fileID: 8999872001991277625}
   m_Layer: 0
   m_Name: ElbowIK.L
   m_TagString: Untagged
@@ -2568,67 +2440,6 @@ Transform:
   m_Father: {fileID: 8882966859874356341}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &8361044651101524325
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6509818284909492748}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!144 &8999872001991277625
-CharacterJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6509818284909492748}
-  m_ConnectedBody: {fileID: 5183322627694882987}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0075912797, y: 0.0049387077, z: 0.0011462277}
-  serializedVersion: 2
-  m_SwingAxis: {x: 0, y: 1, z: 0}
-  m_TwistLimitSpring:
-    spring: 0
-    damper: 0
-  m_LowTwistLimit:
-    limit: -20
-    bounciness: 0
-    contactDistance: 0
-  m_HighTwistLimit:
-    limit: 70
-    bounciness: 0
-    contactDistance: 0
-  m_SwingLimitSpring:
-    spring: 0
-    damper: 0
-  m_Swing1Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_Swing2Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_EnableProjection: 1
-  m_ProjectionDistance: 0.1
-  m_ProjectionAngle: 180
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1 &6553063685919711930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,8 +2618,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3975894326112474016}
-  - component: {fileID: 6638458853410396838}
-  - component: {fileID: 6638458853410396837}
   m_Layer: 0
   m_Name: KneeIK.L
   m_TagString: Untagged
@@ -2831,67 +2640,6 @@ Transform:
   m_Father: {fileID: 8882966859874356341}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &6638458853410396838
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6638458853410396836}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!144 &6638458853410396837
-CharacterJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6638458853410396836}
-  m_ConnectedBody: {fileID: 5183322627694882987}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0016523057, y: 0.0024501907, z: -0.008263419}
-  serializedVersion: 2
-  m_SwingAxis: {x: 0, y: 1, z: 0}
-  m_TwistLimitSpring:
-    spring: 0
-    damper: 0
-  m_LowTwistLimit:
-    limit: -20
-    bounciness: 0
-    contactDistance: 0
-  m_HighTwistLimit:
-    limit: 70
-    bounciness: 0
-    contactDistance: 0
-  m_SwingLimitSpring:
-    spring: 0
-    damper: 0
-  m_Swing1Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_Swing2Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_EnableProjection: 1
-  m_ProjectionDistance: 0.1
-  m_ProjectionAngle: 180
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1 &6824807048528367196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3299,6 +3047,7 @@ Transform:
   m_LocalPosition: {x: 4.5385237, y: 2.02, z: 7.3588696}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2177414787532608824}
   - {fileID: 3593903827103582558}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -3415,7 +3164,7 @@ MonoBehaviour:
   P1: 1
   Weaponpoint1: {fileID: 7939651948134912001}
   weaponpoint2: {fileID: 5202190805796791423}
-  Weapon: {fileID: 4444594161948506599, guid: 8a5cc42b53b193d49a7dbd493d8cc180, type: 3}
+  Weapon: {fileID: 3339636076854027709, guid: 276b002c36d555f4ea0eac0ef05d1326, type: 3}
 --- !u!95 &8722755900614155011
 Animator:
   serializedVersion: 3
@@ -3574,6 +3323,7 @@ MonoBehaviour:
   playerGuard: 0
   anim: {fileID: 8722755900614155011}
   platform: {fileID: 5177848605568498399}
+  CanBeSliced: []
   guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
     type: 3}
   healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,
@@ -3607,9 +3357,8 @@ Transform:
   m_Children:
   - {fileID: 8882966859874356341}
   - {fileID: 6325201561958328154}
-  - {fileID: 2177414787532608824}
   m_Father: {fileID: 4491501266301488173}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &8647154962565438971
 GameObject:
@@ -3768,7 +3517,7 @@ GameObject:
   - component: {fileID: 8999314329903994086}
   m_Layer: 0
   m_Name: HandIK.L
-  m_TagString: Untagged
+  m_TagString: Limb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

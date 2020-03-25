@@ -57,8 +57,6 @@ public class Character : MonoBehaviour
     {
         // Stored Movement Variables
 
-        control = GameObject.Find("CameraManager").GetComponent<CameraControl>();
-
         rb = GetComponent<Rigidbody>();                                         // DO. NOT. DELETE.
 
         bleedParticles = GetComponent<Sliceable>()._bloodPrefub;
@@ -68,6 +66,8 @@ public class Character : MonoBehaviour
         anim = GetComponent<Animator>();
 
         cc = GetComponent<CharacterControl>();
+
+        // control = GameObject.Find("CameraManager").GetComponent<CameraControl>();
 
         // Stored Statistic Variables
         playerMaxHealth = 50 + (Build * 25);                                    // Calculate Health based upon Build.
@@ -84,10 +84,6 @@ public class Character : MonoBehaviour
         if (playerHealth <= 0)
         {
             IsDead();
-            playerHealth = 0;
-            playerGuard = 0;
-
-            GetComponent<AdderSliceableAsync>().enabled = true;
         }
 
         playerGuard += Mathf.CeilToInt(Time.deltaTime);
@@ -110,10 +106,12 @@ public class Character : MonoBehaviour
 
     void IsDead()
     {
+        playerHealth = 0;
+        playerGuard = 0;
+
         rb.freezeRotation = false;      // Allows them to fall over at any angle.
-        // anim.enabled = false;
+        GetComponent<AdderSliceableAsync>().enabled = true;
         cc.movementSpeed = 0;
-        //Destroy(platform);
         control.isCameraFollowing = false;
         
     }
@@ -128,15 +126,20 @@ public class Character : MonoBehaviour
             {
                 if (playerGuard > 0)
                 {
-                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerGuard -= w.weaponDamage;
+                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
+                    {
+                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerGuard -= w.weaponDamage;
+                    }
                 }
 
                 if (playerGuard <= 0)
                 {
-                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerHealth -= w.weaponDamage;
-
+                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
+                    {
+                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerHealth -= w.weaponDamage;
+                    }
                 }
             }
 
@@ -148,15 +151,21 @@ public class Character : MonoBehaviour
 
                 if (playerGuard > 0)
                 {
-                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerGuard -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
+                    {
+                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerGuard -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+                    }
                 }
 
                 if (playerGuard <= 0)
                 {
-                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                    gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
+                    {
+                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                        gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                    }
                 }
             }
 
@@ -166,18 +175,24 @@ public class Character : MonoBehaviour
 
                 if (playerGuard > 0)
                 {
-                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerGuard -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
+                    {
+                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerGuard -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                    }
                 }
 
                 if (playerGuard <= 0)
                 {
-                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
+                    {
+                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                        playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
 
-                    Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
+                        Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
 
-                    Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
+                        Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
+                    }
                 }
 
             }

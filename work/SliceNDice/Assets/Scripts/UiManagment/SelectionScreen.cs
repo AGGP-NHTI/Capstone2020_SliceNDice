@@ -10,10 +10,6 @@ public class SelectionScreen : MonoBehaviour
     protected int selectedCharacterIndex;
     private Color desiredColor;
 
-
-    [Header("Player Info")]
-    public int playerNumber = 0;
-
     private bool HasSelectedCharacter = false;
 
     [Header("List of Characters")]
@@ -23,7 +19,7 @@ public class SelectionScreen : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI characterName;
     [SerializeField] protected Image characterSplash;
     [SerializeField] protected Image backgroundColor;
-    [SerializeField] protected GameObject UIforplayer;
+   
 
     [Header("Options")]
     [SerializeField] protected float backgroundColorTransitionSpeed = 5f;
@@ -48,28 +44,10 @@ public class SelectionScreen : MonoBehaviour
 
     }
 
-    public void Fire4(bool value)
-    {
-        ConfirmSelection();
-    }
-
-    public void Fire5(bool value)
-    {
-        LeftArrow();
-    }
-
-    public void Fire6(bool value)
-    {
-        RightArrow();
-    }
-
+  
 
     public void ConfirmSelection()
     {
-
-
-
-
 
 
 
@@ -103,7 +81,7 @@ public class SelectionScreen : MonoBehaviour
     }
     private void UpdateCharacterSelectionUI()
     {
-        characterSplash.sprite = characterList[selectedCharacterIndex].splash;
+
         characterName.text = characterList[selectedCharacterIndex].characterName;
         desiredColor = characterList[selectedCharacterIndex].characterColor;
     }
@@ -115,6 +93,6 @@ public class SelectionScreen : MonoBehaviour
         public string characterName;
         public Color characterColor;
         public GameObject selectedchar;
-        public GameObject selectedcharUI;
+        
     }
 }

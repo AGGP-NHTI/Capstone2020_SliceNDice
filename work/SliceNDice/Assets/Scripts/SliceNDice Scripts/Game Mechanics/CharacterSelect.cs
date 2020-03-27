@@ -10,6 +10,9 @@ public class CharacterSelect : MonoBehaviour
     protected int selectedCharacterIndex;
     private Color desiredColor;
 
+    public bool LevelSelect = false;
+    public bool CharacterSelecter = false;
+    public bool WeaponSelect = false;
 
     [Header("Player Info")]
     public int playerNumber = 0;
@@ -23,7 +26,7 @@ public class CharacterSelect : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI characterName;
     [SerializeField] protected Image characterSplash;
     [SerializeField] protected Image backgroundColor;
-    [SerializeField] protected GameObject UIforplayer;
+    
 
     [Header("Options")]
     [SerializeField] protected float backgroundColorTransitionSpeed = 5f;
@@ -50,21 +53,7 @@ public class CharacterSelect : MonoBehaviour
        
     }
     
-    public void Fire4(bool value)
-    {
-        ConfirmSelection();
-    }
-
-    public void Fire5(bool value)
-    {
-        LeftArrow();
-    }
-
-    public void Fire6(bool value)
-    {
-        RightArrow(); 
-    }
-
+   
 
     public void ConfirmSelection()
     {

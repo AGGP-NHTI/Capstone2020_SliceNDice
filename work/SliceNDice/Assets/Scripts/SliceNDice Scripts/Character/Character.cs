@@ -15,16 +15,16 @@ public class Character : MonoBehaviour
     [SerializeField]
     Rigidbody rb;                           // Character's Rigidbody.
 
-    public bool isRunning;                  // Bool to determine if they're running or not.
+    [SerializeField]
+    CharacterControl cc;                    // Paul and Nick's Character script
 
-    CharacterControl cc;
+    public CameraControl control;           // Paul and Nick's Camera script
 
     [Range(100f, 1000f)]
     public int jumpForce;                   // Character's jumping force.
 
-    public bool P2;                         // If P2, no movement.
+    public bool isRunning;                  // Bool to determine if they're running or not.
 
-    public CameraControl control;     //Paul and Nick Camera script
 
     /**************************/
 
@@ -42,6 +42,7 @@ public class Character : MonoBehaviour
     /**************************/
 
     [Header("External Objects")]
+    [SerializeField]
     bool isTwoHanded;                       // Determines which animations will be used (one-handed or two-handed).
     public Animator anim;
     public GameObject platform;
@@ -75,6 +76,21 @@ public class Character : MonoBehaviour
         playerHealth = playerMaxHealth;
 
         playerGuard = 100;                                                      // Guard is always set to 100. No more, no less.
+    }
+
+    void Start()
+    {
+        if (cc.P1)
+        {
+            gameObject.AddComponent<Player1Object>();
+            cc.Weapon.AddComponent<Player1Object>();
+        }
+
+        if (!cc.P1)
+        {
+            gameObject.AddComponent<Player2Object>();
+            cc.Weapon.AddComponent<Player2Object>();
+        }
     }
 
     void Update()
@@ -126,20 +142,14 @@ public class Character : MonoBehaviour
             {
                 if (playerGuard > 0)
                 {
-                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
-                    {
-                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerGuard -= w.weaponDamage;
-                    }
+                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerGuard -= w.weaponDamage;
                 }
 
                 if (playerGuard <= 0)
                 {
-                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
-                    {
-                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerHealth -= w.weaponDamage;
-                    }
+                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerHealth -= w.weaponDamage;
                 }
             }
 
@@ -151,21 +161,15 @@ public class Character : MonoBehaviour
 
                 if (playerGuard > 0)
                 {
-                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
-                    {
-                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerGuard -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
-                    }
+                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerGuard -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
                 }
 
                 if (playerGuard <= 0)
                 {
-                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
-                    {
-                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                        gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                    }
+                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                    gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
                 }
             }
 
@@ -175,26 +179,20 @@ public class Character : MonoBehaviour
 
                 if (playerGuard > 0)
                 {
-                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
-                    {
-                        Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerGuard -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                    }
+                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerGuard -= Mathf.CeilToInt(w.weaponDamage * 2f);
                 }
 
                 if (playerGuard <= 0)
                 {
-                    if (gameObject.GetComponent<CharacterControl>().Weapon.tag != gameObject.tag)
-                    {
-                        Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                        playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
 
-                        Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
+                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                    playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
 
-                        Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
-                    }
+                    Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
+
+                    Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
                 }
-
             }
         }
     }

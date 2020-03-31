@@ -147,7 +147,7 @@ RectTransform:
   m_GameObject: {fileID: 6300201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.7258697, y: 2.238375, z: 1}
+  m_LocalScale: {x: 2.895964, y: 1.3696662, z: 1}
   m_Children:
   - {fileID: 1985235409}
   - {fileID: 955650647}
@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: 159}
+  m_AnchoredPosition: {x: -4, y: -3}
   m_SizeDelta: {x: 617.7, y: 854.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6300203
@@ -190,6 +190,8 @@ MonoBehaviour:
   CharacterSelect2: {fileID: 98983345}
   WeaponSelect1: {fileID: 158931870}
   WeaponSelect2: {fileID: 1897787334}
+  managerob: {fileID: 0}
+  DynamicCamera: {fileID: 0}
   LevelList:
   - splash: {fileID: 21300000, guid: 2e63938e8255b9249be74fa332830911, type: 3}
     LevelName: Test Level
@@ -444,7 +446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &98983346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -492,15 +494,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0b1ef9fa93d3943bb9646a3e8668c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  P1: 0
+  P2: 1
+  P1Checked: 0
+  P2Checked: 0
+  canvas: {fileID: 497318132}
+  LS: {fileID: 6300204}
   characterList:
-  - splash: {fileID: 0}
-    characterName: 
-    characterColor: {r: 0, g: 0, b: 0, a: 0}
+  - splash: {fileID: 21300000, guid: de9b7ea73583bf04eb0c7438becb3ed4, type: 3}
+    characterName: Avacado
+    characterColor: {r: 0.43842933, g: 0.9433962, b: 0.048949808, a: 0}
     selectedchar: {fileID: 3720280609347319090, guid: 3596476fd325b14489e275ab66634c76,
       type: 3}
-  - splash: {fileID: 0}
-    characterName: 
-    characterColor: {r: 0, g: 0, b: 0, a: 0}
+  - splash: {fileID: 21300000, guid: 66ee715bc6fc6dc498c45bb286903d8b, type: 3}
+    characterName: NEGA Avacado
+    characterColor: {r: 0.9772253, g: 1, b: 0, a: 0}
     selectedchar: {fileID: 6607794211512568320, guid: 445203642706cc34a951d8d77b529a2b,
       type: 3}
   characterName: {fileID: 1187186486}
@@ -597,7 +605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &158931871
 RectTransform:
   m_ObjectHideFlags: 0
@@ -607,7 +615,7 @@ RectTransform:
   m_GameObject: {fileID: 158931870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.33028, z: 1}
+  m_LocalScale: {x: 1, y: 1.1896356, z: 1}
   m_Children:
   - {fileID: 1209085678}
   - {fileID: 1815158911}
@@ -621,8 +629,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -487, y: -609}
-  m_SizeDelta: {x: 633.5, y: 884.1}
+  m_AnchoredPosition: {x: -487, y: 10}
+  m_SizeDelta: {x: 633, y: 884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &158931872
 CanvasRenderer:
@@ -938,7 +946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &181172311
 RectTransform:
   m_ObjectHideFlags: 0
@@ -985,15 +993,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0b1ef9fa93d3943bb9646a3e8668c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  P1: 1
+  P2: 0
+  P1Checked: 0
+  P2Checked: 0
+  canvas: {fileID: 497318132}
+  LS: {fileID: 6300204}
   characterList:
-  - splash: {fileID: 0}
-    characterName: 
-    characterColor: {r: 0, g: 0, b: 0, a: 0}
+  - splash: {fileID: 21300000, guid: de9b7ea73583bf04eb0c7438becb3ed4, type: 3}
+    characterName: Avacado
+    characterColor: {r: 0.31533638, g: 0.9245283, b: 0.047970813, a: 0}
     selectedchar: {fileID: 6040458110022141468, guid: daf6f523a04f94043b37ddbf6c946ba9,
       type: 3}
-  - splash: {fileID: 0}
-    characterName: 
-    characterColor: {r: 0, g: 0, b: 0, a: 0}
+  - splash: {fileID: 21300000, guid: 66ee715bc6fc6dc498c45bb286903d8b, type: 3}
+    characterName: NEGA Avacado
+    characterColor: {r: 0.7976628, g: 0.9056604, b: 0.046991818, a: 0}
     selectedchar: {fileID: 2110947555906772225, guid: 7749f1fe53c395c4b9e6a222c9c5fa5f,
       type: 3}
   characterName: {fileID: 164664033}
@@ -1050,7 +1064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2555,7 +2569,7 @@ RectTransform:
   m_GameObject: {fileID: 816165221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 3.1030748, z: 1}
+  m_LocalScale: {x: 1.1594, y: 1.1056201, z: 1}
   m_Children:
   - {fileID: 1587052695}
   m_Father: {fileID: 158931871}
@@ -2563,7 +2577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 179}
+  m_AnchoredPosition: {x: 0, y: 68}
   m_SizeDelta: {x: 160, y: 98.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &816165223
@@ -5165,7 +5179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1897787335
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5175,7 +5189,7 @@ RectTransform:
   m_GameObject: {fileID: 1897787334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.33028, z: 1}
+  m_LocalScale: {x: 1, y: 1.1687869, z: 1}
   m_Children:
   - {fileID: 349769582}
   - {fileID: 1580679763}
@@ -5189,8 +5203,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 488.3, y: -616}
-  m_SizeDelta: {x: 633.5, y: 884.1}
+  m_AnchoredPosition: {x: 488.3, y: 5}
+  m_SizeDelta: {x: 633, y: 884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1897787336
 CanvasRenderer:
@@ -5302,7 +5316,7 @@ RectTransform:
   m_GameObject: {fileID: 2071983489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2.7613819, z: 1}
+  m_LocalScale: {x: 1.0626, y: 1.1264399, z: 1}
   m_Children:
   - {fileID: 554430336}
   m_Father: {fileID: 1897787335}
@@ -5310,7 +5324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 156}
+  m_AnchoredPosition: {x: 0, y: 77}
   m_SizeDelta: {x: 160, y: 98.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2071983491

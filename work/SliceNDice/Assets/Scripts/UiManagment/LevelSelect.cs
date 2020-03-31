@@ -19,13 +19,14 @@ public class LevelSelect : MonoBehaviour
     public GameObject WeaponSelect1;
     public GameObject WeaponSelect2;
 
-    GameObject managerob;
-    GameObject DynamicCamera;
+    public GameObject managerob;
+    public GameObject DynamicCamera;
 
     public InputDevice p1Device;
     public InputDevice p2Device;
     public Gamepad p1DevicePad;
     public Gamepad p2DevicePad;
+
     private bool HasSelectedLevel = false;
 
     [Header("List of Characters")]
@@ -98,9 +99,10 @@ public class LevelSelect : MonoBehaviour
             DynamicCamera = GameObject.Find("CameraManager");
             managerob.SetActive(false);
             DynamicCamera.SetActive(false);
-            Canvas.SetActive(false);
-            //CharacterSelect1.SetActive(true);
-            //CharacterSelect2.SetActive(true);
+            //Canvas.SetActive(false);
+            gameObject.SetActive(false);
+            CharacterSelect1.SetActive(true);
+            CharacterSelect2.SetActive(true);
         }
         
 

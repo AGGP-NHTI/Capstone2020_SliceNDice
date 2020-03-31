@@ -4,13 +4,29 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class SelectionScreen : MonoBehaviour
 {
     protected int selectedCharacterIndex;
     private Color desiredColor;
 
-    private bool HasSelectedCharacter = false;
+    private static bool HasSelectedCharacter1 = false;
+    private static bool HasSelectedCharacter2 = false;
+    public bool P1;
+    public bool P2;
+    public bool P1Checked = false;
+    public bool P2Checked = false;
+
+    public GameObject canvas;
+    public LevelSelect LS;
+ 
+    TPSpawn spawnman;
+
+    public InputDevice p1Device;
+    public InputDevice p2Device;
+    public Gamepad p1DevicePad;
+    public Gamepad p2DevicePad;
 
     [Header("List of Characters")]
     [SerializeField] protected List<CharacterSelectObject> characterList = new List<CharacterSelectObject>();
@@ -28,6 +44,16 @@ public class SelectionScreen : MonoBehaviour
 
     public void Start()
     {
+        Gamepad[] pads = Gamepad.all.ToArray();
+        if (pads.Length < 2)
+        {
+            Debug.LogError("Connect More Controllers, Sucka!!!!!!!!");
+            return;
+        }
+        p1Device = pads[0].device;
+        p2Device = pads[1].device;
+        p1DevicePad = pads[0];
+        p2DevicePad = pads[1];
         UpdateCharacterSelectionUI();
     }
 
@@ -40,7 +66,36 @@ public class SelectionScreen : MonoBehaviour
         {
             backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
         }
-
+        if (P1)
+        {
+            if (p1DevicePad.leftStick.left.wasPressedThisFrame)
+            {
+                LeftArrow();
+            }
+            if (p1DevicePad.leftStick.right.wasPressedThisFrame)
+            {
+                RightArrow();
+            }
+            if (p1DevicePad.buttonSouth.wasPressedThisFrame)
+            {
+                ConfirmSelection();
+            }
+        }
+        if (P2)
+        {
+            if (p2DevicePad.leftStick.left.wasPressedThisFrame)
+            {
+                LeftArrow();
+            }
+            if (p2DevicePad.leftStick.right.wasPressedThisFrame)
+            {
+                RightArrow();
+            }
+            if (p2DevicePad.buttonSouth.wasPressedThisFrame)
+            {
+                ConfirmSelection();
+            }
+        }
 
     }
 
@@ -48,13 +103,44 @@ public class SelectionScreen : MonoBehaviour
 
     public void ConfirmSelection()
     {
-
-
+        spawnman = LS.managerob.GetComponent<TPSpawn>();
+        
+        if (!HasSelectedCharacter1)
+        {
+            if (P1)
+            {
+                spawnman.P1 = characterList[selectedCharacterIndex].selectedchar;
+                P1Checked = true;
+                HasSelectedCharacter1 = true;
+                
+            }
+        }
+        if (!HasSelectedCharacter2)
+        {
+            if (P2)
+            {
+                spawnman.P2 = characterList[selectedCharacterIndex].selectedchar;
+                P2Checked = true;
+                HasSelectedCharacter2 = true;
+            }
+        }
+        if (HasSelectedCharacter1 && HasSelectedCharacter2)
+        {
+            LS.managerob.SetActive(true);
+            LS.DynamicCamera.SetActive(true);
+            canvas.SetActive(false);
+            Camera.main.gameObject.SetActive(false);
+        }
+        
 
     }
     public void LeftArrow()
     {
-        if (HasSelectedCharacter)
+        if (HasSelectedCharacter1)
+        {
+            return;
+        }
+        if(HasSelectedCharacter2)
         {
             return;
         }
@@ -68,7 +154,11 @@ public class SelectionScreen : MonoBehaviour
     }
     public void RightArrow()
     {
-        if (HasSelectedCharacter)
+        if (HasSelectedCharacter1)
+        {
+            return;
+        }
+        if (HasSelectedCharacter2)
         {
             return;
         }
@@ -81,7 +171,7 @@ public class SelectionScreen : MonoBehaviour
     }
     private void UpdateCharacterSelectionUI()
     {
-
+        characterSplash.sprite = characterList[selectedCharacterIndex].splash;
         characterName.text = characterList[selectedCharacterIndex].characterName;
         desiredColor = characterList[selectedCharacterIndex].characterColor;
     }
@@ -93,6 +183,6 @@ public class SelectionScreen : MonoBehaviour
         public string characterName;
         public Color characterColor;
         public GameObject selectedchar;
-        
+      
     }
 }

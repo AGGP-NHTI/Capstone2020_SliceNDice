@@ -32,14 +32,14 @@ public class CameraControl : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        Debug.Log(isCameraFollowing);
+        // Debug.Log(isCameraFollowing);
 
-         if (isCameraFollowing)
+        if (isCameraFollowing)
         {
             FixedCameraFollowSmooth(Camera1, Player1.transform, Player2.transform, Player1, Player2);
         }
@@ -59,30 +59,30 @@ public class CameraControl : MonoBehaviour
 
         Vector3 cameraDestination = midpoint - Cam.transform.forward * distance * zoomFactor;
 
-        Vector3 cameracloseDestination = midpoint - Cam.transform.forward * (offset+2.5f);
+        Vector3 cameracloseDestination = midpoint - Cam.transform.forward * (offset + 2.5f);
 
         if (Cam.orthographic)
         {
             Cam.orthographicSize = distance;
-           
+
         }
 
 
 
-        
-        
-            if ((t1.position - midpoint).magnitude > .5)
-            {
-                p1.transform.LookAt(midpoint, Vector3.up);
-            }
-
-            if ((t2.position - midpoint).magnitude > .5)
-            {
-                p2.transform.LookAt(midpoint, Vector3.up);
-            }
 
 
-        
+        if ((t1.position - midpoint).magnitude > .5)
+        {
+            p1.transform.LookAt(midpoint, Vector3.up);
+        }
+
+        if ((t2.position - midpoint).magnitude > .5)
+        {
+            p2.transform.LookAt(midpoint, Vector3.up);
+        }
+
+
+
 
 
         if (distance > offset)
@@ -100,8 +100,8 @@ public class CameraControl : MonoBehaviour
         if ((cameraDestination - Cam.transform.position).magnitude <= 0.05f)
         {
             Cam.transform.position = cameraDestination;
-            
-        }     
+
+        }
 
     }
 }

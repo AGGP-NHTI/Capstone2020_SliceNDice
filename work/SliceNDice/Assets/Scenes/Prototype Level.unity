@@ -120,6 +120,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &809516105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7904150669912983089, guid: 34becc19cc830fa448ddcec265d8a965,
+    type: 3}
+  m_PrefabInstance: {fileID: 7904150670996692050}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ff3393237142f439c937c01f865c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!108 &2138677392 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 7904150670873590978, guid: 34becc19cc830fa448ddcec265d8a965,
@@ -196,7 +208,12 @@ PrefabInstance:
     - target: {fileID: 7904150672001277408, guid: 34becc19cc830fa448ddcec265d8a965,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7904150672001277415, guid: 34becc19cc830fa448ddcec265d8a965,
+        type: 3}
+      propertyPath: control
+      value: 
+      objectReference: {fileID: 809516105}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34becc19cc830fa448ddcec265d8a965, type: 3}

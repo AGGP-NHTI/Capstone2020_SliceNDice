@@ -83,13 +83,13 @@ public class Character : MonoBehaviour
         if (cc.P1)
         {
             gameObject.AddComponent<Player1Object>();
-            cc.Weapon.AddComponent<Player1Object>();
+            cc.Wep.AddComponent<Player1Object>();
         }
 
         if (!cc.P1)
         {
             gameObject.AddComponent<Player2Object>();
-            cc.Weapon.AddComponent<Player2Object>();
+            cc.Wep.AddComponent<Player2Object>();
         }
     }
 
@@ -138,62 +138,134 @@ public class Character : MonoBehaviour
         {
             Weapon w = other.GetComponent<Weapon>();
 
-            if (w.weaponType == BzKnife.WeaponType.Slash)       // Damage with Slashing Weapon
+
+            if (cc.P1)
             {
-                if (playerGuard > 0)
+                if (!w.gameObject.transform.parent.gameObject.GetComponent<Player1Object>())
                 {
-                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerGuard -= w.weaponDamage;
+                    if (w.weaponType == BzKnife.WeaponType.Slash)       // Damage with Slashing Weapon
+                    {
+                        if (playerGuard > 0)
+                        {
+                            Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerGuard -= w.weaponDamage;
+                        }
+
+                        if (playerGuard <= 0)
+                        {
+                            Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerHealth -= w.weaponDamage;
+                        }
+                    }
+
+                    if (w.weaponType == BzKnife.WeaponType.Bludgeon)    // Damage with Bludgeoning Weapon
+                    {
+                        rb.AddForce(w.BladeDirection * 1.25f, ForceMode.Impulse);
+
+                        // moveSpeed -= 0.04f;
+
+                        if (playerGuard > 0)
+                        {
+                            Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerGuard -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+                        }
+
+                        if (playerGuard <= 0)
+                        {
+                            Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                            gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                        }
+                    }
+
+                    if (w.weaponType == BzKnife.WeaponType.Pierce)    // Damage with Piercing Weapon
+                    {
+                        rb.AddForceAtPosition(w.BladeDirection * 4f, gameObject.transform.position, ForceMode.Impulse);
+
+                        if (playerGuard > 0)
+                        {
+                            Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerGuard -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                        }
+
+                        if (playerGuard <= 0)
+                        {
+
+                            Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+
+                            Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
+
+                            Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
+                        }
+                    }
                 }
 
-                if (playerGuard <= 0)
+            }
+
+            if (!cc.P1)
+            {
+                if (!w.gameObject.transform.parent.gameObject.GetComponent<Player2Object>())
                 {
-                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerHealth -= w.weaponDamage;
+                    if (w.weaponType == BzKnife.WeaponType.Slash)       // Damage with Slashing Weapon
+                    {
+                        if (playerGuard > 0)
+                        {
+                            Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerGuard -= w.weaponDamage;
+                        }
+
+                        if (playerGuard <= 0)
+                        {
+                            Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerHealth -= w.weaponDamage;
+                        }
+                    }
+
+                    if (w.weaponType == BzKnife.WeaponType.Bludgeon)    // Damage with Bludgeoning Weapon
+                    {
+                        rb.AddForce(w.BladeDirection * 1.25f, ForceMode.Impulse);
+
+                        // moveSpeed -= 0.04f;
+
+                        if (playerGuard > 0)
+                        {
+                            Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerGuard -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+                        }
+
+                        if (playerGuard <= 0)
+                        {
+                            Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                            gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                        }
+                    }
+
+                    if (w.weaponType == BzKnife.WeaponType.Pierce)    // Damage with Piercing Weapon
+                    {
+                        rb.AddForceAtPosition(w.BladeDirection * 4f, gameObject.transform.position, ForceMode.Impulse);
+
+                        if (playerGuard > 0)
+                        {
+                            Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerGuard -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                        }
+
+                        if (playerGuard <= 0)
+                        {
+
+                            Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
+                            playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
+
+                            Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
+
+                            Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
+                        }
+                    }
                 }
             }
 
-            if (w.weaponType == BzKnife.WeaponType.Bludgeon)    // Damage with Bludgeoning Weapon
-            {
-                rb.AddForce(w.BladeDirection * 1.25f, ForceMode.Impulse);
-
-                // moveSpeed -= 0.04f;
-
-                if (playerGuard > 0)
-                {
-                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerGuard -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
-                }
-
-                if (playerGuard <= 0)
-                {
-                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                    gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                }
-            }
-
-            if (w.weaponType == BzKnife.WeaponType.Pierce)    // Damage with Piercing Weapon
-            {
-                rb.AddForceAtPosition(w.BladeDirection * 4f, gameObject.transform.position, ForceMode.Impulse);
-
-                if (playerGuard > 0)
-                {
-                    Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerGuard -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                }
-
-                if (playerGuard <= 0)
-                {
-
-                    Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
-                    playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
-
-                    Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
-
-                    Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
-                }
-            }
         }
     }
 

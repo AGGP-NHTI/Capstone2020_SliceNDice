@@ -29,12 +29,12 @@ public class SelectionScreen : MonoBehaviour
     public Gamepad p2DevicePad;
 
     [Header("List of Characters")]
-    [SerializeField] protected List<CharacterSelectObject> characterList = new List<CharacterSelectObject>();
+    [SerializeField] public List<CharacterSelectObject> characterList = new List<CharacterSelectObject>();
 
     [Header("UI References")]
-    [SerializeField] protected TextMeshProUGUI characterName;
-    [SerializeField] protected Image characterSplash;
-    [SerializeField] protected Image backgroundColor;
+    [SerializeField] public TextMeshProUGUI characterName;
+    [SerializeField] public Image characterSplash;
+    [SerializeField] public Image backgroundColor;
    
 
     [Header("Options")]
@@ -126,10 +126,10 @@ public class SelectionScreen : MonoBehaviour
         }
         if (HasSelectedCharacter1 && HasSelectedCharacter2)
         {
-            LS.managerob.SetActive(true);
-            LS.DynamicCamera.SetActive(true);
-            canvas.SetActive(false);
-            Camera.main.gameObject.SetActive(false);
+            LS.CharacterSelect1.SetActive(false);
+            LS.CharacterSelect2.SetActive(false);
+            LS.WeaponSelect1.SetActive(true);
+            LS.WeaponSelect2.SetActive(true);
         }
         
 

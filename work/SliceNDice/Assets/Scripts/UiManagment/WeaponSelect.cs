@@ -4,16 +4,31 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class WeaponSelect : MonoBehaviour
 {
     protected int selectedWeaponIndex;
     private Color desiredColor;
 
-    private bool HasSelectedWeapon = false;
+    public bool P1;
+    public bool P2;
+    private static bool HasSelectedWeapon1 = false;
+    private static bool HasSelectedWeapon2 = false;
+    public SelectionScreen Character;
+    public LevelSelect LS;
+  
+    TPSpawn spawnman;
+    CharacterControl Control;
+    Animator Anim;
 
-    [Header("List of Weapons")]
-    [SerializeField] protected List<WeaponSelectObject> WeaponList = new List<WeaponSelectObject>();
+    public List<AvacadoWeaponSelectObject> AvacadoWeaponList = new List<AvacadoWeaponSelectObject>();
+    public List<AnimatorOverrideController> AvacadoAnims = new List<AnimatorOverrideController>();
+
+    public InputDevice p1Device;
+    public InputDevice p2Device;
+    public Gamepad p1DevicePad;
+    public Gamepad p2DevicePad;
 
     [Header("UI References")]
     [SerializeField] protected TextMeshProUGUI WeaponName;
@@ -28,6 +43,16 @@ public class WeaponSelect : MonoBehaviour
 
     public void Start()
     {
+        Gamepad[] pads = Gamepad.all.ToArray();
+        if (pads.Length < 2)
+        {
+            Debug.LogError("Connect More Controllers, Sucka!!!!!!!!");
+            return;
+        }
+        p1Device = pads[0].device;
+        p2Device = pads[1].device;
+        p1DevicePad = pads[0];
+        p2DevicePad = pads[1];
         UpdateWeaponSelectionUI();
     }
 
@@ -40,7 +65,36 @@ public class WeaponSelect : MonoBehaviour
         {
             backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
         }
-
+        if (P1)
+        {
+            if (p1DevicePad.leftStick.left.wasPressedThisFrame)
+            {
+                LeftArrow();
+            }
+            if (p1DevicePad.leftStick.right.wasPressedThisFrame)
+            {
+                RightArrow();
+            }
+            if (p1DevicePad.buttonSouth.wasPressedThisFrame)
+            {
+                ConfirmSelection();
+            }
+        }
+        if (P2)
+        {
+            if (p2DevicePad.leftStick.left.wasPressedThisFrame)
+            {
+                LeftArrow();
+            }
+            if (p2DevicePad.leftStick.right.wasPressedThisFrame)
+            {
+                RightArrow();
+            }
+            if (p2DevicePad.buttonSouth.wasPressedThisFrame)
+            {
+                ConfirmSelection();
+            }
+        }
 
     }
 
@@ -48,51 +102,208 @@ public class WeaponSelect : MonoBehaviour
 
     public void ConfirmSelection()
     {
+        spawnman = LS.managerob.GetComponent<TPSpawn>();
+        if (!HasSelectedWeapon1)
+        {
+            if (P1 && Character.characterName.text == "Avacado")
+            {
+                Control = spawnman.P1.GetComponent<CharacterControl>();
+                Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP1;
+                HasSelectedWeapon1 = true;
+            }
+            if (P1 && Character.characterName.text == "NEGA Avacado")
+            {
+                Control = spawnman.P1.GetComponent<CharacterControl>();
+                Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP1;
+                HasSelectedWeapon1 = true;
+            }
+        }
+        if (!HasSelectedWeapon2)
+        {
+            if (P2 && Character.characterName.text == "Avacado")
+            {
+                Control = spawnman.P2.GetComponent<CharacterControl>();
+                Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP2;
+                HasSelectedWeapon2 = true;
+            }
 
-
+            if (P2 && Character.characterName.text == "NEGA Avacado")
+            {
+                Control = spawnman.P2.GetComponent<CharacterControl>();
+                Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP2;
+                HasSelectedWeapon2 = true;
+            }
+        }
+        if (HasSelectedWeapon1 && HasSelectedWeapon2)
+        {
+            LS.managerob.SetActive(true);
+            LS.DynamicCamera.SetActive(true);
+            LS.WeaponSelect1.SetActive(false);
+            LS.WeaponSelect2.SetActive(false);
+            LS.Canvas.SetActive(false);
+            Camera.main.gameObject.SetActive(false);
+        }
+       
 
     }
     public void LeftArrow()
     {
-        if (HasSelectedWeapon)
+        
+        if (Character.characterName.text == "Avacado")
         {
-            return;
+            if (HasSelectedWeapon1)
+            {
+                return;
+            }
+            if (HasSelectedWeapon2)
+            {
+                return;
+            }
+            selectedWeaponIndex--;
+            if (selectedWeaponIndex < 0)
+            {
+                selectedWeaponIndex = AvacadoWeaponList.Count - 1;
+            }
+
+            UpdateWeaponSelectionUI();
         }
-        selectedWeaponIndex--;
-        if (selectedWeaponIndex < 0)
+        if (Character.characterName.text == "NEGA Avacado")
         {
-            selectedWeaponIndex = WeaponList.Count - 1;
+            if (HasSelectedWeapon1)
+            {
+                return;
+            }
+            if (HasSelectedWeapon2)
+            {
+                return;
+            }
+            selectedWeaponIndex++;
+            if (selectedWeaponIndex == AvacadoWeaponList.Count)
+            {
+                selectedWeaponIndex = 0;
+            }
+            UpdateWeaponSelectionUI();
         }
 
-        UpdateWeaponSelectionUI();
     }
     public void RightArrow()
     {
-        if (HasSelectedWeapon)
+        if (Character.characterName.text == "Avacado")
         {
-            return;
+            if (HasSelectedWeapon1)
+            {
+                return;
+            }
+            if (HasSelectedWeapon2)
+            {
+                return;
+            }
+            selectedWeaponIndex++;
+            if (selectedWeaponIndex == AvacadoWeaponList.Count)
+            {
+                selectedWeaponIndex = 0;
+            }
+            UpdateWeaponSelectionUI();
         }
-        selectedWeaponIndex++;
-        if (selectedWeaponIndex == WeaponList.Count)
+        if (Character.characterName.text == "NEGA Avacado")
         {
-            selectedWeaponIndex = 0;
+            if (HasSelectedWeapon1)
+            {
+                return;
+            }
+            if (HasSelectedWeapon2)
+            {
+                return;
+            }
+            selectedWeaponIndex++;
+            if (selectedWeaponIndex == AvacadoWeaponList.Count)
+            {
+                selectedWeaponIndex = 0;
+            }
+            UpdateWeaponSelectionUI();
         }
-        UpdateWeaponSelectionUI();
+      
+
+       
+  
+
     }
     private void UpdateWeaponSelectionUI()
     {
-        WeaponSplash.sprite = WeaponList[selectedWeaponIndex].splash;
-        WeaponName.text = WeaponList[selectedWeaponIndex].WeaponName;
-        desiredColor = WeaponList[selectedWeaponIndex].WeaponColor;
+        if(Character.characterName.text == "Avacado")
+        {
+            WeaponSplash.sprite = AvacadoWeaponList[selectedWeaponIndex].splash;
+            WeaponName.text = AvacadoWeaponList[selectedWeaponIndex].WeaponName;
+            desiredColor = AvacadoWeaponList[selectedWeaponIndex].WeaponColor;
+        }
+        if (Character.characterName.text == "NEGA Avacado")
+        {
+            WeaponSplash.sprite = AvacadoWeaponList[selectedWeaponIndex].splash;
+            WeaponName.text = AvacadoWeaponList[selectedWeaponIndex].WeaponName;
+            desiredColor = AvacadoWeaponList[selectedWeaponIndex].WeaponColor;
+        }
+       
+
     }
 
+
     [System.Serializable]
-    public class WeaponSelectObject
+    public class TofuWeaponSelectObject
     {
         public Sprite splash;
         public string WeaponName;
         public Color WeaponColor;
-        public GameObject selectedWeapon;
-        public GameObject selectedWeaponUI;
+        public GameObject selectedWeaponP1;
+        public GameObject selectedWeaponP2;
+    }
+
+    [System.Serializable]
+    public class BlueBerryWeaponSelectObject
+    {
+        public Sprite splash;
+        public string WeaponName;
+        public Color WeaponColor;
+        public GameObject selectedWeaponP1;
+        public GameObject selectedWeaponP2;
+    }
+
+    [System.Serializable]
+    public class SeaweedWeaponSelectObject
+    {
+        public Sprite splash;
+        public string WeaponName;
+        public Color WeaponColor;
+        public GameObject selectedWeaponP1;
+        public GameObject selectedWeaponP2;
+    }
+
+    [System.Serializable]
+    public class ChiliPepperWeaponSelectObject
+    {
+        public Sprite splash;
+        public string WeaponName;
+        public Color WeaponColor;
+        public GameObject selectedWeaponP1;
+        public GameObject selectedWeaponP2;
+    }
+
+    [System.Serializable]
+    public class BroccoliWeaponSelectObject
+    {
+        public Sprite splash;
+        public string WeaponName;
+        public Color WeaponColor;
+        public GameObject selectedWeaponP1;
+        public GameObject selectedWeaponP2;
+    }
+
+    [System.Serializable]
+    public class AvacadoWeaponSelectObject
+    {
+        public Sprite splash;
+        public string WeaponName;
+        public Color WeaponColor;
+        public GameObject selectedWeaponP1;
+        public GameObject selectedWeaponP2;
     }
 }

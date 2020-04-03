@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6300202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 63269672}
   - component: {fileID: 63269671}
   m_Layer: 5
-  m_Name: CharacterName
+  m_Name: WeaponName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,7 +446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &98983346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -599,6 +599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 158931871}
   - component: {fileID: 158931872}
+  - component: {fileID: 158931873}
   m_Layer: 5
   m_Name: Player#1WeaponSelectPanel
   m_TagString: Untagged
@@ -625,7 +626,7 @@ RectTransform:
   - {fileID: 316354660}
   - {fileID: 816165222}
   m_Father: {fileID: 497318136}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -640,6 +641,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158931870}
   m_CullTransparentMesh: 0
+--- !u!114 &158931873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158931870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6a70dd420255348bbc97a2870f7654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1: 1
+  P2: 0
+  Character: {fileID: 181172313}
+  LS: {fileID: 6300204}
+  AvacadoWeaponList:
+  - splash: {fileID: 21300000, guid: 5ede9b9413622094cb54f59a89e74063, type: 3}
+    WeaponName: Knife
+    WeaponColor: {r: 0.9811321, g: 0.06941971, b: 0.9723308, a: 0}
+    selectedWeaponP1: {fileID: 4444594161948506599, guid: 8a5cc42b53b193d49a7dbd493d8cc180,
+      type: 3}
+    selectedWeaponP2: {fileID: 3142173721625320679, guid: ab25daa14ff61124f976dcf633deba06,
+      type: 3}
+  - splash: {fileID: 21300000, guid: e7b189d93711aef4a82d10edcde9e602, type: 3}
+    WeaponName: Cleaver
+    WeaponColor: {r: 0.990566, g: 0.08877712, b: 0.3176773, a: 0}
+    selectedWeaponP1: {fileID: 8750195494260217143, guid: c65b0aa76cf1a6c4dabe6b0df46701b9,
+      type: 3}
+    selectedWeaponP2: {fileID: 8750195494260217143, guid: c65b0aa76cf1a6c4dabe6b0df46701b9,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 875b2e0666b8b994c91b98e128f6c0fd, type: 3}
+    WeaponName: Rolling Pin
+    WeaponColor: {r: 0.24179801, g: 0.04045032, b: 0.9528302, a: 0}
+    selectedWeaponP1: {fileID: 1708604530144746024, guid: 3ebaf5e62de6510418334dc18b9c99f9,
+      type: 3}
+    selectedWeaponP2: {fileID: 1708604530144746024, guid: 3ebaf5e62de6510418334dc18b9c99f9,
+      type: 3}
+  - splash: {fileID: 21300000, guid: b44a64cbbe3a057499a260d8cf858269, type: 3}
+    WeaponName: Spoon
+    WeaponColor: {r: 0.057849795, g: 0.9433962, b: 0.9346322, a: 0}
+    selectedWeaponP1: {fileID: 6323373457569439022, guid: 8b969bc7dbdd83c4cbb0f7aa4d9cfc8f,
+      type: 3}
+    selectedWeaponP2: {fileID: 6323373457569439022, guid: 8b969bc7dbdd83c4cbb0f7aa4d9cfc8f,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 0d73f4a619a89254283c02fdc2629d25, type: 3}
+    WeaponName: Tenderizer
+    WeaponColor: {r: 0.19523537, g: 0.9245283, b: 0.100302614, a: 0}
+    selectedWeaponP1: {fileID: 9040019823220426846, guid: 5d24fbb9be1d16642a72deb448569e63,
+      type: 3}
+    selectedWeaponP2: {fileID: 9040019823220426846, guid: 5d24fbb9be1d16642a72deb448569e63,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 1a352cacf363b20478345cdc5965d5c2, type: 3}
+    WeaponName: ToothPicks
+    WeaponColor: {r: 0.9922182, g: 1, b: 0.08962262, a: 0}
+    selectedWeaponP1: {fileID: 3086454915841879123, guid: e2295af5f79c3ef468d9b1e480d5a692,
+      type: 3}
+    selectedWeaponP2: {fileID: 3086454915841879123, guid: e2295af5f79c3ef468d9b1e480d5a692,
+      type: 3}
+  AvacadoAnims: []
+  WeaponName: {fileID: 316354661}
+  WeaponSplash: {fileID: 1007118524}
+  backgroundColor: {fileID: 1209085679}
+  backgroundColorTransitionSpeed: 5
 --- !u!1 &164664031
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +1011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &181172311
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1257,7 +1322,7 @@ GameObject:
   - component: {fileID: 316354662}
   - component: {fileID: 316354661}
   m_Layer: 5
-  m_Name: CharacterName
+  m_Name: WeaponName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1415,7 +1480,7 @@ GameObject:
   - component: {fileID: 331443661}
   - component: {fileID: 331443660}
   m_Layer: 5
-  m_Name: RightButtonChar
+  m_Name: RightButtonWep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1831,8 +1896,8 @@ RectTransform:
   - {fileID: 1794489656}
   - {fileID: 181172311}
   - {fileID: 98983346}
-  - {fileID: 1897787335}
   - {fileID: 158931871}
+  - {fileID: 1897787335}
   - {fileID: 6300202}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -3048,7 +3113,7 @@ GameObject:
   - component: {fileID: 1007118525}
   - component: {fileID: 1007118524}
   m_Layer: 5
-  m_Name: CharSplash
+  m_Name: WepSplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3086,7 +3151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3123,7 +3188,7 @@ GameObject:
   - component: {fileID: 1015406523}
   - component: {fileID: 1015406522}
   m_Layer: 5
-  m_Name: LeftButtonChar
+  m_Name: LeftButtonWep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4015,7 +4080,7 @@ GameObject:
   - component: {fileID: 1353958884}
   - component: {fileID: 1353958883}
   m_Layer: 5
-  m_Name: CharSplash
+  m_Name: WepSplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4053,7 +4118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4478,7 +4543,7 @@ GameObject:
   - component: {fileID: 1619731356}
   - component: {fileID: 1619731355}
   m_Layer: 5
-  m_Name: RightButtonChar
+  m_Name: RightButtonWep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5045,7 +5110,7 @@ GameObject:
   - component: {fileID: 1842253593}
   - component: {fileID: 1842253592}
   m_Layer: 5
-  m_Name: LeftButtonChar
+  m_Name: LeftButtonWep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5173,6 +5238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1897787335}
   - component: {fileID: 1897787336}
+  - component: {fileID: 1897787337}
   m_Layer: 5
   m_Name: Player#2WeaponSelectPanel
   m_TagString: Untagged
@@ -5199,7 +5265,7 @@ RectTransform:
   - {fileID: 63269670}
   - {fileID: 2071983490}
   m_Father: {fileID: 497318136}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5214,6 +5280,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897787334}
   m_CullTransparentMesh: 0
+--- !u!114 &1897787337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897787334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6a70dd420255348bbc97a2870f7654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1: 0
+  P2: 1
+  Character: {fileID: 98983348}
+  LS: {fileID: 6300204}
+  AvacadoWeaponList:
+  - splash: {fileID: 21300000, guid: 5ede9b9413622094cb54f59a89e74063, type: 3}
+    WeaponName: Knife
+    WeaponColor: {r: 1, g: 0.06132078, b: 0.7431625, a: 0}
+    selectedWeaponP1: {fileID: 4444594161948506599, guid: 8a5cc42b53b193d49a7dbd493d8cc180,
+      type: 3}
+    selectedWeaponP2: {fileID: 3142173721625320679, guid: ab25daa14ff61124f976dcf633deba06,
+      type: 3}
+  - splash: {fileID: 21300000, guid: e7b189d93711aef4a82d10edcde9e602, type: 3}
+    WeaponName: Cleaver
+    WeaponColor: {r: 0.9339623, g: 0.066082224, b: 0.066082224, a: 0}
+    selectedWeaponP1: {fileID: 8750195494260217143, guid: c65b0aa76cf1a6c4dabe6b0df46701b9,
+      type: 3}
+    selectedWeaponP2: {fileID: 8750195494260217143, guid: c65b0aa76cf1a6c4dabe6b0df46701b9,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 875b2e0666b8b994c91b98e128f6c0fd, type: 3}
+    WeaponName: Rolling Pin
+    WeaponColor: {r: 0.12745683, g: 0.038848326, b: 0.9150943, a: 0}
+    selectedWeaponP1: {fileID: 1708604530144746024, guid: 3ebaf5e62de6510418334dc18b9c99f9,
+      type: 3}
+    selectedWeaponP2: {fileID: 1708604530144746024, guid: 3ebaf5e62de6510418334dc18b9c99f9,
+      type: 3}
+  - splash: {fileID: 21300000, guid: b44a64cbbe3a057499a260d8cf858269, type: 3}
+    WeaponName: Spoon
+    WeaponColor: {r: 0, g: 1, b: 0.97912884, a: 0}
+    selectedWeaponP1: {fileID: 6323373457569439022, guid: 8b969bc7dbdd83c4cbb0f7aa4d9cfc8f,
+      type: 3}
+    selectedWeaponP2: {fileID: 6323373457569439022, guid: 8b969bc7dbdd83c4cbb0f7aa4d9cfc8f,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 0d73f4a619a89254283c02fdc2629d25, type: 3}
+    WeaponName: Tenderizer
+    WeaponColor: {r: 0.06612068, g: 0.9433962, b: 0.004449993, a: 0}
+    selectedWeaponP1: {fileID: 9040019823220426846, guid: 5d24fbb9be1d16642a72deb448569e63,
+      type: 3}
+    selectedWeaponP2: {fileID: 9040019823220426846, guid: 5d24fbb9be1d16642a72deb448569e63,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 1a352cacf363b20478345cdc5965d5c2, type: 3}
+    WeaponName: ToothPicks
+    WeaponColor: {r: 0.9754141, g: 0.9811321, b: 0.032395888, a: 0}
+    selectedWeaponP1: {fileID: 3086454915841879123, guid: e2295af5f79c3ef468d9b1e480d5a692,
+      type: 3}
+    selectedWeaponP2: {fileID: 3086454915841879123, guid: e2295af5f79c3ef468d9b1e480d5a692,
+      type: 3}
+  AvacadoAnims:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  WeaponName: {fileID: 63269671}
+  WeaponSplash: {fileID: 1353958883}
+  backgroundColor: {fileID: 349769583}
+  backgroundColorTransitionSpeed: 5
 --- !u!1 &1985235408
 GameObject:
   m_ObjectHideFlags: 0

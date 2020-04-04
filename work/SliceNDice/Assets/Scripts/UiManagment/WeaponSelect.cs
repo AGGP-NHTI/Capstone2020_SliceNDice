@@ -21,9 +21,11 @@ public class WeaponSelect : MonoBehaviour
     TPSpawn spawnman;
     CharacterControl Control;
     Animator Anim;
-
+    [Header("List of Weapons Per Character")]
     public List<AvacadoWeaponSelectObject> AvacadoWeaponList = new List<AvacadoWeaponSelectObject>();
-    public List<AnimatorOverrideController> AvacadoAnims = new List<AnimatorOverrideController>();
+
+    [Header("List of Animator controllers per character")]
+    public List<RuntimeAnimatorController> AvacadoAnims = new List<RuntimeAnimatorController>();
 
     public InputDevice p1Device;
     public InputDevice p2Device;
@@ -109,12 +111,62 @@ public class WeaponSelect : MonoBehaviour
             {
                 Control = spawnman.P1.GetComponent<CharacterControl>();
                 Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP1;
+                Anim = spawnman.P1.GetComponent<Animator>();
+                if (WeaponName.text == "Knife")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[0];
+                }
+                if (WeaponName.text == "Cleaver")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[0];
+                }
+                if (WeaponName.text == "Rolling Pin")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[0];
+                }
+                if (WeaponName.text == "Tenderizer")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[2];
+                }
+                if (WeaponName.text == "Spoon")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[4];
+                }
+                if (WeaponName.text == "ToothPicks")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[6];
+                }
                 HasSelectedWeapon1 = true;
             }
             if (P1 && Character.characterName.text == "NEGA Avacado")
             {
                 Control = spawnman.P1.GetComponent<CharacterControl>();
                 Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP1;
+                Anim = spawnman.P1.GetComponent<Animator>();
+                if (WeaponName.text == "Knife")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[0];
+                }
+                if (WeaponName.text == "Cleaver")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[0];
+                }
+                if (WeaponName.text == "Rolling Pin")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[0];
+                }
+                if (WeaponName.text == "Tenderizer")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[2];
+                }
+                if (WeaponName.text == "Spoon")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[4];
+                }
+                if (WeaponName.text == "ToothPicks")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[6];
+                }
                 HasSelectedWeapon1 = true;
             }
         }
@@ -124,6 +176,31 @@ public class WeaponSelect : MonoBehaviour
             {
                 Control = spawnman.P2.GetComponent<CharacterControl>();
                 Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP2;
+                Anim = spawnman.P2.GetComponent<Animator>();
+                if (WeaponName.text == "Knife")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[1];
+                }
+                if (WeaponName.text == "Cleaver")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[1];
+                }
+                if (WeaponName.text == "Rolling Pin")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[1];
+                }
+                if (WeaponName.text == "Tenderizer")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[3];
+                }
+                if (WeaponName.text == "Spoon")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[5];
+                }
+                if (WeaponName.text == "ToothPicks")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[7];
+                }
                 HasSelectedWeapon2 = true;
             }
 
@@ -131,6 +208,31 @@ public class WeaponSelect : MonoBehaviour
             {
                 Control = spawnman.P2.GetComponent<CharacterControl>();
                 Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP2;
+                Anim = spawnman.P2.GetComponent<Animator>();
+                if (WeaponName.text == "Knife")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[1];
+                }
+                if (WeaponName.text == "Cleaver")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[1];
+                }
+                if (WeaponName.text == "Rolling Pin")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[1];
+                }
+                if (WeaponName.text == "Tenderizer")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[3];
+                }
+                if (WeaponName.text == "Spoon")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[5];
+                }
+                if (WeaponName.text == "ToothPicks")
+                {
+                    Anim.runtimeAnimatorController = AvacadoAnims[7];
+                }
                 HasSelectedWeapon2 = true;
             }
         }
@@ -149,12 +251,22 @@ public class WeaponSelect : MonoBehaviour
     public void LeftArrow()
     {
         
-        if (Character.characterName.text == "Avacado")
+        if (P1 && Character.characterName.text == "Avacado")
         {
             if (HasSelectedWeapon1)
             {
                 return;
             }
+            selectedWeaponIndex--;
+            if (selectedWeaponIndex < 0)
+            {
+                selectedWeaponIndex = AvacadoWeaponList.Count - 1;
+            }
+
+            UpdateWeaponSelectionUI();
+        }
+        if (P2 && Character.characterName.text == "Avacado")
+        {
             if (HasSelectedWeapon2)
             {
                 return;
@@ -167,12 +279,21 @@ public class WeaponSelect : MonoBehaviour
 
             UpdateWeaponSelectionUI();
         }
-        if (Character.characterName.text == "NEGA Avacado")
+        if (P1 && Character.characterName.text == "NEGA Avacado")
         {
             if (HasSelectedWeapon1)
             {
                 return;
             }
+            selectedWeaponIndex++;
+            if (selectedWeaponIndex == AvacadoWeaponList.Count)
+            {
+                selectedWeaponIndex = 0;
+            }
+            UpdateWeaponSelectionUI();
+        }
+        if (P2 && Character.characterName.text == "NEGA Avacado")
+        {
             if (HasSelectedWeapon2)
             {
                 return;
@@ -188,12 +309,21 @@ public class WeaponSelect : MonoBehaviour
     }
     public void RightArrow()
     {
-        if (Character.characterName.text == "Avacado")
+        if (P1 && Character.characterName.text == "Avacado")
         {
             if (HasSelectedWeapon1)
             {
                 return;
             }
+            selectedWeaponIndex++;
+            if (selectedWeaponIndex == AvacadoWeaponList.Count)
+            {
+                selectedWeaponIndex = 0;
+            }
+            UpdateWeaponSelectionUI();
+        }
+        if (P2 && Character.characterName.text == "Avacado")
+        {
             if (HasSelectedWeapon2)
             {
                 return;
@@ -205,12 +335,21 @@ public class WeaponSelect : MonoBehaviour
             }
             UpdateWeaponSelectionUI();
         }
-        if (Character.characterName.text == "NEGA Avacado")
+        if (P1 && Character.characterName.text == "NEGA Avacado")
         {
             if (HasSelectedWeapon1)
             {
                 return;
             }
+            selectedWeaponIndex++;
+            if (selectedWeaponIndex == AvacadoWeaponList.Count)
+            {
+                selectedWeaponIndex = 0;
+            }
+            UpdateWeaponSelectionUI();
+        }
+        if (P2 && Character.characterName.text == "NEGA Avacado")
+        {
             if (HasSelectedWeapon2)
             {
                 return;
@@ -222,10 +361,6 @@ public class WeaponSelect : MonoBehaviour
             }
             UpdateWeaponSelectionUI();
         }
-      
-
-       
-  
 
     }
     private void UpdateWeaponSelectionUI()

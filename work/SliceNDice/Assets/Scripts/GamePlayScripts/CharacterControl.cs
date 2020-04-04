@@ -33,7 +33,7 @@ public class CharacterControl : MonoBehaviour
     {
         managerob = GameObject.Find("PlayerManager");
         controls = new PlayerControls();
-
+        
         Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
         WepLoc = GameObject.Find(Weapon.name + "(Clone)");
     }

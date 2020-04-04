@@ -29,7 +29,7 @@ public class LevelSelect : MonoBehaviour
 
     private bool HasSelectedLevel = false;
 
-    [Header("List of Characters")]
+    [Header("List of Levels")]
     [SerializeField] protected List<LevelSelectObject> LevelList = new List<LevelSelectObject>();
 
     [Header("UI References")]
@@ -81,6 +81,19 @@ public class LevelSelect : MonoBehaviour
             RightArrow();
         }
         if (p1DevicePad.buttonSouth.wasPressedThisFrame)
+        {
+            ConfirmSelection();
+        }
+
+        if (p2DevicePad.leftStick.left.wasPressedThisFrame)
+        {
+            LeftArrow();
+        }
+        if (p2DevicePad.leftStick.right.wasPressedThisFrame)
+        {
+            RightArrow();
+        }
+        if (p2DevicePad.buttonSouth.wasPressedThisFrame)
         {
             ConfirmSelection();
         }

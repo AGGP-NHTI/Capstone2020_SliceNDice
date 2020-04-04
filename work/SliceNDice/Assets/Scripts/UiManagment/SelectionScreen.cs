@@ -136,38 +136,65 @@ public class SelectionScreen : MonoBehaviour
     }
     public void LeftArrow()
     {
-        if (HasSelectedCharacter1)
+        if (P1)
         {
-            return;
+            if (HasSelectedCharacter1)
+            {
+                return;
+            }
+            selectedCharacterIndex--;
+            if (selectedCharacterIndex < 0)
+            {
+                selectedCharacterIndex = characterList.Count - 1;
+            }
+
+            UpdateCharacterSelectionUI();
         }
-        if(HasSelectedCharacter2)
+        if (P2)
         {
-            return;
-        }
-        selectedCharacterIndex--;
-        if (selectedCharacterIndex < 0)
-        {
-            selectedCharacterIndex = characterList.Count - 1;
+            if (HasSelectedCharacter2)
+            {
+                return;
+            }
+            selectedCharacterIndex--;
+            if (selectedCharacterIndex < 0)
+            {
+                selectedCharacterIndex = characterList.Count - 1;
+            }
+
+            UpdateCharacterSelectionUI();
         }
 
-        UpdateCharacterSelectionUI();
     }
     public void RightArrow()
     {
-        if (HasSelectedCharacter1)
+        if (P1)
         {
-            return;
+            if (HasSelectedCharacter1)
+            {
+                return;
+            }
+            selectedCharacterIndex++;
+            if (selectedCharacterIndex == characterList.Count)
+            {
+                selectedCharacterIndex = 0;
+            }
+            UpdateCharacterSelectionUI();
         }
-        if (HasSelectedCharacter2)
+        if (P2)
         {
-            return;
+            if (HasSelectedCharacter2)
+            {
+                return;
+            }
+            selectedCharacterIndex++;
+            if (selectedCharacterIndex == characterList.Count)
+            {
+                selectedCharacterIndex = 0;
+            }
+            UpdateCharacterSelectionUI();
         }
-        selectedCharacterIndex++;
-        if (selectedCharacterIndex == characterList.Count)
-        {
-            selectedCharacterIndex = 0;
-        }
-        UpdateCharacterSelectionUI();
+
     }
     private void UpdateCharacterSelectionUI()
     {

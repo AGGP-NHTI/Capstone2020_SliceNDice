@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Profiling;
 using System.Collections;
 using System.Collections.Generic;
 using BzKovSoft.ObjectSlicerSamples;
@@ -56,26 +57,19 @@ public class Character : MonoBehaviour
 
     void Awake()
     {
-        // Stored Movement Variables
+        // Stored Statistic Variables
+        Build = Mathf.CeilToInt(gameObject.transform.localScale.magnitude);     // How heavy/big the character is.
+        playerMaxHealth = 50 + (Build * 25);                                    // Calculate Health based upon Build.
+        playerHealth = playerMaxHealth;
+        playerGuard = 100;                                                      // Guard is always set to 100. No more, no less.
 
+        // Stored Movement Variables
         rb = GetComponent<Rigidbody>();                                         // DO. NOT. DELETE.
 
         bleedParticles = GetComponent<Sliceable>()._bloodPrefub;
-
-        Build = Mathf.CeilToInt(gameObject.transform.localScale.magnitude);     // How heavy/big the character is.
-
         anim = GetComponent<Animator>();
-
         cc = GetComponent<CharacterControl>();
-
         // control = GameObject.Find("CameraManager").GetComponent<CameraControl>();
-
-        // Stored Statistic Variables
-        playerMaxHealth = 50 + (Build * 25);                                    // Calculate Health based upon Build.
-
-        playerHealth = playerMaxHealth;
-
-        playerGuard = 100;                                                      // Guard is always set to 100. No more, no less.
     }
 
     void Start()
@@ -128,8 +122,8 @@ public class Character : MonoBehaviour
         rb.freezeRotation = false;      // Allows them to fall over at any angle.
         GetComponent<AdderSliceableAsync>().enabled = true;
         cc.movementSpeed = 0;
+        cc.Weapon.transform.parent = null;
         control.isCameraFollowing = false;
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -137,7 +131,6 @@ public class Character : MonoBehaviour
         if (other.GetComponent<Weapon>())
         {
             Weapon w = other.GetComponent<Weapon>();
-
 
             if (cc.P1)
             {
@@ -267,13 +260,6 @@ public class Character : MonoBehaviour
             }
 
         }
-    }
-
-    IEnumerator JumpCoroutine()
-    {
-        // Serves as the "cool down" for Jump.
-
-        yield return new WaitForSeconds(1);
     }
 
     IEnumerator SwingSword()    // This will be altered to not move the weapon after animations are implemented.

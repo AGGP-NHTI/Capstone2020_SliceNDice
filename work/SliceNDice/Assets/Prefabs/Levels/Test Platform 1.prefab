@@ -1451,6 +1451,8 @@ GameObject:
   - component: {fileID: 7904150672001277414}
   - component: {fileID: 7904150672001277409}
   - component: {fileID: 7904150672001277415}
+  - component: {fileID: 7512546127938756860}
+  - component: {fileID: 523951418218065905}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -1536,3 +1538,31 @@ MonoBehaviour:
   P2: {fileID: 0}
   manager: {fileID: 7904150672001277409}
   control: {fileID: 0}
+--- !u!114 &7512546127938756860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904150672001277408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a8681895fb2d740942f3210e19d144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCharacter1: 
+  PlayerCharWeapon1: 
+--- !u!114 &523951418218065905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904150672001277408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48975662b936b0541a57fc40e1c45bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCharacter2: 
+  PlayerCharWeapon2: 

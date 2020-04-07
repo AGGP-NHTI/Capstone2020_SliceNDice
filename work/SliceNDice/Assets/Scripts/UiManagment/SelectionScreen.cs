@@ -104,7 +104,6 @@ public class SelectionScreen : MonoBehaviour
     public void ConfirmSelection()
     {
         spawnman = LS.managerob.GetComponent<TPSpawn>();
-        
         if (!HasSelectedCharacter1)
         {
             if (P1)

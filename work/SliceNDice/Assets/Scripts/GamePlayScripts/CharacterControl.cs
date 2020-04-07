@@ -17,7 +17,9 @@ public class CharacterControl : MonoBehaviour
     public GameObject weaponpoint2;
     GameObject managerob;
     public CameraControl control;
-    public WeaponSelect WepSel;
+
+    public Player1Data Play1;
+    public Player2Data Play2;
 
     Vector3 moveDirection;
     Vector3 movement;
@@ -32,8 +34,9 @@ public class CharacterControl : MonoBehaviour
     private void Awake()
     {
         managerob = GameObject.Find("PlayerManager");
+      
         controls = new PlayerControls();
-       
+
         Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
         WepLoc = GameObject.Find(Weapon.name + "(Clone)");
     }
@@ -41,6 +44,9 @@ public class CharacterControl : MonoBehaviour
     private void Start()
     {
         control = GameObject.Find("CameraManager").GetComponent<CameraControl>();
+
+        Play1 = GameObject.Find("PlayerManager").GetComponent<Player1Data>();
+        Play2 = GameObject.Find("PlayerManager").GetComponent<Player2Data>();
 
         anim = GetComponent<Animator>();
 
@@ -52,17 +58,30 @@ public class CharacterControl : MonoBehaviour
 
         if (P1)
         {
-            WepLoc.transform.position = Weaponpoint1.transform.position;
-            WepLoc.transform.rotation = new Quaternion(60, 180, -40, 0);
-            WepLoc.transform.SetParent(Weaponpoint1.transform);
-            WepLoc.transform.parent = Weaponpoint1.transform;
+            if(Play1.playerCharacter1 == "Avacado" || Play1.playerCharacter1 == "NEGA Avacado")
+            {
+                if(Play1.PlayerCharWeapon1 == "Knife")
+                {
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.rotation = new Quaternion(60, 180, -40, 0);
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                }
+            }
+            
         }
         else
         {
-            WepLoc.transform.SetParent(Weaponpoint1.transform);
-            WepLoc.transform.parent = Weaponpoint1.transform;
-            WepLoc.transform.position = Weaponpoint1.transform.position;
-            WepLoc.transform.Rotate(-55, 180, 30);
+            if(Play2.playerCharacter2 == "Avacado" || Play2.playerCharacter2 == "NEGA Avacado")
+            {
+                if(Play2.PlayerCharWeapon2 == "Knife")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.Rotate(-55, 180, 30);
+                }
+            }
         }
     }
 

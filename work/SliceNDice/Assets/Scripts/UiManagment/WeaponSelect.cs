@@ -21,6 +21,8 @@ public class WeaponSelect : MonoBehaviour
     TPSpawn spawnman;
     CharacterControl Control;
     Animator Anim;
+    
+
     [Header("List of Weapons Per Character")]
     public List<AvacadoWeaponSelectObject> AvacadoWeaponList = new List<AvacadoWeaponSelectObject>();
 
@@ -32,10 +34,13 @@ public class WeaponSelect : MonoBehaviour
     public Gamepad p1DevicePad;
     public Gamepad p2DevicePad;
 
+    Player1Data Player1;
+    Player2Data Player2;
+
     [Header("UI References")]
-    [SerializeField] protected TextMeshProUGUI WeaponName;
-    [SerializeField] protected Image WeaponSplash;
-    [SerializeField] protected Image backgroundColor;
+    [SerializeField] public TextMeshProUGUI WeaponName;
+    [SerializeField] public Image WeaponSplash;
+    [SerializeField] public Image backgroundColor;
 
 
     [Header("Options")]
@@ -105,6 +110,8 @@ public class WeaponSelect : MonoBehaviour
     public void ConfirmSelection()
     {
         spawnman = LS.managerob.GetComponent<TPSpawn>();
+        Player1 = LS.managerob.GetComponent<Player1Data>();
+        Player2 = LS.managerob.GetComponent<Player2Data>();
         if (!HasSelectedWeapon1)
         {
             if (P1 && Character.characterName.text == "Avacado")
@@ -112,29 +119,36 @@ public class WeaponSelect : MonoBehaviour
                 Control = spawnman.P1.GetComponent<CharacterControl>();
                 Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP1;
                 Anim = spawnman.P1.GetComponent<Animator>();
+                Player1.playerCharacter1 = "Avacado";
                 if (WeaponName.text == "Knife")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[0];
+                    Player1.PlayerCharWeapon1 = "Knife";
                 }
                 if (WeaponName.text == "Cleaver")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[0];
+                    Player1.PlayerCharWeapon1 = "Cleaver";
                 }
                 if (WeaponName.text == "Rolling Pin")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[0];
+                    Player1.PlayerCharWeapon1 = "Rolling Pin";
                 }
                 if (WeaponName.text == "Tenderizer")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[2];
+                    Player1.PlayerCharWeapon1 = "Tenderizer";
                 }
                 if (WeaponName.text == "Spoon")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[4];
+                    Player1.PlayerCharWeapon1 = "Spoon";
                 }
                 if (WeaponName.text == "ToothPicks")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[6];
+                    Player1.PlayerCharWeapon1 = "ToothPicks";
                 }
                 HasSelectedWeapon1 = true;
             }
@@ -143,29 +157,36 @@ public class WeaponSelect : MonoBehaviour
                 Control = spawnman.P1.GetComponent<CharacterControl>();
                 Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP1;
                 Anim = spawnman.P1.GetComponent<Animator>();
+                Player1.playerCharacter1 = "NEGA Avacado";
                 if (WeaponName.text == "Knife")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[0];
+                    Player1.PlayerCharWeapon1 = "Knife";
                 }
                 if (WeaponName.text == "Cleaver")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[0];
+                    Player1.PlayerCharWeapon1 = "Cleaver";
                 }
                 if (WeaponName.text == "Rolling Pin")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[0];
+                    Player1.PlayerCharWeapon1 = "Rolling Pin";
                 }
                 if (WeaponName.text == "Tenderizer")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[2];
+                    Player1.PlayerCharWeapon1 = "Tenderizer";
                 }
                 if (WeaponName.text == "Spoon")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[4];
+                    Player1.PlayerCharWeapon1 = "Spoon";
                 }
                 if (WeaponName.text == "ToothPicks")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[6];
+                    Player1.PlayerCharWeapon1 = "ToothPicks";
                 }
                 HasSelectedWeapon1 = true;
             }
@@ -177,29 +198,36 @@ public class WeaponSelect : MonoBehaviour
                 Control = spawnman.P2.GetComponent<CharacterControl>();
                 Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP2;
                 Anim = spawnman.P2.GetComponent<Animator>();
+                Player2.playerCharacter2 = "Avacado";
                 if (WeaponName.text == "Knife")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[1];
+                    Player2.PlayerCharWeapon2 = "Knife";
                 }
                 if (WeaponName.text == "Cleaver")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[1];
+                    Player2.PlayerCharWeapon2 = "Cleaver";
                 }
                 if (WeaponName.text == "Rolling Pin")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[1];
+                    Player2.PlayerCharWeapon2 = "Rolling Pin";
                 }
                 if (WeaponName.text == "Tenderizer")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[3];
+                    Player2.PlayerCharWeapon2 = "Tenderizer";
                 }
                 if (WeaponName.text == "Spoon")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[5];
+                    Player2.PlayerCharWeapon2 = "Spoon";
                 }
                 if (WeaponName.text == "ToothPicks")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[7];
+                    Player2.PlayerCharWeapon2 = "ToothPicks";
                 }
                 HasSelectedWeapon2 = true;
             }
@@ -209,29 +237,36 @@ public class WeaponSelect : MonoBehaviour
                 Control = spawnman.P2.GetComponent<CharacterControl>();
                 Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP2;
                 Anim = spawnman.P2.GetComponent<Animator>();
+                Player2.playerCharacter2 = "NEGA Avacado";
                 if (WeaponName.text == "Knife")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[1];
+                    Player2.PlayerCharWeapon2 = "Knife";
                 }
                 if (WeaponName.text == "Cleaver")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[1];
+                    Player2.PlayerCharWeapon2 = "Cleaver";
                 }
                 if (WeaponName.text == "Rolling Pin")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[1];
+                    Player2.PlayerCharWeapon2 = "Rolling Pin";
                 }
                 if (WeaponName.text == "Tenderizer")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[3];
+                    Player2.PlayerCharWeapon2 = "Tenderizer";
                 }
                 if (WeaponName.text == "Spoon")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[5];
+                    Player2.PlayerCharWeapon2 = "Spoon";
                 }
                 if (WeaponName.text == "ToothPicks")
                 {
                     Anim.runtimeAnimatorController = AvacadoAnims[7];
+                    Player2.PlayerCharWeapon2 = "ToothPicks";
                 }
                 HasSelectedWeapon2 = true;
             }

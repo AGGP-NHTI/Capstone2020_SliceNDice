@@ -136,6 +136,8 @@ GameObject:
   - component: {fileID: 5317428700359412785}
   - component: {fileID: 7513004158606384917}
   - component: {fileID: 5096390357108165506}
+  - component: {fileID: 9193958007824891963}
+  - component: {fileID: 2911428746711244966}
   m_Layer: 0
   m_Name: pCylinder2
   m_TagString: Untagged
@@ -202,6 +204,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &9193958007824891963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817482982419335302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.019836152, y: 0.024732564, z: 0.012837434}
+  m_Center: {x: 0.000001487847, y: 0.029831732, z: 0.0000726982}
+--- !u!114 &2911428746711244966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817482982419335302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de70ec8b41a9a4c428152d840d0ea947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _origin: {x: 0, y: -1, z: 0}
+  _direction: {x: 0, y: 1, z: 0}
+  weaponType: 2
+  weaponDamage: 20
+  weaponWeight: 2
 --- !u!1 &8337108156453725495
 GameObject:
   m_ObjectHideFlags: 0

@@ -101,7 +101,7 @@ public class Sliceable : BzSliceableCharacterBase, IDeadable
 		};
 	}
 
-	private void ConvertToRagdoll(GameObject resultNeg, GameObject resultPos, LazyActionRunner lazyRunnerNeg, LazyActionRunner lazyRunnerPos)
+	public void ConvertToRagdoll(GameObject resultNeg, GameObject resultPos, LazyActionRunner lazyRunnerNeg, LazyActionRunner lazyRunnerPos)
 	{
 		Animator animator = this.GetComponent<Animator>();
 		Vector3 velocityContinue = animator.velocity;
@@ -216,7 +216,7 @@ public class Sliceable : BzSliceableCharacterBase, IDeadable
 		return result / vertices.Length;
 	}
 
-	private void ConvertToRagdoll(GameObject go, Vector3 velocityContinue, Vector3 angularVelocityContinue, LazyActionRunner lazyRunner)
+	public void ConvertToRagdoll(GameObject go, Vector3 velocityContinue, Vector3 angularVelocityContinue, LazyActionRunner lazyRunner)
 	{
 		Profiler.BeginSample("ConvertToRagdoll");
 		// if your player is dead, you do not need animator or collision collider

@@ -17,7 +17,7 @@ public class CharacterControl : MonoBehaviour
     public GameObject weaponpoint2;
     GameObject managerob;
     public CameraControl control;
-
+    public WeaponSelect WepSel;
 
     Vector3 moveDirection;
     Vector3 movement;
@@ -33,7 +33,7 @@ public class CharacterControl : MonoBehaviour
     {
         managerob = GameObject.Find("PlayerManager");
         controls = new PlayerControls();
-        
+       
         Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
         WepLoc = GameObject.Find(Weapon.name + "(Clone)");
     }

@@ -77,12 +77,25 @@ public class Character : MonoBehaviour
         if (cc.P1)
         {
             gameObject.AddComponent<Player1Object>();
+            platform.AddComponent<Player1Object>();
             cc.Wep.AddComponent<Player1Object>();
+
+            if (cc.WepOff)
+            {
+                cc.WepOff.AddComponent<Player1Object>();
+            }
         }
 
         if (!cc.P1)
         {
             gameObject.AddComponent<Player2Object>();
+            platform.AddComponent<Player2Object>();
+            cc.Wep.AddComponent<Player2Object>();
+
+            if (cc.WepOff)
+            {
+                cc.WepOff.AddComponent<Player2Object>();
+            }
         }
     }
 

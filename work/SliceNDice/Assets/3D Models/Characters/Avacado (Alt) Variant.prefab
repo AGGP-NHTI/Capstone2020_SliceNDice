@@ -76,12 +76,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e95828f9db897024c89ff93cb5c5f04f, type: 2}
+      objectReference: {fileID: 9100000, guid: 338dde97adc2c27468a6b1d4a780634b, type: 2}
     - target: {fileID: 5721308536676652953, guid: 7754f887a6a5ca646ac7fbefed3525c6,
         type: 3}
       propertyPath: Weapon
       value: 
-      objectReference: {fileID: 6323373457569439022, guid: 8b969bc7dbdd83c4cbb0f7aa4d9cfc8f,
+      objectReference: {fileID: 3086454915841879123, guid: e2295af5f79c3ef468d9b1e480d5a692,
         type: 3}
     - target: {fileID: 5721308536676652953, guid: 7754f887a6a5ca646ac7fbefed3525c6,
         type: 3}
@@ -93,6 +93,17 @@ PrefabInstance:
       propertyPath: backSpeed
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5721308536676652953, guid: 7754f887a6a5ca646ac7fbefed3525c6,
+        type: 3}
+      propertyPath: Weaponpoint2
+      value: 
+      objectReference: {fileID: 2591949814899803633}
+    - target: {fileID: 5721308536676652953, guid: 7754f887a6a5ca646ac7fbefed3525c6,
+        type: 3}
+      propertyPath: WeaponOffhand
+      value: 
+      objectReference: {fileID: 3086454915841879123, guid: 7541b49eddbb1d54aa3b3358143f0bba,
+        type: 3}
     - target: {fileID: 1782907810511963886, guid: 7754f887a6a5ca646ac7fbefed3525c6,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -145,3 +156,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7754f887a6a5ca646ac7fbefed3525c6, type: 3}
+--- !u!1 &2591949814899803633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5202190805796791423, guid: 7754f887a6a5ca646ac7fbefed3525c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7766897800170447246}
+  m_PrefabAsset: {fileID: 0}

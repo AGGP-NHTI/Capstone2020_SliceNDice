@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &5091304675690658352
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2575299477456349723}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.046996225, y: 1.6087857, z: 0.80229044}
+  m_Center: {x: -0.007023984, y: 0.36567554, z: 0.24699964}
+--- !u!114 &2484291890938800576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2575299477456349723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de70ec8b41a9a4c428152d840d0ea947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _origin: {x: 0, y: -1, z: 0}
+  _direction: {x: 0, y: 1, z: 0}
+  weaponType: 0
+  weaponDamage: 24
+  weaponWeight: 3
 --- !u!1001 &742844793512905790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +40,12 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 55d6bcefba3b6f24d9165d3d9cc57ed5,
         type: 3}
       propertyPath: m_Name
-      value: CleaverWeapon
+      value: CleaverWeapon Variant 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 55d6bcefba3b6f24d9165d3d9cc57ed5,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 55d6bcefba3b6f24d9165d3d9cc57ed5,
         type: 3}
@@ -20,7 +55,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 55d6bcefba3b6f24d9165d3d9cc57ed5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.111
+      value: 1.838
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 55d6bcefba3b6f24d9165d3d9cc57ed5,
         type: 3}
@@ -70,17 +105,28 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 55d6bcefba3b6f24d9165d3d9cc57ed5,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 55d6bcefba3b6f24d9165d3d9cc57ed5,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 55d6bcefba3b6f24d9165d3d9cc57ed5,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.65
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389931813310208247, guid: 55d6bcefba3b6f24d9165d3d9cc57ed5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.054362
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55d6bcefba3b6f24d9165d3d9cc57ed5, type: 3}
+--- !u!1 &2575299477456349723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6200805374013135323, guid: 55d6bcefba3b6f24d9165d3d9cc57ed5,
+    type: 3}
+  m_PrefabInstance: {fileID: 742844793512905790}
+  m_PrefabAsset: {fileID: 0}

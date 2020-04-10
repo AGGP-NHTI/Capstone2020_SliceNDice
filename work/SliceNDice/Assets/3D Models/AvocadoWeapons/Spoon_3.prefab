@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7972694338528373518}
   m_Layer: 0
   m_Name: transform2
-  m_TagString: Untagged
+  m_TagString: P2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 1356165097947420321}
   m_Layer: 0
   m_Name: pSphere1
-  m_TagString: Untagged
+  m_TagString: P2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 7642685045003690889}
   m_Layer: 0
   m_Name: pCylinder1
-  m_TagString: Untagged
+  m_TagString: P2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,8 +102,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7033069492802006845}
   m_Layer: 0
-  m_Name: Spoon_2
-  m_TagString: Untagged
+  m_Name: Spoon_3
+  m_TagString: P2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,9 +136,11 @@ GameObject:
   - component: {fileID: 5317428700359412785}
   - component: {fileID: 7513004158606384917}
   - component: {fileID: 5096390357108165506}
+  - component: {fileID: 6026449505590197058}
+  - component: {fileID: 1069916659300902521}
   m_Layer: 0
   m_Name: pCylinder2
-  m_TagString: Untagged
+  m_TagString: P2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,6 +204,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6026449505590197058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817482982419335302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.019836154, y: 0.023878578, z: 0.010952728}
+  m_Center: {x: 0.000001487847, y: 0.030258724, z: -0.00087859615}
+--- !u!114 &1069916659300902521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817482982419335302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de70ec8b41a9a4c428152d840d0ea947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _origin: {x: 0, y: -1, z: 0}
+  _direction: {x: 0, y: 1, z: 0}
+  weaponType: 2
+  weaponDamage: 20
+  weaponWeight: 2
 --- !u!1 &8337108156453725495
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +245,7 @@ GameObject:
   - component: {fileID: 5633692672248217548}
   m_Layer: 0
   m_Name: transform1
-  m_TagString: Untagged
+  m_TagString: P2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -83,7 +83,6 @@ public class Character : MonoBehaviour
         if (!cc.P1)
         {
             gameObject.AddComponent<Player2Object>();
-            cc.Wep.AddComponent<Player2Object>();
         }
     }
 

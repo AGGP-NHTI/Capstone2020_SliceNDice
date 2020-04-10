@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!136 &2777362739465313702
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708604530144746024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.022264684
+  m_Height: 0.12963611
+  m_Direction: 2
+  m_Center: {x: 0.0000027120113, y: 0.0005746801, z: 0.0012270021}
+--- !u!114 &5482246761600361184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708604530144746024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de70ec8b41a9a4c428152d840d0ea947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _origin: {x: 0, y: -1, z: 0}
+  _direction: {x: 0, y: 1, z: 0}
+  weaponType: 2
+  weaponDamage: 22
+  weaponWeight: 2.5
 --- !u!1001 &7248477435994948385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +41,12 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 49585cd1c340e73428672aad565e37c2,
         type: 3}
       propertyPath: m_Name
-      value: RollingPin
+      value: RollingPin Variant 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 49585cd1c340e73428672aad565e37c2,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 49585cd1c340e73428672aad565e37c2,
         type: 3}
@@ -70,17 +106,23 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 49585cd1c340e73428672aad565e37c2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.11048069
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 49585cd1c340e73428672aad565e37c2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.26050386
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 49585cd1c340e73428672aad565e37c2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: -6.282044
+      value: -6.222044
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49585cd1c340e73428672aad565e37c2, type: 3}
+--- !u!1 &1708604530144746024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 49585cd1c340e73428672aad565e37c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7248477435994948385}
+  m_PrefabAsset: {fileID: 0}

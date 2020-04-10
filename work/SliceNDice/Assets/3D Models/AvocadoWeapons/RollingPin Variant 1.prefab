@@ -10,10 +10,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.08938043
-  m_Height: 0.18
+  m_Radius: 0.022009678
+  m_Height: 0.12704071
   m_Direction: 2
-  m_Center: {x: 0.0000027143735, y: -0.0000002717062, z: 0.0011884222}
+  m_Center: {x: 0.00080966204, y: -0.0027636962, z: 0.0009990397}
 --- !u!114 &7960273322529760200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,9 +28,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _origin: {x: 0, y: -1, z: 0}
   _direction: {x: 0, y: 1, z: 0}
-  weaponType: 1
+  weaponType: 2
   weaponDamage: 22
-  weaponWeight: 0.1
+  weaponWeight: 2.5
 --- !u!1001 &7248477435994948385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42,6 +42,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RollingPin Variant 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 49585cd1c340e73428672aad565e37c2,
+        type: 3}
+      propertyPath: m_TagString
+      value: P1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 49585cd1c340e73428672aad565e37c2,
         type: 3}
@@ -101,12 +106,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 49585cd1c340e73428672aad565e37c2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.11048069
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 49585cd1c340e73428672aad565e37c2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.26050386
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 49585cd1c340e73428672aad565e37c2,
         type: 3}

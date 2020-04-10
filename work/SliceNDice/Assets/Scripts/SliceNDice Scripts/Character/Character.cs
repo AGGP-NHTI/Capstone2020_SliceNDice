@@ -85,7 +85,7 @@ public class Character : MonoBehaviour
                 cc.WepOff.AddComponent<Player1Object>();
             }
         }
-
+       
         if (!cc.P1)
         {
             gameObject.AddComponent<Player2Object>();

@@ -121,10 +121,10 @@ public class CharacterControl : MonoBehaviour
                     WepLocOff.transform.SetParent(Weaponpoint2.transform);
                     WepLoc.transform.parent = Weaponpoint1.transform;
                     WepLocOff.transform.parent = Weaponpoint2.transform;
-                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(0, .65f, 0);
-                    WepLocOff.transform.position = Weaponpoint2.transform.position + new Vector3(0, .65f, 0);
-                    //WepLoc.transform.Rotate(-148, -80, -95);
-                    //WepLocOff.transform.Rotate(-148, -80, -95);
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(0.03f, .34f, -0.01f);
+                    WepLocOff.transform.position = Weaponpoint2.transform.position + new Vector3(-0.05f, .34f, 0.01f);
+                    WepLoc.transform.Rotate(-148, -80, -95);
+                    WepLocOff.transform.Rotate(-148, -80, -95);
                 }
             }
             
@@ -174,8 +174,8 @@ public class CharacterControl : MonoBehaviour
                     WepLocOff.transform.SetParent(Weaponpoint2.transform);
                     WepLoc.transform.parent = Weaponpoint1.transform;
                     WepLocOff.transform.parent = Weaponpoint2.transform;
-                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(0,0,-.01f);
-                    WepLocOff.transform.position = Weaponpoint2.transform.position + new Vector3(-.65f, 0, 0);
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(-0.03f,.34f,0.01f);
+                    WepLocOff.transform.position = Weaponpoint2.transform.position + new Vector3(0.05f, .34f, -0.01f);
                     WepLoc.transform.Rotate(-148, -80, -95);
                     WepLocOff.transform.Rotate(-148, -80, -95);
                 }

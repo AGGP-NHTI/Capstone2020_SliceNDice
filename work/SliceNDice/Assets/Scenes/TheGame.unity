@@ -511,6 +511,26 @@ MonoBehaviour:
     characterColor: {r: 0.9772253, g: 1, b: 0, a: 0}
     selectedchar: {fileID: 6607794211512568320, guid: 445203642706cc34a951d8d77b529a2b,
       type: 3}
+  - splash: {fileID: 21300000, guid: 1580720cdaaca3d498772e66dc5fc43a, type: 3}
+    characterName: Tofu
+    characterColor: {r: 1, g: 0.7263849, b: 0, a: 0}
+    selectedchar: {fileID: 7548647963057487611, guid: c3291ca1333951547ba11e9c33c1b067,
+      type: 3}
+  - splash: {fileID: 21300000, guid: e1729ee1a35dfb84d9873f645b05ccca, type: 3}
+    characterName: NEGA Tofu
+    characterColor: {r: 1, g: 0, b: 0.31600952, a: 0}
+    selectedchar: {fileID: 5388062807551205247, guid: 0ffd2c7b4c4931f4a90a70018ef44f10,
+      type: 3}
+  - splash: {fileID: 21300000, guid: e2ca80618c0cb9249a48776b1d11ea5c, type: 3}
+    characterName: BlueBerry
+    characterColor: {r: 0, g: 0.054581642, b: 1, a: 0}
+    selectedchar: {fileID: 6316290617753878969, guid: 6df6047b0c997834bbf23bdc837c0416,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 66ee49e7229c17e42a31c46869e6363f, type: 3}
+    characterName: NEGA BlueBerry
+    characterColor: {r: 1, g: 0, b: 0.98475456, a: 0}
+    selectedchar: {fileID: 7192714218813146716, guid: c46f412a7b45cf34b8e16703f08391d2,
+      type: 3}
   characterName: {fileID: 1187186486}
   characterSplash: {fileID: 1214665804}
   backgroundColor: {fileID: 2087392628}
@@ -657,10 +677,10 @@ MonoBehaviour:
   P2: 0
   Character: {fileID: 181172313}
   LS: {fileID: 6300204}
-  AvacadoWeaponList:
+  WeaponList:
   - splash: {fileID: 21300000, guid: 5ede9b9413622094cb54f59a89e74063, type: 3}
     WeaponName: Knife
-    WeaponColor: {r: 0.9811321, g: 0.06941971, b: 0.9723308, a: 0}
+    WeaponColor: {r: 0.70864683, g: 1, b: 0.08962262, a: 0}
     selectedWeaponP1: {fileID: 4444594161948506599, guid: 8a5cc42b53b193d49a7dbd493d8cc180,
       type: 3}
     selectedWeaponP1OffHand: {fileID: 0}
@@ -669,16 +689,18 @@ MonoBehaviour:
     selectedWeaponP2OffHand: {fileID: 0}
   - splash: {fileID: 21300000, guid: e7b189d93711aef4a82d10edcde9e602, type: 3}
     WeaponName: Cleaver
-    WeaponColor: {r: 0.990566, g: 0.08877712, b: 0.3176773, a: 0}
+    WeaponColor: {r: 0.9339623, g: 0.057271298, b: 0.057271298, a: 0}
     selectedWeaponP1: {fileID: 8750195494260217143, guid: c65b0aa76cf1a6c4dabe6b0df46701b9,
       type: 3}
-    selectedWeaponP1OffHand: {fileID: 0}
+    selectedWeaponP1OffHand: {fileID: 8750195494260217143, guid: 440fec8decbd4e94e8f5f8d57fd5b2cf,
+      type: 3}
     selectedWeaponP2: {fileID: 8750195494260217143, guid: 1166264fbe889a742a50ce83501a2fcd,
       type: 3}
-    selectedWeaponP2OffHand: {fileID: 0}
+    selectedWeaponP2OffHand: {fileID: 8750195494260217143, guid: 570288aea99d6784587f85a18cb504f6,
+      type: 3}
   - splash: {fileID: 21300000, guid: 875b2e0666b8b994c91b98e128f6c0fd, type: 3}
     WeaponName: Rolling Pin
-    WeaponColor: {r: 0.24179801, g: 0.04045032, b: 0.9528302, a: 0}
+    WeaponColor: {r: 0.097232126, g: 0.8962264, b: 0.74638563, a: 0}
     selectedWeaponP1: {fileID: 1708604530144746024, guid: 3ebaf5e62de6510418334dc18b9c99f9,
       type: 3}
     selectedWeaponP1OffHand: {fileID: 0}
@@ -687,7 +709,7 @@ MonoBehaviour:
     selectedWeaponP2OffHand: {fileID: 0}
   - splash: {fileID: 21300000, guid: b44a64cbbe3a057499a260d8cf858269, type: 3}
     WeaponName: Spoon
-    WeaponColor: {r: 0.057849795, g: 0.9433962, b: 0.9346322, a: 0}
+    WeaponColor: {r: 0.9150943, g: 0.038848326, b: 0.8319514, a: 0}
     selectedWeaponP1: {fileID: 6323373457569439022, guid: 8b969bc7dbdd83c4cbb0f7aa4d9cfc8f,
       type: 3}
     selectedWeaponP1OffHand: {fileID: 0}
@@ -696,7 +718,7 @@ MonoBehaviour:
     selectedWeaponP2OffHand: {fileID: 0}
   - splash: {fileID: 21300000, guid: 0d73f4a619a89254283c02fdc2629d25, type: 3}
     WeaponName: Tenderizer
-    WeaponColor: {r: 0.19523537, g: 0.9245283, b: 0.100302614, a: 0}
+    WeaponColor: {r: 0.095811665, g: 0.086908154, b: 0.8773585, a: 0}
     selectedWeaponP1: {fileID: 9040019823220426846, guid: 5d24fbb9be1d16642a72deb448569e63,
       type: 3}
     selectedWeaponP1OffHand: {fileID: 0}
@@ -705,7 +727,7 @@ MonoBehaviour:
     selectedWeaponP2OffHand: {fileID: 0}
   - splash: {fileID: 21300000, guid: 1a352cacf363b20478345cdc5965d5c2, type: 3}
     WeaponName: ToothPicks
-    WeaponColor: {r: 0.9922182, g: 1, b: 0.08962262, a: 0}
+    WeaponColor: {r: 0.8867924, g: 0.82646435, b: 0.06274474, a: 0}
     selectedWeaponP1: {fileID: 3086454915841879123, guid: e2295af5f79c3ef468d9b1e480d5a692,
       type: 3}
     selectedWeaponP1OffHand: {fileID: 3086454915841879123, guid: 7541b49eddbb1d54aa3b3358143f0bba,
@@ -714,7 +736,7 @@ MonoBehaviour:
       type: 3}
     selectedWeaponP2OffHand: {fileID: 3086454915841879123, guid: 7f8ec2222121f54468f8775b2acbf6f0,
       type: 3}
-  AvacadoAnims:
+  Anims:
   - {fileID: 9100000, guid: 846196c21a72c2947bfa5768d5d3248d, type: 2}
   - {fileID: 9100000, guid: 03113e714ba9dca4daf33511672f127f, type: 2}
   - {fileID: 9100000, guid: 478ce622a8ce2364391774f4e84c3f33, type: 2}
@@ -1096,6 +1118,26 @@ MonoBehaviour:
     characterName: NEGA Avacado
     characterColor: {r: 0.7976628, g: 0.9056604, b: 0.046991818, a: 0}
     selectedchar: {fileID: 2110947555906772225, guid: 7749f1fe53c395c4b9e6a222c9c5fa5f,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 1580720cdaaca3d498772e66dc5fc43a, type: 3}
+    characterName: Tofu
+    characterColor: {r: 0.90588236, g: 0.6213698, b: 0.04705884, a: 0}
+    selectedchar: {fileID: 2535711561342203003, guid: f40a98f14168269429f2f185f3f796c8,
+      type: 3}
+  - splash: {fileID: 21300000, guid: e1729ee1a35dfb84d9873f645b05ccca, type: 3}
+    characterName: NEGA Tofu
+    characterColor: {r: 0.90588236, g: 0.04705884, b: 0.31964245, a: 0}
+    selectedchar: {fileID: 6789099362515767253, guid: da2ec7ed074b9944e962eb52729cb269,
+      type: 3}
+  - splash: {fileID: 21300000, guid: e2ca80618c0cb9249a48776b1d11ea5c, type: 3}
+    characterName: BlueBerry
+    characterColor: {r: 0.04705884, g: 0.123082146, b: 0.90588236, a: 0}
+    selectedchar: {fileID: 3268295773622450414, guid: 6fd8228002b5b71458f043e62af19a6c,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 66ee49e7229c17e42a31c46869e6363f, type: 3}
+    characterName: NEGA BlueBerry
+    characterColor: {r: 0.74918896, g: 0.04705884, b: 0.90588236, a: 0}
+    selectedchar: {fileID: 5355399086733374198, guid: 5db0d190b51bf51428f96a230f9b630b,
       type: 3}
   characterName: {fileID: 164664033}
   characterSplash: {fileID: 1273458525}
@@ -5318,10 +5360,10 @@ MonoBehaviour:
   P2: 1
   Character: {fileID: 98983348}
   LS: {fileID: 6300204}
-  AvacadoWeaponList:
+  WeaponList:
   - splash: {fileID: 21300000, guid: 5ede9b9413622094cb54f59a89e74063, type: 3}
     WeaponName: Knife
-    WeaponColor: {r: 1, g: 0.06132078, b: 0.7431625, a: 0}
+    WeaponColor: {r: 0.70864683, g: 1, b: 0.08962262, a: 0}
     selectedWeaponP1: {fileID: 4444594161948506599, guid: 8a5cc42b53b193d49a7dbd493d8cc180,
       type: 3}
     selectedWeaponP1OffHand: {fileID: 0}
@@ -5330,16 +5372,18 @@ MonoBehaviour:
     selectedWeaponP2OffHand: {fileID: 0}
   - splash: {fileID: 21300000, guid: e7b189d93711aef4a82d10edcde9e602, type: 3}
     WeaponName: Cleaver
-    WeaponColor: {r: 0.9339623, g: 0.066082224, b: 0.066082224, a: 0}
+    WeaponColor: {r: 0.9339623, g: 0.057271298, b: 0.057271298, a: 0}
     selectedWeaponP1: {fileID: 8750195494260217143, guid: c65b0aa76cf1a6c4dabe6b0df46701b9,
       type: 3}
-    selectedWeaponP1OffHand: {fileID: 0}
+    selectedWeaponP1OffHand: {fileID: 8750195494260217143, guid: 440fec8decbd4e94e8f5f8d57fd5b2cf,
+      type: 3}
     selectedWeaponP2: {fileID: 8750195494260217143, guid: 1166264fbe889a742a50ce83501a2fcd,
       type: 3}
-    selectedWeaponP2OffHand: {fileID: 0}
+    selectedWeaponP2OffHand: {fileID: 8750195494260217143, guid: 570288aea99d6784587f85a18cb504f6,
+      type: 3}
   - splash: {fileID: 21300000, guid: 875b2e0666b8b994c91b98e128f6c0fd, type: 3}
     WeaponName: Rolling Pin
-    WeaponColor: {r: 0.12745683, g: 0.038848326, b: 0.9150943, a: 0}
+    WeaponColor: {r: 0.097232126, g: 0.8962264, b: 0.74638563, a: 0}
     selectedWeaponP1: {fileID: 1708604530144746024, guid: 3ebaf5e62de6510418334dc18b9c99f9,
       type: 3}
     selectedWeaponP1OffHand: {fileID: 0}
@@ -5348,7 +5392,7 @@ MonoBehaviour:
     selectedWeaponP2OffHand: {fileID: 0}
   - splash: {fileID: 21300000, guid: b44a64cbbe3a057499a260d8cf858269, type: 3}
     WeaponName: Spoon
-    WeaponColor: {r: 0, g: 1, b: 0.97912884, a: 0}
+    WeaponColor: {r: 0.9150943, g: 0.038848326, b: 0.8319514, a: 0}
     selectedWeaponP1: {fileID: 6323373457569439022, guid: 8b969bc7dbdd83c4cbb0f7aa4d9cfc8f,
       type: 3}
     selectedWeaponP1OffHand: {fileID: 0}
@@ -5357,7 +5401,7 @@ MonoBehaviour:
     selectedWeaponP2OffHand: {fileID: 0}
   - splash: {fileID: 21300000, guid: 0d73f4a619a89254283c02fdc2629d25, type: 3}
     WeaponName: Tenderizer
-    WeaponColor: {r: 0.06612068, g: 0.9433962, b: 0.004449993, a: 0}
+    WeaponColor: {r: 0.095811665, g: 0.086908154, b: 0.8773585, a: 0}
     selectedWeaponP1: {fileID: 9040019823220426846, guid: 5d24fbb9be1d16642a72deb448569e63,
       type: 3}
     selectedWeaponP1OffHand: {fileID: 0}
@@ -5366,7 +5410,7 @@ MonoBehaviour:
     selectedWeaponP2OffHand: {fileID: 0}
   - splash: {fileID: 21300000, guid: 1a352cacf363b20478345cdc5965d5c2, type: 3}
     WeaponName: ToothPicks
-    WeaponColor: {r: 0.9754141, g: 0.9811321, b: 0.032395888, a: 0}
+    WeaponColor: {r: 0.8867924, g: 0.82646435, b: 0.06274474, a: 0}
     selectedWeaponP1: {fileID: 3086454915841879123, guid: e2295af5f79c3ef468d9b1e480d5a692,
       type: 3}
     selectedWeaponP1OffHand: {fileID: 3086454915841879123, guid: 7541b49eddbb1d54aa3b3358143f0bba,
@@ -5375,7 +5419,7 @@ MonoBehaviour:
       type: 3}
     selectedWeaponP2OffHand: {fileID: 3086454915841879123, guid: 7f8ec2222121f54468f8775b2acbf6f0,
       type: 3}
-  AvacadoAnims:
+  Anims:
   - {fileID: 9100000, guid: 846196c21a72c2947bfa5768d5d3248d, type: 2}
   - {fileID: 9100000, guid: 03113e714ba9dca4daf33511672f127f, type: 2}
   - {fileID: 9100000, guid: 478ce622a8ce2364391774f4e84c3f33, type: 2}

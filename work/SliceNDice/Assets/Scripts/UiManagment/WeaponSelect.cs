@@ -23,10 +23,15 @@ public class WeaponSelect : MonoBehaviour
     
 
     [Header("List of Weapons Per Character")]
-    public List<AvacadoWeaponSelectObject> AvacadoWeaponList = new List<AvacadoWeaponSelectObject>();
+    public List<WeaponSelectObject> WeaponList = new List<WeaponSelectObject>();
+    //public List<WeaponSelectObject> TofuWeaponList = new List<WeaponSelectObject>();
+    //public List<WeaponSelectObject> BlueBerryWeaponList = new List<WeaponSelectObject>();
+    //public List<WeaponSelectObject> BroccoliWeaponList = new List<WeaponSelectObject>();
+    //public List<WeaponSelectObject> ChilliPepperWeaponList = new List<WeaponSelectObject>();
+    //public List<WeaponSelectObject> SeaweedWeaponList = new List<WeaponSelectObject>();
 
-    [Header("List of Animator controllers per character")]
-    public List<RuntimeAnimatorController> AvacadoAnims = new List<RuntimeAnimatorController>();
+    [Header("List of Animator controllers")]
+    public List<RuntimeAnimatorController> Anims = new List<RuntimeAnimatorController>();
 
     public InputDevice p1Device;
     public InputDevice p2Device;
@@ -116,81 +121,236 @@ public class WeaponSelect : MonoBehaviour
             if (P1 &&(Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado"))
             {
                 Control = spawnman.P1.GetComponent<CharacterControl>();
-                Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP1;
-                Control.WeaponOffhand = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP1OffHand;
+                Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP1;
+                Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP1OffHand;
                 Anim = spawnman.P1.GetComponent<Animator>();
                 Player1.playerCharacter1 = "Avacado";
                 if (WeaponName.text == "Knife")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[0];
+                    Anim.runtimeAnimatorController = Anims[0];
                     Player1.PlayerCharWeapon1 = "Knife";
                 }
                 if (WeaponName.text == "Cleaver")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[0];
+                    Anim.runtimeAnimatorController = Anims[0];
                     Player1.PlayerCharWeapon1 = "Cleaver";
                 }
                 if (WeaponName.text == "Rolling Pin")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[0];
+                    Anim.runtimeAnimatorController = Anims[0];
                     Player1.PlayerCharWeapon1 = "Rolling Pin";
                 }
                 if (WeaponName.text == "Tenderizer")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[2];
+                    Anim.runtimeAnimatorController = Anims[2];
                     Player1.PlayerCharWeapon1 = "Tenderizer";
                 }
                 if (WeaponName.text == "Spoon")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[4];
+                    Anim.runtimeAnimatorController = Anims[4];
                     Player1.PlayerCharWeapon1 = "Spoon";
                 }
                 if (WeaponName.text == "ToothPicks")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[6];
+                    Anim.runtimeAnimatorController = Anims[6];
                     Player1.PlayerCharWeapon1 = "ToothPicks";
                 }
                 HasSelectedWeapon1 = true;
             }
-           
+            if (P1 && (Character.characterName.text == "Tofu" || Character.characterName.text == "NEGA Tofu"))
+            {
+                Control = spawnman.P1.GetComponent<CharacterControl>();
+                Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP1;
+                Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP1OffHand;
+                Anim = spawnman.P1.GetComponent<Animator>();
+                Player1.playerCharacter1 = "Tofu";
+                if (WeaponName.text == "Knife")
+                {
+                    Anim.runtimeAnimatorController = Anims[0];
+                    Player1.PlayerCharWeapon1 = "Knife";
+                }
+                if (WeaponName.text == "Cleaver")
+                {
+                    Anim.runtimeAnimatorController = Anims[6];
+                    Player1.PlayerCharWeapon1 = "Cleaver";
+                }
+                if (WeaponName.text == "Rolling Pin")
+                {
+                    Anim.runtimeAnimatorController = Anims[0];
+                    Player1.PlayerCharWeapon1 = "Rolling Pin";
+                }
+                if (WeaponName.text == "Tenderizer")
+                {
+                    Anim.runtimeAnimatorController = Anims[2];
+                    Player1.PlayerCharWeapon1 = "Tenderizer";
+                }
+                if (WeaponName.text == "Spoon")
+                {
+                    Anim.runtimeAnimatorController = Anims[4];
+                    Player1.PlayerCharWeapon1 = "Spoon";
+                }
+                if (WeaponName.text == "ToothPicks")
+                {
+                    Anim.runtimeAnimatorController = Anims[6];
+                    Player1.PlayerCharWeapon1 = "ToothPicks";
+                }
+                HasSelectedWeapon1 = true;
+            }
+            if (P1 && (Character.characterName.text == "BlueBerry" || Character.characterName.text == "NEGA BlueBerry"))
+            {
+                Control = spawnman.P1.GetComponent<CharacterControl>();
+                Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP1;
+                Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP1OffHand;
+                Anim = spawnman.P1.GetComponent<Animator>();
+                Player1.playerCharacter1 = "BlueBerry";
+                if (WeaponName.text == "Knife")
+                {
+                    Anim.runtimeAnimatorController = Anims[0];
+                    Player1.PlayerCharWeapon1 = "Knife";
+                }
+                if (WeaponName.text == "Cleaver")
+                {
+                    Anim.runtimeAnimatorController = Anims[0];
+                    Player1.PlayerCharWeapon1 = "Cleaver";
+                }
+                if (WeaponName.text == "Rolling Pin")
+                {
+                    Anim.runtimeAnimatorController = Anims[0];
+                    Player1.PlayerCharWeapon1 = "Rolling Pin";
+                }
+                if (WeaponName.text == "Tenderizer")
+                {
+                    Anim.runtimeAnimatorController = Anims[2];
+                    Player1.PlayerCharWeapon1 = "Tenderizer";
+                }
+                if (WeaponName.text == "Spoon")
+                {
+                    Anim.runtimeAnimatorController = Anims[4];
+                    Player1.PlayerCharWeapon1 = "Spoon";
+                }
+                if (WeaponName.text == "ToothPicks")
+                {
+                    Anim.runtimeAnimatorController = Anims[6];
+                    Player1.PlayerCharWeapon1 = "ToothPicks";
+                }
+                HasSelectedWeapon1 = true;
+            }
         }
         if (!HasSelectedWeapon2)
         {
             if (P2 && (Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado"))
             {
                 Control = spawnman.P2.GetComponent<CharacterControl>();
-                Control.Weapon = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP2;
-                Control.WeaponOffhand = AvacadoWeaponList[selectedWeaponIndex].selectedWeaponP2OffHand;
+                Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP2;
+                Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP2OffHand;
                 Anim = spawnman.P2.GetComponent<Animator>();
                 Player2.playerCharacter2 = "Avacado";
                 if (WeaponName.text == "Knife")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[1];
+                    Anim.runtimeAnimatorController = Anims[1];
                     Player2.PlayerCharWeapon2 = "Knife";
                 }
                 if (WeaponName.text == "Cleaver")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[1];
+                    Anim.runtimeAnimatorController = Anims[1];
                     Player2.PlayerCharWeapon2 = "Cleaver";
                 }
                 if (WeaponName.text == "Rolling Pin")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[1];
+                    Anim.runtimeAnimatorController = Anims[1];
                     Player2.PlayerCharWeapon2 = "Rolling Pin";
                 }
                 if (WeaponName.text == "Tenderizer")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[3];
+                    Anim.runtimeAnimatorController = Anims[3];
                     Player2.PlayerCharWeapon2 = "Tenderizer";
                 }
                 if (WeaponName.text == "Spoon")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[5];
+                    Anim.runtimeAnimatorController = Anims[5];
                     Player2.PlayerCharWeapon2 = "Spoon";
                 }
                 if (WeaponName.text == "ToothPicks")
                 {
-                    Anim.runtimeAnimatorController = AvacadoAnims[7];
+                    Anim.runtimeAnimatorController = Anims[7];
+                    Player2.PlayerCharWeapon2 = "ToothPicks";
+                }
+                HasSelectedWeapon2 = true;
+            }
+            if (P2 && (Character.characterName.text == "Tofu" || Character.characterName.text == "NEGA Tofu"))
+            {
+                Control = spawnman.P2.GetComponent<CharacterControl>();
+                Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP2;
+                Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP2OffHand;
+                Anim = spawnman.P2.GetComponent<Animator>();
+                Player2.playerCharacter2 = "Tofu";
+                if (WeaponName.text == "Knife")
+                {
+                    Anim.runtimeAnimatorController = Anims[1];
+                    Player2.PlayerCharWeapon2 = "Knife";
+                }
+                if (WeaponName.text == "Cleaver")
+                {
+                    Anim.runtimeAnimatorController = Anims[7];
+                    Player2.PlayerCharWeapon2 = "Cleaver";
+                }
+                if (WeaponName.text == "Rolling Pin")
+                {
+                    Anim.runtimeAnimatorController = Anims[1];
+                    Player2.PlayerCharWeapon2 = "Rolling Pin";
+                }
+                if (WeaponName.text == "Tenderizer")
+                {
+                    Anim.runtimeAnimatorController = Anims[3];
+                    Player2.PlayerCharWeapon2 = "Tenderizer";
+                }
+                if (WeaponName.text == "Spoon")
+                {
+                    Anim.runtimeAnimatorController = Anims[5];
+                    Player2.PlayerCharWeapon2 = "Spoon";
+                }
+                if (WeaponName.text == "ToothPicks")
+                {
+                    Anim.runtimeAnimatorController = Anims[7];
+                    Player2.PlayerCharWeapon2 = "ToothPicks";
+                }
+                HasSelectedWeapon2 = true;
+            }
+            if (P2 && (Character.characterName.text == "BlueBerry" || Character.characterName.text == "NEGA BlueBerry"))
+            {
+                Control = spawnman.P2.GetComponent<CharacterControl>();
+                Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP2;
+                Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP2OffHand;
+                Anim = spawnman.P2.GetComponent<Animator>();
+                Player2.playerCharacter2 = "BlueBerry";
+                if (WeaponName.text == "Knife")
+                {
+                    Anim.runtimeAnimatorController = Anims[1];
+                    Player2.PlayerCharWeapon2 = "Knife";
+                }
+                if (WeaponName.text == "Cleaver")
+                {
+                    Anim.runtimeAnimatorController = Anims[1];
+                    Player2.PlayerCharWeapon2 = "Cleaver";
+                }
+                if (WeaponName.text == "Rolling Pin")
+                {
+                    Anim.runtimeAnimatorController = Anims[1];
+                    Player2.PlayerCharWeapon2 = "Rolling Pin";
+                }
+                if (WeaponName.text == "Tenderizer")
+                {
+                    Anim.runtimeAnimatorController = Anims[3];
+                    Player2.PlayerCharWeapon2 = "Tenderizer";
+                }
+                if (WeaponName.text == "Spoon")
+                {
+                    Anim.runtimeAnimatorController = Anims[5];
+                    Player2.PlayerCharWeapon2 = "Spoon";
+                }
+                if (WeaponName.text == "ToothPicks")
+                {
+                    Anim.runtimeAnimatorController = Anims[7];
                     Player2.PlayerCharWeapon2 = "ToothPicks";
                 }
                 HasSelectedWeapon2 = true;
@@ -211,7 +371,7 @@ public class WeaponSelect : MonoBehaviour
     public void LeftArrow()
     {
         
-        if (P1 && (Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado"))
+        if (P1)
         {
             if (HasSelectedWeapon1)
             {
@@ -220,12 +380,12 @@ public class WeaponSelect : MonoBehaviour
             selectedWeaponIndex--;
             if (selectedWeaponIndex < 0)
             {
-                selectedWeaponIndex = AvacadoWeaponList.Count - 1;
+                selectedWeaponIndex = WeaponList.Count - 1;
             }
 
             UpdateWeaponSelectionUI();
         }
-        if (P2 && (Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado"))
+        if (P2)
         {
             if (HasSelectedWeapon2)
             {
@@ -234,7 +394,7 @@ public class WeaponSelect : MonoBehaviour
             selectedWeaponIndex--;
             if (selectedWeaponIndex < 0)
             {
-                selectedWeaponIndex = AvacadoWeaponList.Count - 1;
+                selectedWeaponIndex = WeaponList.Count - 1;
             }
 
             UpdateWeaponSelectionUI();
@@ -242,27 +402,27 @@ public class WeaponSelect : MonoBehaviour
     }
     public void RightArrow()
     {
-        if (P1 && (Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado"))
+        if (P1)
         {
             if (HasSelectedWeapon1)
             {
                 return;
             }
             selectedWeaponIndex++;
-            if (selectedWeaponIndex == AvacadoWeaponList.Count)
+            if (selectedWeaponIndex == WeaponList.Count)
             {
                 selectedWeaponIndex = 0;
             }
             UpdateWeaponSelectionUI();
         }
-        if (P2 && (Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado"))
+        if (P2)
         {
             if (HasSelectedWeapon2)
             {
                 return;
             }
             selectedWeaponIndex++;
-            if (selectedWeaponIndex == AvacadoWeaponList.Count)
+            if (selectedWeaponIndex == WeaponList.Count)
             {
                 selectedWeaponIndex = 0;
             }
@@ -271,77 +431,13 @@ public class WeaponSelect : MonoBehaviour
     }
     private void UpdateWeaponSelectionUI()
     {
-        if(Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado")
-        {
-            WeaponSplash.sprite = AvacadoWeaponList[selectedWeaponIndex].splash;
-            WeaponName.text = AvacadoWeaponList[selectedWeaponIndex].WeaponName;
-            desiredColor = AvacadoWeaponList[selectedWeaponIndex].WeaponColor;
-        }
-    }
-
-
-    [System.Serializable]
-    public class TofuWeaponSelectObject
-    {
-        public Sprite splash;
-        public string WeaponName;
-        public Color WeaponColor;
-        public GameObject selectedWeaponP1;
-        public GameObject selectedWeaponP1OffHand;
-        public GameObject selectedWeaponP2;
-        public GameObject selectedWeaponP2OffHand;
+        WeaponSplash.sprite = WeaponList[selectedWeaponIndex].splash;
+        WeaponName.text = WeaponList[selectedWeaponIndex].WeaponName;
+        desiredColor = WeaponList[selectedWeaponIndex].WeaponColor;
     }
 
     [System.Serializable]
-    public class BlueBerryWeaponSelectObject
-    {
-        public Sprite splash;
-        public string WeaponName;
-        public Color WeaponColor;
-        public GameObject selectedWeaponP1;
-        public GameObject selectedWeaponP1OffHand;
-        public GameObject selectedWeaponP2;
-        public GameObject selectedWeaponP2OffHand;
-    }
-
-    [System.Serializable]
-    public class SeaweedWeaponSelectObject
-    {
-        public Sprite splash;
-        public string WeaponName;
-        public Color WeaponColor;
-        public GameObject selectedWeaponP1;
-        public GameObject selectedWeaponP1OffHand;
-        public GameObject selectedWeaponP2;
-        public GameObject selectedWeaponP2OffHand;
-    }
-
-    [System.Serializable]
-    public class ChiliPepperWeaponSelectObject
-    {
-        public Sprite splash;
-        public string WeaponName;
-        public Color WeaponColor;
-        public GameObject selectedWeaponP1;
-        public GameObject selectedWeaponP1OffHand;
-        public GameObject selectedWeaponP2;
-        public GameObject selectedWeaponP2OffHand;
-    }
-
-    [System.Serializable]
-    public class BroccoliWeaponSelectObject
-    {
-        public Sprite splash;
-        public string WeaponName;
-        public Color WeaponColor;
-        public GameObject selectedWeaponP1;
-        public GameObject selectedWeaponP1OffHand;
-        public GameObject selectedWeaponP2;
-        public GameObject selectedWeaponP2OffHand;
-    }
-
-    [System.Serializable]
-    public class AvacadoWeaponSelectObject
+    public class WeaponSelectObject
     {
         public Sprite splash;
         public string WeaponName;

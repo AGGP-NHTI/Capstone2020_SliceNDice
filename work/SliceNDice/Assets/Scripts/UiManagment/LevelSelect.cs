@@ -112,7 +112,6 @@ public class LevelSelect : MonoBehaviour
             DynamicCamera = GameObject.Find("CameraManager");
             managerob.SetActive(false);
             DynamicCamera.SetActive(false);
-            //Canvas.SetActive(false);
             gameObject.SetActive(false);
             CharacterSelect1.SetActive(true);
             CharacterSelect2.SetActive(true);

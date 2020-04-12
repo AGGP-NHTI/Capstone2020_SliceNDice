@@ -39,14 +39,28 @@ public class CharacterControl : MonoBehaviour
         Play1 = GameObject.Find("PlayerManager").GetComponent<Player1Data>();
         Play2 = GameObject.Find("PlayerManager").GetComponent<Player2Data>();
         controls = new PlayerControls();
-        if(Play1.PlayerCharWeapon1 == "ToothPicks")
+        if (Play1.PlayerCharWeapon1 == "ToothPicks" )
         {
             Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
             WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
             WepLoc = GameObject.Find(Weapon.name + "(Clone)");
             WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
         }
-        else if(Play2.playerCharacter2 == "ToothPicks")
+        else if(Play2.playerCharacter2 == "ToothPicks" )
+        {
+            Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
+            WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
+            WepLoc = GameObject.Find(Weapon.name + "(Clone)");
+            WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
+        }
+        else if (Play1.playerCharacter1 == "Tofu" && Play1.PlayerCharWeapon1 == "Cleaver")
+        {
+            Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
+            WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
+            WepLoc = GameObject.Find(Weapon.name + "(Clone)");
+            WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
+        }
+        else if (Play2.playerCharacter2 == "Tofu" && Play2.PlayerCharWeapon2 == "Cleaver")
         {
             Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
             WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
@@ -58,6 +72,9 @@ public class CharacterControl : MonoBehaviour
             Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
             WepLoc = GameObject.Find(Weapon.name + "(Clone)");
         }
+
+        
+        
         
     }
 
@@ -78,7 +95,7 @@ public class CharacterControl : MonoBehaviour
 
         if (P1)
         {
-            if(Play1.playerCharacter1 == "Avacado" || Play1.playerCharacter1 == "NEGA Avacado")
+            if(Play1.playerCharacter1 == "Avacado")
             {
                 if(Play1.PlayerCharWeapon1 == "Knife")
                 {
@@ -86,6 +103,7 @@ public class CharacterControl : MonoBehaviour
                     WepLoc.transform.parent = Weaponpoint1.transform;
                     WepLoc.transform.position = Weaponpoint1.transform.position;
                     WepLoc.transform.Rotate(-55, 180, 30);
+                    
                 }
                 if (Play1.PlayerCharWeapon1 == "Cleaver")
                 {
@@ -127,11 +145,114 @@ public class CharacterControl : MonoBehaviour
                     WepLocOff.transform.Rotate(-148, -80, -95);
                 }
             }
-            
+            if (Play1.playerCharacter1 == "Tofu")
+            {
+                if (Play1.PlayerCharWeapon1 == "Knife")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(0.09f,0,0.09f);
+                    WepLoc.transform.Rotate(-55, 150, 30);
+                    WepLoc.transform.localScale += new Vector3(.015f,.25f,.025f);
+                }
+                if (Play1.PlayerCharWeapon1 == "Cleaver")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLocOff.transform.SetParent(Weaponpoint2.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLocOff.transform.parent = Weaponpoint2.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLocOff.transform.position = Weaponpoint2.transform.position;
+                    WepLoc.transform.Rotate(-70, 180, 40);
+                    WepLocOff.transform.Rotate(-70,180,40);
+                }
+                if (Play1.PlayerCharWeapon1 == "Rolling Pin")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(.09f, .45f, 0);
+                    WepLoc.transform.Rotate(0, 190, 40);
+                }
+                if (Play1.PlayerCharWeapon1 == "Spoon")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.Rotate(-80, 180, 0);
+                }
+                if (Play1.PlayerCharWeapon1 == "Tenderizer")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(-.09f, -.75f, .09f);
+                    WepLoc.transform.Rotate(-148, -80, -95);
+                }
+                if (Play1.PlayerCharWeapon1 == "ToothPicks")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLocOff.transform.SetParent(Weaponpoint2.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLocOff.transform.parent = Weaponpoint2.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(0.03f, .34f, -0.01f);
+                    WepLocOff.transform.position = Weaponpoint2.transform.position + new Vector3(-0.05f, .34f, 0.01f);
+                    WepLoc.transform.Rotate(-148, -80, -95);
+                    WepLocOff.transform.Rotate(-148, -80, -95);
+                }
+            }
+            if (Play1.playerCharacter1 == "BlueBerry")
+            {
+                if (Play1.PlayerCharWeapon1 == "Knife")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.Rotate(-55, 180, 30);
+
+                }
+                if (Play1.PlayerCharWeapon1 == "Cleaver")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.Rotate(-70, 180, 40);
+                }
+                if (Play1.PlayerCharWeapon1 == "Rolling Pin")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(.09f, .45f, 0);
+                    WepLoc.transform.Rotate(0, 190, 40);
+                }
+                if (Play1.PlayerCharWeapon1 == "Spoon")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.Rotate(-80, 180, 0);
+                }
+                if (Play1.PlayerCharWeapon1 == "Tenderizer")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(-.09f, -.75f, .09f);
+                    WepLoc.transform.Rotate(-148, -80, -95);
+                }
+                if (Play1.PlayerCharWeapon1 == "ToothPicks")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLocOff.transform.SetParent(Weaponpoint2.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLocOff.transform.parent = Weaponpoint2.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(0.03f, .34f, -0.01f);
+                    WepLocOff.transform.position = Weaponpoint2.transform.position + new Vector3(-0.05f, .34f, 0.01f);
+                    WepLoc.transform.Rotate(-148, -80, -95);
+                    WepLocOff.transform.Rotate(-148, -80, -95);
+                }
+            }
         }
         else
         {
-            if(Play2.playerCharacter2 == "Avacado" || Play2.playerCharacter2 == "NEGA Avacado")
+            if(Play2.playerCharacter2 == "Avacado")
             {
                 if(Play2.PlayerCharWeapon2 == "Knife")
                 {
@@ -175,6 +296,108 @@ public class CharacterControl : MonoBehaviour
                     WepLoc.transform.parent = Weaponpoint1.transform;
                     WepLocOff.transform.parent = Weaponpoint2.transform;
                     WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(-0.03f,.34f,0.01f);
+                    WepLocOff.transform.position = Weaponpoint2.transform.position + new Vector3(0.05f, .34f, -0.01f);
+                    WepLoc.transform.Rotate(-148, -80, -95);
+                    WepLocOff.transform.Rotate(-148, -80, -95);
+                }
+            }
+            if (Play2.playerCharacter2 == "Tofu")
+            {
+                if (Play2.PlayerCharWeapon2 == "Knife")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.Rotate(-55, 180, 30);
+                }
+                if (Play2.PlayerCharWeapon2 == "Cleaver")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLocOff.transform.SetParent(Weaponpoint2.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLocOff.transform.parent = Weaponpoint2.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLocOff.transform.position = Weaponpoint2.transform.position;
+                    WepLoc.transform.Rotate(-70, 180, 40);
+                    WepLocOff.transform.Rotate(-70, 180, 40);
+                }
+                if (Play2.PlayerCharWeapon2 == "Rolling Pin")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(-.09f, .45f, 0);
+                    WepLoc.transform.Rotate(0, 190, 40);
+                }
+                if (Play2.PlayerCharWeapon2 == "Spoon")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.Rotate(-80, 180, 0);
+                }
+                if (Play2.PlayerCharWeapon2 == "Tenderizer")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(.09f, -.75f, -.09f);
+                    WepLoc.transform.Rotate(-148, -80, -95);
+                }
+                if (Play2.PlayerCharWeapon2 == "ToothPicks")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLocOff.transform.SetParent(Weaponpoint2.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLocOff.transform.parent = Weaponpoint2.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(-0.03f, .34f, 0.01f);
+                    WepLocOff.transform.position = Weaponpoint2.transform.position + new Vector3(0.05f, .34f, -0.01f);
+                    WepLoc.transform.Rotate(-148, -80, -95);
+                    WepLocOff.transform.Rotate(-148, -80, -95);
+                }
+            }
+            if (Play2.playerCharacter2 == "BlueBerry")
+            {
+                if (Play2.PlayerCharWeapon2 == "Knife")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.Rotate(-55, 180, 30);
+                }
+                if (Play2.PlayerCharWeapon2 == "Cleaver")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.Rotate(-70, 180, 40);
+                }
+                if (Play2.PlayerCharWeapon2 == "Rolling Pin")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(-.09f, .45f, 0);
+                    WepLoc.transform.Rotate(0, 190, 40);
+                }
+                if (Play2.PlayerCharWeapon2 == "Spoon")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.Rotate(-80, 180, 0);
+                }
+                if (Play2.PlayerCharWeapon2 == "Tenderizer")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(.09f, -.75f, -.09f);
+                    WepLoc.transform.Rotate(-148, -80, -95);
+                }
+                if (Play2.PlayerCharWeapon2 == "ToothPicks")
+                {
+                    WepLoc.transform.SetParent(Weaponpoint1.transform);
+                    WepLocOff.transform.SetParent(Weaponpoint2.transform);
+                    WepLoc.transform.parent = Weaponpoint1.transform;
+                    WepLocOff.transform.parent = Weaponpoint2.transform;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(-0.03f, .34f, 0.01f);
                     WepLocOff.transform.position = Weaponpoint2.transform.position + new Vector3(0.05f, .34f, -0.01f);
                     WepLoc.transform.Rotate(-148, -80, -95);
                     WepLocOff.transform.Rotate(-148, -80, -95);

@@ -270,7 +270,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &63269669
 GameObject:
@@ -685,7 +685,6 @@ RectTransform:
   - {fileID: 527992050}
   - {fileID: 1825444635}
   - {fileID: 1187186485}
-  - {fileID: 767614094}
   - {fileID: 521511466}
   m_Father: {fileID: 497318136}
   m_RootOrder: 2
@@ -724,33 +723,63 @@ MonoBehaviour:
   characterList:
   - splash: {fileID: 21300000, guid: de9b7ea73583bf04eb0c7438becb3ed4, type: 3}
     characterName: Avacado
-    characterColor: {r: 0.43842933, g: 0.9433962, b: 0.048949808, a: 0}
+    characterColor: {r: 0.31533638, g: 0.9245283, b: 0.047970813, a: 0}
     selectedchar: {fileID: 3720280609347319090, guid: 3596476fd325b14489e275ab66634c76,
       type: 3}
   - splash: {fileID: 21300000, guid: 66ee715bc6fc6dc498c45bb286903d8b, type: 3}
     characterName: NEGA Avacado
-    characterColor: {r: 0.9772253, g: 1, b: 0, a: 0}
+    characterColor: {r: 0.7976628, g: 0.9056604, b: 0.046991818, a: 0}
     selectedchar: {fileID: 6607794211512568320, guid: 445203642706cc34a951d8d77b529a2b,
       type: 3}
   - splash: {fileID: 21300000, guid: 1580720cdaaca3d498772e66dc5fc43a, type: 3}
     characterName: Tofu
-    characterColor: {r: 1, g: 0.7263849, b: 0, a: 0}
-    selectedchar: {fileID: 7548647963057487611, guid: c3291ca1333951547ba11e9c33c1b067,
+    characterColor: {r: 0.90588236, g: 0.6213698, b: 0.04705884, a: 0}
+    selectedchar: {fileID: 1560706323899258798, guid: c3291ca1333951547ba11e9c33c1b067,
       type: 3}
   - splash: {fileID: 21300000, guid: e1729ee1a35dfb84d9873f645b05ccca, type: 3}
     characterName: NEGA Tofu
-    characterColor: {r: 1, g: 0, b: 0.31600952, a: 0}
-    selectedchar: {fileID: 5388062807551205247, guid: 0ffd2c7b4c4931f4a90a70018ef44f10,
+    characterColor: {r: 0.90588236, g: 0.04705884, b: 0.31964245, a: 0}
+    selectedchar: {fileID: 6516560022756280997, guid: 0ffd2c7b4c4931f4a90a70018ef44f10,
       type: 3}
   - splash: {fileID: 21300000, guid: e2ca80618c0cb9249a48776b1d11ea5c, type: 3}
     characterName: BlueBerry
-    characterColor: {r: 0, g: 0.054581642, b: 1, a: 0}
-    selectedchar: {fileID: 6316290617753878969, guid: 6df6047b0c997834bbf23bdc837c0416,
+    characterColor: {r: 0.04705884, g: 0.123082146, b: 0.90588236, a: 0}
+    selectedchar: {fileID: 7665192411249838628, guid: 6df6047b0c997834bbf23bdc837c0416,
       type: 3}
   - splash: {fileID: 21300000, guid: 66ee49e7229c17e42a31c46869e6363f, type: 3}
     characterName: NEGA BlueBerry
-    characterColor: {r: 1, g: 0, b: 0.98475456, a: 0}
-    selectedchar: {fileID: 7192714218813146716, guid: c46f412a7b45cf34b8e16703f08391d2,
+    characterColor: {r: 0.74918896, g: 0.04705884, b: 0.90588236, a: 0}
+    selectedchar: {fileID: 8496320151198567653, guid: c46f412a7b45cf34b8e16703f08391d2,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 8af51e0ca809f1e479a801dc9f30ea28, type: 3}
+    characterName: Broccoli
+    characterColor: {r: 0, g: 1, b: 0.97150254, a: 0}
+    selectedchar: {fileID: 1708058030675617004, guid: 05712d72f4ecee143aab7afea3148c64,
+      type: 3}
+  - splash: {fileID: 21300000, guid: b315b1245a89b4542ab33a85063a976a, type: 3}
+    characterName: NEGA Broccoli
+    characterColor: {r: 0.1179794, g: 0.012682444, b: 0.14150941, a: 0}
+    selectedchar: {fileID: 2651475646828866128, guid: f9606f21ac58be14f872919798115e14,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 8d6b6ee572587224bb4b0ac1b248255f, type: 3}
+    characterName: Seaweed
+    characterColor: {r: 0.17210619, g: 0.6132076, b: 0.020247431, a: 0}
+    selectedchar: {fileID: 9168581551842330976, guid: 015689e2991f5bd4f9f8dfbd20a8d177,
+      type: 3}
+  - splash: {fileID: 21300000, guid: e9aac4e51edfe37469f753635a5d9044, type: 3}
+    characterName: NEGA Seaweed
+    characterColor: {r: 0.05406728, g: 0.51137817, b: 0.764151, a: 0}
+    selectedchar: {fileID: 8840477064768595572, guid: 59e00c8688145fa468e25ed8ef0bab9f,
+      type: 3}
+  - splash: {fileID: 21300000, guid: f3448476772de014182bd186b87b639e, type: 3}
+    characterName: ChilliPepper
+    characterColor: {r: 1, g: 0.018630981, b: 0, a: 0}
+    selectedchar: {fileID: 7715881072479956974, guid: b6cfe1f8321aa9d47ac77492a6bb3fd3,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 7f5dca598af3cb04fbfb41c757eadaa7, type: 3}
+    characterName: NEGA ChilliPepper
+    characterColor: {r: 0.80430466, g: 0.7692239, b: 0.8113208, a: 0}
+    selectedchar: {fileID: 6899125199844205418, guid: e2e1f3caf9526ba439c95b0b0f08c315,
       type: 3}
   characterName: {fileID: 1187186486}
   characterSplash: {fileID: 1214665804}
@@ -1606,22 +1635,52 @@ MonoBehaviour:
   - splash: {fileID: 21300000, guid: 1580720cdaaca3d498772e66dc5fc43a, type: 3}
     characterName: Tofu
     characterColor: {r: 0.90588236, g: 0.6213698, b: 0.04705884, a: 0}
-    selectedchar: {fileID: 2535711561342203003, guid: f40a98f14168269429f2f185f3f796c8,
+    selectedchar: {fileID: 4899727371909161458, guid: f40a98f14168269429f2f185f3f796c8,
       type: 3}
   - splash: {fileID: 21300000, guid: e1729ee1a35dfb84d9873f645b05ccca, type: 3}
     characterName: NEGA Tofu
     characterColor: {r: 0.90588236, g: 0.04705884, b: 0.31964245, a: 0}
-    selectedchar: {fileID: 6789099362515767253, guid: da2ec7ed074b9944e962eb52729cb269,
+    selectedchar: {fileID: 3713722837960760109, guid: da2ec7ed074b9944e962eb52729cb269,
       type: 3}
   - splash: {fileID: 21300000, guid: e2ca80618c0cb9249a48776b1d11ea5c, type: 3}
     characterName: BlueBerry
     characterColor: {r: 0.04705884, g: 0.123082146, b: 0.90588236, a: 0}
-    selectedchar: {fileID: 3268295773622450414, guid: 6fd8228002b5b71458f043e62af19a6c,
+    selectedchar: {fileID: 6959201765307314789, guid: 6fd8228002b5b71458f043e62af19a6c,
       type: 3}
   - splash: {fileID: 21300000, guid: 66ee49e7229c17e42a31c46869e6363f, type: 3}
     characterName: NEGA BlueBerry
     characterColor: {r: 0.74918896, g: 0.04705884, b: 0.90588236, a: 0}
-    selectedchar: {fileID: 5355399086733374198, guid: 5db0d190b51bf51428f96a230f9b630b,
+    selectedchar: {fileID: 6140256301609284981, guid: 5db0d190b51bf51428f96a230f9b630b,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 8af51e0ca809f1e479a801dc9f30ea28, type: 3}
+    characterName: Broccoli
+    characterColor: {r: 0, g: 1, b: 0.97150254, a: 0}
+    selectedchar: {fileID: 6885265366885332095, guid: c551fe1fea264434d86167e1b7f78ec4,
+      type: 3}
+  - splash: {fileID: 21300000, guid: b315b1245a89b4542ab33a85063a976a, type: 3}
+    characterName: NEGA Broccoli
+    characterColor: {r: 0.1179794, g: 0.012682444, b: 0.14150941, a: 0}
+    selectedchar: {fileID: 2006446372301774877, guid: df2e03e8f5cc5a44592d53da5cd0c87e,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 8d6b6ee572587224bb4b0ac1b248255f, type: 3}
+    characterName: Seaweed
+    characterColor: {r: 0.17210619, g: 0.6132076, b: 0.020247431, a: 0}
+    selectedchar: {fileID: 5578601098072101569, guid: c8182d410abb95a4a8494481b41ad796,
+      type: 3}
+  - splash: {fileID: 21300000, guid: e9aac4e51edfe37469f753635a5d9044, type: 3}
+    characterName: NEGA Seaweed
+    characterColor: {r: 0.05406728, g: 0.51137817, b: 0.764151, a: 0}
+    selectedchar: {fileID: 8486062898636756815, guid: 7737af173ee37814287a34dd6223b762,
+      type: 3}
+  - splash: {fileID: 21300000, guid: f3448476772de014182bd186b87b639e, type: 3}
+    characterName: ChilliPepper
+    characterColor: {r: 1, g: 0.018630981, b: 0, a: 0}
+    selectedchar: {fileID: 2768988378231634372, guid: c47fb351680373f45abde46b52ac3542,
+      type: 3}
+  - splash: {fileID: 21300000, guid: 7f5dca598af3cb04fbfb41c757eadaa7, type: 3}
+    characterName: NEGA ChilliPepper
+    characterColor: {r: 0.80430466, g: 0.7692239, b: 0.8113208, a: 0}
+    selectedchar: {fileID: 5850161900918649864, guid: fae97ed900d81794193ff0c8bcf5b3e6,
       type: 3}
   characterName: {fileID: 164664033}
   characterSplash: {fileID: 1273458525}
@@ -2942,7 +3001,7 @@ RectTransform:
   - {fileID: 1897787335}
   - {fileID: 6300202}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2981,7 +3040,7 @@ RectTransform:
   m_Children:
   - {fileID: 260438732}
   m_Father: {fileID: 98983346}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3878,80 +3937,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717354238}
-  m_CullTransparentMesh: 0
---- !u!1 &767614093
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 767614094}
-  - component: {fileID: 767614096}
-  - component: {fileID: 767614095}
-  m_Layer: 5
-  m_Name: WepSplash
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &767614094
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767614093}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 98983346}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -533}
-  m_SizeDelta: {x: 0, y: -760.65}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &767614095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767614093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1ab2141481a847a4fb9390ee8efef189, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
---- !u!222 &767614096
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767614093}
   m_CullTransparentMesh: 0
 --- !u!1 &816165221
 GameObject:
@@ -5062,104 +5047,13 @@ RectTransform:
   - {fileID: 1737841778}
   - {fileID: 1245209443}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1031406117
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1031406119}
-  - component: {fileID: 1031406118}
-  m_Layer: 0
-  m_Name: Directional Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!108 &1031406118
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031406117}
-  m_Enabled: 1
-  serializedVersion: 9
-  m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &1031406119
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031406117}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1131544744
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,7 +5082,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1153779483
 GameObject:

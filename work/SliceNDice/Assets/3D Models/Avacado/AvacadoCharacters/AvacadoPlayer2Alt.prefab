@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5715864296815550633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8660800982170070115}
+  m_Layer: 0
+  m_Name: FocusP2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8660800982170070115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5715864296815550633}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3676666953170674615}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3256557914407024271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +40,7 @@ PrefabInstance:
     - target: {fileID: 8539396605862837391, guid: 7754f887a6a5ca646ac7fbefed3525c6,
         type: 3}
       propertyPath: m_Name
-      value: Avacado (Alt) (1) Variant
+      value: AvacadoPlayer2Alt
       objectReference: {fileID: 0}
     - target: {fileID: 8539396605862837391, guid: 7754f887a6a5ca646ac7fbefed3525c6,
         type: 3}
@@ -242,6 +272,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7754f887a6a5ca646ac7fbefed3525c6, type: 3}
+--- !u!4 &3676666953170674615 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2177414787532608824, guid: 7754f887a6a5ca646ac7fbefed3525c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 3256557914407024271}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7277952044351460080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5202190805796791423, guid: 7754f887a6a5ca646ac7fbefed3525c6,

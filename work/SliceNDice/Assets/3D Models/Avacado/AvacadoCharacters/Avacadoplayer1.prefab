@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3320115601674895271
+--- !u!1 &7039583211945163357
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8088499397360747313}
+  - component: {fileID: 7006486903438731149}
   m_Layer: 0
   m_Name: FocusP1
   m_TagString: Untagged
@@ -16,19 +16,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8088499397360747313
+--- !u!4 &7006486903438731149
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3320115601674895271}
+  m_GameObject: {fileID: 7039583211945163357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00185, y: -0, z: -0}
+  m_LocalPosition: {x: 0, y: 0.0563, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4116779057592510125}
-  m_RootOrder: 1
+  m_Father: {fileID: 4278903894627479467}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2690341527797774995
 PrefabInstance:
@@ -211,15 +211,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c7e4b77b0ff17d49b12809da6b72c84, type: 3}
---- !u!1 &7883524364993044204 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5202190805796791423, guid: 4c7e4b77b0ff17d49b12809da6b72c84,
+--- !u!4 &4278903894627479467 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2177414787532608824, guid: 4c7e4b77b0ff17d49b12809da6b72c84,
     type: 3}
   m_PrefabInstance: {fileID: 2690341527797774995}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4116779057592510125 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2051319125465078846, guid: 4c7e4b77b0ff17d49b12809da6b72c84,
+--- !u!1 &7883524364993044204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5202190805796791423, guid: 4c7e4b77b0ff17d49b12809da6b72c84,
     type: 3}
   m_PrefabInstance: {fileID: 2690341527797774995}
   m_PrefabAsset: {fileID: 0}

@@ -66,10 +66,6 @@ public class WeaponSelect : MonoBehaviour
         p2DevicePad = pads[1];
         UpdateWeaponSelectionUI();
     }
-
-
-
-
     public void Update()
     {
         if (this.gameObject.tag == "WeaponSelection")
@@ -106,11 +102,7 @@ public class WeaponSelect : MonoBehaviour
                 ConfirmSelection();
             }
         }
-
     }
-
-
-
     public void ConfirmSelection()
     {
         spawnman = LS.managerob.GetComponent<TPSpawn>();
@@ -118,13 +110,12 @@ public class WeaponSelect : MonoBehaviour
         Player2 = LS.managerob.GetComponent<Player2Data>();
         if (!HasSelectedWeapon1)
         {
-            if (P1 &&(Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado"))
+            if (P1)
             {
                 Control = spawnman.P1.GetComponent<CharacterControl>();
                 Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP1;
                 Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP1OffHand;
                 Anim = spawnman.P1.GetComponent<Animator>();
-                Player1.playerCharacter1 = "Avacado";
                 if (WeaponName.text == "Knife")
                 {
                     Anim.runtimeAnimatorController = Anims[0];
@@ -132,7 +123,14 @@ public class WeaponSelect : MonoBehaviour
                 }
                 if (WeaponName.text == "Cleaver")
                 {
-                    Anim.runtimeAnimatorController = Anims[0];
+                    if(Character.characterName.text == "Tofu" || Character.characterName.text == "NEGA Tofu")
+                    {
+                        Anim.runtimeAnimatorController = Anims[6]; 
+                    }
+                    else
+                    {
+                        Anim.runtimeAnimatorController = Anims[0];
+                    }
                     Player1.PlayerCharWeapon1 = "Cleaver";
                 }
                 if (WeaponName.text == "Rolling Pin")
@@ -155,96 +153,41 @@ public class WeaponSelect : MonoBehaviour
                     Anim.runtimeAnimatorController = Anims[6];
                     Player1.PlayerCharWeapon1 = "ToothPicks";
                 }
-                HasSelectedWeapon1 = true;
-            }
-            if (P1 && (Character.characterName.text == "Tofu" || Character.characterName.text == "NEGA Tofu"))
-            {
-                Control = spawnman.P1.GetComponent<CharacterControl>();
-                Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP1;
-                Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP1OffHand;
-                Anim = spawnman.P1.GetComponent<Animator>();
-                Player1.playerCharacter1 = "Tofu";
-                if (WeaponName.text == "Knife")
+                if(Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado")
                 {
-                    Anim.runtimeAnimatorController = Anims[0];
-                    Player1.PlayerCharWeapon1 = "Knife";
+                    Player1.playerCharacter1 = "Avacado";
                 }
-                if (WeaponName.text == "Cleaver")
+                if(Character.characterName.text == "Tofu" || Character.characterName.text == "NEGA Tofu")
                 {
-                    Anim.runtimeAnimatorController = Anims[6];
-                    Player1.PlayerCharWeapon1 = "Cleaver";
+                    Player1.playerCharacter1 = "Tofu";
                 }
-                if (WeaponName.text == "Rolling Pin")
+                if(Character.characterName.text == "BlueBerry" || Character.characterName.text == "NEGA BlueBerry")
                 {
-                    Anim.runtimeAnimatorController = Anims[0];
-                    Player1.PlayerCharWeapon1 = "Rolling Pin";
+                    Player1.playerCharacter1 = "BlueBerry";
                 }
-                if (WeaponName.text == "Tenderizer")
+                if(Character.characterName.text == "Broccoli" || Character.characterName.text == "NEGA Broccoli")
                 {
-                    Anim.runtimeAnimatorController = Anims[2];
-                    Player1.PlayerCharWeapon1 = "Tenderizer";
+                    Player1.playerCharacter1 = "Broccoli";
                 }
-                if (WeaponName.text == "Spoon")
+                if (Character.characterName.text == "Seaweed" || Character.characterName.text == "NEGA Seaweed")
                 {
-                    Anim.runtimeAnimatorController = Anims[4];
-                    Player1.PlayerCharWeapon1 = "Spoon";
+                    Player1.playerCharacter1 = "Seaweed";
                 }
-                if (WeaponName.text == "ToothPicks")
+                if (Character.characterName.text == "ChilliPepper" || Character.characterName.text == "NEGA ChilliPepper")
                 {
-                    Anim.runtimeAnimatorController = Anims[6];
-                    Player1.PlayerCharWeapon1 = "ToothPicks";
-                }
-                HasSelectedWeapon1 = true;
-            }
-            if (P1 && (Character.characterName.text == "BlueBerry" || Character.characterName.text == "NEGA BlueBerry"))
-            {
-                Control = spawnman.P1.GetComponent<CharacterControl>();
-                Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP1;
-                Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP1OffHand;
-                Anim = spawnman.P1.GetComponent<Animator>();
-                Player1.playerCharacter1 = "BlueBerry";
-                if (WeaponName.text == "Knife")
-                {
-                    Anim.runtimeAnimatorController = Anims[0];
-                    Player1.PlayerCharWeapon1 = "Knife";
-                }
-                if (WeaponName.text == "Cleaver")
-                {
-                    Anim.runtimeAnimatorController = Anims[0];
-                    Player1.PlayerCharWeapon1 = "Cleaver";
-                }
-                if (WeaponName.text == "Rolling Pin")
-                {
-                    Anim.runtimeAnimatorController = Anims[0];
-                    Player1.PlayerCharWeapon1 = "Rolling Pin";
-                }
-                if (WeaponName.text == "Tenderizer")
-                {
-                    Anim.runtimeAnimatorController = Anims[2];
-                    Player1.PlayerCharWeapon1 = "Tenderizer";
-                }
-                if (WeaponName.text == "Spoon")
-                {
-                    Anim.runtimeAnimatorController = Anims[4];
-                    Player1.PlayerCharWeapon1 = "Spoon";
-                }
-                if (WeaponName.text == "ToothPicks")
-                {
-                    Anim.runtimeAnimatorController = Anims[6];
-                    Player1.PlayerCharWeapon1 = "ToothPicks";
+                    Player1.playerCharacter1 = "ChilliPepper";
                 }
                 HasSelectedWeapon1 = true;
             }
         }
         if (!HasSelectedWeapon2)
         {
-            if (P2 && (Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado"))
+            if (P2)
             {
                 Control = spawnman.P2.GetComponent<CharacterControl>();
                 Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP2;
                 Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP2OffHand;
                 Anim = spawnman.P2.GetComponent<Animator>();
-                Player2.playerCharacter2 = "Avacado";
                 if (WeaponName.text == "Knife")
                 {
                     Anim.runtimeAnimatorController = Anims[1];
@@ -252,7 +195,14 @@ public class WeaponSelect : MonoBehaviour
                 }
                 if (WeaponName.text == "Cleaver")
                 {
-                    Anim.runtimeAnimatorController = Anims[1];
+                    if (Character.characterName.text == "Tofu" || Character.characterName.text == "NEGA Tofu")
+                    {
+                        Anim.runtimeAnimatorController = Anims[7];
+                    }
+                    else
+                    {
+                        Anim.runtimeAnimatorController = Anims[1];
+                    }
                     Player2.PlayerCharWeapon2 = "Cleaver";
                 }
                 if (WeaponName.text == "Rolling Pin")
@@ -275,83 +225,29 @@ public class WeaponSelect : MonoBehaviour
                     Anim.runtimeAnimatorController = Anims[7];
                     Player2.PlayerCharWeapon2 = "ToothPicks";
                 }
-                HasSelectedWeapon2 = true;
-            }
-            if (P2 && (Character.characterName.text == "Tofu" || Character.characterName.text == "NEGA Tofu"))
-            {
-                Control = spawnman.P2.GetComponent<CharacterControl>();
-                Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP2;
-                Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP2OffHand;
-                Anim = spawnman.P2.GetComponent<Animator>();
-                Player2.playerCharacter2 = "Tofu";
-                if (WeaponName.text == "Knife")
+                if (Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado")
                 {
-                    Anim.runtimeAnimatorController = Anims[1];
-                    Player2.PlayerCharWeapon2 = "Knife";
+                    Player2.playerCharacter2 = "Avacado";
                 }
-                if (WeaponName.text == "Cleaver")
+                if (Character.characterName.text == "Tofu" || Character.characterName.text == "NEGA Tofu")
                 {
-                    Anim.runtimeAnimatorController = Anims[7];
-                    Player2.PlayerCharWeapon2 = "Cleaver";
+                    Player2.playerCharacter2 = "Tofu";
                 }
-                if (WeaponName.text == "Rolling Pin")
+                if (Character.characterName.text == "BlueBerry" || Character.characterName.text == "NEGA BlueBerry")
                 {
-                    Anim.runtimeAnimatorController = Anims[1];
-                    Player2.PlayerCharWeapon2 = "Rolling Pin";
+                    Player2.playerCharacter2 = "BlueBerry";
                 }
-                if (WeaponName.text == "Tenderizer")
+                if (Character.characterName.text == "Broccoli" || Character.characterName.text == "NEGA Broccoli")
                 {
-                    Anim.runtimeAnimatorController = Anims[3];
-                    Player2.PlayerCharWeapon2 = "Tenderizer";
+                    Player2.playerCharacter2 = "Broccoli";
                 }
-                if (WeaponName.text == "Spoon")
+                if (Character.characterName.text == "Seaweed" || Character.characterName.text == "NEGA Seaweed")
                 {
-                    Anim.runtimeAnimatorController = Anims[5];
-                    Player2.PlayerCharWeapon2 = "Spoon";
+                    Player2.playerCharacter2 = "Seaweed";
                 }
-                if (WeaponName.text == "ToothPicks")
+                if (Character.characterName.text == "ChilliPepper" || Character.characterName.text == "NEGA ChilliPepper")
                 {
-                    Anim.runtimeAnimatorController = Anims[7];
-                    Player2.PlayerCharWeapon2 = "ToothPicks";
-                }
-                HasSelectedWeapon2 = true;
-            }
-            if (P2 && (Character.characterName.text == "BlueBerry" || Character.characterName.text == "NEGA BlueBerry"))
-            {
-                Control = spawnman.P2.GetComponent<CharacterControl>();
-                Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP2;
-                Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP2OffHand;
-                Anim = spawnman.P2.GetComponent<Animator>();
-                Player2.playerCharacter2 = "BlueBerry";
-                if (WeaponName.text == "Knife")
-                {
-                    Anim.runtimeAnimatorController = Anims[1];
-                    Player2.PlayerCharWeapon2 = "Knife";
-                }
-                if (WeaponName.text == "Cleaver")
-                {
-                    Anim.runtimeAnimatorController = Anims[1];
-                    Player2.PlayerCharWeapon2 = "Cleaver";
-                }
-                if (WeaponName.text == "Rolling Pin")
-                {
-                    Anim.runtimeAnimatorController = Anims[1];
-                    Player2.PlayerCharWeapon2 = "Rolling Pin";
-                }
-                if (WeaponName.text == "Tenderizer")
-                {
-                    Anim.runtimeAnimatorController = Anims[3];
-                    Player2.PlayerCharWeapon2 = "Tenderizer";
-                }
-                if (WeaponName.text == "Spoon")
-                {
-                    Anim.runtimeAnimatorController = Anims[5];
-                    Player2.PlayerCharWeapon2 = "Spoon";
-                }
-                if (WeaponName.text == "ToothPicks")
-                {
-                    Anim.runtimeAnimatorController = Anims[7];
-                    Player2.PlayerCharWeapon2 = "ToothPicks";
+                    Player2.playerCharacter2 = "ChilliPepper";
                 }
                 HasSelectedWeapon2 = true;
             }
@@ -365,12 +261,9 @@ public class WeaponSelect : MonoBehaviour
             LS.Canvas.SetActive(false);
             Camera.main.gameObject.SetActive(false);
         }
-       
-
     }
     public void LeftArrow()
-    {
-        
+    {        
         if (P1)
         {
             if (HasSelectedWeapon1)
@@ -382,7 +275,6 @@ public class WeaponSelect : MonoBehaviour
             {
                 selectedWeaponIndex = WeaponList.Count - 1;
             }
-
             UpdateWeaponSelectionUI();
         }
         if (P2)
@@ -396,7 +288,6 @@ public class WeaponSelect : MonoBehaviour
             {
                 selectedWeaponIndex = WeaponList.Count - 1;
             }
-
             UpdateWeaponSelectionUI();
         }
     }

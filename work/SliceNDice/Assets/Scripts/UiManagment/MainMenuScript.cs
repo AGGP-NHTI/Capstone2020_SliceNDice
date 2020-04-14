@@ -14,6 +14,8 @@ public class MainMenuScript : MonoBehaviour
     public GameObject Canvas;
     public GameObject MainMenu;
     public GameObject SelectionMenus;
+    public GameObject OptionMenuPanel;
+    public GameObject ControlsPanel;
 
     public InputDevice p1Device;
     public InputDevice p2Device;
@@ -105,11 +107,15 @@ public class MainMenuScript : MonoBehaviour
             if (OptionList[selectedOptionIndex].OptionName == "Controls")
             {
                 Debug.LogError("Going To Controls Panel");
+                ControlsPanel.SetActive(true);
+                gameObject.SetActive(false);
             }
 
             if (OptionList[selectedOptionIndex].OptionName == "Options")
             {
                 Debug.LogError("Going To Options Menu");
+                OptionMenuPanel.SetActive(true);
+                gameObject.SetActive(false);
             }
 
             if (OptionList[selectedOptionIndex].OptionName == "Quit")

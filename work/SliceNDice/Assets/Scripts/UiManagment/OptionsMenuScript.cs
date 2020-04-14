@@ -6,16 +6,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
-public class MainMenuScript : MonoBehaviour
+public class OptionsMenuScript : MonoBehaviour
 {
     public int selectedOptionIndex;
     private Color desiredColor;
 
     public GameObject Canvas;
-    public GameObject MainMenu;
+    public GameObject MainMenuPanel;
     public GameObject SelectionMenus;
-    public GameObject OptionMenuPanel;
-    public GameObject ControlsPanel;
 
     public InputDevice p1Device;
     public InputDevice p2Device;
@@ -59,9 +57,9 @@ public class MainMenuScript : MonoBehaviour
     public void Update()
     {
 
-        if (this.gameObject.tag == "MainMenuPanel")
+        if (this.gameObject.tag == "OptionMenuPanel")
         {
-            backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
+           // backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
         }
         if (p1DevicePad.leftStick.left.wasPressedThisFrame)
         {
@@ -75,6 +73,12 @@ public class MainMenuScript : MonoBehaviour
         {
             ConfirmSelection();
         }
+        if (p1DevicePad.buttonEast.wasPressedThisFrame)
+        {
+           MainMenuPanel.SetActive(true);
+            gameObject.SetActive(false);
+            Debug.Log("Going Back");
+        }
 
         if (p2DevicePad.leftStick.left.wasPressedThisFrame)
         {
@@ -84,10 +88,13 @@ public class MainMenuScript : MonoBehaviour
         {
             RightArrow();
         }
-        if (p2DevicePad.buttonSouth.wasPressedThisFrame)
+        if (p2DevicePad.buttonEast.wasPressedThisFrame)
         {
-            ConfirmSelection();
+            MainMenuPanel.SetActive(true);
+            gameObject.SetActive(false);
+            Debug.Log("Going Back");
         }
+
 
     }
 
@@ -95,36 +102,32 @@ public class MainMenuScript : MonoBehaviour
 
     public void ConfirmSelection()
     {
-        if (!HasSelectedOption)
-        {
-            if (OptionList[selectedOptionIndex].OptionName == "Fight")
-            {
-                Debug.LogError("Going To Character Selection Menu");
-                SelectionMenus.SetActive(true);
-                MainMenu.SetActive(false);
-            }
+        //if (!HasSelectedOption)
+        //{
+        //    if (OptionList[selectedOptionIndex].OptionName == "Fight")
+        //    {
+        //        Debug.LogError("Going To Character Selection Menu");
+        //        SelectionMenus.SetActive(true);
+        //        MainMenu.SetActive(false);
+        //    }
 
-            if (OptionList[selectedOptionIndex].OptionName == "Controls")
-            {
-                Debug.LogError("Going To Controls Panel");
-                ControlsPanel.SetActive(true);
-                gameObject.SetActive(false);
-            }
+        //    if (OptionList[selectedOptionIndex].OptionName == "Controls")
+        //    {
+        //        Debug.LogError("Going To Controls Panel");
+        //    }
 
-            if (OptionList[selectedOptionIndex].OptionName == "Options")
-            {
-                Debug.LogError("Going To Options Menu");
-                OptionMenuPanel.SetActive(true);
-                gameObject.SetActive(false);
-            }
+        //    if (OptionList[selectedOptionIndex].OptionName == "Options")
+        //    {
+        //        Debug.LogError("Going To Options Menu");
+        //    }
 
-            if (OptionList[selectedOptionIndex].OptionName == "Quit")
-            {
-                Application.Quit();
-                Debug.LogError("Game is exiting");
-            }
+        //    if (OptionList[selectedOptionIndex].OptionName == "Quit")
+        //    {
+        //        Application.Quit();
+        //        Debug.LogError("Game is exiting");
+        //    }
 
-        }
+        //}
 
 
     }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
-public class ControlsMenuScript : MonoBehaviour
+public class OptionsMenuScript : MonoBehaviour
 {
     public int selectedOptionIndex;
     private Color desiredColor;
@@ -59,7 +59,7 @@ public class ControlsMenuScript : MonoBehaviour
 
         if (this.gameObject.tag == "OptionMenuPanel")
         {
-           // backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
+            // backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
         }
         if (p1DevicePad.leftStick.left.wasPressedThisFrame)
         {
@@ -75,7 +75,7 @@ public class ControlsMenuScript : MonoBehaviour
         }
         if (p1DevicePad.buttonEast.wasPressedThisFrame)
         {
-           MainMenuPanel.SetActive(true);
+            MainMenuPanel.SetActive(true);
             gameObject.SetActive(false);
             Debug.Log("Going Back");
         }

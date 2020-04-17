@@ -117,7 +117,7 @@ public class LevelSelect : MonoBehaviour
             CharacterSelect2.SetActive(true);
         }
         
-
+    
     }
     public void LeftArrow()
     {

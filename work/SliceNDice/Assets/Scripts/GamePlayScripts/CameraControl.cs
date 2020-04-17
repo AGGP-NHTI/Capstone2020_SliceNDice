@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
@@ -15,6 +16,7 @@ public class CameraControl : MonoBehaviour
     public bool isCameraFollowing = true;
 
     public Vector3 midpoint;
+    public Vector3 camoffset = new Vector3(0, 1, 0);
 
     private void Awake()
     {
@@ -57,9 +59,9 @@ public class CameraControl : MonoBehaviour
 
         targetRotation = Quaternion.LookRotation(midpoint, Vector3.up);
 
-        Vector3 cameraDestination = midpoint - Cam.transform.forward * distance * zoomFactor;
+        Vector3 cameraDestination = (midpoint + camoffset) - Cam.transform.forward * distance * zoomFactor;
 
-        Vector3 cameracloseDestination = midpoint - Cam.transform.forward * (offset + 2.5f);
+        Vector3 cameracloseDestination = (midpoint + camoffset) - Cam.transform.forward * (offset + 2.5f);
 
         if (Cam.orthographic)
         {

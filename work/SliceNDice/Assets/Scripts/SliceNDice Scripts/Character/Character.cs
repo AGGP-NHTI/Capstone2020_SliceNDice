@@ -109,7 +109,7 @@ public class Character : MonoBehaviour
             IsDead();
         }
 
-        playerGuard += 0.5f;
+        playerGuard += 0.3f;
 
         if (playerGuard >= 100 && playerHealth > 0)
         {

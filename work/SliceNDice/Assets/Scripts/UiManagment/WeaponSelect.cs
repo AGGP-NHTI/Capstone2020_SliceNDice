@@ -72,6 +72,27 @@ public class WeaponSelect : MonoBehaviour
         {
             backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
         }
+
+        if (p1DevicePad.buttonEast.wasPressedThisFrame)
+        {
+            LS.WeaponSelect1.SetActive(false);
+            LS.WeaponSelect2.SetActive(false);
+            LS.CharacterSelect1.SetActive(true);
+            LS.CharacterSelect2.SetActive(true);
+        }
+        if (p2DevicePad.buttonEast.wasPressedThisFrame)
+        {
+           LS.WeaponSelect1.SetActive(false);
+           LS.WeaponSelect2.SetActive(false);
+           LS.CharacterSelect1.SetActive(true);
+           LS.CharacterSelect2.SetActive(true);
+        }
+
+
+
+
+
+
         if (P1)
         {
             if (p1DevicePad.leftStick.left.wasPressedThisFrame)
@@ -86,6 +107,7 @@ public class WeaponSelect : MonoBehaviour
             {
                 ConfirmSelection();
             }
+
         }
         if (P2)
         {
@@ -108,8 +130,7 @@ public class WeaponSelect : MonoBehaviour
         spawnman = LS.managerob.GetComponent<TPSpawn>();
         Player1 = LS.managerob.GetComponent<Player1Data>();
         Player2 = LS.managerob.GetComponent<Player2Data>();
-        if (!HasSelectedWeapon1)
-        {
+
             if (P1)
             {
                 Control = spawnman.P1.GetComponent<CharacterControl>();
@@ -178,10 +199,8 @@ public class WeaponSelect : MonoBehaviour
                     Player1.playerCharacter1 = "ChilliPepper";
                 }
                 HasSelectedWeapon1 = true;
-            }
         }
-        if (!HasSelectedWeapon2)
-        {
+
             if (P2)
             {
                 Control = spawnman.P2.GetComponent<CharacterControl>();
@@ -251,7 +270,7 @@ public class WeaponSelect : MonoBehaviour
                 }
                 HasSelectedWeapon2 = true;
             }
-        }
+        
         if (HasSelectedWeapon1 && HasSelectedWeapon2)
         {
             LS.managerob.SetActive(true);
@@ -266,10 +285,6 @@ public class WeaponSelect : MonoBehaviour
     {        
         if (P1)
         {
-            if (HasSelectedWeapon1)
-            {
-                return;
-            }
             selectedWeaponIndex--;
             if (selectedWeaponIndex < 0)
             {
@@ -279,10 +294,6 @@ public class WeaponSelect : MonoBehaviour
         }
         if (P2)
         {
-            if (HasSelectedWeapon2)
-            {
-                return;
-            }
             selectedWeaponIndex--;
             if (selectedWeaponIndex < 0)
             {
@@ -295,10 +306,6 @@ public class WeaponSelect : MonoBehaviour
     {
         if (P1)
         {
-            if (HasSelectedWeapon1)
-            {
-                return;
-            }
             selectedWeaponIndex++;
             if (selectedWeaponIndex == WeaponList.Count)
             {
@@ -308,10 +315,6 @@ public class WeaponSelect : MonoBehaviour
         }
         if (P2)
         {
-            if (HasSelectedWeapon2)
-            {
-                return;
-            }
             selectedWeaponIndex++;
             if (selectedWeaponIndex == WeaponList.Count)
             {

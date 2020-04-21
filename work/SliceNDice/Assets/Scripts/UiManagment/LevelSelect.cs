@@ -104,8 +104,6 @@ public class LevelSelect : MonoBehaviour
 
     public void ConfirmSelection()
     {
-        if (!HasSelectedLevel)
-        {
             Instantiate(LevelList[selectedLevelIndex].selectedLevel, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
             HasSelectedLevel = true;
             managerob = GameObject.Find("PlayerManager");
@@ -115,16 +113,12 @@ public class LevelSelect : MonoBehaviour
             gameObject.SetActive(false);
             CharacterSelect1.SetActive(true);
             CharacterSelect2.SetActive(true);
-        }
+        
         
     
     }
     public void LeftArrow()
     {
-        if (HasSelectedLevel)
-        {
-            return;
-        }
         selectedLevelIndex--;
         if (selectedLevelIndex < 0)
         {
@@ -135,10 +129,6 @@ public class LevelSelect : MonoBehaviour
     }
     public void RightArrow()
     {
-        if (HasSelectedLevel)
-        {
-            return;
-        }
         selectedLevelIndex++;
         if (selectedLevelIndex == LevelList.Count)
         {

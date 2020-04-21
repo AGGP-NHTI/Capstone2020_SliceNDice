@@ -20,6 +20,7 @@ public class SelectionScreen : MonoBehaviour
 
     public GameObject canvas;
     public LevelSelect LS;
+    public GameObject LevelSelectionObject;
  
     TPSpawn spawnman;
 
@@ -66,6 +67,20 @@ public class SelectionScreen : MonoBehaviour
         {
             backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
         }
+
+        if (p1DevicePad.buttonEast.wasPressedThisFrame)
+        {
+            LS.CharacterSelect1.SetActive(false);
+            LS.CharacterSelect2.SetActive(false);
+            LS.gameObject.SetActive(true);
+        }
+        if (p2DevicePad.buttonEast.wasPressedThisFrame)
+        {
+            LS.CharacterSelect1.SetActive(false);
+            LS.CharacterSelect2.SetActive(false);
+            LS.gameObject.SetActive(true);
+        }
+
         if (P1)
         {
             if (p1DevicePad.leftStick.left.wasPressedThisFrame)
@@ -80,6 +95,7 @@ public class SelectionScreen : MonoBehaviour
             {
                 ConfirmSelection();
             }
+
         }
         if (P2)
         {
@@ -95,6 +111,7 @@ public class SelectionScreen : MonoBehaviour
             {
                 ConfirmSelection();
             }
+
         }
 
     }
@@ -104,8 +121,6 @@ public class SelectionScreen : MonoBehaviour
     public void ConfirmSelection()
     {
         spawnman = LS.managerob.GetComponent<TPSpawn>();
-        if (!HasSelectedCharacter1)
-        {
             if (P1)
             {
                 spawnman.P1 = characterList[selectedCharacterIndex].selectedchar;
@@ -113,16 +128,14 @@ public class SelectionScreen : MonoBehaviour
                 HasSelectedCharacter1 = true;
                 
             }
-        }
-        if (!HasSelectedCharacter2)
-        {
+
             if (P2)
             {
                 spawnman.P2 = characterList[selectedCharacterIndex].selectedchar;
                 P2Checked = true;
                 HasSelectedCharacter2 = true;
             }
-        }
+
         if (HasSelectedCharacter1 && HasSelectedCharacter2)
         {
             LS.CharacterSelect1.SetActive(false);
@@ -137,10 +150,6 @@ public class SelectionScreen : MonoBehaviour
     {
         if (P1)
         {
-            if (HasSelectedCharacter1)
-            {
-                return;
-            }
             selectedCharacterIndex--;
             if (selectedCharacterIndex < 0)
             {
@@ -151,10 +160,6 @@ public class SelectionScreen : MonoBehaviour
         }
         if (P2)
         {
-            if (HasSelectedCharacter2)
-            {
-                return;
-            }
             selectedCharacterIndex--;
             if (selectedCharacterIndex < 0)
             {
@@ -169,10 +174,6 @@ public class SelectionScreen : MonoBehaviour
     {
         if (P1)
         {
-            if (HasSelectedCharacter1)
-            {
-                return;
-            }
             selectedCharacterIndex++;
             if (selectedCharacterIndex == characterList.Count)
             {
@@ -182,10 +183,6 @@ public class SelectionScreen : MonoBehaviour
         }
         if (P2)
         {
-            if (HasSelectedCharacter2)
-            {
-                return;
-            }
             selectedCharacterIndex++;
             if (selectedCharacterIndex == characterList.Count)
             {

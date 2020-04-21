@@ -38,7 +38,7 @@ public class Character : MonoBehaviour
     public int playerMaxHealth;
 
     [Range(0, 100)]
-    public int playerGuard;
+    public float playerGuard;
 
     /**************************/
 
@@ -47,6 +47,7 @@ public class Character : MonoBehaviour
     bool isTwoHanded;                       // Determines which animations will be used (one-handed or two-handed).
     public Animator anim;
     public GameObject platform;
+    public GameObject characterDeathPanel;
 
     /**************************/
 
@@ -108,7 +109,7 @@ public class Character : MonoBehaviour
             IsDead();
         }
 
-        playerGuard += Mathf.CeilToInt(Time.deltaTime);
+        playerGuard += 0.5f;
 
         if (playerGuard >= 100 && playerHealth > 0)
         {

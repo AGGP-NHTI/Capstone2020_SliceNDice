@@ -61,7 +61,7 @@ public class Character : MonoBehaviour
         // Stored Statistic Variables
         Build = Mathf.CeilToInt(gameObject.transform.localScale.magnitude);     // How heavy/big the character is.
         playerMaxHealth = 50 + (Build * 25);                                    // Calculate Health based upon Build.
-        playerHealth = playerMaxHealth;
+        playerHealth = playerMaxHealth;                                         // Player Health = Max Health at start.
         playerGuard = 100;                                                      // Guard is always set to 100. No more, no less.
 
         // Stored Movement Variables
@@ -70,7 +70,10 @@ public class Character : MonoBehaviour
         bleedParticles = GetComponent<Sliceable>()._bloodPrefub;
         anim = GetComponent<Animator>();
         cc = GetComponent<CharacterControl>();
-        // control = GameObject.Find("CameraManager").GetComponent<CameraControl>();
+
+        // Set up Destructible
+        gameObject.GetComponent<Destructible>().totalHitPoints = playerMaxHealth;
+        gameObject.GetComponent<Destructible>().currentHitPoints = playerMaxHealth;
     }
 
     void Start()
@@ -166,8 +169,6 @@ public class Character : MonoBehaviour
 
                     if (w.weaponType == BzKnife.WeaponType.Bludgeon)    // Damage with Bludgeoning Weapon
                     {
-                        rb.AddForce(w.BladeDirection * 1.25f, ForceMode.Impulse);
-
                         if (playerGuard > 0)
                         {
                             Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
@@ -178,18 +179,12 @@ public class Character : MonoBehaviour
                         {
                             Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
                             playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                        }
-
-                        if (playerHealth == 0)
-                        {
-                            gameObject.GetComponent<Destructible>().currentHitPoints = 0;
+                            gameObject.GetComponent<Destructible>().currentHitPoints -= w.weaponDamage;
                         }
                     }
 
                     if (w.weaponType == BzKnife.WeaponType.Pierce)    // Damage with Piercing Weapon
                     {
-                        rb.AddForceAtPosition(w.BladeDirection * 4f, gameObject.transform.position, ForceMode.Impulse);
-
                         if (playerGuard > 0)
                         {
                             Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
@@ -198,7 +193,6 @@ public class Character : MonoBehaviour
 
                         if (playerGuard <= 0)
                         {
-
                             Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
                             playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
                         }
@@ -228,8 +222,6 @@ public class Character : MonoBehaviour
 
                     if (w.weaponType == BzKnife.WeaponType.Bludgeon)    // Damage with Bludgeoning Weapon
                     {
-                        rb.AddForce(w.BladeDirection * 1.25f, ForceMode.Impulse);
-
                         if (playerGuard > 0)
                         {
                             Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
@@ -240,18 +232,12 @@ public class Character : MonoBehaviour
                         {
                             Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
                             playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                        }
-
-                        if (playerHealth == 0)
-                        {
-                            gameObject.GetComponent<Destructible>().currentHitPoints = 0;
+                            gameObject.GetComponent<Destructible>().currentHitPoints -= w.weaponDamage;
                         }
                     }
 
                     if (w.weaponType == BzKnife.WeaponType.Pierce)    // Damage with Piercing Weapon
                     {
-                        rb.AddForceAtPosition(w.BladeDirection * 4f, gameObject.transform.position, ForceMode.Impulse);
-
                         if (playerGuard > 0)
                         {
                             Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
@@ -272,9 +258,7 @@ public class Character : MonoBehaviour
 
     IEnumerator SwingSword()    // This will be altered to not move the weapon after animations are implemented.
     {
-        // float seconds = (4 - (moveSpeed / Build)) * 0.125f;     // Attack speed. Should be altered with animations. Modify later!
-
-        playerGuard -= 25;      // Characters attacking reduce Guard gradually.
+        playerGuard -= 10;      // Characters attacking reduce Guard gradually.
 
         yield return null;
     }

@@ -145,9 +145,6 @@ public class Character : MonoBehaviour
         cc.movementSpeed = 0;
         cc.Weapon.transform.parent = null;
         control.isCameraFollowing = false;
-
-        GameObject.Find("Winner").SetActive(true);
-        GameObject.Find("Loser").SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -23,10 +23,16 @@ public class StateChecker : MonoBehaviour
     GameObject P1;
     GameObject P2;
 
+    Color original;
+    Color transparency;
+
     public void Start()
     {
-        winPanel.gameObject.SetActive(false);
-        deathPanel.gameObject.SetActive(false);
+        original = winPanel.color;
+        transparency = new Color(300, 300, 300, 0);
+
+        winPanel.color = transparency;
+        deathPanel.color = transparency;
 
         Gamepad[] pads = Gamepad.all.ToArray();
 
@@ -52,21 +58,27 @@ public class StateChecker : MonoBehaviour
         {
             matchP2Won = true;
             winPanel.sprite = P2.GetComponent<Character>().characterWinPanel;
+            winPanel.color = original;
             deathPanel.sprite = P1.GetComponent<Character>().characterDeathPanel;
+            deathPanel.color = original;
         }
 
         if (P1.GetComponent<Character>().playerHealth > 0 && P2.GetComponent<Character>().playerHealth <= 0)
         {
             matchP1Won = true;
             winPanel.sprite = P1.GetComponent<Character>().characterWinPanel;
+            winPanel.color = original;
             deathPanel.sprite = P2.GetComponent<Character>().characterDeathPanel;
+            deathPanel.color = original;
         }
 
         if (P1.GetComponent<Character>().playerHealth <= 0 && P2.GetComponent<Character>().playerHealth <= 0)
         {
             matchDraw = true;
             winPanel.sprite = P1.GetComponent<Character>().characterDeathPanel;
+            winPanel.color = original;
             deathPanel.sprite = P2.GetComponent<Character>().characterDeathPanel;
+            deathPanel.color = original;
         }
 
         if (p1DevicePad.buttonSouth.wasPressedThisFrame)
@@ -81,7 +93,7 @@ public class StateChecker : MonoBehaviour
 
     public void ConfirmSelection()
     {
-        winPanel.gameObject.SetActive(false);
-        deathPanel.gameObject.SetActive(false);
+        winPanel.color = transparency;
+        deathPanel.color = transparency;
     }
 }

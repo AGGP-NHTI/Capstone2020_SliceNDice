@@ -56,6 +56,11 @@ public class CharacterControl : MonoBehaviour
                 WepLoc = GameObject.Find(Weapon.name + "(Clone)");
                 WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
             }
+            else
+            {
+                Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
+                WepLoc = GameObject.Find(Weapon.name + "(Clone)");
+            }
         }
         
         if (P2)
@@ -74,13 +79,13 @@ public class CharacterControl : MonoBehaviour
                 WepLoc = GameObject.Find(Weapon.name + "(Clone)");
                 WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
             }
-           
+            else
+            {
+                Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
+                WepLoc = GameObject.Find(Weapon.name + "(Clone)");
+            }
         }
-        else
-        {
-            Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
-            WepLoc = GameObject.Find(Weapon.name + "(Clone)");
-        }
+        
     }
 
     private void Start()

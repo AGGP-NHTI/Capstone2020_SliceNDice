@@ -20,7 +20,8 @@ public class WeaponSelect : MonoBehaviour
     TPSpawn spawnman;
     CharacterControl Control;
     Animator Anim;
-    
+
+    public GameObject Camera;
 
     [Header("List of Weapons Per Character")]
     public List<WeaponSelectObject> WeaponList = new List<WeaponSelectObject>();
@@ -91,9 +92,9 @@ public class WeaponSelect : MonoBehaviour
             HasSelectedWeapon1 = false;
             HasSelectedWeapon2 = false;
             LS.WeaponSelect1.SetActive(false);
-           LS.WeaponSelect2.SetActive(false);
-           LS.CharacterSelect1.SetActive(true);
-           LS.CharacterSelect2.SetActive(true);
+            LS.WeaponSelect2.SetActive(false);
+            LS.CharacterSelect1.SetActive(true);
+            LS.CharacterSelect2.SetActive(true);
         }
 
 
@@ -286,7 +287,9 @@ public class WeaponSelect : MonoBehaviour
             LS.WeaponSelect1.SetActive(false);
             LS.WeaponSelect2.SetActive(false);
             LS.Canvas.SetActive(false);
-            Camera.main.gameObject.SetActive(false);
+            Camera.gameObject.SetActive(false);
+            HasSelectedWeapon1 = false;
+            HasSelectedWeapon2 = false;
         }
     }
     public void LeftArrow()

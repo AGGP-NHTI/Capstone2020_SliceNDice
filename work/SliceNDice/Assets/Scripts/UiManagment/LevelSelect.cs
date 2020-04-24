@@ -125,17 +125,15 @@ public class LevelSelect : MonoBehaviour
     public void ConfirmSelection()
     {
         LevelSpawned = Instantiate(LevelList[selectedLevelIndex].selectedLevel, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
-            HasSelectedLevel = true;
-            managerob = GameObject.Find("PlayerManager");
-            DynamicCamera = GameObject.Find("CameraManager");
-            managerob.SetActive(false);
-            DynamicCamera.SetActive(false);
-            gameObject.SetActive(false);
-            CharacterSelect1.SetActive(true);
-            CharacterSelect2.SetActive(true);
-        
-        
-    
+        HasSelectedLevel = true;
+        managerob = GameObject.Find("PlayerManager");
+        DynamicCamera = GameObject.Find("CameraManager");
+        managerob.SetActive(false);
+        DynamicCamera.SetActive(false);
+        gameObject.SetActive(false);
+        CharacterSelect1.SetActive(true);
+        CharacterSelect2.SetActive(true);
+
     }
     public void LeftArrow()
     {

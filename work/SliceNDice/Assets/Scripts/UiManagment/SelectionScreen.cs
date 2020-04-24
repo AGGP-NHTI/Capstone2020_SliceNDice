@@ -21,7 +21,8 @@ public class SelectionScreen : MonoBehaviour
     public GameObject canvas;
     public LevelSelect LS;
     public GameObject LevelSelectionObject;
- 
+
+    public GameObject SelectedCharacter;
     TPSpawn spawnman;
 
     public InputDevice p1Device;
@@ -130,6 +131,7 @@ public class SelectionScreen : MonoBehaviour
             if (P1)
             {
                 spawnman.P1 = characterList[selectedCharacterIndex].selectedchar;
+                SelectedCharacter = characterList[selectedCharacterIndex].selectedchar;
                 P1Checked = true;
                 HasSelectedCharacter1 = true;
                 
@@ -138,6 +140,7 @@ public class SelectionScreen : MonoBehaviour
             if (P2)
             {
                 spawnman.P2 = characterList[selectedCharacterIndex].selectedchar;
+                SelectedCharacter = characterList[selectedCharacterIndex].selectedchar;
                 P2Checked = true;
                 HasSelectedCharacter2 = true;
             }
@@ -148,6 +151,8 @@ public class SelectionScreen : MonoBehaviour
             LS.CharacterSelect2.SetActive(false);
             LS.WeaponSelect1.SetActive(true);
             LS.WeaponSelect2.SetActive(true);
+            HasSelectedCharacter1 = false;
+            HasSelectedCharacter2 = false;
         }
         
 

@@ -727,6 +727,7 @@ MonoBehaviour:
   canvas: {fileID: 497318132}
   LS: {fileID: 6300204}
   LevelSelectionObject: {fileID: 0}
+  SelectedCharacter: {fileID: 0}
   characterList:
   - splash: {fileID: 21300000, guid: 4d3fed7aabee6f047941e49db32e15ca, type: 3}
     characterName: Avacado
@@ -1156,6 +1157,7 @@ MonoBehaviour:
   P2: 0
   Character: {fileID: 181172313}
   LS: {fileID: 6300204}
+  Camera: {fileID: 875583602}
   WeaponList:
   - splash: {fileID: 21300000, guid: 5ede9b9413622094cb54f59a89e74063, type: 3}
     WeaponName: Knife
@@ -1719,6 +1721,7 @@ MonoBehaviour:
   canvas: {fileID: 497318132}
   LS: {fileID: 6300204}
   LevelSelectionObject: {fileID: 0}
+  SelectedCharacter: {fileID: 0}
   characterList:
   - splash: {fileID: 21300000, guid: 4d3fed7aabee6f047941e49db32e15ca, type: 3}
     characterName: Avacado
@@ -2945,6 +2948,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357880782}
   m_CullTransparentMesh: 0
+--- !u!1 &396280763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6613692994716336244, guid: 893903b59ac06a1488e9d18f2fdeef42,
+    type: 3}
+  m_PrefabInstance: {fileID: 1504683863}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &405038561
 GameObject:
   m_ObjectHideFlags: 0
@@ -7218,6 +7227,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2352477956849297988, guid: 893903b59ac06a1488e9d18f2fdeef42,
+        type: 3}
+      propertyPath: LS
+      value: 
+      objectReference: {fileID: 6300204}
+    - target: {fileID: 2352477956849297988, guid: 893903b59ac06a1488e9d18f2fdeef42,
+        type: 3}
+      propertyPath: Wpanel
+      value: 
+      objectReference: {fileID: 396280763}
+    - target: {fileID: 2352477956849297988, guid: 893903b59ac06a1488e9d18f2fdeef42,
+        type: 3}
+      propertyPath: Dpanel
+      value: 
+      objectReference: {fileID: 1768430972}
+    - target: {fileID: 2352477956849297988, guid: 893903b59ac06a1488e9d18f2fdeef42,
+        type: 3}
+      propertyPath: WS
+      value: 
+      objectReference: {fileID: 158931873}
+    - target: {fileID: 2352477956849297988, guid: 893903b59ac06a1488e9d18f2fdeef42,
+        type: 3}
+      propertyPath: main
+      value: 
+      objectReference: {fileID: 1737841779}
+    - target: {fileID: 2352477956849297988, guid: 893903b59ac06a1488e9d18f2fdeef42,
+        type: 3}
+      propertyPath: Character1
+      value: 
+      objectReference: {fileID: 181172313}
+    - target: {fileID: 2352477956849297988, guid: 893903b59ac06a1488e9d18f2fdeef42,
+        type: 3}
+      propertyPath: Character2
+      value: 
+      objectReference: {fileID: 98983348}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 893903b59ac06a1488e9d18f2fdeef42, type: 3}
 --- !u!1 &1529529891
@@ -8176,6 +8220,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737841777}
   m_CullTransparentMesh: 0
+--- !u!1 &1768430972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8136241567837296737, guid: 893903b59ac06a1488e9d18f2fdeef42,
+    type: 3}
+  m_PrefabInstance: {fileID: 1504683863}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1794489655
 GameObject:
   m_ObjectHideFlags: 0
@@ -8728,6 +8778,7 @@ MonoBehaviour:
   P2: 1
   Character: {fileID: 98983348}
   LS: {fileID: 6300204}
+  Camera: {fileID: 875583602}
   WeaponList:
   - splash: {fileID: 21300000, guid: 5ede9b9413622094cb54f59a89e74063, type: 3}
     WeaponName: Knife

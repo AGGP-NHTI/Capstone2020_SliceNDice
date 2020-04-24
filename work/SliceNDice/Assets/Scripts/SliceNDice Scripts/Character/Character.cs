@@ -146,7 +146,8 @@ public class Character : MonoBehaviour
         cc.Weapon.transform.parent = null;
         control.isCameraFollowing = false;
 
-        GameObject.Find("DeathPanel").SetActive(true);
+        GameObject.Find("Winner").SetActive(true);
+        GameObject.Find("Loser").SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)

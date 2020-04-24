@@ -78,6 +78,7 @@ public class StateChecker : MonoBehaviour
 
     public void ConfirmSelection()
     {
-        gameObject.SetActive(false);
+        winPanel.gameObject.SetActive(false);
+        deathPanel.gameObject.SetActive(false);
     }
 }

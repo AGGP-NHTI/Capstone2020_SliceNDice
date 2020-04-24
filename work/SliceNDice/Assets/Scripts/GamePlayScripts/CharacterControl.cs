@@ -13,6 +13,7 @@ public class CharacterControl : MonoBehaviour
     private PlayerControls controls = null;
     public Gamepad pDevice;
     public bool P1;
+    public bool P2;
     public GameObject Weaponpoint1;
     public GameObject Weaponpoint2;
     GameObject managerob;
@@ -39,43 +40,47 @@ public class CharacterControl : MonoBehaviour
         Play1 = GameObject.Find("PlayerManager").GetComponent<Player1Data>();
         Play2 = GameObject.Find("PlayerManager").GetComponent<Player2Data>();
         controls = new PlayerControls();
-        if (Play1.PlayerCharWeapon1 == "ToothPicks" )
+        if (P1)
         {
-            Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
-            WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
-            WepLoc = GameObject.Find(Weapon.name + "(Clone)");
-            WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
+            if (Play1.PlayerCharWeapon1 == "ToothPicks")
+            {
+                Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
+                WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
+                WepLoc = GameObject.Find(Weapon.name + "(Clone)");
+                WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
+            }
+            if (Play1.playerCharacter1 == "Tofu" && Play1.PlayerCharWeapon1 == "Cleaver")
+            {
+                Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
+                WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
+                WepLoc = GameObject.Find(Weapon.name + "(Clone)");
+                WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
+            }
         }
-        else if(Play2.playerCharacter2 == "ToothPicks" )
+        
+        if (P2)
         {
-            Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
-            WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
-            WepLoc = GameObject.Find(Weapon.name + "(Clone)");
-            WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
-        }
-        else if (Play1.playerCharacter1 == "Tofu" && Play1.PlayerCharWeapon1 == "Cleaver")
-        {
-            Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
-            WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
-            WepLoc = GameObject.Find(Weapon.name + "(Clone)");
-            WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
-        }
-        else if (Play2.playerCharacter2 == "Tofu" && Play2.PlayerCharWeapon2 == "Cleaver")
-        {
-            Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
-            WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
-            WepLoc = GameObject.Find(Weapon.name + "(Clone)");
-            WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
+            if (Play2.playerCharacter2 == "ToothPicks")
+            {
+                Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
+                WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
+                WepLoc = GameObject.Find(Weapon.name + "(Clone)");
+                WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
+            }
+            if (Play2.playerCharacter2 == "Tofu" && Play2.PlayerCharWeapon2 == "Cleaver")
+            {
+                Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
+                WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);
+                WepLoc = GameObject.Find(Weapon.name + "(Clone)");
+                WepLocOff = GameObject.Find(WeaponOffhand.name + "(Clone)");
+            }
+           
         }
         else
         {
             Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
             WepLoc = GameObject.Find(Weapon.name + "(Clone)");
         }
-
-        
-        
-        
     }
 
     private void Start()
@@ -161,10 +166,12 @@ public class CharacterControl : MonoBehaviour
                     WepLocOff.transform.SetParent(Weaponpoint2.transform);
                     WepLoc.transform.parent = Weaponpoint1.transform;
                     WepLocOff.transform.parent = Weaponpoint2.transform;
-                    WepLoc.transform.position = Weaponpoint1.transform.position;
+                    WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(.09f, .45f, 0);
                     WepLocOff.transform.position = Weaponpoint2.transform.position;
-                    WepLoc.transform.Rotate(-70, 180, 40);
+                    WepLoc.transform.Rotate(-70, 135, 40);
                     WepLocOff.transform.Rotate(-70,180,40);
+                    WepLoc.transform.localScale += new Vector3(.0005f, .0005f, .0005f);
+                    WepLocOff.transform.localScale += new Vector3(.0005f, .0005f, .0005f);
                 }
                 if (Play1.PlayerCharWeapon1 == "Rolling Pin")
                 {
@@ -172,6 +179,7 @@ public class CharacterControl : MonoBehaviour
                     WepLoc.transform.parent = Weaponpoint1.transform;
                     WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(.09f, .45f, 0);
                     WepLoc.transform.Rotate(0, 190, 40);
+                    WepLoc.transform.localScale += new Vector3(.015f, .25f, .025f);
                 }
                 if (Play1.PlayerCharWeapon1 == "Spoon")
                 {
@@ -179,6 +187,7 @@ public class CharacterControl : MonoBehaviour
                     WepLoc.transform.parent = Weaponpoint1.transform;
                     WepLoc.transform.position = Weaponpoint1.transform.position;
                     WepLoc.transform.Rotate(-80, 180, 0);
+                    WepLoc.transform.localScale += new Vector3(.015f, .25f, .025f);
                 }
                 if (Play1.PlayerCharWeapon1 == "Tenderizer")
                 {
@@ -186,6 +195,7 @@ public class CharacterControl : MonoBehaviour
                     WepLoc.transform.parent = Weaponpoint1.transform;
                     WepLoc.transform.position = Weaponpoint1.transform.position + new Vector3(-.09f, -.75f, .09f);
                     WepLoc.transform.Rotate(-148, -80, -95);
+                    WepLoc.transform.localScale += new Vector3(.015f, .25f, .025f);
                 }
                 if (Play1.PlayerCharWeapon1 == "ToothPicks")
                 {
@@ -197,6 +207,8 @@ public class CharacterControl : MonoBehaviour
                     WepLocOff.transform.position = Weaponpoint2.transform.position + new Vector3(-0.05f, .34f, 0.01f);
                     WepLoc.transform.Rotate(-148, -80, -95);
                     WepLocOff.transform.Rotate(-148, -80, -95);
+                    WepLoc.transform.localScale += new Vector3(.015f, .25f, .025f);
+                    WepLocOff.transform.localScale += new Vector3(.015f, .25f, .025f);
                 }
             }
             if (Play1.playerCharacter1 == "BlueBerry")
@@ -400,7 +412,7 @@ public class CharacterControl : MonoBehaviour
                 }
             }
         }
-        else
+        if(P2)
         {
             if(Play2.playerCharacter2 == "Avacado")
             {
@@ -470,6 +482,8 @@ public class CharacterControl : MonoBehaviour
                     WepLocOff.transform.position = Weaponpoint2.transform.position;
                     WepLoc.transform.Rotate(-70, 180, 40);
                     WepLocOff.transform.Rotate(-70, 180, 40);
+                    WepLoc.transform.localScale += new Vector3(.0005f, .005f, .0005f);
+                    WepLocOff.transform.localScale += new Vector3(.0005f, .005f, .0005f);
                 }
                 if (Play2.PlayerCharWeapon2 == "Rolling Pin")
                 {

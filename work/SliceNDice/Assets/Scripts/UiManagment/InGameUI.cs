@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class InGameUI : MonoBehaviour
 {
-
     public Slider healthsilder;
-    public Silder shieldslider;
+    public Slider shieldslider;
 
     // Start is called before the first frame update
     void Start()

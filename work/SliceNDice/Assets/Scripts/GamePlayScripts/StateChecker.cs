@@ -25,6 +25,9 @@ public class StateChecker : MonoBehaviour
 
     public void Start()
     {
+        winPanel.gameObject.SetActive(false);
+        deathPanel.gameObject.SetActive(false);
+
         Gamepad[] pads = Gamepad.all.ToArray();
 
         if (pads.Length < 2)

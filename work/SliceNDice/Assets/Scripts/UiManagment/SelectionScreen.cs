@@ -11,8 +11,8 @@ public class SelectionScreen : MonoBehaviour
     protected int selectedCharacterIndex;
     private Color desiredColor;
 
-    private static bool HasSelectedCharacter1 = false;
-    private static bool HasSelectedCharacter2 = false;
+    public static bool HasSelectedCharacter1 = false;
+    public static bool HasSelectedCharacter2 = false;
     public bool P1;
     public bool P2;
     public bool P1Checked = false;
@@ -70,12 +70,18 @@ public class SelectionScreen : MonoBehaviour
 
         if (p1DevicePad.buttonEast.wasPressedThisFrame)
         {
+            HasSelectedCharacter1 = false;
+            HasSelectedCharacter2 = false;
+            Destroy(LS.LevelSpawned);
             LS.CharacterSelect1.SetActive(false);
             LS.CharacterSelect2.SetActive(false);
             LS.gameObject.SetActive(true);
         }
         if (p2DevicePad.buttonEast.wasPressedThisFrame)
         {
+            HasSelectedCharacter1 = false;
+            HasSelectedCharacter2 = false;
+            Destroy(LS.LevelSpawned);
             LS.CharacterSelect1.SetActive(false);
             LS.CharacterSelect2.SetActive(false);
             LS.gameObject.SetActive(true);

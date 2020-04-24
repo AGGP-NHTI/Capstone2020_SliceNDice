@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-
 public class LevelSelect : MonoBehaviour
 {
     protected int selectedLevelIndex;
@@ -18,6 +17,8 @@ public class LevelSelect : MonoBehaviour
     public GameObject CharacterSelect2;
     public GameObject WeaponSelect1;
     public GameObject WeaponSelect2;
+
+    public GameObject LevelSpawned;
 
     public GameObject managerob;
     public GameObject DynamicCamera;
@@ -71,6 +72,8 @@ public class LevelSelect : MonoBehaviour
 
     public void Update()
     {
+        //LevelSpawned = GameObject.Find(LevelList[selectedLevelIndex].selectedLevel.name + "(Clone)");
+
         if (this.gameObject.tag == "LevelSelection")
         {
             backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
@@ -121,7 +124,7 @@ public class LevelSelect : MonoBehaviour
 
     public void ConfirmSelection()
     {
-            Instantiate(LevelList[selectedLevelIndex].selectedLevel, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
+        LevelSpawned = Instantiate(LevelList[selectedLevelIndex].selectedLevel, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
             HasSelectedLevel = true;
             managerob = GameObject.Find("PlayerManager");
             DynamicCamera = GameObject.Find("CameraManager");

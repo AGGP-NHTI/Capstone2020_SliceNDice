@@ -75,6 +75,10 @@ public class WeaponSelect : MonoBehaviour
 
         if (p1DevicePad.buttonEast.wasPressedThisFrame)
         {
+            HasSelectedWeapon1 = false;
+            HasSelectedWeapon2 = false;
+            SelectionScreen.HasSelectedCharacter1 = false;
+            SelectionScreen.HasSelectedCharacter2 = false;
             LS.WeaponSelect1.SetActive(false);
             LS.WeaponSelect2.SetActive(false);
             LS.CharacterSelect1.SetActive(true);
@@ -82,7 +86,11 @@ public class WeaponSelect : MonoBehaviour
         }
         if (p2DevicePad.buttonEast.wasPressedThisFrame)
         {
-           LS.WeaponSelect1.SetActive(false);
+            SelectionScreen.HasSelectedCharacter1 = false;
+            SelectionScreen.HasSelectedCharacter2 = false;
+            HasSelectedWeapon1 = false;
+            HasSelectedWeapon2 = false;
+            LS.WeaponSelect1.SetActive(false);
            LS.WeaponSelect2.SetActive(false);
            LS.CharacterSelect1.SetActive(true);
            LS.CharacterSelect2.SetActive(true);

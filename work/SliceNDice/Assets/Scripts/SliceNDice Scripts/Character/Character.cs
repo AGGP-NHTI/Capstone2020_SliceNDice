@@ -28,6 +28,11 @@ public class Character : MonoBehaviour
 
     public bool isRunning;                  // Bool to determine if they're running or not.
 
+    public Slider p1healthsilder;
+    public Slider p1shieldslider;
+    public Slider p2healthsilder;
+    public Slider p2shieldslider;
+
     /**************************/
 
     [Header("Character Statistics")]
@@ -83,6 +88,11 @@ public class Character : MonoBehaviour
 
     void Start()
     {
+        p1healthsilder.maxValue = playerMaxHealth;
+        p2healthsilder.maxValue = playerMaxHealth;
+        p1shieldslider.maxValue = playerMaxGuard;
+        p2shieldslider.maxValue = playerMaxGuard;
+
         if (cc.P1)
         {
             gameObject.AddComponent<Player1Object>();
@@ -110,6 +120,11 @@ public class Character : MonoBehaviour
 
     void Update()
     {
+        p1healthsilder.value = playerHealth;
+        p2healthsilder.value = playerHealth;
+        p1shieldslider.value = playerGuard;
+        p2shieldslider.value = playerGuard;
+
         Cursor.lockState = CursorLockMode.Locked;
 
         if (playerHealth <= 0)

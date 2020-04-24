@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using BzKovSoft.ObjectSlicerSamples;
 using DestroyIt;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Sliceable))]
@@ -27,6 +28,9 @@ public class Character : MonoBehaviour
     public bool isRunning;                  // Bool to determine if they're running or not.
 
 
+    //public Slider healthsilder;
+    //public Silder shieldslider;
+
     /**************************/
 
     [Header("Character Statistics")]
@@ -39,6 +43,8 @@ public class Character : MonoBehaviour
 
     [Range(0, 100)]
     public float playerGuard;
+    public float playerMaxGuard;
+
 
     /**************************/
 
@@ -62,6 +68,7 @@ public class Character : MonoBehaviour
         Build = Mathf.CeilToInt(gameObject.transform.localScale.magnitude);     // How heavy/big the character is.
         playerMaxHealth = 50 + (Build * 25);                                    // Calculate Health based upon Build.
         playerHealth = playerMaxHealth;                                         // Player Health = Max Health at start.
+        playerMaxGuard = 100;
         playerGuard = 100;                                                      // Guard is always set to 100. No more, no less.
 
         // Stored Movement Variables
@@ -74,6 +81,8 @@ public class Character : MonoBehaviour
         // Set up Destructible
         gameObject.GetComponent<Destructible>().totalHitPoints = playerMaxHealth;
         gameObject.GetComponent<Destructible>().currentHitPoints = playerMaxHealth;
+        //healthsilder.maxValue = playerMaxHealth;
+        //shieldslider.maxValue = playerMaxGuard;
     }
 
     void Start()

@@ -145,6 +145,8 @@ public class Character : MonoBehaviour
         cc.movementSpeed = 0;
         cc.Weapon.transform.parent = null;
         control.isCameraFollowing = false;
+
+        GameObject.Find("DeathPanel").SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)

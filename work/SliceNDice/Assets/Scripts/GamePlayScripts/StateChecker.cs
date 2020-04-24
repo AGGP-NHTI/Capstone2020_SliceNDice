@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class StateChecker : MonoBehaviour
 {
-    /*******/
+    /****   Game Pad   ****/
+    public InputDevice p1Device;
+    public InputDevice p2Device;
+    public Gamepad p1DevicePad;
+    public Gamepad p2DevicePad;
+
+
+    /****   Game Objects    ****/
     public Image winPanel;
     public Image deathPanel;
     public bool matchP1Won = false;
@@ -14,6 +22,23 @@ public class StateChecker : MonoBehaviour
 
     GameObject P1;
     GameObject P2;
+
+    public void Start()
+    {
+        Gamepad[] pads = Gamepad.all.ToArray();
+
+        if (pads.Length < 2)
+        {
+            Debug.LogError("Connect More Controllers, Sucka!!!!!!!!");
+            return;
+        }
+
+        p1Device = pads[0].device;
+        p2Device = pads[1].device;
+        p1DevicePad = pads[0];
+        p2DevicePad = pads[1];
+    }
+
 
     void Update()
     {
@@ -40,5 +65,19 @@ public class StateChecker : MonoBehaviour
             winPanel.sprite = P1.GetComponent<Character>().characterDeathPanel;
             deathPanel.sprite = P2.GetComponent<Character>().characterDeathPanel;
         }
+
+        if (p1DevicePad.buttonSouth.wasPressedThisFrame)
+        {
+            ConfirmSelection();
+        }
+        if (p2DevicePad.buttonSouth.wasPressedThisFrame)
+        {
+            ConfirmSelection();
+        }
+    }
+
+    public void ConfirmSelection()
+    {
+        gameObject.SetActive(false);
     }
 }

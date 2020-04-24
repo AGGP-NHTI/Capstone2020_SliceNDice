@@ -22,6 +22,9 @@ public class LevelSelect : MonoBehaviour
     public GameObject managerob;
     public GameObject DynamicCamera;
 
+    public GameObject MainMenuScreen;
+    public GameObject MainMenuCanvas;
+
     public InputDevice p1Device;
     public InputDevice p2Device;
     public Gamepad p1DevicePad;
@@ -85,6 +88,13 @@ public class LevelSelect : MonoBehaviour
             ConfirmSelection();
         }
 
+        if (p1DevicePad.buttonEast.wasPressedThisFrame)
+        {
+            gameObject.SetActive(false);
+            MainMenuScreen.SetActive(true);
+            MainMenuCanvas.SetActive(true);
+        }
+
         if (p2DevicePad.leftStick.left.wasPressedThisFrame)
         {
             LeftArrow();
@@ -96,6 +106,13 @@ public class LevelSelect : MonoBehaviour
         if (p2DevicePad.buttonSouth.wasPressedThisFrame)
         {
             ConfirmSelection();
+        }
+
+        if (p2DevicePad.buttonEast.wasPressedThisFrame)
+        {
+            gameObject.SetActive(false);
+            MainMenuScreen.SetActive(true);
+            MainMenuCanvas.SetActive(true);
         }
 
     }

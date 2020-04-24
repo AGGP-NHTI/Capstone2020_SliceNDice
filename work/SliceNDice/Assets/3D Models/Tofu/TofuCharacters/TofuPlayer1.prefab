@@ -1550,7 +1550,7 @@ Animator:
   m_GameObject: {fileID: 4899727371909161458}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0b1c352a97c8a6f4d861d722e8b77116, type: 3}
-  m_Controller: {fileID: 9100000, guid: 846196c21a72c2947bfa5768d5d3248d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 338dde97adc2c27468a6b1d4a780634b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
@@ -1700,6 +1700,7 @@ MonoBehaviour:
   isTwoHanded: 0
   anim: {fileID: 5525666996035132493}
   platform: {fileID: 2575111716896597702}
+  characterDeathPanel: {fileID: 0}
   guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
     type: 3}
   healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,
@@ -1724,8 +1725,9 @@ MonoBehaviour:
   control: {fileID: 0}
   Play1: {fileID: 0}
   Play2: {fileID: 0}
-  Weapon: {fileID: 4444594161948506599, guid: 8a5cc42b53b193d49a7dbd493d8cc180, type: 3}
-  WeaponOffhand: {fileID: 0}
+  Weapon: {fileID: 8750195494260217143, guid: c65b0aa76cf1a6c4dabe6b0df46701b9, type: 3}
+  WeaponOffhand: {fileID: 8750195494260217143, guid: 440fec8decbd4e94e8f5f8d57fd5b2cf,
+    type: 3}
   Wep: {fileID: 0}
   WepOff: {fileID: 0}
 --- !u!114 &2005012929333912839

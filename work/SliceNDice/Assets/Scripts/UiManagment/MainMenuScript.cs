@@ -13,6 +13,7 @@ public class MainMenuScript : MonoBehaviour
 
     public GameObject Canvas;
     public GameObject MainMenu;
+    public GameObject StageSelectionMenu;
     public GameObject SelectionMenus;
     public GameObject OptionMenuPanel;
     public GameObject ControlsPanel;
@@ -101,6 +102,7 @@ public class MainMenuScript : MonoBehaviour
             {
                 Debug.LogError("Going To Character Selection Menu");
                 SelectionMenus.SetActive(true);
+                StageSelectionMenu.SetActive(true);
                 MainMenu.SetActive(false);
             }
 

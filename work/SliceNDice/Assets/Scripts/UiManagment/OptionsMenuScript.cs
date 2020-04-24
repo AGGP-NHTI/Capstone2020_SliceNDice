@@ -59,7 +59,7 @@ public class ControlsMenuScript : MonoBehaviour
 
         if (this.gameObject.tag == "OptionMenuPanel")
         {
-           // backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
+           backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
         }
         if (p1DevicePad.leftStick.left.wasPressedThisFrame)
         {

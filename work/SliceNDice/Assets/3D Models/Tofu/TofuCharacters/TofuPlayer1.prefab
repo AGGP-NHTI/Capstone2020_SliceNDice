@@ -61,7 +61,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0027607784, y: 0.0024501928, z: -0.008263423}
+  m_ConnectedAnchor: {x: 0.002760779, y: 0.0024501916, z: -0.008263423}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -331,7 +331,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00020701753, y: 0.0048083216, z: -0.0043142904}
+  m_ConnectedAnchor: {x: 0.00020701785, y: 0.004808322, z: -0.004314291}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -624,7 +624,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.007724849, y: 0.004670934, z: 0.0011462279}
+  m_ConnectedAnchor: {x: 0.007724849, y: 0.004670933, z: 0.0011462256}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -811,7 +811,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.009999606, y: 0.0046709334, z: 0.0022012135}
+  m_ConnectedAnchor: {x: -0.009999606, y: 0.0046709357, z: 0.0022012123}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -1683,7 +1683,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0026272128, y: 0.0024501928, z: -0.008263423}
+  m_ConnectedAnchor: {x: -0.002627213, y: 0.002450194, z: -0.008263423}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -2254,10 +2254,13 @@ MonoBehaviour:
   playerHealth: 0
   playerMaxHealth: 0
   playerGuard: 0
+  playerMaxGuard: 0
   isTwoHanded: 0
   anim: {fileID: 5874182290501043692}
   platform: {fileID: 4510063683751378791}
-  characterDeathPanel: {fileID: 0}
+  characterWinPanel: {fileID: 21300000, guid: 6992842e2e506e843bc35729e2258b62, type: 3}
+  characterDeathPanel: {fileID: 21300000, guid: 27ea4a53c8d544745ad86c20d2497f13,
+    type: 3}
   guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
     type: 3}
   healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,
@@ -2692,7 +2695,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0075912834, y: 0.004670934, z: 0.0011462279}
+  m_ConnectedAnchor: {x: -0.0075912834, y: 0.004670935, z: 0.0011462256}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -2970,7 +2973,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0101331705, y: 0.0046709334, z: 0.0022012135}
+  m_ConnectedAnchor: {x: 0.01013317, y: 0.0046709324, z: 0.0022012123}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:

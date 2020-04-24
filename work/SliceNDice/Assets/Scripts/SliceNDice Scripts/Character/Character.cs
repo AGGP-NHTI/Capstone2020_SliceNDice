@@ -50,6 +50,7 @@ public class Character : MonoBehaviour
     bool isTwoHanded;                       // Determines which animations will be used (one-handed or two-handed).
     public Animator anim;
     public GameObject platform;
+    public Sprite characterWinPanel;
     public Sprite characterDeathPanel;
 
     /**************************/

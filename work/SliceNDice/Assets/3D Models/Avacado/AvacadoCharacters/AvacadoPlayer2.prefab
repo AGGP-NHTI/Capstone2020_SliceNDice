@@ -3446,7 +3446,7 @@ GameObject:
   - component: {fileID: 5889451955925881316}
   m_Layer: 0
   m_Name: AvacadoPlayer2
-  m_TagString: P1
+  m_TagString: P2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3745,10 +3745,13 @@ MonoBehaviour:
   playerHealth: 0
   playerMaxHealth: 0
   playerGuard: 0
+  playerMaxGuard: 0
   isTwoHanded: 0
   anim: {fileID: 3387579361577177538}
   platform: {fileID: 4412211430855532033}
-  characterDeathPanel: {fileID: 0}
+  characterWinPanel: {fileID: 21300000, guid: c6aa6e42b913f9a44af381a534c0aef7, type: 3}
+  characterDeathPanel: {fileID: 21300000, guid: f6f9d9f69b1c892458fd970bf68e3a1f,
+    type: 3}
   guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
     type: 3}
   healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,

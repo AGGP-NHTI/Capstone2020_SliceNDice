@@ -2342,9 +2342,12 @@ MonoBehaviour:
   playerHealth: 0
   playerMaxHealth: 0
   playerGuard: 0
+  playerMaxGuard: 0
   isTwoHanded: 0
   anim: {fileID: 5181800894684366470}
   platform: {fileID: 2762509852936859903}
+  characterWinPanel: {fileID: 21300000, guid: 0c5608938a1af3a45bc1ee98d30d9a91, type: 3}
+  characterDeathPanel: {fileID: 0}
   guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
     type: 3}
   healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,
@@ -2364,6 +2367,7 @@ MonoBehaviour:
   movementSpeed: 5
   backSpeed: 5
   P1: 0
+  P2: 0
   Weaponpoint1: {fileID: 4362742504729317463}
   Weaponpoint2: {fileID: 4021691934679139179}
   control: {fileID: 0}

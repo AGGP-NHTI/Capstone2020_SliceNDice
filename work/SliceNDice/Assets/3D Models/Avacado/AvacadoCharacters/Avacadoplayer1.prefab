@@ -3547,8 +3547,9 @@ MonoBehaviour:
   control: {fileID: 0}
   Play1: {fileID: 0}
   Play2: {fileID: 0}
-  Weapon: {fileID: 4444594161948506599, guid: 8a5cc42b53b193d49a7dbd493d8cc180, type: 3}
-  WeaponOffhand: {fileID: 0}
+  Weapon: {fileID: 3086454915841879123, guid: e2295af5f79c3ef468d9b1e480d5a692, type: 3}
+  WeaponOffhand: {fileID: 3086454915841879123, guid: 7541b49eddbb1d54aa3b3358143f0bba,
+    type: 3}
   Wep: {fileID: 0}
   WepOff: {fileID: 0}
 --- !u!95 &5451866307269109043
@@ -3561,7 +3562,7 @@ Animator:
   m_GameObject: {fileID: 8042408767077886727}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4cef9a7cecf0540499bc8ab41a84187d, type: 3}
-  m_Controller: {fileID: 9100000, guid: 846196c21a72c2947bfa5768d5d3248d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 338dde97adc2c27468a6b1d4a780634b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
@@ -3711,6 +3712,7 @@ MonoBehaviour:
   isTwoHanded: 0
   anim: {fileID: 5451866307269109043}
   platform: {fileID: 4521212582818810893}
+  characterDeathPanel: {fileID: 0}
   guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
     type: 3}
   healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,

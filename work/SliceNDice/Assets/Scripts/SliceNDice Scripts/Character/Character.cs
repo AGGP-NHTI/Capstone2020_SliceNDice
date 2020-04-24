@@ -168,8 +168,6 @@ public class Character : MonoBehaviour
                     {
                         rb.AddForce(w.BladeDirection * 1.25f, ForceMode.Impulse);
 
-                        // moveSpeed -= 0.04f;
-
                         if (playerGuard > 0)
                         {
                             Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
@@ -180,7 +178,11 @@ public class Character : MonoBehaviour
                         {
                             Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
                             playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                            gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                        }
+
+                        if (playerHealth == 0)
+                        {
+                            gameObject.GetComponent<Destructible>().currentHitPoints = 0;
                         }
                     }
 
@@ -199,10 +201,6 @@ public class Character : MonoBehaviour
 
                             Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
                             playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
-
-                            Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
-
-                            Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
                         }
                     }
                 }
@@ -232,8 +230,6 @@ public class Character : MonoBehaviour
                     {
                         rb.AddForce(w.BladeDirection * 1.25f, ForceMode.Impulse);
 
-                        // moveSpeed -= 0.04f;
-
                         if (playerGuard > 0)
                         {
                             Instantiate(guardHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
@@ -244,7 +240,11 @@ public class Character : MonoBehaviour
                         {
                             Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
                             playerHealth -= Mathf.CeilToInt(w.weaponDamage * 2f);
-                            gameObject.GetComponent<Destructible>().currentHitPoints -= Mathf.CeilToInt(w.weaponDamage * 2f);
+                        }
+
+                        if (playerHealth == 0)
+                        {
+                            gameObject.GetComponent<Destructible>().currentHitPoints = 0;
                         }
                     }
 
@@ -260,13 +260,8 @@ public class Character : MonoBehaviour
 
                         if (playerGuard <= 0)
                         {
-
                             Instantiate(healthHit, gameObject.transform.position, Quaternion.identity, gameObject.transform.parent);
                             playerHealth -= Mathf.CeilToInt(w.weaponDamage * 0.5f);
-
-                            Vector3 randomHitLoc = new Vector3(Random.Range(0, .1f), Random.Range(0, .1f), Random.Range(0, .1f));
-
-                            Instantiate(bleedParticles, randomHitLoc, Quaternion.identity, gameObject.transform);
                         }
                     }
                 }

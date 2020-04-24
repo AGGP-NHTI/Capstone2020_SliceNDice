@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Profiling;
 using System.Collections;
 using System.Collections.Generic;
 using BzKovSoft.ObjectSlicerSamples;
 using DestroyIt;
-using UnityEngine.UI;
+using System.Reflection;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Sliceable))]
@@ -26,10 +27,6 @@ public class Character : MonoBehaviour
     public int jumpForce;                   // Character's jumping force.
 
     public bool isRunning;                  // Bool to determine if they're running or not.
-
-
-    //public Slider healthsilder;
-    //public Silder shieldslider;
 
     /**************************/
 
@@ -81,8 +78,6 @@ public class Character : MonoBehaviour
         // Set up Destructible
         gameObject.GetComponent<Destructible>().totalHitPoints = playerMaxHealth;
         gameObject.GetComponent<Destructible>().currentHitPoints = playerMaxHealth;
-        //healthsilder.maxValue = playerMaxHealth;
-        //shieldslider.maxValue = playerMaxGuard;
     }
 
     void Start()

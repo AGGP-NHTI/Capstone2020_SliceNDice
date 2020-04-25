@@ -158,7 +158,8 @@ public class Character : MonoBehaviour
         rb.freezeRotation = false;      // Allows them to fall over at any angle.
         GetComponent<AdderSliceableAsync>().enabled = true;
         cc.movementSpeed = 0;
-        cc.Weapon.transform.parent = null;
+        Destroy(cc.Weapon);
+        Destroy(cc.WeaponOffhand);
         control.isCameraFollowing = false;
     }
 

@@ -20,12 +20,8 @@ public class StateChecker : MonoBehaviour
     public bool matchP2Won = false;
     public bool matchDraw = false;
 
-    static bool HasConfirmedp1 = false;
-    static bool HasConfirmedp2 = false;
-
-    public MainMenuScript main;
-    public LevelSelect LS;
-    public WeaponSelect WS;
+    public bool HasConfirmedp1 = false;
+    public bool HasConfirmedp2 = false;
 
     public GameObject Wpanel;
     public GameObject Dpanel;
@@ -33,6 +29,16 @@ public class StateChecker : MonoBehaviour
     public SelectionScreen Character2;
     public GameObject SelectedChar1;
     public GameObject SelectedChar2;
+    public GameObject SelectedChar1Neg;
+    public GameObject SelectedChar2Neg;
+    public GameObject SelectedChar1Pos;
+    public GameObject SelectedChar2Pos;
+    public GameObject SelectedWep1;
+    public GameObject SelectedWep1Off;
+    public GameObject SelectedWep2;
+    public GameObject SelectedWep2Off;
+
+
 
     GameObject P1;
     GameObject P2;
@@ -67,7 +73,9 @@ public class StateChecker : MonoBehaviour
 
     void Update()
     {
-        if (LS.Canvas.activeSelf == false && main.Canvas.activeSelf == false)
+        
+
+        if (LevelSelect.canvas.activeSelf == false)
         {
             P1 = GameObject.FindGameObjectWithTag("P1");
             P2 = GameObject.FindGameObjectWithTag("P2");
@@ -109,10 +117,12 @@ public class StateChecker : MonoBehaviour
                 if (p1DevicePad.buttonSouth.wasPressedThisFrame)
                 {
                     HasConfirmedp1 = true;
+                   
                 }
                 if (p2DevicePad.buttonSouth.wasPressedThisFrame)
                 {
                     HasConfirmedp2 = true;
+                   
                 }
                 if (HasConfirmedp1 && HasConfirmedp2)
                 {
@@ -123,23 +133,44 @@ public class StateChecker : MonoBehaviour
         }
 
     }
-
+    
     public void ConfirmSelection()
     {
-        matchDraw = false;
-        matchP1Won = false;
-        matchP2Won = false;
-        SelectedChar1 = GameObject.Find(Character1.SelectedCharacter.name + "(Clone)");
-        SelectedChar2 = GameObject.Find(Character2.SelectedCharacter.name + "(Clone)");
         //winPanel.color = transparency;
-        Wpanel.gameObject.SetActive(false);
         //deathPanel.color = transparency;
-        Dpanel.gameObject.SetActive(false);
-        WS.Camera.gameObject.SetActive(true);
-        LS.Canvas.gameObject.SetActive(true);
-        LS.gameObject.SetActive(true);
-        Destroy(LS.LevelSpawned);
+        SelectedChar1 = GameObject.Find(SelectionScreen.SelectedCharacter1.name + "(Clone)");
+        SelectedChar2 = GameObject.Find(SelectionScreen.SelectedCharacter2.name + "(Clone)");
+        SelectedChar1Neg = GameObject.Find(SelectionScreen.SelectedCharacter1.name + "(Clone)_neg");
+        SelectedChar2Neg = GameObject.Find(SelectionScreen.SelectedCharacter2.name + "(Clone)_neg");
+        SelectedChar1Pos = GameObject.Find(SelectionScreen.SelectedCharacter1.name + "(Clone)_pos");
+        SelectedChar2Pos = GameObject.Find(SelectionScreen.SelectedCharacter2.name + "(Clone)_pos");
+        SelectedWep1 = GameObject.Find(WeaponSelect.SelectedWeapon1.name + "(Clone)");
+        //SelectedWep1Off = GameObject.Find(WeaponSelect.SelectedWeapon1Off.name + "(Clone)");
+        SelectedWep2 = GameObject.Find(WeaponSelect.SelectedWeapon2.name + "(Clone)");
+        //SelectedWep2Off = GameObject.Find(WeaponSelect.SelectedWeapon2Off.name + "(Clone)");
         Destroy(SelectedChar1);
         Destroy(SelectedChar2);
+        Destroy(SelectedChar1Neg);
+        Destroy(SelectedChar2Neg);
+        Destroy(SelectedChar1Pos);
+        Destroy(SelectedChar2Pos);
+        Destroy(SelectedWep1);
+        //Destroy(SelectedWep1Off);
+        Destroy(SelectedWep2);
+        //Destroy(SelectedWep2Off);
+        Wpanel.SetActive(false);
+        Dpanel.SetActive(false);
+        LevelSelect.Camera.SetActive(true);
+        LevelSelect.canvas.SetActive(true);
+        LevelSelect.CharacterSelect1.SetActive(false);
+        LevelSelect.CharacterSelect2.SetActive(false);
+        LevelSelect.WeaponSelect1.SetActive(false);
+        LevelSelect.WeaponSelect2.SetActive(false);
+        LevelSelect.This.SetActive(true);
+        HasConfirmedp1 = false;
+        HasConfirmedp2 = false;
+        Destroy(LevelSelect.LevelSpawned);
+        
+
     }
 }

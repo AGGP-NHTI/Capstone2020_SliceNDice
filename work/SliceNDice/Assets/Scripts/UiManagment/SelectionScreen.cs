@@ -15,14 +15,13 @@ public class SelectionScreen : MonoBehaviour
     public static bool HasSelectedCharacter2 = false;
     public bool P1;
     public bool P2;
-    public bool P1Checked = false;
-    public bool P2Checked = false;
 
     public GameObject canvas;
     public LevelSelect LS;
     public GameObject LevelSelectionObject;
 
-    public GameObject SelectedCharacter;
+    public static GameObject SelectedCharacter1;
+    public static GameObject SelectedCharacter2;
     TPSpawn spawnman;
 
     public InputDevice p1Device;
@@ -73,18 +72,18 @@ public class SelectionScreen : MonoBehaviour
         {
             HasSelectedCharacter1 = false;
             HasSelectedCharacter2 = false;
-            Destroy(LS.LevelSpawned);
-            LS.CharacterSelect1.SetActive(false);
-            LS.CharacterSelect2.SetActive(false);
+            Destroy(LevelSelect.LevelSpawned);
+            LevelSelect.CharacterSelect1.SetActive(false);
+            LevelSelect.CharacterSelect2.SetActive(false);
             LS.gameObject.SetActive(true);
         }
         if (p2DevicePad.buttonEast.wasPressedThisFrame)
         {
             HasSelectedCharacter1 = false;
             HasSelectedCharacter2 = false;
-            Destroy(LS.LevelSpawned);
-            LS.CharacterSelect1.SetActive(false);
-            LS.CharacterSelect2.SetActive(false);
+            Destroy(LevelSelect.LevelSpawned);
+            LevelSelect.CharacterSelect1.SetActive(false);
+            LevelSelect.CharacterSelect2.SetActive(false);
             LS.gameObject.SetActive(true);
         }
 
@@ -128,31 +127,30 @@ public class SelectionScreen : MonoBehaviour
     public void ConfirmSelection()
     {
         spawnman = LS.managerob.GetComponent<TPSpawn>();
-            if (P1)
-            {
-                spawnman.P1 = characterList[selectedCharacterIndex].selectedchar;
-                SelectedCharacter = characterList[selectedCharacterIndex].selectedchar;
-                P1Checked = true;
-                HasSelectedCharacter1 = true;
+        if (P1)
+        {
+            spawnman.P1 = characterList[selectedCharacterIndex].selectedchar;
+            SelectedCharacter1 = characterList[selectedCharacterIndex].selectedchar;
+            HasSelectedCharacter1 = true;
                 
-            }
+        }
 
-            if (P2)
-            {
-                spawnman.P2 = characterList[selectedCharacterIndex].selectedchar;
-                SelectedCharacter = characterList[selectedCharacterIndex].selectedchar;
-                P2Checked = true;
-                HasSelectedCharacter2 = true;
-            }
+        if (P2)
+        {
+            spawnman.P2 = characterList[selectedCharacterIndex].selectedchar;
+            SelectedCharacter2 = characterList[selectedCharacterIndex].selectedchar;
+            HasSelectedCharacter2 = true;
+        }
 
         if (HasSelectedCharacter1 && HasSelectedCharacter2)
         {
-            LS.CharacterSelect1.SetActive(false);
-            LS.CharacterSelect2.SetActive(false);
-            LS.WeaponSelect1.SetActive(true);
-            LS.WeaponSelect2.SetActive(true);
+            LevelSelect.WeaponSelect1.SetActive(true);
+            LevelSelect.WeaponSelect2.SetActive(true);
+            LevelSelect.CharacterSelect1.gameObject.SetActive(false);
+            LevelSelect.CharacterSelect2.gameObject.SetActive(false);
             HasSelectedCharacter1 = false;
             HasSelectedCharacter2 = false;
+            
         }
         
 

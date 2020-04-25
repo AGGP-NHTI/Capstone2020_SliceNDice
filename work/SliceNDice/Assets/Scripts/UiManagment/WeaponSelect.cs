@@ -12,24 +12,25 @@ public class WeaponSelect : MonoBehaviour
 
     public bool P1;
     public bool P2;
-    private static bool HasSelectedWeapon1 = false;
-    private static bool HasSelectedWeapon2 = false;
+    public static bool HasSelectedWeapon1 = false;
+    public static bool HasSelectedWeapon2 = false;
     public SelectionScreen Character;
     public LevelSelect LS;
-  
+
+    public static GameObject SelectedWeapon1;
+    public static GameObject SelectedWeapon2;
+    public static GameObject SelectedWeapon1Off;
+    public static GameObject SelectedWeapon2Off;
+
     TPSpawn spawnman;
     CharacterControl Control;
     Animator Anim;
 
-    public GameObject Camera;
+    
 
     [Header("List of Weapons Per Character")]
     public List<WeaponSelectObject> WeaponList = new List<WeaponSelectObject>();
-    //public List<WeaponSelectObject> TofuWeaponList = new List<WeaponSelectObject>();
-    //public List<WeaponSelectObject> BlueBerryWeaponList = new List<WeaponSelectObject>();
-    //public List<WeaponSelectObject> BroccoliWeaponList = new List<WeaponSelectObject>();
-    //public List<WeaponSelectObject> ChilliPepperWeaponList = new List<WeaponSelectObject>();
-    //public List<WeaponSelectObject> SeaweedWeaponList = new List<WeaponSelectObject>();
+ 
 
     [Header("List of Animator controllers")]
     public List<RuntimeAnimatorController> Anims = new List<RuntimeAnimatorController>();
@@ -80,10 +81,10 @@ public class WeaponSelect : MonoBehaviour
             HasSelectedWeapon2 = false;
             SelectionScreen.HasSelectedCharacter1 = false;
             SelectionScreen.HasSelectedCharacter2 = false;
-            LS.WeaponSelect1.SetActive(false);
-            LS.WeaponSelect2.SetActive(false);
-            LS.CharacterSelect1.SetActive(true);
-            LS.CharacterSelect2.SetActive(true);
+            LevelSelect.WeaponSelect1.SetActive(false);
+            LevelSelect.WeaponSelect2.SetActive(false);
+            LevelSelect.CharacterSelect1.SetActive(true);
+            LevelSelect.CharacterSelect2.SetActive(true);
         }
         if (p2DevicePad.buttonEast.wasPressedThisFrame)
         {
@@ -91,16 +92,11 @@ public class WeaponSelect : MonoBehaviour
             SelectionScreen.HasSelectedCharacter2 = false;
             HasSelectedWeapon1 = false;
             HasSelectedWeapon2 = false;
-            LS.WeaponSelect1.SetActive(false);
-            LS.WeaponSelect2.SetActive(false);
-            LS.CharacterSelect1.SetActive(true);
-            LS.CharacterSelect2.SetActive(true);
+            LevelSelect.WeaponSelect1.SetActive(false);
+            LevelSelect.WeaponSelect2.SetActive(false);
+            LevelSelect.CharacterSelect1.SetActive(true);
+            LevelSelect.CharacterSelect2.SetActive(true);
         }
-
-
-
-
-
 
         if (P1)
         {
@@ -145,6 +141,8 @@ public class WeaponSelect : MonoBehaviour
                 Control = spawnman.P1.GetComponent<CharacterControl>();
                 Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP1;
                 Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP1OffHand;
+                SelectedWeapon1 = WeaponList[selectedWeaponIndex].selectedWeaponP1;
+                SelectedWeapon1Off = WeaponList[selectedWeaponIndex].selectedWeaponP1OffHand;
                 Anim = spawnman.P1.GetComponent<Animator>();
                 if (WeaponName.text == "Knife")
                 {
@@ -215,6 +213,8 @@ public class WeaponSelect : MonoBehaviour
                 Control = spawnman.P2.GetComponent<CharacterControl>();
                 Control.Weapon = WeaponList[selectedWeaponIndex].selectedWeaponP2;
                 Control.WeaponOffhand = WeaponList[selectedWeaponIndex].selectedWeaponP2OffHand;
+                SelectedWeapon2 = WeaponList[selectedWeaponIndex].selectedWeaponP2;
+                SelectedWeapon2Off = WeaponList[selectedWeaponIndex].selectedWeaponP2OffHand;
                 Anim = spawnman.P2.GetComponent<Animator>();
                 if (WeaponName.text == "Knife")
                 {
@@ -284,10 +284,10 @@ public class WeaponSelect : MonoBehaviour
         {
             LS.managerob.SetActive(true);
             LS.DynamicCamera.SetActive(true);
-            LS.WeaponSelect1.SetActive(false);
-            LS.WeaponSelect2.SetActive(false);
-            LS.Canvas.SetActive(false);
-            Camera.gameObject.SetActive(false);
+            LevelSelect.WeaponSelect1.gameObject.SetActive(false);
+            LevelSelect.WeaponSelect2.gameObject.SetActive(false);
+            LevelSelect.canvas.SetActive(false);
+            LevelSelect.Camera.SetActive(false);
             HasSelectedWeapon1 = false;
             HasSelectedWeapon2 = false;
         }

@@ -12,17 +12,18 @@ public class LevelSelect : MonoBehaviour
 
     public GameObject SpawnPoint;
 
-    public GameObject Canvas;
-    public GameObject CharacterSelect1;
-    public GameObject CharacterSelect2;
-    public GameObject WeaponSelect1;
-    public GameObject WeaponSelect2;
-
-    public GameObject LevelSpawned;
+    public static GameObject canvas;
+    public static GameObject CharacterSelect1;
+    public static GameObject CharacterSelect2;
+    public static GameObject WeaponSelect1;
+    public static GameObject WeaponSelect2;
+    public static GameObject This;
+    public static GameObject Camera;
+    public static GameObject LevelSpawned;
 
     public GameObject managerob;
     public GameObject DynamicCamera;
-
+    
     public GameObject MainMenuScreen;
     public GameObject MainMenuCanvas;
 
@@ -49,7 +50,13 @@ public class LevelSelect : MonoBehaviour
    
     public void Start()
     {
-       
+        Camera = GameObject.Find("Main Camera");
+        canvas = GameObject.Find("SelectionMenus");
+        This = GameObject.Find("StageSelectPanel");
+        CharacterSelect1 = GameObject.Find("Player#1CharacterSelectPanel");
+        CharacterSelect2 = GameObject.Find("Player#2CharacterSelectPanel");
+        WeaponSelect1 = GameObject.Find("Player#1WeaponSelectPanel");
+        WeaponSelect2 = GameObject.Find("Player#2WeaponSelectPanel");
         CharacterSelect1.SetActive(false);
         CharacterSelect2.SetActive(false);
         WeaponSelect1.SetActive(false);
@@ -72,8 +79,6 @@ public class LevelSelect : MonoBehaviour
 
     public void Update()
     {
-        //LevelSpawned = GameObject.Find(LevelList[selectedLevelIndex].selectedLevel.name + "(Clone)");
-
         if (this.gameObject.tag == "LevelSelection")
         {
             backgroundColor.color = Color.Lerp(backgroundColor.color, desiredColor, Time.deltaTime * backgroundColorTransitionSpeed);
@@ -130,7 +135,7 @@ public class LevelSelect : MonoBehaviour
         DynamicCamera = GameObject.Find("CameraManager");
         managerob.SetActive(false);
         DynamicCamera.SetActive(false);
-        gameObject.SetActive(false);
+        This.SetActive(false);
         CharacterSelect1.SetActive(true);
         CharacterSelect2.SetActive(true);
 

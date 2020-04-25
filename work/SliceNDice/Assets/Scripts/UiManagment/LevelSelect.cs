@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class LevelSelect : MonoBehaviour
 {
     protected int selectedLevelIndex;
+    protected int SelectedMusicIndex;
     private Color desiredColor;
 
     public GameObject SpawnPoint;
@@ -20,7 +21,9 @@ public class LevelSelect : MonoBehaviour
     public static GameObject This;
     public static GameObject Camera;
     public static GameObject LevelSpawned;
-
+    
+    AudioSource AS;
+    AudioSource PO;
     public GameObject managerob;
     public GameObject DynamicCamera;
     
@@ -34,6 +37,8 @@ public class LevelSelect : MonoBehaviour
 
     private bool HasSelectedLevel = false;
 
+    [Header("List of Music")]
+    [SerializeField] protected List<AudioClip> MusicList = new List<AudioClip>();
     [Header("List of Levels")]
     [SerializeField] protected List<LevelSelectObject> LevelList = new List<LevelSelectObject>();
 
@@ -102,6 +107,14 @@ public class LevelSelect : MonoBehaviour
             MainMenuScreen.SetActive(true);
             MainMenuCanvas.SetActive(true);
         }
+        if (p1DevicePad.leftShoulder.wasPressedThisFrame)
+        {
+            LeftBumper();
+        }
+        if (p1DevicePad.rightShoulder.wasPressedThisFrame)
+        {
+            RightBumper();
+        }
 
         if (p2DevicePad.leftStick.left.wasPressedThisFrame)
         {
@@ -122,6 +135,14 @@ public class LevelSelect : MonoBehaviour
             MainMenuScreen.SetActive(true);
             MainMenuCanvas.SetActive(true);
         }
+        if (p2DevicePad.leftShoulder.wasPressedThisFrame)
+        {
+            LeftBumper();
+        }
+        if (p2DevicePad.rightShoulder.wasPressedThisFrame)
+        {
+            RightBumper();
+        }
 
     }
 
@@ -139,6 +160,26 @@ public class LevelSelect : MonoBehaviour
         CharacterSelect1.SetActive(true);
         CharacterSelect2.SetActive(true);
 
+    }
+    public void LeftBumper()
+    {
+        SelectedMusicIndex--;
+        if (SelectedMusicIndex < 0)
+        {
+            SelectedMusicIndex = MusicList.Count - 1;
+        }
+        AS = canvas.GetComponent<AudioSource>();
+        AS.clip = MusicList[SelectedMusicIndex];
+    }
+    public void RightBumper()
+    {
+        SelectedMusicIndex++;
+        if (SelectedMusicIndex == MusicList.Count)
+        {
+            SelectedMusicIndex = 0;
+        }
+        AS = canvas.GetComponent<AudioSource>();
+        AS.clip = MusicList[SelectedMusicIndex];
     }
     public void LeftArrow()
     {

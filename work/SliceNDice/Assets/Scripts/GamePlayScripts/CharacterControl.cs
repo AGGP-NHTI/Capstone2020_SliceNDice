@@ -40,7 +40,7 @@ public class CharacterControl : MonoBehaviour
         Play1 = GameObject.Find("PlayerManager").GetComponent<Player1Data>();
         Play2 = GameObject.Find("PlayerManager").GetComponent<Player2Data>();
         controls = new PlayerControls();
-        if (P1)
+        if (P1 )
         {
             if (Play1.PlayerCharWeapon1 == "ToothPicks")
             {

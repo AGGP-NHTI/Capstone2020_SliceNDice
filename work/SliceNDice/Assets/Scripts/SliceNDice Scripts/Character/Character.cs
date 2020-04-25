@@ -132,6 +132,11 @@ public class Character : MonoBehaviour
             IsDead();
         }
 
+        if (gameObject.GetComponent<AdderSliceableAsync>().enabled)
+        {
+            playerHealth = 0;
+        }
+
         playerGuard += 0.3f;
 
         if (playerGuard >= 100 && playerHealth > 0)

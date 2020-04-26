@@ -122,6 +122,16 @@ public class MainMenuScript : MonoBehaviour
 
             if (OptionList[selectedOptionIndex].OptionName == "Quit")
             {
+                Debug.Log("Quit Applicaiton");
+
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#endif
+
+#if UNITY_WEBPLAYER
+        Application.OpenURL(webplayerQuitURL);
+#endif
+
                 Application.Quit();
                 Debug.LogError("Game is exiting");
             }

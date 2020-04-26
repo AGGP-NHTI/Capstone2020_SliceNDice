@@ -16,6 +16,7 @@ public class StateChecker : MonoBehaviour
     /****   Game Objects    ****/
     public Image winPanel;
     public Image deathPanel;
+
     public bool matchP1Won = false;
     public bool matchP2Won = false;
     public bool matchDraw = false;
@@ -25,8 +26,7 @@ public class StateChecker : MonoBehaviour
 
     public GameObject Wpanel;
     public GameObject Dpanel;
-    public SelectionScreen Character1;
-    public SelectionScreen Character2;
+
     public GameObject SelectedChar1;
     public GameObject SelectedChar2;
     public GameObject SelectedChar1Neg;
@@ -34,27 +34,17 @@ public class StateChecker : MonoBehaviour
     public GameObject SelectedChar1Pos;
     public GameObject SelectedChar2Pos;
     public GameObject SelectedWep1;
-    public GameObject SelectedWep1Off;
     public GameObject SelectedWep2;
-    public GameObject SelectedWep2Off;
-
 
 
     GameObject P1;
     GameObject P2;
 
-    Color original;
-    Color transparency;
 
     public void Start()
     {
         Wpanel.gameObject.SetActive(false);
         Dpanel.gameObject.SetActive(false);
-        //original = winPanel.color;
-        //transparency = new Color(300, 300, 300, 0);
-
-        //winPanel.color = transparency;
-        //deathPanel.color = transparency;
 
         Gamepad[] pads = Gamepad.all.ToArray();
 
@@ -84,10 +74,8 @@ public class StateChecker : MonoBehaviour
             {
                 matchP2Won = true;
                 winPanel.sprite = P2.GetComponent<Character>().characterWinPanel;
-                //winPanel.color = original;
                 Wpanel.gameObject.SetActive(true);
                 deathPanel.sprite = P1.GetComponent<Character>().characterDeathPanel;
-                //deathPanel.color = original;
                 Dpanel.gameObject.SetActive(true);
             }
 
@@ -95,10 +83,8 @@ public class StateChecker : MonoBehaviour
             {
                 matchP1Won = true;
                 winPanel.sprite = P1.GetComponent<Character>().characterWinPanel;
-                //winPanel.color = original;
                 Wpanel.gameObject.SetActive(true);
                 deathPanel.sprite = P2.GetComponent<Character>().characterDeathPanel;
-                //deathPanel.color = original;
                 Dpanel.gameObject.SetActive(true);
             }
 
@@ -106,10 +92,8 @@ public class StateChecker : MonoBehaviour
             {
                 matchDraw = true;
                 winPanel.sprite = P1.GetComponent<Character>().characterDeathPanel;
-                //winPanel.color = original;
                 Wpanel.gameObject.SetActive(true);
                 deathPanel.sprite = P2.GetComponent<Character>().characterDeathPanel;
-                //deathPanel.color = original;
                 Dpanel.gameObject.SetActive(true);
             }
             if (Wpanel.activeSelf == true && Dpanel.activeSelf == true)
@@ -136,8 +120,6 @@ public class StateChecker : MonoBehaviour
     
     public void ConfirmSelection()
     {
-        //winPanel.color = transparency;
-        //deathPanel.color = transparency;
         SelectedChar1 = GameObject.Find(SelectionScreen.SelectedCharacter1.name + "(Clone)");
         SelectedChar2 = GameObject.Find(SelectionScreen.SelectedCharacter2.name + "(Clone)");
         SelectedChar1Neg = GameObject.Find(SelectionScreen.SelectedCharacter1.name + "(Clone)_neg");
@@ -145,9 +127,7 @@ public class StateChecker : MonoBehaviour
         SelectedChar1Pos = GameObject.Find(SelectionScreen.SelectedCharacter1.name + "(Clone)_pos");
         SelectedChar2Pos = GameObject.Find(SelectionScreen.SelectedCharacter2.name + "(Clone)_pos");
         SelectedWep1 = GameObject.Find(WeaponSelect.SelectedWeapon1.name + "(Clone)");
-        //SelectedWep1Off = GameObject.Find(WeaponSelect.SelectedWeapon1Off.name + "(Clone)");
         SelectedWep2 = GameObject.Find(WeaponSelect.SelectedWeapon2.name + "(Clone)");
-        //SelectedWep2Off = GameObject.Find(WeaponSelect.SelectedWeapon2Off.name + "(Clone)");
         Destroy(SelectedChar1);
         Destroy(SelectedChar2);
         Destroy(SelectedChar1Neg);
@@ -155,9 +135,7 @@ public class StateChecker : MonoBehaviour
         Destroy(SelectedChar1Pos);
         Destroy(SelectedChar2Pos);
         Destroy(SelectedWep1);
-        //Destroy(SelectedWep1Off);
         Destroy(SelectedWep2);
-        //Destroy(SelectedWep2Off);
         Wpanel.SetActive(false);
         Dpanel.SetActive(false);
         LevelSelect.Camera.SetActive(true);

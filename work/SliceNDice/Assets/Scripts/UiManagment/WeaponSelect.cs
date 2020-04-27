@@ -16,11 +16,13 @@ public class WeaponSelect : MonoBehaviour
     public static bool HasSelectedWeapon2 = false;
     public SelectionScreen Character;
     public LevelSelect LS;
+    public GameObject TheGameUI;
 
     public static GameObject SelectedWeapon1;
     public static GameObject SelectedWeapon2;
     public static GameObject SelectedWeapon1Off;
     public static GameObject SelectedWeapon2Off;
+
 
     TPSpawn spawnman;
     CharacterControl Control;
@@ -290,6 +292,7 @@ public class WeaponSelect : MonoBehaviour
             LevelSelect.Camera.SetActive(false);
             HasSelectedWeapon1 = false;
             HasSelectedWeapon2 = false;
+            TheGameUI.SetActive(true);
         }
     }
     public void LeftArrow()

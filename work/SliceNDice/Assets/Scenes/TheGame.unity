@@ -1099,7 +1099,7 @@ GameObject:
   - component: {fileID: 134223411}
   - component: {fileID: 134223412}
   m_Layer: 5
-  m_Name: P1ShieldBar (1)
+  m_Name: P2ShieldBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1246,6 +1246,7 @@ MonoBehaviour:
   P2: 0
   Character: {fileID: 181172313}
   LS: {fileID: 6300204}
+  TheGameUI: {fileID: 1529529891}
   WeaponList:
   - splash: {fileID: 21300000, guid: 5ede9b9413622094cb54f59a89e74063, type: 3}
     WeaponName: Knife
@@ -4202,7 +4203,7 @@ GameObject:
   - component: {fileID: 554159110}
   - component: {fileID: 554159111}
   m_Layer: 5
-  m_Name: P1HealthBar (1)
+  m_Name: P2HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7532,6 +7533,7 @@ GameObject:
   - component: {fileID: 1529529894}
   - component: {fileID: 1529529893}
   - component: {fileID: 1529529892}
+  - component: {fileID: 1529529896}
   m_Layer: 5
   m_Name: InGameUI
   m_TagString: Untagged
@@ -7622,6 +7624,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1529529896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529529891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9568276def66d754ab6eac143bda6769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1healthsilder: {fileID: 1622276189}
+  p1shieldslider: {fileID: 2032522483}
+  p2healthsilder: {fileID: 554159111}
+  p2shieldslider: {fileID: 134223412}
 --- !u!1 &1580679762
 GameObject:
   m_ObjectHideFlags: 0
@@ -9125,6 +9143,7 @@ MonoBehaviour:
   P2: 1
   Character: {fileID: 98983348}
   LS: {fileID: 6300204}
+  TheGameUI: {fileID: 1529529891}
   WeaponList:
   - splash: {fileID: 21300000, guid: 5ede9b9413622094cb54f59a89e74063, type: 3}
     WeaponName: Knife

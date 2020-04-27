@@ -28,10 +28,10 @@ public class Character : MonoBehaviour
 
     public bool isRunning;                  // Bool to determine if they're running or not.
 
-    //public Slider p1healthsilder;
-    //public Slider p1shieldslider;
-    //public Slider p2healthsilder;
-    //public Slider p2shieldslider;
+    public Slider p1healthsilder;
+    public Slider p1shieldslider;
+    public Slider p2healthsilder;
+    public Slider p2shieldslider;
 
     /**************************/
 
@@ -65,6 +65,8 @@ public class Character : MonoBehaviour
     public GameObject healthHit;            // Player effect when their Health is hit.
     GameObject bleedParticles;
 
+    InGameUI g;
+
     void Awake()
     {
         // Stored Statistic Variables
@@ -88,10 +90,31 @@ public class Character : MonoBehaviour
 
     void Start()
     {
-        //p1healthsilder.maxValue = playerMaxHealth;
-        //p2healthsilder.maxValue = playerMaxHealth;
-        //p1shieldslider.maxValue = playerMaxGuard;
-        //p2shieldslider.maxValue = playerMaxGuard;
+        g = GameObject.Find("InGameUI").GetComponent<InGameUI>();
+
+        if (cc.P1)
+        {
+            p1healthsilder = g.p1healthsilder;
+            p1shieldslider = g.p1shieldslider;
+        }
+        if (!cc.P1)
+        {
+            p2healthsilder = g.p2healthsilder;
+            p2shieldslider = g.p2shieldslider;
+        }
+
+        if(cc.P1)
+        {
+            p1healthsilder.maxValue = playerMaxHealth;
+            p1shieldslider.maxValue = playerMaxGuard;
+        }
+
+        if (!cc.P1)
+        {          
+            p2healthsilder.maxValue = playerMaxHealth;
+            p2shieldslider.maxValue = playerMaxGuard;
+        }
+
 
         if (cc.P1)
         {
@@ -120,10 +143,17 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        //p1healthsilder.value = playerHealth;
-        //p2healthsilder.value = playerHealth;
-        //p1shieldslider.value = playerGuard;
-        //p2shieldslider.value = playerGuard;
+        if (cc.P1)
+        {
+            p1healthsilder.value = playerHealth;
+            p1shieldslider.value = playerGuard;
+        }
+
+        if (!cc.P1)
+        {
+            p2healthsilder.value = playerHealth;
+            p2shieldslider.value = playerGuard;
+        }
 
         Cursor.lockState = CursorLockMode.Locked;
 

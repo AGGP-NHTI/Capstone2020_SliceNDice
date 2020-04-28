@@ -2707,7 +2707,7 @@ Animator:
   m_GameObject: {fileID: 6983177856825122169}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: c2b9317b750c4654fb15d471d24ecee2, type: 3}
-  m_Controller: {fileID: 9100000, guid: 846196c21a72c2947bfa5768d5d3248d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 338dde97adc2c27468a6b1d4a780634b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2774,8 +2774,9 @@ MonoBehaviour:
   control: {fileID: 0}
   Play1: {fileID: 0}
   Play2: {fileID: 0}
-  Weapon: {fileID: 4444594161948506599, guid: 8a5cc42b53b193d49a7dbd493d8cc180, type: 3}
-  WeaponOffhand: {fileID: 0}
+  Weapon: {fileID: 3086454915841879123, guid: e2295af5f79c3ef468d9b1e480d5a692, type: 3}
+  WeaponOffhand: {fileID: 3086454915841879123, guid: 7541b49eddbb1d54aa3b3358143f0bba,
+    type: 3}
   Wep: {fileID: 0}
   WepOff: {fileID: 0}
 --- !u!54 &287306783631503083
@@ -2910,12 +2911,18 @@ MonoBehaviour:
   rb: {fileID: 287306783631503083}
   cc: {fileID: 0}
   control: {fileID: 0}
+  Play1: {fileID: 0}
+  Play2: {fileID: 0}
   jumpForce: 0
   isRunning: 0
   p1healthsilder: {fileID: 0}
   p1shieldslider: {fileID: 0}
   p2healthsilder: {fileID: 0}
   p2shieldslider: {fileID: 0}
+  Char1Nameob: {fileID: 0}
+  Char2Nameob: {fileID: 0}
+  Char1Name: {fileID: 0}
+  Char2Name: {fileID: 0}
   Build: 0
   playerHealth: 0
   playerMaxHealth: 0

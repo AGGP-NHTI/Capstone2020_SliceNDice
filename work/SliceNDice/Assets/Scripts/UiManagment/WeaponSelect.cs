@@ -183,9 +183,9 @@ public class WeaponSelect : MonoBehaviour
                     Anim.runtimeAnimatorController = Anims[6];
                     Player1.PlayerCharWeapon1 = "ToothPicks";
                 }
-                if(Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado")
+                if(Character.characterName.text == "Avocado" || Character.characterName.text == "NEGA Avocado")
                 {
-                    Player1.playerCharacter1 = "Avacado";
+                    Player1.playerCharacter1 = "Avocado";
                 }
                 if(Character.characterName.text == "Tofu" || Character.characterName.text == "NEGA Tofu")
                 {
@@ -255,9 +255,9 @@ public class WeaponSelect : MonoBehaviour
                     Anim.runtimeAnimatorController = Anims[7];
                     Player2.PlayerCharWeapon2 = "ToothPicks";
                 }
-                if (Character.characterName.text == "Avacado" || Character.characterName.text == "NEGA Avacado")
+                if (Character.characterName.text == "Avocado" || Character.characterName.text == "NEGA Avocado")
                 {
-                    Player2.playerCharacter2 = "Avacado";
+                    Player2.playerCharacter2 = "Avocado";
                 }
                 if (Character.characterName.text == "Tofu" || Character.characterName.text == "NEGA Tofu")
                 {

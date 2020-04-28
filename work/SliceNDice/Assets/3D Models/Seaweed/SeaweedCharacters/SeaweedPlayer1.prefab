@@ -531,8 +531,8 @@ GameObject:
   - component: {fileID: 8653515268633741272}
   - component: {fileID: 2761703248795899234}
   m_Layer: 0
-  m_Name: SeaweedRiggedV2
-  m_TagString: Untagged
+  m_Name: SeaweedPlayer1
+  m_TagString: P1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -782,8 +782,9 @@ MonoBehaviour:
   isTwoHanded: 0
   anim: {fileID: 6086805264945159923}
   platform: {fileID: 6060764235805712540}
-  characterWinPanel: {fileID: 0}
-  characterDeathPanel: {fileID: 0}
+  characterWinPanel: {fileID: 21300000, guid: 083b3d44336f6214ca006b43462c98bf, type: 3}
+  characterDeathPanel: {fileID: 21300000, guid: c0a2a3ae6a410914d95d31718ad77429,
+    type: 3}
   guardHit: {fileID: 7531073747842218644, guid: 638e2c9bfc0c8e54d9cb3157103f4e63,
     type: 3}
   healthHit: {fileID: 7531073747842218644, guid: 53a827a9ec6c7774aaa839c7ace87692,

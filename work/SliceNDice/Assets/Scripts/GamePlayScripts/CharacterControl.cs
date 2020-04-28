@@ -65,7 +65,7 @@ public class CharacterControl : MonoBehaviour
         
         if (P2)
         {
-            if (Play2.playerCharacter2 == "ToothPicks")
+            if (Play2.PlayerCharWeapon2 == "ToothPicks")
             {
                 Wep = Instantiate(Weapon, Weaponpoint1.transform.position, Weaponpoint1.transform.rotation);
                 WepOff = Instantiate(WeaponOffhand, Weaponpoint2.transform.position, Weaponpoint2.transform.rotation);

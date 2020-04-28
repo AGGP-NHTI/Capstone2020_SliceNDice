@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using BzKovSoft.ObjectSlicerSamples;
 using DestroyIt;
 using System.Reflection;
+using TMPro;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Sliceable))]
@@ -23,6 +24,9 @@ public class Character : MonoBehaviour
 
     public CameraControl control;           // Paul and Nick's Camera script
 
+    public Player1Data Play1;
+    public Player2Data Play2;
+
     [Range(100f, 1000f)]
     public int jumpForce;                   // Character's jumping force.
 
@@ -32,6 +36,9 @@ public class Character : MonoBehaviour
     public Slider p1shieldslider;
     public Slider p2healthsilder;
     public Slider p2shieldslider;
+
+    public TextMeshPro Char1Name;
+    public TextMeshPro Char2Name;
 
     /**************************/
 
@@ -94,23 +101,27 @@ public class Character : MonoBehaviour
 
         if (cc.P1)
         {
+            Char1Name = g.Char1Name;
             p1healthsilder = g.p1healthsilder;
             p1shieldslider = g.p1shieldslider;
         }
         if (!cc.P1)
         {
+            Char2Name = g.Char2Name;
             p2healthsilder = g.p2healthsilder;
             p2shieldslider = g.p2shieldslider;
         }
 
         if(cc.P1)
         {
+            Char1Name.text = Play1.playerCharacter1;
             p1healthsilder.maxValue = playerMaxHealth;
             p1shieldslider.maxValue = playerMaxGuard;
         }
 
         if (!cc.P1)
-        {          
+        {
+            Char2Name.text = Play2.playerCharacter2;
             p2healthsilder.maxValue = playerMaxHealth;
             p2shieldslider.maxValue = playerMaxGuard;
         }

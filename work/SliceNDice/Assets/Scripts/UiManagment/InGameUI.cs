@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InGameUI : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class InGameUI : MonoBehaviour
     public Slider p1shieldslider;
     public Slider p2healthsilder;
     public Slider p2shieldslider;
+
+    public TextMeshPro Char1Name;
+    public TextMeshPro Char2Name;
 
     Character TheCharacter;
     CharacterControl cc;

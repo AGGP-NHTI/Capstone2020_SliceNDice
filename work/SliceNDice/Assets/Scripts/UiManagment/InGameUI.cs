@@ -11,8 +11,11 @@ public class InGameUI : MonoBehaviour
     public Slider p2healthsilder;
     public Slider p2shieldslider;
 
-    public TextMeshPro Char1Name;
-    public TextMeshPro Char2Name;
+    public TextMeshProUGUI Char1Name;
+    public TextMeshProUGUI Char2Name;
+
+    public GameObject Char1Nameob;
+    public GameObject Char2Nameob;
 
     Character TheCharacter;
     CharacterControl cc;

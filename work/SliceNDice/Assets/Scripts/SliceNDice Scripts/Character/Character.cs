@@ -24,6 +24,7 @@ public class Character : MonoBehaviour
 
     public CameraControl control;           // Paul and Nick's Camera script
 
+    GameObject managerob;
     public Player1Data Play1;
     public Player2Data Play2;
 
@@ -37,8 +38,11 @@ public class Character : MonoBehaviour
     public Slider p2healthsilder;
     public Slider p2shieldslider;
 
-    public TextMeshPro Char1Name;
-    public TextMeshPro Char2Name;
+    public GameObject Char1Nameob;
+    public GameObject Char2Nameob;
+
+    public TextMeshProUGUI Char1Name;
+    public TextMeshProUGUI Char2Name;
 
     /**************************/
 
@@ -76,6 +80,10 @@ public class Character : MonoBehaviour
 
     void Awake()
     {
+        managerob = GameObject.Find("PlayerManager");
+        Play1 = GameObject.Find("PlayerManager").GetComponent<Player1Data>();
+        Play2 = GameObject.Find("PlayerManager").GetComponent<Player2Data>();
+
         // Stored Statistic Variables
         Build = Mathf.CeilToInt(gameObject.transform.localScale.magnitude);     // How heavy/big the character is.
         playerMaxHealth = 50 + (Build * 25);                                    // Calculate Health based upon Build.
@@ -101,27 +109,29 @@ public class Character : MonoBehaviour
 
         if (cc.P1)
         {
-            Char1Name = g.Char1Name;
+            Char1Nameob = g.Char1Nameob;
+            Char1Name = g.Char1Nameob.GetComponent<TextMeshProUGUI>();
             p1healthsilder = g.p1healthsilder;
             p1shieldslider = g.p1shieldslider;
         }
         if (!cc.P1)
         {
-            Char2Name = g.Char2Name;
+            Char2Nameob = g.Char2Nameob;
+            Char2Name = g.Char2Nameob.GetComponent<TextMeshProUGUI>();
             p2healthsilder = g.p2healthsilder;
             p2shieldslider = g.p2shieldslider;
         }
 
         if(cc.P1)
         {
-            Char1Name.text = Play1.playerCharacter1;
+            Char1Nameob.GetComponent<TextMeshProUGUI>().text = Play1.playerCharacter1;
             p1healthsilder.maxValue = playerMaxHealth;
             p1shieldslider.maxValue = playerMaxGuard;
         }
 
         if (!cc.P1)
         {
-            Char2Name.text = Play2.playerCharacter2;
+            Char2Nameob.GetComponent<TextMeshProUGUI>().text = Play2.playerCharacter2;
             p2healthsilder.maxValue = playerMaxHealth;
             p2shieldslider.maxValue = playerMaxGuard;
         }

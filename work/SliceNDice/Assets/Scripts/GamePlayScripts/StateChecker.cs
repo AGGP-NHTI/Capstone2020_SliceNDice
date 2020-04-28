@@ -26,6 +26,8 @@ public class StateChecker : MonoBehaviour
 
     public GameObject Wpanel;
     public GameObject Dpanel;
+    public GameObject Check1;
+    public GameObject Check2;
 
     public GameObject SelectedChar1;
     public GameObject SelectedChar2;
@@ -40,11 +42,15 @@ public class StateChecker : MonoBehaviour
     GameObject P1;
     GameObject P2;
 
+    public float Timeleft = 10.0f;
+
 
     public void Start()
     {
-        Wpanel.gameObject.SetActive(false);
-        Dpanel.gameObject.SetActive(false);
+        Check1.SetActive(false);
+        Check2.SetActive(false);
+        Wpanel.SetActive(false);
+        Dpanel.SetActive(false);
 
         Gamepad[] pads = Gamepad.all.ToArray();
 
@@ -73,38 +79,61 @@ public class StateChecker : MonoBehaviour
             if (P1.GetComponent<Character>().playerHealth <= 0 && P2.GetComponent<Character>().playerHealth > 0)
             {
                 matchP2Won = true;
-                winPanel.sprite = P2.GetComponent<Character>().characterWinPanel;
-                Wpanel.gameObject.SetActive(true);
-                deathPanel.sprite = P1.GetComponent<Character>().characterDeathPanel;
-                Dpanel.gameObject.SetActive(true);
+                winPanel.sprite = P1.GetComponent<Character>().characterDeathPanel;  
+                deathPanel.sprite = P2.GetComponent<Character>().characterWinPanel;
+                Timeleft -= Time.deltaTime;
+                if (Timeleft < 0)
+                {
+                    Check1.SetActive(true);
+                    Check2.SetActive(true);
+                    Wpanel.SetActive(true);
+                    Dpanel.SetActive(true);
+                }
             }
 
             if (P1.GetComponent<Character>().playerHealth > 0 && P2.GetComponent<Character>().playerHealth <= 0)
             {
                 matchP1Won = true;
                 winPanel.sprite = P1.GetComponent<Character>().characterWinPanel;
-                Wpanel.gameObject.SetActive(true);
                 deathPanel.sprite = P2.GetComponent<Character>().characterDeathPanel;
-                Dpanel.gameObject.SetActive(true);
+                Timeleft -= Time.deltaTime;
+                if (Timeleft < 0)
+                {
+                    Check1.SetActive(true);
+                    Check2.SetActive(true);
+                    Wpanel.SetActive(true);
+                    Dpanel.SetActive(true);
+                }
             }
 
             if (P1.GetComponent<Character>().playerHealth <= 0 && P2.GetComponent<Character>().playerHealth <= 0)
             {
                 matchDraw = true;
                 winPanel.sprite = P1.GetComponent<Character>().characterDeathPanel;
-                Wpanel.gameObject.SetActive(true);
-                deathPanel.sprite = P2.GetComponent<Character>().characterDeathPanel;
-                Dpanel.gameObject.SetActive(true);
+                deathPanel.sprite = P2.GetComponent<Character>().characterDeathPanel;   
+                Timeleft -= Time.deltaTime;
+                if(Timeleft < 0)
+                {
+                    Check1.SetActive(true);
+                    Check2.SetActive(true);
+                    Wpanel.SetActive(true);
+                    Dpanel.SetActive(true);
+                }
+                
             }
-            if (Wpanel.activeSelf == true && Dpanel.activeSelf == true)
+            if (Check1.activeSelf == true && Check2.activeSelf == true)
             {
                 if (p1DevicePad.buttonSouth.wasPressedThisFrame)
                 {
+                    Wpanel.SetActive(false);
+                    Timeleft = 100f;
                     HasConfirmedp1 = true;
                    
                 }
                 if (p2DevicePad.buttonSouth.wasPressedThisFrame)
                 {
+                    Dpanel.SetActive(false);
+                    Timeleft = 100f;
                     HasConfirmedp2 = true;
                    
                 }
@@ -136,8 +165,8 @@ public class StateChecker : MonoBehaviour
         Destroy(SelectedChar2Pos);
         Destroy(SelectedWep1);
         Destroy(SelectedWep2);
-        Wpanel.SetActive(false);
-        Dpanel.SetActive(false);
+        Check1.SetActive(false);
+        Check2.SetActive(false);
         LevelSelect.Camera.SetActive(true);
         LevelSelect.canvas.SetActive(true);
         LevelSelect.CharacterSelect1.SetActive(false);

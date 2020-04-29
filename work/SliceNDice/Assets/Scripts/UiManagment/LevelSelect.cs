@@ -104,6 +104,7 @@ public class LevelSelect : MonoBehaviour
         if (p1DevicePad.buttonEast.wasPressedThisFrame)
         {
             gameObject.SetActive(false);
+            canvas.SetActive(false);
             MainMenuScreen.SetActive(true);
             MainMenuCanvas.SetActive(true);
         }
@@ -132,6 +133,7 @@ public class LevelSelect : MonoBehaviour
         if (p2DevicePad.buttonEast.wasPressedThisFrame)
         {
             gameObject.SetActive(false);
+            canvas.SetActive(false);
             MainMenuScreen.SetActive(true);
             MainMenuCanvas.SetActive(true);
         }

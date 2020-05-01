@@ -217,6 +217,7 @@ public class Character : MonoBehaviour
         Destroy(cc.Wep);
         Destroy(cc.WepOff);
         control.isCameraFollowing = false;
+        AddComponent<SlicedDespawner>();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -77,6 +77,8 @@ public class Character : MonoBehaviour
     public GameObject healthHit;            // Player effect when their Health is hit.
     GameObject bleedParticles;
 
+    public GameObject InGameUIOB;
+
     InGameUI g;
 
     void Awake()
@@ -221,6 +223,7 @@ public class Character : MonoBehaviour
         Destroy(cc.Wep);
         Destroy(cc.WepOff);
         control.isCameraFollowing = false;
+        g.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)

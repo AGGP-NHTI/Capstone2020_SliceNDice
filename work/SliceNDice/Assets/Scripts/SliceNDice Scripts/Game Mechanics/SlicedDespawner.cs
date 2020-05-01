@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SlicedDespawner : MonoBehaviour
 {
-    public float lifetime = 4f;
+    public float lifetime = 10f;
 
     public void Update()
     {

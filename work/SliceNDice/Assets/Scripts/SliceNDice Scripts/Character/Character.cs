@@ -68,6 +68,7 @@ public class Character : MonoBehaviour
     public GameObject platform;
     public Sprite characterWinPanel;
     public Sprite characterDeathPanel;
+    public bool SlicedDespawner;
 
     /**************************/
 
@@ -77,8 +78,6 @@ public class Character : MonoBehaviour
     GameObject bleedParticles;
 
     InGameUI g;
-
-    float lifetime = 2f;
 
     void Awake()
     {
@@ -184,7 +183,6 @@ public class Character : MonoBehaviour
         if (playerHealth <= 0)
         {
             IsDead();
-            Destroy(gameObject, lifetime);
         }
 
         if (gameObject.GetComponent<AdderSliceableAsync>().enabled)
@@ -214,6 +212,8 @@ public class Character : MonoBehaviour
     {
         playerHealth = 0;
         playerGuard = 0;
+        SlicedDespawner = true;
+        gameObject.AddComponent<SlicedDespawner>();
 
         rb.freezeRotation = false;      // Allows them to fall over at any angle.
         GetComponent<AdderSliceableAsync>().enabled = true;

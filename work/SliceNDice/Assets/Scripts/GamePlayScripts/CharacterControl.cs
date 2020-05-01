@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 public class CharacterControl : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField] public float movementSpeed = 5f;
-    [SerializeField] public float backSpeed = 5f;
+    [SerializeField] public float movementSpeed = 3.5f;
+    [SerializeField] public float backSpeed = 3.5f;
     Vector2 Moveet;
     Animator anim;
     private PlayerControls controls = null;

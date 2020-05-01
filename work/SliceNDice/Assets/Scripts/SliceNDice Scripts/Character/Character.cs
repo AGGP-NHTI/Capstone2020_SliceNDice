@@ -181,6 +181,7 @@ public class Character : MonoBehaviour
         if (playerHealth <= 0)
         {
             IsDead();
+            gameObject.AddComponent<SlicedDespawner>();
         }
 
         if (gameObject.GetComponent<AdderSliceableAsync>().enabled)
@@ -217,7 +218,6 @@ public class Character : MonoBehaviour
         Destroy(cc.Wep);
         Destroy(cc.WepOff);
         control.isCameraFollowing = false;
-        AddComponent<SlicedDespawner>();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -78,6 +78,8 @@ public class Character : MonoBehaviour
 
     InGameUI g;
 
+    float lifetime = 2f;
+
     void Awake()
     {
         managerob = GameObject.Find("PlayerManager");
@@ -97,6 +99,7 @@ public class Character : MonoBehaviour
         bleedParticles = GetComponent<Sliceable>()._bloodPrefub;
         anim = GetComponent<Animator>();
         cc = GetComponent<CharacterControl>();
+
 
         // Set up Destructible
         gameObject.GetComponent<Destructible>().totalHitPoints = playerMaxHealth;
@@ -181,7 +184,7 @@ public class Character : MonoBehaviour
         if (playerHealth <= 0)
         {
             IsDead();
-            gameObject.AddComponent<SlicedDespawner>();
+            Destroy(gameObject, lifetime);
         }
 
         if (gameObject.GetComponent<AdderSliceableAsync>().enabled)

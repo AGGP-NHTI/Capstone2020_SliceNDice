@@ -24,6 +24,7 @@ public class StateChecker : MonoBehaviour
     public bool HasConfirmedp1 = false;
     public bool HasConfirmedp2 = false;
 
+    public GameObject background;
     public GameObject Wpanel;
     public GameObject Dpanel;
     public GameObject Check1;
@@ -47,6 +48,7 @@ public class StateChecker : MonoBehaviour
 
     public void Start()
     {
+        background.SetActive(false);
         Check1.SetActive(false);
         Check2.SetActive(false);
         Wpanel.SetActive(false);
@@ -84,6 +86,7 @@ public class StateChecker : MonoBehaviour
                 Timeleft -= Time.deltaTime;
                 if (Timeleft < 0)
                 {
+                    background.SetActive(true);
                     Check1.SetActive(true);
                     Check2.SetActive(true);
                     Wpanel.SetActive(true);
@@ -99,6 +102,7 @@ public class StateChecker : MonoBehaviour
                 Timeleft -= Time.deltaTime;
                 if (Timeleft < 0)
                 {
+                    background.SetActive(true);
                     Check1.SetActive(true);
                     Check2.SetActive(true);
                     Wpanel.SetActive(true);
@@ -114,6 +118,7 @@ public class StateChecker : MonoBehaviour
                 Timeleft -= Time.deltaTime;
                 if(Timeleft < 0)
                 {
+                    background.SetActive(true);
                     Check1.SetActive(true);
                     Check2.SetActive(true);
                     Wpanel.SetActive(true);
@@ -165,6 +170,7 @@ public class StateChecker : MonoBehaviour
         Destroy(SelectedChar2Pos);
         Destroy(SelectedWep1);
         Destroy(SelectedWep2);
+        background.SetActive(false);
         Check1.SetActive(false);
         Check2.SetActive(false);
         LevelSelect.Camera.SetActive(true);

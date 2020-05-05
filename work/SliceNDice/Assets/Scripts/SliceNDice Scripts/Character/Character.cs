@@ -70,6 +70,7 @@ public class Character : MonoBehaviour
     public Sprite characterDeathPanel;
     public bool SlicedDespawner;
 
+  
     /**************************/
 
     [Header("Hit Effects")]
@@ -220,6 +221,7 @@ public class Character : MonoBehaviour
         cc.movementSpeed = 0;
         Destroy(cc.Wep);
         Destroy(cc.WepOff);
+        g.gameObject.SetActive(false);
         control.isCameraFollowing = false;
     }
 

@@ -2,9 +2,21 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class CameraControl : MonoBehaviour
 {
+    public InputDevice p1Device;
+    public InputDevice p2Device;
+    public Gamepad p1DevicePad;
+    public Gamepad p2DevicePad;
+
+    GameObject P1;
+    GameObject P2;
+    public bool matchP1Won = false;
+    public bool matchP2Won = false;
+
     public static CameraControl Instance { get; private set; }
     public Camera Camera1;
     public GameObject Player1;
@@ -35,13 +47,43 @@ public class CameraControl : MonoBehaviour
     void Start()
     {
 
+        Gamepad[] pads = Gamepad.all.ToArray();
+
+        if (pads.Length < 2)
+        {
+            Debug.LogError("Connect More Controllers, Sucka!!!!!!!!");
+            return;
+        }
+
+        p1Device = pads[0].device;
+        p2Device = pads[1].device;
+        p1DevicePad = pads[0];
+        p2DevicePad = pads[1];
     }
 
     void Update()
     {
+        P1 = GameObject.FindGameObjectWithTag("P1");
+        P2 = GameObject.FindGameObjectWithTag("P2");
         // Debug.Log(isCameraFollowing);
 
-        if (isCameraFollowing)
+        if (P1.GetComponent<Character>().playerHealth <= 0 && P2.GetComponent<Character>().playerHealth > 0) //p2wins
+        {
+            matchP2Won = true;
+            //transform.LookAt(Player2.transform);
+            FixedCameraFollowSmooth(Camera1, Player2.transform, Player2.transform, Player2, Player2);
+
+        }
+
+        if (P1.GetComponent<Character>().playerHealth > 0 && P2.GetComponent<Character>().playerHealth <= 0) //p1wins
+        {
+            matchP1Won = true;
+            //transform.LookAt(Player1.transform);
+            FixedCameraFollowSmooth(Camera1, Player1.transform, Player1.transform, Player1, Player1);
+
+        }
+
+        if (isCameraFollowing && matchP1Won == false && matchP2Won == false)
         {
             FixedCameraFollowSmooth(Camera1, Player1.transform, Player2.transform, Player1, Player2);
         }
@@ -106,4 +148,11 @@ public class CameraControl : MonoBehaviour
         }
 
     }
+
+    public void FollowPlayerOne()
+    {
+
+    }
+
+    
 }

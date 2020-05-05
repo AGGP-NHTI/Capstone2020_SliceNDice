@@ -154,6 +154,22 @@ public class StateChecker : MonoBehaviour
     
     public void ConfirmSelection()
     {
+        SelectedChar1 = GameObject.Find(SelectionScreen.SelectedCharacter1.name + "(Clone)");
+        SelectedChar2 = GameObject.Find(SelectionScreen.SelectedCharacter2.name + "(Clone)");
+        SelectedChar1Neg = GameObject.Find(SelectionScreen.SelectedCharacter1.name + "(Clone)_neg");
+        SelectedChar2Neg = GameObject.Find(SelectionScreen.SelectedCharacter2.name + "(Clone)_neg");
+        SelectedChar1Pos = GameObject.Find(SelectionScreen.SelectedCharacter1.name + "(Clone)_pos");
+        SelectedChar2Pos = GameObject.Find(SelectionScreen.SelectedCharacter2.name + "(Clone)_pos");
+        SelectedWep1 = GameObject.Find(WeaponSelect.SelectedWeapon1.name + "(Clone)");
+        SelectedWep2 = GameObject.Find(WeaponSelect.SelectedWeapon2.name + "(Clone)");
+        Destroy(SelectedChar1);
+        Destroy(SelectedChar2);
+        Destroy(SelectedChar1Neg);
+        Destroy(SelectedChar2Neg);
+        Destroy(SelectedChar1Pos);
+        Destroy(SelectedChar2Pos);
+        Destroy(SelectedWep1);
+        Destroy(SelectedWep2);
         background.SetActive(false);
         Check1.SetActive(false);
         Check2.SetActive(false);

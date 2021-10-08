@@ -1328,13 +1328,14 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4874126678125670354, guid: 4b80078e25d8f6249add42b36149a6c8, type: 3}
-  - {fileID: -6478536213147159724, guid: 4b80078e25d8f6249add42b36149a6c8, type: 3}
-  - {fileID: -3846018093981099296, guid: 4b80078e25d8f6249add42b36149a6c8, type: 3}
-  - {fileID: -6922793697723135513, guid: 4b80078e25d8f6249add42b36149a6c8, type: 3}
+  - {fileID: 2100000, guid: c6bf8889a82afb0438a156e448be3643, type: 2}
+  - {fileID: 2100000, guid: a450f0a3cd55e8d409bad536de53cbbb, type: 2}
+  - {fileID: 2100000, guid: dc5c82e15cb175845b2fb912a5f7563e, type: 2}
+  - {fileID: 2100000, guid: e415b437bf30e2040bc5dddc4e35476b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1342,6 +1343,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -2456,41 +2458,27 @@ MonoBehaviour:
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceLostEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceRegainedEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ControlsChangedEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 40fb29a0-b2c6-452e-b9be-7e4cc66ef27f
     m_ActionName: Player/Jump[/Keyboard/space,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID/buttonSouth]
   - m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 8ceb0130-7eaf-4b92-a052-e173914b2de5
     m_ActionName: Player/Fire1[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 9bdce154-7b89-4195-bd9a-692e15c7a1f1
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/leftStick/right,/DualShock4GamepadHID/leftStick/right]
   - m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 6d6c4db7-d31d-417e-99c7-a88a3c2dd0e5
     m_ActionName: Player/Join[/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID/buttonSouth,/Keyboard/j]
   - m_PersistentCalls:
@@ -2506,26 +2494,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: b36f533c-78cd-49df-bf2d-163fec3351ec
     m_ActionName: Player/StabAttack[/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/buttonEast]
   - m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 60581d42-6fcb-4b73-a84e-36a3200d1deb
     m_ActionName: Player1/Jump[/Keyboard/space,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID/buttonSouth]
   - m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 5d3975b7-ba18-4e42-9643-d4b264f1e287
     m_ActionName: Player1/Fire1[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: fb401033-725f-4d18-8264-24869a4aee0c
     m_ActionName: Player1/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/leftStick/right,/DualShock4GamepadHID/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 0

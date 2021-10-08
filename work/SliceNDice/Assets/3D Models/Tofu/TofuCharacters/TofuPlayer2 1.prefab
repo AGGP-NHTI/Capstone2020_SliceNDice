@@ -2638,6 +2638,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2661,6 +2662,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -3064,7 +3066,7 @@ Animator:
   m_GameObject: {fileID: 7842526570418750925}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0b1c352a97c8a6f4d861d722e8b77116, type: 3}
-  m_Controller: {fileID: 9100000, guid: c2af5490de52c9b40b2470c5cc993888, type: 2}
+  m_Controller: {fileID: 9100000, guid: 03113e714ba9dca4daf33511672f127f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
@@ -3254,9 +3256,8 @@ MonoBehaviour:
   control: {fileID: 0}
   Play1: {fileID: 0}
   Play2: {fileID: 0}
-  Weapon: {fileID: 8750195494260217143, guid: 1166264fbe889a742a50ce83501a2fcd, type: 3}
-  WeaponOffhand: {fileID: 8750195494260217143, guid: 570288aea99d6784587f85a18cb504f6,
-    type: 3}
+  Weapon: {fileID: 3142173721625320679, guid: ab25daa14ff61124f976dcf633deba06, type: 3}
+  WeaponOffhand: {fileID: 0}
   Wep: {fileID: 0}
   WepOff: {fileID: 0}
 --- !u!114 &3817408620287181112
@@ -3278,18 +3279,12 @@ MonoBehaviour:
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceLostEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceRegainedEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ControlsChangedEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 

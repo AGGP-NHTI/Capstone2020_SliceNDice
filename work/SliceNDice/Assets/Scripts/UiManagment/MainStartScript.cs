@@ -25,18 +25,24 @@ public class MainStartScript : MonoBehaviour
         SelectionMenus.SetActive(false);
         MainMenuPanel.SetActive(false);
     }
+
     // Start is called before the first frame update
     public void Start()
     {
         Gamepad[] pads = Gamepad.all.ToArray();
+
+        Debug.LogError("Length of pads " + pads.Length);
+
         if (pads.Length < 2)
         {
             Debug.LogError("Connect More Controllers, Sucka!!!!!!!!");
             return;
         }
+
         p1Device = pads[0].device;
-        p2Device = pads[1].device;
         p1DevicePad = pads[0];
+
+        p2Device = pads[1].device;
         p2DevicePad = pads[1];
 
     }
@@ -48,6 +54,7 @@ public class MainStartScript : MonoBehaviour
         {
             ConfirmSelection();
         }
+
         if (p2DevicePad.buttonSouth.wasPressedThisFrame)
         {
             ConfirmSelection();
@@ -62,7 +69,5 @@ public class MainStartScript : MonoBehaviour
             gameObject.SetActive(false);
             MainMenuPanel.SetActive(true);
         }
-
-
     }
 }

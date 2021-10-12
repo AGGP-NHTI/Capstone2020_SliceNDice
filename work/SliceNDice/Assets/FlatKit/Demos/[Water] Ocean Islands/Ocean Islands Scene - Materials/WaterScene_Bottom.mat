@@ -30,7 +30,8 @@ Material:
   m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: Opaque
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - SRPDEFAULTUNLIT
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -138,3 +139,4 @@ Material:
     - _LightmapDirection: {r: 0, g: 0.57357645, b: 0.81915206, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _UnityShadowColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+  m_BuildTextureStacks: []

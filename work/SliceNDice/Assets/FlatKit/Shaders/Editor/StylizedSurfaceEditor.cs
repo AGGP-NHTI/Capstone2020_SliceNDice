@@ -70,10 +70,6 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
                 MessageType.Warning);
         }
 
-        if (_target.HasProperty("_OutlineWidth")) {
-            _target.SetShaderPassEnabled("SRPDefaultUnlit", _target.GetFloat("_OutlineWidth") > 0f);
-        }
-
         int originalIntentLevel = EditorGUI.indentLevel;
         int foldoutRemainingItems = 0;
         bool latestFoldoutState = false;
@@ -106,6 +102,8 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
                             !_target.IsKeywordEnabled("_UNITYSHADOWMODE_COLOR");
             skipProperty |= displayName.Contains("[DR_ENABLE_LIGHTMAP_DIR]") &&
                             !_target.IsKeywordEnabled("DR_ENABLE_LIGHTMAP_DIR");
+            skipProperty |= displayName.Contains("[DR_OUTLINE_ON]") &&
+                            !_target.IsKeywordEnabled("DR_OUTLINE_ON");
 
             if (_target.IsKeywordEnabled("DR_ENABLE_LIGHTMAP_DIR") &&
                 displayName.Contains("Override light direction")) {
@@ -207,6 +205,10 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
 
             materialEditor.EnableInstancingField();
         }
+
+        // Toggle the outline pass.
+        _target.SetShaderPassEnabled("SRPDefaultUnlit", _target.IsKeywordEnabled("DR_OUTLINE_ON"));
+
         /*
         if (HasProperty("_MainTex")) {
             TransferToBaseMap();

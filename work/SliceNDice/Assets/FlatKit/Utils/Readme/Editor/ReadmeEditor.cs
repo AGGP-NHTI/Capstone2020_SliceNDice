@@ -233,7 +233,7 @@ public class ReadmeEditor : Editor {
     }
 
     private void OpenPackageManager() {
-        //Client.Resolve();
+        Client.Resolve();
         const string packageName = "Flat Kit: Toon Shading and Water";
         UnityEditor.PackageManager.UI.Window.Open(packageName);
 

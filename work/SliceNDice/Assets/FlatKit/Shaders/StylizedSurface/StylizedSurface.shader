@@ -48,6 +48,14 @@
         [Space(10)]
         [Toggle(DR_VERTEX_COLORS_ON)] _VertexColorsEnabled("Enable Vertex Colors", Int) = 0
 
+        [Space]
+        [Toggle(DR_OUTLINE_ON)] _OutlineEnabled("Enable Outline", Int) = 0
+        _OutlineWidth("[DR_OUTLINE_ON]Width", Float) = 1.0
+        _OutlineColor("[DR_OUTLINE_ON]Color", Color) = (1, 1, 1, 1)
+        _OutlineScale("[DR_OUTLINE_ON]Scale", Float) = 1.0
+        _OutlineDepthOffset("[DR_OUTLINE_ON]Depth Offset", Range(0, 1)) = 0.0
+        _CameraDistanceImpact("[DR_OUTLINE_ON]Camera Distance Impact", Range(0, 1)) = 0.0
+
         _LightContribution("[FOLDOUT(Advanced Lighting){5}]Light Color Contribution", Range(0, 1)) = 0
         _LightFalloffSize("Light edge width (point / spot)", Range(0, 1)) = 0
 
@@ -70,13 +78,6 @@
         [Space(20)]_BumpMap ("Normal Map", 2D) = "bump" {}
         _EmissionMap ("Emission Map", 2D) = "black" {}
         [HDR]_EmissionColor("Emission Color", Color) = (1, 1, 1, 1)
-
-        [Space]
-        _OutlineWidth("[FOLDOUT(Outline){5}]Width", Float) = 0.0
-        _OutlineColor("Color", Color) = (1, 1, 1, 1)
-        _OutlineScale("Scale", Float) = 1.0
-        _OutlineDepthOffset("Depth Offset", Range(0, 1)) = 0.0
-        _CameraDistanceImpact("Camera Distance Impact", Range(0, 1)) = 0.0
 
         [HideInInspector] _Cutoff ("Base Alpha cutoff", Range (0, 1)) = .5
 
@@ -195,6 +196,7 @@
             #pragma vertex VertexProgram
             #pragma fragment FragmentProgram
 
+            #pragma multi_compile _ DR_OUTLINE_ON
             #pragma multi_compile_fog
 
             struct VertexInput
@@ -222,13 +224,12 @@
 
             VertexOutput VertexProgram(VertexInput v)
             {
-                VertexOutput o;
-
                 UNITY_SETUP_INSTANCE_ID(v);
 
-                o = (VertexOutput)0;
+                VertexOutput o = (VertexOutput)0;
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
+                #if defined(DR_OUTLINE_ON)
                 float4 clipPosition = ObjectToClipPos(v.position * _OutlineScale);
                 const float3 clipNormal = mul((float3x3)UNITY_MATRIX_VP, mul((float3x3)UNITY_MATRIX_M, v.normal));
                 const half outlineWidth = _OutlineWidth;
@@ -248,6 +249,7 @@
                 o.normal = clipNormal;
 
                 o.fogCoord = ComputeFogFactor(o.position.z);
+                #endif
 
                 return o;
             }

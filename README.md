@@ -2,6 +2,7 @@
 
 This project is a 5 person team capstone project for the AGGP program at NHTI.
 
+Team Members:
 - Paul Antuono
 - Miranda Hanks
 - Jeremy Harris

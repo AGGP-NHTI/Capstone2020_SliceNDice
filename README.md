@@ -10,7 +10,9 @@ This project is a 5 person team capstone project for the AGGP program at NHTI.
 
 ## 	:world_map: Project Navigation
 
-All C# source files [can be found here](https://github.com/AGGP-NHTI/Capstone2020_SliceNDice/tree/master/work/SliceNDice/Assets/Scripts).
+Gameplay scripts [can be found here](https://github.com/AGGP-NHTI/Capstone2020_SliceNDice/tree/master/work/SliceNDice/Assets/Scripts/GamePlayScripts).
+
+Slicing mechanic scripts [can be found here](https://github.com/AGGP-NHTI/Capstone2020_SliceNDice/tree/master/work/SliceNDice/Assets/Scripts/SliceNDice%20Scripts).
 
 ## 	:hammer_and_wrench: Tools & Languages Used
 - Unity Game Engine
